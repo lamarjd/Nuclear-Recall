@@ -49,3 +49,30 @@ Bonus: Subtasks
   * While on any page of the site:
     * I can log out of my account and be redirected to a page displaying recent FauxTweets.
       * So that I can easily log out to keep my information secure.
+
+
+## Tasks
+### Add Task
+
+* Authorized users can create a task and the task will be loaded onto the screen.
+* After creation, the user can set a due date for the task (Due Date is not required, but optional).
+* User can update the task details, and delete the task at will.
+
+## Lists
+
+* Authorized users can create groups of tasks (called lists) at will (lists are optional for each task).
+* User can add an already created task to a list.
+* User can update the name of list and delete a list at will (the tasks in the list, and notes, will also be deleted).
+
+## Search
+
+* Authorized user can search all tasks and lists using certain letters, words, or combination of words, letters, or any characters. (Create)
+* Updating a search - The search parameters will persist after search is made, and the user can update the character input as needed to modify the search.
+* Delete - user can clear the search bar and reset any results
+
+## Notes
+
+* Authorized user can add a note to any task they have created.
+* User is able to edit (update) any notes on any task.
+* All notes will be visible to the user upon accessing task details (clicking on the task).
+* User is able to delete notes at will.
