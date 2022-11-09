@@ -5,6 +5,7 @@
 2. Lists
 3. List summary (time, num tasks, num completed)
 4. Search
+5. Notes
 
 Bonus: Autocomplete SmartAdd of task properties
 Bonus: Subtasks
