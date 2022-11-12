@@ -17,3 +17,18 @@ class Task(db.Model):
     created_at = db.Column(db.DateTime, default= datetime.utcnow)
     updated_at = db.Column(db.DateTime, default= datetime.utcnow)
 
+    # May need model relationships here
+    #   cohort = db.relationship("Cohort", back_populates="students")
+
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "body": self.body,
+            "user_id": self.user_id,
+            "list_id": self.list_id,
+            "complete": self.complete,
+            "due_date": self.due_date,
+            "created_at": self.created_at,
+            "updated_at": self.updated_at
+        }
+
