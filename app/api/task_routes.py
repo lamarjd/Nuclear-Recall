@@ -16,9 +16,9 @@ def get_all_tasks():
     # blah = tasks.to_dict()
     return_obj = {}
     for task in tasks:
-        return_obj[task]
-        return_obj.append(task.to_dict())
-
+        return_obj[task] = tasks
+        # return_obj.append(task.to_dict())
+        
   
     
 
