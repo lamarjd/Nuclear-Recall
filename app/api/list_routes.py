@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, render_template
-from flask_login import login_required
-from app.models import List
-
+from flask_login import login_required,current_user
+from app.models import List,db
+from app.forms.list_form import NewList
 
 #import models
 
@@ -47,13 +47,19 @@ def get_all_lists():
 
 #     return new_lis
 
-# @list_routes.route("/new_list", methods=["POST"])
-# def new_task():
-#     form = NewList()
-#     if form.validate_on_submit():
-#         data = form.data
-#         lis = List(
-#             name= data["name"]
-#         )
-
-#     return render_template('list_form.html', form=form)
+@list_routes.route("/new_list", methods=["GET","POST"])
+def new_list():
+    print("1",current_user)
+    print("2",current_user.is_authenticated)
+    print("3",User.id)
+    if current_user.is_authenticated:
+        form = NewList()
+        if form.validate_on_submit():
+            data = form.data
+            lis = List(
+                name= data["name"]
+            )
+            # db.session.add(lis)
+            # db.session.commit()
+        return render_template('list_form.html', form=form)
+    else: return '<h1>loser</h1>'
