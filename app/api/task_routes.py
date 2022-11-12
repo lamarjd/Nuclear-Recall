@@ -1,6 +1,8 @@
-from flask import Blueprint, jsonify
+from flask import Blueprint, jsonify, render_template
 from flask_login import login_required
 from app.models import Task
+from app.forms.task_form import NewTask
+
 
 #import models
 
@@ -21,12 +23,13 @@ def get_one_task(id):
     task_notes = Task.query.join(Note).filter(Note.task_id == id)
     return {"note": [note.to_dict() for note in task_notes]}
 
-
-
-
-
-  
-    
-
-
-
+@task_routes.route("/new_task", methods=["POST"])
+def new_task():
+    form = NewTask()
+    if form.validate_on_submit():
+        data = form.data
+        task = Task(
+            body= data["body"]
+        )
+        
+    return render_template('task_form.html', form=form)
