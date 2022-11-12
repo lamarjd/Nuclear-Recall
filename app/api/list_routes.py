@@ -17,14 +17,18 @@ def get_all_lists():
     tasks = Task.query.all()
     print("lists",lists)
     list_of_lists = []
-    task_of_tasks = []
+    
     for lis in lists:
+        task_of_tasks = []
         one_list = lis.to_dict()
+        list_of_lists.append(one_list)
         for task in tasks:
             if task.list_id == lis.id:
                 task_of_tasks.append(task.to_dict())
+            print("task id",task.list_id)
+            print("list id",lis.id)
+            print(task.list_id == lis.id)
         
-        list_of_lists.append(one_list)
         one_list["Tasks"] = task_of_tasks
         print("lists3",one_list)
 
