@@ -36,4 +36,24 @@ def get_all_lists():
     # return lists_of_lists.to_dict()
     return jsonify({"lists":list_of_lists})
 
+# @list_routes.route('/<int:id>')
+# def get_one_(id):
+#     lis = List.query.get(id)
+#     new_lis = lis.to_dict()
 
+#     list_task = Task.query.filter(task.list_id == id).all()
+#     new = [task.to_dict() for task in list_notes]
+#     new_list["tasks"] = new
+
+#     return new_lis
+
+# @list_routes.route("/new_list", methods=["POST"])
+# def new_task():
+#     form = NewList()
+#     if form.validate_on_submit():
+#         data = form.data
+#         lis = List(
+#             name= data["name"]
+#         )
+
+#     return render_template('list_form.html', form=form)
