@@ -9,7 +9,8 @@ from .models import db, User
 from .api.user_routes import user_routes
 from .api.auth_routes import auth_routes
 from .api.task_routes import task_routes
-
+# NEW CODE HERE 
+from .api.list_routes import list_routes
 from .seeds import seed_commands
 from .config import Config
 
@@ -32,7 +33,8 @@ app.config.from_object(Config)
 app.register_blueprint(user_routes, url_prefix='/api/users')
 app.register_blueprint(auth_routes, url_prefix='/api/auth')
 app.register_blueprint(task_routes, url_prefix='/api/all')
-
+# NEW CODE 
+app.register_blueprint(list_routes,url_prefix='/api/all/lists')
 db.init_app(app)
 Migrate(app, db)
 
