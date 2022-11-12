@@ -13,12 +13,7 @@ task_routes = Blueprint('tasks', __name__)
 
 def get_all_tasks():
     tasks = Task.query.all()
-    # blah = tasks.to_dict()
-    return_obj = {}
-    for task in tasks:
-        return_obj[task] = tasks
-        # return_obj.append(task.to_dict())
-        
+    return {"tasks": [task.to_dict() for task in tasks]}
   
     
 
