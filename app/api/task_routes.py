@@ -20,8 +20,15 @@ def get_all_tasks():
 
 @task_routes.route('/<int:id>')
 def get_one_task(id):
-    task_notes = Task.query.join(Note).filter(Note.task_id == id)
-    return {"note": [note.to_dict() for note in task_notes]}
+    task = Task.query.get(id)
+    new_thing = task.to_dict()
+    print(new_thing)
+
+    task_notes = Note.query.filter(Note.task_id == id).all()
+    something = [note.to_dict() for note in task_notes]
+    new_thing["notes"] = something
+
+    return new_thing
 
 @task_routes.route("/new_task", methods=["POST"])
 def new_task():
@@ -31,5 +38,5 @@ def new_task():
         task = Task(
             body= data["body"]
         )
-        
+
     return render_template('task_form.html', form=form)
