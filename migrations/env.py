@@ -12,7 +12,7 @@ import os
 environment = os.getenv("FLASK_ENV")
 SCHEMA = os.environ.get("SCHEMA")
 
-
+# dfaf
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
 config = context.config
