@@ -10,14 +10,13 @@ from ..models import Task, User, Note
 
 task_routes = Blueprint('tasks', __name__)
 
-
+#  get all tasks
 @task_routes.route('/')
-
 def get_all_tasks():
     tasks = Task.query.all()
     return {"tasks": [task.to_dict() for task in tasks]}
 
-
+#  get task by ID
 @task_routes.route('/<int:id>')
 def get_one_task(id):
     task = Task.query.get(id)
@@ -30,6 +29,7 @@ def get_one_task(id):
 
     return new_thing
 
+# Create new task
 @task_routes.route("/new_task", methods=["POST"])
 def new_task():
     form = NewTask()
