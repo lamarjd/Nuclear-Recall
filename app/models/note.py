@@ -13,3 +13,14 @@ class Note(db.Model):
     task_id = db.Column(db.Integer, db.ForeignKey('tasks.id'))
     created_at = db.Column(db.DateTime, default= datetime.utcnow)
     updated_at = db.Column(db.DateTime, default= datetime.utcnow)
+
+
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "body": self.body,
+            "user_id": self.user_id,
+            "task_id": self.task_id,
+            "created_at": self.created_at,
+            "updated_at": self.updated_at
+        }
