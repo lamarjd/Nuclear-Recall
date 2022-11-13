@@ -1,12 +1,9 @@
-from flask import Blueprint, jsonify, render_template
-from flask_login import login_required,current_user
+from flask import Blueprint, jsonify, render_template, request, redirect
+from flask_login import login_required, current_user
 from app.models import Task,db
 from app.forms.task_form import NewTask
 
-
-
 #import models
-
 from ..models import Task, User, Note
 
 task_routes = Blueprint('tasks', __name__)
@@ -31,14 +28,51 @@ def get_one_task(id):
 
     return new_thing
 
+# post a new task
 @task_routes.route('/new_task', methods=['GET', 'POST'])
 def new_task():
-    form = NewTask()
-    if form.validate_on_submit():
-        data = form.data
-        task = Task(
-            body= data["body"]
-        )
-        db.session.add(task)
+    if current_user.is_authenticated:
+        form = NewTask()
+        form['csrf_token'].data = request.cookies['csrf_token']
+        if form.validate_on_submit():
+            data = form.data
+            task = Task(
+                body= data["body"],
+                user_id = current_user.id
+            )
+            db.session.add(task)
+            db.session.commit()
+        return render_template('task_form.html', form=form)
+    # return redirect("/api/all")
+    else: return '<h1>Try again</h1>'
+
+# Delete a task
+@task_routes.route("/<int:id>", methods=["DELETE"])
+def delete_task(id):
+    if current_user.is_authenticated:
+        task = Task.query.get(id)
+        if(not task):
+            return '<h1>No such Task Exists</h1>'
+        if task.user_id == current_user.id:
+            db.session.delete(task)
         db.session.commit()
+
     return render_template('task_form.html', form=form)
+
+@task_routes.route("/<int:id>", methods=["PUT"])
+def edit_task(id):
+    if current_user.is_authenticated:
+        form = NewTask()
+        form['csrf_token'].data = request.cookies['csrf_token']
+        one_task = Task.query.get(id)
+        if(not one_task):
+            return "<h1>No Task</h1>"
+        if one_task.user_id == current_user.id:
+            if form.validate_on_submit():
+                one_task.body = form.data["body"]
+                db.session.commit()
+            # return render_template('task_form.html', form=form)
+            return redirect("/api/all")
+            # return "<h1>Task Edited</h1>"
+        else: return "<h1>Not your task</h1>"
+    else: return "<h1>No task</h1>"
