@@ -21,12 +21,14 @@ const getAllTasksAction = payload => {
 
 
 // read / get tasks 
-// John Lee Thunk
+
+
+// I love pebbles Thunk
 
 
 export const fetchTasks = () => async dispatch => {
-    const res = await fetch('/api/tasks');
-
+    const res = await fetch('/api/all');
+    console.log('i am here')
     if (res.ok) {
 
         const tasks = await res.json();
@@ -51,7 +53,7 @@ const taskReducer = (state = initialState, action) => {
     switch (action.type) {
         case ALL_TASKS: {
 
-            action.payload.Tasks.forEach(task => {
+            action.payload.tasks.forEach(task => {
                 newState[task.id] = task
             })
 
