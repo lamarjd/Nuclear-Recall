@@ -1,4 +1,4 @@
-from flask import Blueprint, jsonify, render_template
+from flask import Blueprint, jsonify, render_template,request
 from flask_login import login_required,current_user
 from app.models import List,db
 from app.forms.list_form import NewList
@@ -49,17 +49,31 @@ def get_all_lists():
 
 @list_routes.route("/new_list", methods=["GET","POST"])
 def new_list():
-    print("1",current_user)
+    print("15665",current_user.id)
     print("2",current_user.is_authenticated)
     print("3",User.id)
     if current_user.is_authenticated:
         form = NewList()
+        form['csrf_token'].data = request.cookies['csrf_token']
         if form.validate_on_submit():
-            data = form.data
+            # data = form.data
             lis = List(
-                name= data["name"]
+                name= form.data["name"]
             )
-            # db.session.add(lis)
-            # db.session.commit()
+            db.session.add(lis)
+            db.session.commit()
         return render_template('list_form.html', form=form)
     else: return '<h1>loser</h1>'
+
+# @list_routes.route("/<int:id>", methods=["GET","DELETE"])
+# def del_list(id):
+#     if current_user.is_authenticated:
+#         lis = List.query.get(id)
+#         if(not lis):
+#             return "<h1>No List<h1/>"
+#         if lis.user_id == current_user.id:
+#             db.session.delete(lis)
+#             db.session.commit()
+#             return "<h1>Deleted List<h1/>"
+#         else: return "<h1>Not your List<h1/>"
+#     else: return '<h1>LOSER</h1>'
