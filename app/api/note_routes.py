@@ -20,7 +20,7 @@ def post_note():
       if form.validate_on_submit():
           note = Note(
               body= form.data["body"],
-              user_id = current_user.id,
+
               )
           db.session.add(note)
           db.session.commit()
@@ -49,8 +49,11 @@ def del_note(id):
 
 @note_routes.route("/<int:id>/edit", methods=["GET"])
 def edit_note_form(id):
+  print("THIS IS THE THING FIRING")
   new_note = Note.query.get(id)
   form = NewNote()
+  form['csrf_token'].data = request.cookies['csrf_token']
+
   return render_template("edit_note.html", form=form, note=new_note)
 
 
@@ -58,10 +61,10 @@ def edit_note_form(id):
 def edit_note(id):
   new_note = Note.query.get(id)
   form = NewNote()
+  form['csrf_token'].data = request.cookies['csrf_token']
   if form.validate_on_submit():
     new_note.body = form.data["body"]
 
     db.session.commit()
-    return redirect(f"/{id}")
-
+    return redirect(f"/api/all/notes//{id}")
   return render_template("edit_note.html", form=form, note=new_note)
