@@ -29,10 +29,13 @@ def post_note():
 
 
 
+@note_routes.route("/<int:id>")
+def single_note(id):
+  note = Note.query.get(id)
+  return note.to_dict()
 
 
-
-@note_routes.route("/<int:id>", methods=["GET", "DELETE"])
+@note_routes.route("/<int:id>", methods=["DELETE"])
 def del_note(id):
   if current_user.is_authenticated:
     note = Note.query.get(id)
@@ -43,14 +46,22 @@ def del_note(id):
     return "UNAUTHORIZED"
 
 
-@note_routes.route("/<int:id>/edit", methods=["GET","PATCH"])
+
+@note_routes.route("/<int:id>/edit", methods=["GET"])
+def edit_note_form(id):
+  new_note = Note.query.get(id)
+  form = NewNote()
+  return render_template("edit_note.html", form=form, note=new_note)
+
+
+@note_routes.route("/<int:id>/edit", methods=["PUT"])
 def edit_note(id):
   new_note = Note.query.get(id)
   form = NewNote()
-  form['csrf_token'].data = request.cookies['csrf_token']
-  if current_user.is_authenticated:
-    if form.validate_on_submit():
-      new_note.body = form.data["body"]
-      db.session.commit()
-      return "fooey"
+  if form.validate_on_submit():
+    new_note.body = form.data["body"]
+
+    db.session.commit()
+    return redirect(f"/{id}")
+
   return render_template("edit_note.html", form=form, note=new_note)
