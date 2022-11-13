@@ -1,4 +1,4 @@
-from flask import Blueprint, jsonify, render_template
+from flask import Blueprint, jsonify, render_template, request, redirect
 from flask_login import login_required, current_user
 from app.models import Task,db
 from app.forms.task_form import NewTask
@@ -30,14 +30,18 @@ def get_one_task(id):
 # post a new task
 @task_routes.route('/new_task', methods=['GET', 'POST'])
 def new_task():
-    # if current_user.is_authenticated:
+    if current_user.is_authenticated:
         form = NewTask()
+        form['csrf_token'].data = request.cookies['csrf_token']
         if form.validate_on_submit():
             data = form.data
             task = Task(
-                body= data["body"]
+                body= data["body"],
+                user_id = current_user.id
             )
             db.session.add(task)
             db.session.commit()
-            
+           
         return render_template('task_form.html', form=form)
+    return redirect("/api/all")
+    # return '<h1>Try again</h1>'
