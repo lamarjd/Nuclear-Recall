@@ -15,7 +15,6 @@ list_routes = Blueprint('lists', __name__)
 def get_all_lists():
     lists = List.query.all()
     tasks = Task.query.all()
-    print("lists",lists)
     list_of_lists = []
     
     for lis in lists:
@@ -25,14 +24,7 @@ def get_all_lists():
         for task in tasks:
             if task.list_id == lis.id:
                 task_of_tasks.append(task.to_dict())
-            print("task id",task.list_id)
-            print("list id",lis.id)
-            print(task.list_id == lis.id)
-        
         one_list["Tasks"] = task_of_tasks
-        print("lists3",one_list)
-
-    print("lists2",list_of_lists)
     # return lists_of_lists.to_dict()
     return jsonify({"lists":list_of_lists})
 
@@ -49,9 +41,6 @@ def get_all_lists():
 
 @list_routes.route("/new_list", methods=["GET","POST"])
 def new_list():
-    # print("15665",current_user.id)
-    # print("2",current_user.is_authenticated)
-    # print("3",User.id)
     if current_user.is_authenticated:
         form = NewList()
         form['csrf_token'].data = request.cookies['csrf_token']
@@ -59,8 +48,7 @@ def new_list():
             # data = form.data
             lis = List(
                 name= form.data["name"],
-                user_id = current_user.id
-            )
+                user_id = current_user.id)
             db.session.add(lis)
             db.session.commit()
         return render_template('list_form.html', form=form)
@@ -71,8 +59,6 @@ def del_list(id):
     if current_user.is_authenticated:
         lis = List.query.get(id)
         list_tasks = Task.query.filter(lis.id==Task.list_id).all()
-        # print("user id",current_user.id)
-        # print("list id",lis.user_id)
         if(not lis):
             return "<h1>No List<h1/>"
         if lis.user_id == current_user.id:
@@ -88,9 +74,6 @@ def del_list(id):
 
 @list_routes.route("/<int:id>", methods=["PUT"])
 def edit_list(id):
-    # print("15665",current_user.id)
-    # print("2",current_user.is_authenticated)
-    # print("3",User.id)
     if current_user.is_authenticated:
         form = NewList()
         one_list = List.query.get(id)
@@ -100,9 +83,7 @@ def edit_list(id):
         if one_list.user_id == current_user.id:
             if form.validate_on_submit():
                 # data = form.data
-
                 one_list.name= form.data["name"]
-        
                 db.session.commit()
             return "<h1>List CHANGED</h1>"
         else: return "<h1>Not your List<h1/>"
