@@ -49,9 +49,9 @@ def get_all_lists():
 
 @list_routes.route("/new_list", methods=["GET","POST"])
 def new_list():
-    print("15665",current_user.id)
-    print("2",current_user.is_authenticated)
-    print("3",User.id)
+    # print("15665",current_user.id)
+    # print("2",current_user.is_authenticated)
+    # print("3",User.id)
     if current_user.is_authenticated:
         form = NewList()
         form['csrf_token'].data = request.cookies['csrf_token']
@@ -70,8 +70,8 @@ def new_list():
 def del_list(id):
     if current_user.is_authenticated:
         lis = List.query.get(id)
-        print("user id",current_user.id)
-        print("list id",lis.user_id)
+        # print("user id",current_user.id)
+        # print("list id",lis.user_id)
         if(not lis):
             return "<h1>No List<h1/>"
         if lis.user_id == current_user.id:
@@ -80,3 +80,27 @@ def del_list(id):
             return "<h1>Deleted List<h1/>"
         else: return "<h1>Not your List<h1/>"
     else: return '<h1>LOSER</h1>'
+
+
+@list_routes.route("/<int:id>", methods=["PUT"])
+def edit_list(id):
+    # print("15665",current_user.id)
+    # print("2",current_user.is_authenticated)
+    # print("3",User.id)
+    if current_user.is_authenticated:
+        form = NewList()
+        one_list = List.query.get(id)
+        if(not one_list):
+            return "<h1>No List<h1/>"
+        form['csrf_token'].data = request.cookies['csrf_token']
+        if one_list.user_id == current_user.id:
+            if form.validate_on_submit():
+                # data = form.data
+
+                one_list.name= form.data["name"]
+        
+                db.session.commit()
+            return "<h1>List CHANGED</h1>"
+        else: return "<h1>Not your List<h1/>"
+        # return render_template('list_form.html',form=form)
+    else: return '<h1>loser</h1>'
