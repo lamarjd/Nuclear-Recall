@@ -37,7 +37,7 @@ export default function AllTasks(){
         <div className='main'>
            
                
-                        <h1>Groups</h1>
+                        <h1>Tasks</h1>
                     </div>
     
       
