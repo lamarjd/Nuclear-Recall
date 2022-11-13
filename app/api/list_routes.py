@@ -1,7 +1,7 @@
-from flask import Blueprint, jsonify, render_template
-from flask_login import login_required
-from app.models import List
-
+from flask import Blueprint, jsonify, render_template,request
+from flask_login import login_required,current_user
+from app.models import List,db
+from app.forms.list_form import NewList
 
 #import models
 
@@ -15,7 +15,6 @@ list_routes = Blueprint('lists', __name__)
 def get_all_lists():
     lists = List.query.all()
     tasks = Task.query.all()
-    print("lists",lists)
     list_of_lists = []
     
     for lis in lists:
@@ -25,14 +24,7 @@ def get_all_lists():
         for task in tasks:
             if task.list_id == lis.id:
                 task_of_tasks.append(task.to_dict())
-            print("task id",task.list_id)
-            print("list id",lis.id)
-            print(task.list_id == lis.id)
-        
         one_list["Tasks"] = task_of_tasks
-        print("lists3",one_list)
-
-    print("lists2",list_of_lists)
     # return lists_of_lists.to_dict()
     return jsonify({"lists":list_of_lists})
 
@@ -47,13 +39,53 @@ def get_all_lists():
 
 #     return new_lis
 
-# @list_routes.route("/new_list", methods=["POST"])
-# def new_task():
-#     form = NewList()
-#     if form.validate_on_submit():
-#         data = form.data
-#         lis = List(
-#             name= data["name"]
-#         )
+@list_routes.route("/new_list", methods=["GET","POST"])
+def new_list():
+    if current_user.is_authenticated:
+        form = NewList()
+        form['csrf_token'].data = request.cookies['csrf_token']
+        if form.validate_on_submit():
+            # data = form.data
+            lis = List(
+                name= form.data["name"],
+                user_id = current_user.id)
+            db.session.add(lis)
+            db.session.commit()
+        return render_template('list_form.html', form=form)
+    else: return '<h1>loser</h1>'
 
-#     return render_template('list_form.html', form=form)
+@list_routes.route("/<int:id>", methods=["GET","DELETE"])
+def del_list(id):
+    if current_user.is_authenticated:
+        lis = List.query.get(id)
+        list_tasks = Task.query.filter(lis.id==Task.list_id).all()
+        if(not lis):
+            return "<h1>No List<h1/>"
+        if lis.user_id == current_user.id:
+            if (not not list_tasks):
+                for task in list_tasks:
+                    db.session.delete(task)
+            db.session.delete(lis)
+            db.session.commit()
+            return "<h1>Deleted List<h1/>"
+        else: return "<h1>Not your List<h1/>"
+    else: return '<h1>LOSER</h1>'
+
+
+@list_routes.route("/<int:id>", methods=["PUT"])
+def edit_list(id):
+    if current_user.is_authenticated:
+        form = NewList()
+        one_list = List.query.get(id)
+        if(not one_list):
+            return "<h1>No List<h1/>"
+        form['csrf_token'].data = request.cookies['csrf_token']
+        if one_list.user_id == current_user.id:
+            if form.validate_on_submit():
+                # data = form.data
+                one_list.name= form.data["name"]
+                db.session.commit()
+            return "<h1>List CHANGED</h1>"
+        else: return "<h1>Not your List<h1/>"
+        # return render_template('list_form.html',form=form)
+    else: return '<h1>loser</h1>'
