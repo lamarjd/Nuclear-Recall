@@ -70,11 +70,15 @@ def new_list():
 def del_list(id):
     if current_user.is_authenticated:
         lis = List.query.get(id)
+        list_tasks = Task.query.filter(lis.id==Task.list_id).all()
         # print("user id",current_user.id)
         # print("list id",lis.user_id)
         if(not lis):
             return "<h1>No List<h1/>"
         if lis.user_id == current_user.id:
+            if (not not list_tasks):
+                for task in list_tasks:
+                    db.session.delete(task)
             db.session.delete(lis)
             db.session.commit()
             return "<h1>Deleted List<h1/>"
