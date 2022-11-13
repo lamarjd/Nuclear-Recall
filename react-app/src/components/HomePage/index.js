@@ -9,11 +9,11 @@ import { useState,useEffect } from 'react';
 function HomePage(){
 //   const sessionUser = useSelector(state => state.session.user);
 
-const [list, setList] = useState(false);
+const [lis, setList] = useState(false);
 let modalList = (
 <div>
   <button onClick={() => (setList(true))}>Add a List</button>  
-{list && (
+{lis && (
    <Modal onClose={() => setList(false)}>
    <ListForm />
  </Modal>
