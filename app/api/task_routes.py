@@ -45,3 +45,15 @@ def new_task():
         return render_template('task_form.html', form=form)
     return redirect("/api/all")
     # return '<h1>Try again</h1>'
+
+
+@task_routes.route("/<int:id>", methods=["DELETE"])
+def delete_task(id):
+    if current_user.is_authenticated:
+        task = Task.query.get(id)
+        if(not task):
+            return '<h1>No such Task Exists</h1>'
+        if task.user_id == current_user.id:
+            db.session.delete(task)
+        db.session.commit()
+        return "<h1>Deleted Task</h1>"
