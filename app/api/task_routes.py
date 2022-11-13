@@ -1,7 +1,6 @@
-from flask import Blueprint, jsonify, render_template, redirect
-from flask_login import login_required
-from flask_login import current_user
-from app.models import Task, db
+from flask import Blueprint, jsonify, render_template
+from flask_login import login_required,current_user
+from app.models import Task,db
 from app.forms.task_form import NewTask
 
 
@@ -12,14 +11,13 @@ from ..models import Task, User, Note
 
 task_routes = Blueprint('tasks', __name__)
 
-
+#  get all tasks
 @task_routes.route('/')
-
 def get_all_tasks():
     tasks = Task.query.all()
     return {"tasks": [task.to_dict() for task in tasks]}
 
-
+#  get task by ID
 @task_routes.route('/<int:id>')
 def get_one_task(id):
     task = Task.query.get(id)
@@ -33,7 +31,7 @@ def get_one_task(id):
 
     return new_thing
 
-@task_routes.route("/new_task", methods=["GET","POST"])
+@task_routes.route('/new_task', methods=['GET', 'POST'])
 def new_task():
     form = NewTask()
     if form.validate_on_submit():
@@ -43,6 +41,4 @@ def new_task():
         )
         db.session.add(task)
         db.session.commit()
-        
-
     return render_template('task_form.html', form=form)
