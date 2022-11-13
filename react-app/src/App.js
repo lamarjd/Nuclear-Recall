@@ -12,6 +12,7 @@ import { authenticate } from './store/session';
 //  my part //
 
 import AllTasks from './components/Tasks';
+import AllLists from './components/Lists'
 
 // end my part //
 
@@ -51,6 +52,9 @@ function App() {
         </Route>
         <Route path='/test' exact={true}>
           <AllTasks />
+        </Route>
+        <Route path='/two/test' exact={true}>
+          <AllLists />
         </Route>
       </Switch>
     </BrowserRouter>
