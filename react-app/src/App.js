@@ -13,6 +13,7 @@ import { authenticate } from './store/session';
 
 import AllTasks from './components/Tasks';
 import AllLists from './components/Lists'
+import OneTask from './components/OneTask'
 
 // end my part //
 
@@ -55,6 +56,9 @@ function App() {
         </Route>
         <Route path='/two/test' exact={true}>
           <AllLists />
+        </Route>
+        <Route path='/test/:id'>
+          <OneTask />
         </Route>
       </Switch>
     </BrowserRouter>

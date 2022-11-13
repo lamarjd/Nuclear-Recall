@@ -1,4 +1,5 @@
 const ALL_TASKS = 'tasks/all'
+const ONE_TASK = 'tasks/one'
 
 
 
@@ -13,6 +14,13 @@ const getAllTasksAction = payload => {
     }
 }
 
+const oneTask = payload => {
+    return {
+        type: ONE_TASK,
+        payload
+    }
+}
+
 
 
 // thunkville
@@ -23,7 +31,7 @@ const getAllTasksAction = payload => {
 // read / get tasks 
 
 
-// I love pebbles Thunk
+// pebbles Thunk
 
 
 export const fetchTasks = () => async dispatch => {
@@ -40,6 +48,19 @@ export const fetchTasks = () => async dispatch => {
     }
 }
 
+export const fetchOneTask = id => async dispatch => {
+        
+    const res = await fetch(`/api/all/${id}`)
+    if (res.ok) {
+
+        const singleTask = await res.json()
+
+        dispatch(oneTask(singleTask))
+
+        return singleTask
+    }
+}
+
 
 
 // wasted away in reducerville
@@ -52,13 +73,18 @@ const taskReducer = (state = initialState, action) => {
     let newState = {};
     switch (action.type) {
         case ALL_TASKS: {
-
             action.payload.tasks.forEach(task => {
                 newState[task.id] = task
             })
+            return newState
+        }
+
+        case ONE_TASK: {
+
+            newState = {...state}
+            newState[action.payload.id] = action.payload
 
             return newState
-
         }
 
         default: {
