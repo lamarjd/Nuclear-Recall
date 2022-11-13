@@ -33,11 +33,19 @@ export default function AllTasks(){
             .then(() => setIsLoaded(true))
     }, [dispatch])
 
+    
+    const taskList = Object.values(reduxstate)
+    console.log(taskList)
+
     return isLoaded && (
         <div className='main'>
            
                
                         <h1>Tasks</h1>
+
+                        {taskList.map(task => (
+                            <h3>{task.body}</h3>
+                        ))}
                     </div>
     
       
