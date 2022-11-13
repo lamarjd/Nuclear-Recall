@@ -28,7 +28,7 @@ const getAllTasksAction = payload => {
 
 export const fetchTasks = () => async dispatch => {
     const res = await fetch('/api/all');
-    console.log('i am here')
+    
     if (res.ok) {
 
         const tasks = await res.json();
