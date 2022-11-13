@@ -46,7 +46,7 @@ def new_task():
     return redirect("/api/all")
     # return '<h1>Try again</h1>'
 
-
+# Delete a task
 @task_routes.route("/<int:id>", methods=["DELETE"])
 def delete_task(id):
     if current_user.is_authenticated:
@@ -57,3 +57,23 @@ def delete_task(id):
             db.session.delete(task)
         db.session.commit()
         return "<h1>Deleted Task</h1>"
+
+
+@task_routes.route("/<int:id>", methods=["PUT"])
+def edit_task(id):
+    if current_user.is_authenticated:
+        form = NewTask()
+        form['csrf_token'].data = request.cookies['csrf_token']
+        if form.validate_on_submit():
+            task = Task.query.get(id)
+            edited_task = Task(
+                body = form.data["body"],
+                user_id = current_user.id
+            )
+            # if task.id == edited_task.id:
+            #     print("task ID", task.id)
+            db.session.add(edited_task)
+            db.session.commit()
+            # return redirect("/api/all")
+        return render_template('task_form.html', form=form)
+    else: return "<h1>No task</h1>"
