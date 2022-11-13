@@ -1,11 +1,9 @@
 from flask import Blueprint, jsonify, render_template
-from flask_login import login_required,current_user
+from flask_login import login_required, current_user
 from app.models import Task,db
 from app.forms.task_form import NewTask
 
-
 #import models
-
 from ..models import Task, User, Note
 
 task_routes = Blueprint('tasks', __name__)
@@ -29,15 +27,17 @@ def get_one_task(id):
 
     return new_thing
 
+# post a new task
 @task_routes.route('/new_task', methods=['GET', 'POST'])
 def new_task():
-    form = NewTask()
-    if form.validate_on_submit():
-        data = form.data
-        task = Task(
-            body= data["body"]
-        )
-        db.session.add(task)
-        db.session.commit()
-    
-    return render_template('task_form.html', form=form)
+    # if current_user.is_authenticated:
+        form = NewTask()
+        if form.validate_on_submit():
+            data = form.data
+            task = Task(
+                body= data["body"]
+            )
+            db.session.add(task)
+            db.session.commit()
+            
+        return render_template('task_form.html', form=form)
