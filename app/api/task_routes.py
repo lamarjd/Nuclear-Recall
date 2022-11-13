@@ -40,11 +40,10 @@ def new_task():
                 user_id = current_user.id
             )
             db.session.add(task)
-            db.session.commit()
-           
+            db.session.commit()           
         return render_template('task_form.html', form=form)
-    return redirect("/api/all")
-    # return '<h1>Try again</h1>'
+    # return redirect("/api/all")
+    else: return '<h1>Try again</h1>'
 
 # Delete a task
 @task_routes.route("/<int:id>", methods=["DELETE"])
@@ -64,16 +63,15 @@ def edit_task(id):
     if current_user.is_authenticated:
         form = NewTask()
         form['csrf_token'].data = request.cookies['csrf_token']
-        if form.validate_on_submit():
-            task = Task.query.get(id)
-            edited_task = Task(
-                body = form.data["body"],
-                user_id = current_user.id
-            )
-            # if task.id == edited_task.id:
-            #     print("task ID", task.id)
-            db.session.add(edited_task)
-            db.session.commit()
-            # return redirect("/api/all")
-        return render_template('task_form.html', form=form)
+        one_task = Task.query.get(id)
+        if(not one_task):
+            return "<h1>No Task</h1>"
+        if one_task.user_id == current_user.id:
+            if form.validate_on_submit():
+                one_task.body = form.data["body"]
+                db.session.commit()
+            # return render_template('task_form.html', form=form)
+            return redirect("/api/all")
+            # return "<h1>Task Edited</h1>"
+        else: return "<h1>Not your task</h1>"
     else: return "<h1>No task</h1>"
