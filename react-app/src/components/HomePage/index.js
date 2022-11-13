@@ -10,18 +10,17 @@ function HomePage(){
 //   const sessionUser = useSelector(state => state.session.user);
 
 const [list, setList] = useState(false);
-
+let modalList = (
+<div>
+  <button onClick={() => (setList(true))}>Add a List</button>  
+{list && (
+   <Modal onClose={() => setList(false)}>
+   <ListForm />
+ </Modal>
+)}
+</div>)
   return (
-        <div>
-    
-      <button onClick={() => (setList(true))}>Add a List</button>  
-   
-    {list && (
-       <Modal onClose={() => setList(false)}>
-       <ListForm />
-     </Modal>
-    )}
-    </div>
+        <div>{modalList}</div>
   );
 }
 
