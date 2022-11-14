@@ -113,8 +113,9 @@ export const createTaskThunk = (payload) => async dispatch => {
     }
 }
 
-export const editTaskThunk = (task) => async dispatch => {
-    const response = await fetch(`/api/all/tasks/${task.id}`, {
+export const editTaskThunk = (task,id) => async dispatch => {
+    console.log("THIS IS THE THUNK")
+    const response = await fetch(`/api/all/${id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json"

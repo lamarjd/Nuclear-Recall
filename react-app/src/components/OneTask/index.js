@@ -8,6 +8,7 @@ import { useHistory, useParams } from 'react-router-dom';
 
 
 import { fetchOneTask } from '../../store/tasks';
+import EditForm from '../EditTask/index.js';
 
 
 
@@ -38,6 +39,7 @@ export default function OneTask(){
     return isLoaded && (
         <div className='main'>
                         <h1>Tasks</h1>
+                        <EditForm filtered={filtered}/>
                         <div>{filtered.body}</div>
                         <div> ---</div>
                         <div>Notes:</div>
