@@ -21,7 +21,7 @@ let modalList = (
 </div>)
   return (
     <><AllTasks/>
-        <div><TaskForm/></div>
+       
         <div>{modalList}</div>
     </>
   );
