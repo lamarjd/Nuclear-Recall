@@ -87,6 +87,6 @@ def edit_list(id):
                 one_list.name= form.data["name"]
                 db.session.commit()
             return make_response(one_list.to_dict(), 200)
-        else: return make_response("Unauthorized", 201)
+        else: return make_response("Unauthorized", 401)
         # return render_template('list_form.html',form=form)
-    else: return make_response("Unauthorized", 201)
+    else: return make_response("Unauthorized", 401)

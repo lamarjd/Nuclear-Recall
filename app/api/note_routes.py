@@ -2,6 +2,7 @@ from flask import Blueprint, jsonify, render_template, redirect, request, make_r
 from flask_login import login_required,current_user
 from app.models import Note, Task, User, db
 from ..forms.note_form import NewNote
+from datetime import datetime
 
 
 note_routes = Blueprint('notes', __name__)
@@ -14,7 +15,7 @@ def get_all_notes():
 
 
 @note_routes.route("/new_note", methods=["GET","POST"])
-def post_note(id):
+def post_note():
   if current_user.is_authenticated:
       form = NewNote()
       form['csrf_token'].data = request.cookies['csrf_token']
@@ -51,7 +52,7 @@ def del_note(id):
 
 
 
-@note_routes.route("/<int:id>/edit", methods=["PUT"])
+@note_routes.route("/<int:id>", methods=["PUT"])
 def edit_note(id):
   if current_user.is_authenticated:
     new_note = Note.query.get(id)
@@ -61,6 +62,7 @@ def edit_note(id):
     if form.validate_on_submit():
       new_note.body = form.data["body"]
       db.session.commit()
+
       return make_response(new_note.to_dict(), 200)
 
   else: return make_response("Unauthorized", 401)

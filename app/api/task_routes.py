@@ -24,6 +24,8 @@ def get_all_tasks():
 def get_one_task(id):
     if current_user.is_authenticated:
         task = Task.query.get(id)
+        if not task:
+            return make_response("Doesn't exist", 404)
         new_thing = task.to_dict()
         task_notes = Note.query.filter(Note.task_id == id).all()
         something = [note.to_dict() for note in task_notes]
