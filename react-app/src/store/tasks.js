@@ -2,6 +2,7 @@ const ALL_TASKS = 'tasks/all'
 const ONE_TASK = 'tasks/one'
 const CREATE_TASK = 'tasks/new'
 const EDIT_TASK = '/tasks/edit'
+const DELETE_TASK = 'tasks/delete'
 
 
 
@@ -37,6 +38,14 @@ const editTaskAction = (task) => {
         task
     }
 }
+
+const removeTaskAction = (taskId) => {
+    return {
+        type: DELETE_TASK,
+        taskId
+    }
+}
+
 
 
 
@@ -120,6 +129,18 @@ export const editTaskThunk = (task) => async dispatch => {
     throw new Error("Not this time")
 }
 
+
+export const deleteTaskThunk = (taskId) => async dispatch => {
+    const response = await fetch(`/api/all/${taskId}`, {
+        method: "DELETE",
+        headers: {"Content-Type": "application/json"}
+    });
+    if (response.ok) {
+        const task = `${taskId}`
+        dispatch(remove(task))
+    }
+}
+
 // wasted away in reducerville
 
 
@@ -157,6 +178,12 @@ const taskReducer = (state = initialState, action) => {
                 ...state,
                 [action.task.id]: action.task
             }
+        
+        case DELETE_TASK:
+            newState = {...state}
+            delete newState[action.taskId]
+            return newState;
+    
 
 
         default: {
