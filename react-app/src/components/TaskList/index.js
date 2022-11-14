@@ -8,7 +8,7 @@ import { NavLink, useHistory, useParams } from 'react-router-dom';
 
 
 
-import { fetchTasks } from '../../store/tasks';
+import { deleteTaskThunk, fetchTasks } from '../../store/tasks';
 
 import TaskForm from '../TaskForm/index.js';
 
@@ -39,7 +39,10 @@ export default function AllTasks(){
                         <h1>Tasks</h1>
                         <TaskForm/>
                         {taskList.map(task => (
+                            <div>
                             <NavLink className="detail-navlink" key={task.id} to={`/all/${task.id}`}> <h3>{task.body}</h3></NavLink>
+                            <button onClick={()=>dispatch(deleteTaskThunk(task.id))}> DELETE</button>
+                            </div>
                         ))}
                     </div>
     
