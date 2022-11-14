@@ -11,7 +11,7 @@ function ListForm() {
 
   return (
     <form className="container" onSubmit={handleSubmit}>
-      <div className="welcome">PRAYGE</div>
+      <div className="welcome">( ͡° ͜ʖ ͡°) ( ͡° ͜ʖ ͡°) ( ͡° ͜ʖ ͡°) ( ͡° ͜ʖ ͡°) ( ͡° ͜ʖ ͡°)</div>
       <div className="List">
       <label>
         <input
