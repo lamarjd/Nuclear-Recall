@@ -1,6 +1,7 @@
 const ALL_TASKS = 'tasks/all'
 const ONE_TASK = 'tasks/one'
-const CREATE_GROUP = 'tasks/new'
+const CREATE_TASK = 'tasks/new'
+const EDIT_TASK = '/tasks/edit'
 
 
 
@@ -24,8 +25,16 @@ const oneTask = payload => {
 
 const createTaskAction = payload => {
     return {
-        type: CREATE_GROUP,
+        type: CREATE_TASK,
         payload
+    }
+}
+
+
+const editTaskAction = (task) => {
+    return {
+        type: EDIT_TASK,
+        task
     }
 }
 
@@ -94,6 +103,22 @@ export const createTaskThunk = (payload) => async dispatch => {
     }
 }
 
+export const editTaskThunk = (task) => async dispatch => {
+    const response = await fetch(`/api/all/tasks/${task.id}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(task)
+    });
+    if (response.ok) {
+        const task = await response.json();
+        dispatch(edit(task))
+        return task
+    }
+    // error handling
+    throw new Error("Not this time")
+}
 
 // wasted away in reducerville
 
@@ -105,7 +130,7 @@ const taskReducer = (state = initialState, action) => {
     let newState = {};
 
     switch (action.type) {
-        
+
         case ALL_TASKS: {
             action.payload.tasks.forEach(task => {
                 newState[task.id] = task
@@ -126,6 +151,13 @@ const taskReducer = (state = initialState, action) => {
             newState[action.payload.id] = action.payload
             return newState
         }
+
+        case EDIT_TASK:
+            return {
+                ...state,
+                [action.task.id]: action.task
+            }
+
 
         default: {
             return state;
