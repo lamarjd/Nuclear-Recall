@@ -1,4 +1,4 @@
-from flask import Blueprint, jsonify, render_template,request
+from flask import Blueprint, jsonify, render_template,request, make_response
 from flask_login import login_required,current_user
 from app.models import List,db
 from app.forms.list_form import NewList
@@ -16,7 +16,7 @@ def get_all_lists():
     lists = List.query.all()
     tasks = Task.query.all()
     list_of_lists = []
-    
+
     for lis in lists:
         task_of_tasks = []
         one_list = lis.to_dict()
@@ -51,8 +51,8 @@ def new_list():
                 user_id = current_user.id)
             db.session.add(lis)
             db.session.commit()
-        return render_template('list_form.html', form=form)
-    else: return '<h1>loser</h1>'
+        return make_response(lis.to_dict(), 201)
+    else: return make_response("Unauthorized", 401)
 
 @list_routes.route("/<int:id>", methods=["GET","DELETE"])
 def del_list(id):
@@ -67,9 +67,9 @@ def del_list(id):
                     db.session.delete(task)
             db.session.delete(lis)
             db.session.commit()
-            return "<h1>Deleted List<h1/>"
-        else: return "<h1>Not your List<h1/>"
-    else: return '<h1>LOSER</h1>'
+            return make_response("Successfully deleted", 200)
+        else: return make_response("Unauthorized", 401)
+    return make_response("Unauthorized", 401)
 
 
 @list_routes.route("/<int:id>", methods=["PUT"])
@@ -85,7 +85,7 @@ def edit_list(id):
                 # data = form.data
                 one_list.name= form.data["name"]
                 db.session.commit()
-            return "<h1>List CHANGED</h1>"
-        else: return "<h1>Not your List<h1/>"
+            return make_response(one_list.to_dict(), 200)
+        else: return make_response("Unauthorized", 201)
         # return render_template('list_form.html',form=form)
-    else: return '<h1>loser</h1>'
+    else: return make_response("Unauthorized", 201)
