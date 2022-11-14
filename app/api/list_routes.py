@@ -13,7 +13,7 @@ list_routes = Blueprint('lists', __name__)
 @list_routes.route('/',methods=["GET"])
 
 def get_all_lists():
-    if current_user.is_authenticated:
+    # if current_user.is_authenticated:
         lists = List.query.all()
         tasks = Task.query.all()
         list_of_lists = []
@@ -26,8 +26,8 @@ def get_all_lists():
                 if task.list_id == lis.id:
                     task_of_tasks.append(task.to_dict())
             one_list["Tasks"] = task_of_tasks
+        return make_response(jsonify({"lists":list_of_lists}), 200)
     # return lists_of_lists.to_dict()
-    return make_response(jsonify({"lists":list_of_lists}), 200)
 
 # @list_routes.route('/<int:id>')
 # def get_one_(id):

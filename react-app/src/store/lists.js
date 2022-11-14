@@ -35,10 +35,10 @@ const createListAction = (payload) => {
 } 
 
 
-const deleteListAction = (payload) => {
+const deleteListAction = (listId) => {
      return { 
-        type: DELETE_EVENT, 
-        payload 
+        type: DELETE_LIST, 
+        listId
     } 
 } 
 
@@ -74,24 +74,29 @@ export const fetchOneList = (id) => async dispatch => {
     }
 }
 
-export const createListThunk = (payload) = async dispatch => {  
-    const response = await fetch('/api/all/lists/new_list', { 
-        method: 'POST', 
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload) 
-    }) 
+export const createListThunk = (payload) => async dispatch => {
+    const response = await fetch('/api/all/lists/new_list',
+    {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+    })
 
-    const data = await response.json() 
-    if (response.ok) { 
+    const data = await response.json()
+
+    
+    if (response.ok) {
         await dispatch(createListAction(data))
-        return data 
-    } else { 
-        return data 
-    } 
-} 
+        return data
+    } else { // any bad requests and errors
+        return data
+    }
+}
 
 
-export const deleteEvent = (id) => async dispatch => { 
+export const deleteListThunk = (id) => async dispatch => { 
     const response = await fetch(`/api/all/lists/${id}`, {
         method: 'DELETE' 
     }) 
