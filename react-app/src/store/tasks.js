@@ -123,7 +123,7 @@ export const editTaskThunk = (task) => async dispatch => {
     });
     if (response.ok) {
         const task = await response.json();
-        dispatch(edit(task))
+        dispatch(editTaskAction(task))
         return task
     }
     // error handling
@@ -138,7 +138,7 @@ export const deleteTaskThunk = (taskId) => async dispatch => {
     });
     if (response.ok) {
         const task = `${taskId}`
-        dispatch(remove(task))
+        dispatch(removeTaskAction(task))
     }
 }
 
@@ -168,7 +168,7 @@ const taskReducer = (state = initialState, action) => {
             return newState
         }
 
-        case CREATE_GROUP: { 
+        case CREATE_TASK: { 
             newState = { ...state }
             newState[action.payload.id] = action.payload
             return newState

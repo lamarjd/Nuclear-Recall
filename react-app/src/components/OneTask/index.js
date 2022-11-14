@@ -30,16 +30,18 @@ export default function OneTask(){
     }, [dispatch])
 
     
-    const taskList = Object.values(reduxstate)[0]
-    console.log(taskList)
+    const taskList = Object.values(reduxstate)
+    const filtered = taskList.filter(task => task.id === +id)[0]
+
+    console.log("filt:",filtered)
 
     return isLoaded && (
         <div className='main'>
                         <h1>Tasks</h1>
-                        <div>{taskList.body}</div>
+                        <div>{filtered.body}</div>
                         <div> ---</div>
                         <div>Notes:</div>
-                        <div>{taskList.notes.map((note)=><p>{note.body}</p>)}</div>
+                        <div>{filtered?.notes?.map((note)=><p key={note.id}>{note.body}</p>)}</div>
                     </div>
     
       
