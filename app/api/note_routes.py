@@ -66,5 +66,5 @@ def edit_note(id):
     new_note.body = form.data["body"]
 
     db.session.commit()
-    return redirect(f"/api/all/notes//{id}")
+    return redirect(f"/api/all/notes/{id}")
   return render_template("edit_note.html", form=form, note=new_note)
