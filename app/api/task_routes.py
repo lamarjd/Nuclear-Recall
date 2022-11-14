@@ -42,7 +42,7 @@ def new_task():
             )
             db.session.add(task)
             db.session.commit()
-        return task.to_dict()
+        return make_response(task.to_dict(), 201)
     else: return make_response("Unauthorized", 401)
 
 # Delete a task
@@ -76,9 +76,24 @@ def edit_task(id):
                 one_task.body = form.data["body"]
                 db.session.commit()
             # return render_template('task_form.html', form=form)
-            return one_task.to_dict()
+            return make_response(one_task.to_dict(), 200)
         else:
             return make_response("Unauthorized", 401)
     else:
         return make_response("Unauthorized", 401)
             # return "<h1>Task Edited</h1>"
+
+@task_routes.route("/<int:id>/list", methods=["PUT"])
+def task_to_list(id):
+    if current_user.is_authenticated:
+        form = NewTask()
+        form['csrf_token'].data = request.cookies['csrf_token']
+        one_task = Task.query.get(id)
+        if(not one_task):
+            return "<h1>No Task</h1>"
+        if one_task.user_id == current_user.id:
+            if form.validate_on_submit():
+                one_task.body = form.data["body"]
+                one_task.list_id = form.data["list_id"]
+                db.session.commit()
+            return make_response(one_task.to_dict(), 200)

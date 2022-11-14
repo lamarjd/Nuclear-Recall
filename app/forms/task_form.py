@@ -5,4 +5,5 @@ from wtforms.validators import DataRequired
 
 class NewTask(FlaskForm):
   body = StringField('Body', validators=[DataRequired()])
+  list_id = IntegerField("List ID")
   submit = SubmitField("DEEEEZ")
