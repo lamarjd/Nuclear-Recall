@@ -2,7 +2,6 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Modal } from '../../context/Modal';
-import ListModal from '../ListModal';
 import ListForm from '../ListModal/ListForm';
 import { useState,useEffect } from 'react';
 
