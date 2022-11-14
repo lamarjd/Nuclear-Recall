@@ -12,7 +12,7 @@ class Task(db.Model):
     body = db.Column(db.String(2000), nullable = False)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     list_id = db.Column(db.Integer, db.ForeignKey('lists.id'))
-    complete = db.Column(db.Boolean)
+    complete = db.Column(db.Boolean, default=False)
     due_date = db.Column(db.Date)
     created_at = db.Column(db.DateTime, default= datetime.utcnow)
     updated_at = db.Column(db.DateTime, default= datetime.utcnow)
@@ -31,4 +31,3 @@ class Task(db.Model):
             "created_at": self.created_at,
             "updated_at": self.updated_at
         }
-

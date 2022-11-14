@@ -1,4 +1,4 @@
-from flask import Blueprint, jsonify, render_template, request, redirect
+from flask import Blueprint, jsonify, render_template, request, redirect, Response, make_response
 from flask_login import login_required, current_user
 from app.models import Task,db
 from app.forms.task_form import NewTask
@@ -42,9 +42,8 @@ def new_task():
             )
             db.session.add(task)
             db.session.commit()
-        return render_template('task_form.html', form=form)
-    # return redirect("/api/all")
-    else: return '<h1>Try again</h1>'
+        return task.to_dict()
+    else: return make_response("Unauthorized", 401)
 
 # Delete a task
 @task_routes.route("/<int:id>", methods=["DELETE"])
@@ -55,9 +54,14 @@ def delete_task(id):
             return '<h1>No such Task Exists</h1>'
         if task.user_id == current_user.id:
             db.session.delete(task)
-        db.session.commit()
-
-    return render_template('task_form.html', form=form)
+            db.session.commit()
+            return {
+            "message": "Successfully deleted",
+            "statusCode": 200
+            }
+        else:
+            return make_response("Unauthorized", 401)
+    return redirect("/api/all")
 
 @task_routes.route("/<int:id>", methods=["PUT"])
 def edit_task(id):
@@ -72,9 +76,9 @@ def edit_task(id):
                 one_task.body = form.data["body"]
                 db.session.commit()
             # return render_template('task_form.html', form=form)
-            return redirect("/api/all")
+            return one_task.to_dict()
+        else:
+            return make_response("Unauthorized", 401)
+    else:
+        return make_response("Unauthorized", 401)
             # return "<h1>Task Edited</h1>"
-        else: return "<h1>Not your task</h1>"
-    else: return "<h1>No task</h1>"
-
-# lazy comment

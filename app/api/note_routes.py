@@ -24,8 +24,8 @@ def post_note():
               )
           db.session.add(note)
           db.session.commit()
-      return render_template('note_form.html', form=form)
-  else: return '<h1>loser</h1>'
+      return note.to_dict()
+  else: return '<h1>Unauthorized</h1>'
 
 
 
@@ -66,5 +66,5 @@ def edit_note(id):
     new_note.body = form.data["body"]
 
     db.session.commit()
-    return redirect(f"/api/all/notes//{id}")
+    return redirect(f"/api/all/notes/{id}")
   return render_template("edit_note.html", form=form, note=new_note)
