@@ -9,6 +9,9 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
 import HomePage from './components/HomePage';
+import TaskForm from './components/TaskForm';
+import AllTasks from './components/TaskList';
+import OneTask from './components/OneTask';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -43,9 +46,13 @@ function App() {
         </ProtectedRoute>
         <Route path='/' exact={true} >
           <h1>My Home Page</h1>
+          
           <NavLink to='/all' >
             CLICK HERE TO GOTO TASK HOME PAGE
           </NavLink>
+        </Route>
+        <Route path='/all/:id'>
+          <OneTask/>
         </Route>
         <Route path='/all' exact={true} >
           <HomePage/>
