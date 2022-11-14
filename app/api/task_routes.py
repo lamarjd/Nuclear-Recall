@@ -10,23 +10,27 @@ task_routes = Blueprint('tasks', __name__)
 
 #  get all tasks
 @task_routes.route('/')
+
 def get_all_tasks():
-    tasks = Task.query.all()
-    return {"tasks": [task.to_dict() for task in tasks]}
+    if current_user.is_authenticated:
+        tasks = Task.query.all()
+        response = {"tasks": [task.to_dict() for task in tasks]}
+        return make_response(response, 200)
+    else:
+        return make_response("Unauthorized", 401)
 
 #  get task by ID
 @task_routes.route('/<int:id>')
 def get_one_task(id):
-    task = Task.query.get(id)
+    if current_user.is_authenticated:
+        task = Task.query.get(id)
+        new_thing = task.to_dict()
+        task_notes = Note.query.filter(Note.task_id == id).all()
+        something = [note.to_dict() for note in task_notes]
+        new_thing["notes"] = something
 
-    new_thing = task.to_dict()
-    print(new_thing)
-
-    task_notes = Note.query.filter(Note.task_id == id).all()
-    something = [note.to_dict() for note in task_notes]
-    new_thing["notes"] = something
-
-    return new_thing
+        return make_response(new_thing, 200)
+    return make_response("Unauthorized", 401)
 
 # post a new task
 @task_routes.route('/new_task', methods=['GET', 'POST'])
