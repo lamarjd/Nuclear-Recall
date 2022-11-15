@@ -30,24 +30,24 @@ export default function AllLists(){
             .then(() => setIsLoaded(true))
     }, [dispatch])
 
-    
+
     console.log("lists", lists)
 
-   
 
-    
+
+
     return isLoaded && (
         <div className='lists'>
-        
+
 
             <h1>Lists</h1>
             {/* <ListForm/> */}
             {lists.map(list => (
                 <div key={list.id}>
 
-                <NavLink className="detail-navlink" key={list.id} to={`/all/${list.id}`}> <h3>{list.name}</h3></NavLink>
-                <button onClick={(e)=> {dispatch(deleteListThunk(list.id), history.push('/all'))}}> DELETE</button> 
-               
+                <NavLink className="detail-navlink" key={list.id} to={`/all/lists/${list.id}`}> <h3>{list.name}</h3></NavLink>
+                <button onClick={(e)=> {dispatch(deleteListThunk(list.id), history.push('/all'))}}> DELETE</button>
+
 
                 <button onClick={()=>dispatch(editListThunk(list.id))}>Edit</button>
 
@@ -57,7 +57,6 @@ export default function AllLists(){
             ))}
 
         </div>
-        
-        )        
-    }
 
+        )
+    }

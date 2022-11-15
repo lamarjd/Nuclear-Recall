@@ -28,26 +28,24 @@ export default function AllTasks(){
             .then(() => setIsLoaded(true))
     }, [dispatch])
 
-    
+
     const taskList = Object.values(reduxstate)
     console.log(taskList)
 
     return isLoaded && (
         <div className='main'>
-        
 
-                        <h1>Tasks</h1>
-                        <TaskForm/>
-                        {taskList.map(task => (
-                            <div>
-                            <NavLink className="detail-navlink" key={task.id} to={`/all/${task.id}`}> <h3>{task.body}</h3></NavLink>
-                            <button onClick={()=>dispatch(deleteTaskThunk(task.id))}> DELETE</button>
-                            </div>
-                        ))}
-                    </div>
-    
-    
+        <h1>Tasks</h1>
+        <TaskForm/>
+        {taskList.map(task => (
+            <div>
+            <NavLink className="detail-navlink" key={task.id} to={`/all/${task.id}`}> <h3>{task.body}</h3></NavLink>
+            <button onClick={()=>dispatch(deleteTaskThunk(task.id))}> DELETE</button>
+            </div>
+        ))}
+    </div>
+
+
         )
-        
+
     }
-    
