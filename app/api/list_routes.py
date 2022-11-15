@@ -36,12 +36,14 @@ def get_all_lists():
 def get_one_List(id):
     lis = List.query.get(id)
     new_lis = lis.to_dict()
-
-    # list_task = Task.query.filter(task.list_id == id).all()
-    # new = [task.to_dict() for task in list_task]
-    # new_lis["tasks"] = new
+    print("THIS IS THE PRINT NEW_LIST--", lis)
+    list_task = Task.query.filter(Task.list_id == id).all()
+    new = [task.to_dict() for task in list_task]
+    new_lis["tasks"] = new
 
     return new_lis
+
+    # return "<h1>fugazi</h1>"
 
 @list_routes.route("/new_list", methods=["POST"])
 def new_list():

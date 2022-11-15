@@ -6,7 +6,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 
 
-
 import { fetchOneTask } from '../../store/tasks';
 import EditForm from '../EditTask/index.js';
 
@@ -18,10 +17,7 @@ export default function OneTask(){
     const dispatch = useDispatch();
     const {id} = useParams()
     const reduxstate = useSelector((state) => state.tasks);
-
-
     const thisUser = useSelector(state => state.session.user);
-
 
     const [isLoaded, setIsLoaded] = useState(false)
 
@@ -30,11 +26,11 @@ export default function OneTask(){
             .then(() => setIsLoaded(true))
     }, [dispatch])
 
-    
+
     const taskList = Object.values(reduxstate)
     const filtered = taskList.filter(task => task.id === +id)[0]
 
-    console.log("filt:",filtered)
+    
 
     return isLoaded && (
         <div className='main'>
@@ -45,11 +41,9 @@ export default function OneTask(){
                         <div>Notes:</div>
                         <div>{filtered?.notes?.map((note)=><p key={note.id}>{note.body}</p>)}</div>
                     </div>
-    
-      
+
+
 
         )
-        
+
     }
-    
-   
