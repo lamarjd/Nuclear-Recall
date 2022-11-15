@@ -46,7 +46,7 @@ export default function OneTask() {
           {filteredNotes.map((note) => (
             <div>
             <p key={note.id}>{note.body}</p>
-            <button onClick={()=> dispatch(deleteNoteThunk(id, note.id))}>DELETE DAT SHIT</button>
+            <button onClick={()=> dispatch(deleteNoteThunk(note.id))}>DELETE DAT SHIT</button>
             </div>
           ))}
         </div>
