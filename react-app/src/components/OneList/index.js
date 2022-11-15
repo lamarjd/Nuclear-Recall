@@ -31,9 +31,9 @@ export default function OneList(){
     <div>
 
         <h1>Tasks</h1>
-        {tasks.map(task => (
+        {tasks?.map(task => (
           <div>
-            <p>{task.body}</p>
+            <p>{task?.body}</p>
           </div>
         ))}
 

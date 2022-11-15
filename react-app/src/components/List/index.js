@@ -42,7 +42,7 @@ export default function AllLists(){
 
             <h1>Lists</h1>
             {/* <ListForm/> */}
-            {lists.map(list => (
+            {lists?.map(list => (
                 <div key={list.id}>
 
                 <NavLink className="detail-navlink" key={list.id} to={`/all/lists/${list.id}`}> <h3>{list.name}</h3></NavLink>
