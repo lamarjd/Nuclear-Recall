@@ -22,9 +22,9 @@ let modalList = (
 </div>)
   return (
     <><AllTasks/>
-    <AllLists/>
 
-       
+       <AllLists/>
+
         <div>{modalList}</div>
     </>
   );

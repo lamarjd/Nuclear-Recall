@@ -10,6 +10,10 @@ import { fetchLists } from "../../store/lists"
 
 import ListForm from '../ListModal/ListForm.js';
 
+import EditList from '../EditList/index.js';
+
+
+
 
 export default function AllLists(){
 
@@ -46,6 +50,9 @@ export default function AllLists(){
                
 
                 <button onClick={()=>dispatch(editListThunk(list.id))}>Edit</button>
+
+                <EditList list={list}/>
+
                 </div>
             ))}
 

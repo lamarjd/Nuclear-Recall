@@ -108,17 +108,24 @@ export const deleteListThunk = (id) => async dispatch => {
 } 
 
 
-export const editListThunk = (list) => async dispatch => {
-    const response = await fetch(`/api/all/lists${list.id}`, {
+export const editListThunk = (list,id) => async dispatch => {
+    console.log("list",list)
+    const response = await fetch(`/api/all/lists/${id}`, {
+        
+
         method: "PUT",
         headers: {
             "Content-Type": "application/json"
         },
         body: JSON.stringify(list)
     });
+
+    console.log("response",response)
     if (response.ok) {
         const list = await response.json();
         dispatch(editListAction(list))
+        console.log("edit list ",list)
+
         return list
     }
     throw new Error("Error with list Thunk")

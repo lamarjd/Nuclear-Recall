@@ -22,7 +22,7 @@ def get_all_tasks():
 #  get task by ID
 @task_routes.route('/<int:id>')
 def get_one_task(id):
-    if current_user.is_authenticated:
+    # if current_user.is_authenticated:
         task = Task.query.get(id)
         if not task:
             return make_response("Doesn't exist", 404)
@@ -32,12 +32,12 @@ def get_one_task(id):
         new_thing["notes"] = something
 
         return make_response(new_thing, 200)
-    return make_response("Unauthorized", 401)
+    # return make_response("Unauthorized", 401)
 
 # post a new task
 @task_routes.route('/new_task', methods=['GET', 'POST'])
 def new_task():
-    if current_user.is_authenticated:
+    # if current_user.is_authenticated:
         form = NewTask()
         form['csrf_token'].data = request.cookies['csrf_token']
         if form.validate_on_submit():
@@ -49,12 +49,12 @@ def new_task():
             db.session.add(task)
             db.session.commit()
         return make_response(task.to_dict(), 201)
-    else: return make_response("Unauthorized", 401)
+    # else: return make_response("Unauthorized", 401)
 
 # Delete a task
 @task_routes.route("/<int:id>", methods=["DELETE"])
 def delete_task(id):
-    if current_user.is_authenticated:
+    # if current_user.is_authenticated:
         task = Task.query.get(id)
         if(not task):
             return '<h1>No such Task Exists</h1>'
@@ -65,13 +65,13 @@ def delete_task(id):
             "message": "Successfully deleted",
             "statusCode": 200
             }
-        else:
-            return make_response("Unauthorized", 401)
-    return redirect("/api/all")
+        # else:
+        #     return make_response("Unauthorized", 401)
+    # return redirect("/api/all")
 
 @task_routes.route("/<int:id>", methods=["PUT"])
 def edit_task(id):
-    if current_user.is_authenticated:
+    # if current_user.is_authenticated:
         form = NewTask()
         form['csrf_token'].data = request.cookies['csrf_token']
         one_task = Task.query.get(id)
@@ -85,13 +85,13 @@ def edit_task(id):
             return make_response(one_task.to_dict(), 200)
         else:
             return make_response("Unauthorized", 401)
-    else:
-        return make_response("Unauthorized", 401)
+    # else:
+    #     return make_response("Unauthorized", 401)
             # return "<h1>Task Edited</h1>"
 
 @task_routes.route("/<int:id>/list", methods=["PUT"])
 def task_to_list(id):
-    if current_user.is_authenticated:
+    # if current_user.is_authenticated:
         form = NewTask()
         form['csrf_token'].data = request.cookies['csrf_token']
         one_task = Task.query.get(id)
