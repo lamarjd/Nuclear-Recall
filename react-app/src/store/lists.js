@@ -161,7 +161,7 @@ const listReducer = (state = initialState, action) => {
 
         case DELETE_LIST: {
             newState = { ...state } 
-            delete newState[action.payload] 
+            delete newState[action.payload.id] 
             return newState
         }         
 

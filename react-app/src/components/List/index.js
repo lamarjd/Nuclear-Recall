@@ -19,15 +19,19 @@ export default function AllLists(){
     const thisUser = useSelector((state) => state.session.user);
 
     const [isLoaded, setIsLoaded] = useState(false)
-
+    const history = useHistory()
+    const lists = Object.values(listState)
     useEffect(() => {
         dispatch(fetchLists())
             .then(() => setIsLoaded(true))
     }, [dispatch])
 
-    const lists = Object.values(listState)
+    
     console.log("lists", lists)
 
+   
+
+    
     return isLoaded && (
         <div className='lists'>
         
@@ -38,7 +42,9 @@ export default function AllLists(){
                 <div key={list.id}>
 
                 <NavLink className="detail-navlink" key={list.id} to={`/all/${list.id}`}> <h3>{list.name}</h3></NavLink>
-                <button onClick={()=>dispatch(deleteListThunk(list.id))}> DELETE</button> 
+                <button onClick={(e)=> {dispatch(deleteListThunk(list.id), history.push('/all'))}}> DELETE</button> 
+               
+
                 <button onClick={()=>dispatch(editListThunk(list.id))}>Edit</button>
                 </div>
             ))}

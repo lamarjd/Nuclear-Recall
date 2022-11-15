@@ -12,12 +12,12 @@ task_routes = Blueprint('tasks', __name__)
 @task_routes.route('/')
 
 def get_all_tasks():
-    if current_user.is_authenticated:
+    # if current_user.is_authenticated:
         tasks = Task.query.all()
         response = {"tasks": [task.to_dict() for task in tasks]}
         return make_response(response, 200)
-    else:
-        return make_response("Unauthorized", 401)
+    # else:
+    #     return make_response("Unauthorized", 401)
 
 #  get task by ID
 @task_routes.route('/<int:id>')
