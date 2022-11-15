@@ -1,24 +1,29 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
 import { useHistory } from 'react-router-dom'
-import { createListThunk } from "../../store/lists"
-import './List.css';
+import { createListThunk, editListThunk } from "../../store/lists"
 
-function ListForm() {
+
+function EditList({list}) {
+    // const {id,name} = list
   const dispatch = useDispatch();
-  const [name, setName] = useState('')
+  const [name, setListName] = useState(list.name)
   const history = useHistory()
-
-
+    // useEffect(()=>{
+    // setListName(list.name)
+    // },[list])
+    console.log("list",list)
+    console.log("list:id",list.id)
   const handleSubmit = async (e) => {
     e.preventDefault();
     const payload = {
       name
+      
     }
-
-    let listCreated = await dispatch(createListThunk(payload))
-    if (listCreated) {
+    console.log("payload",payload)
+    let listUpdated = await dispatch(editListThunk(payload,list.id))
+    if (listUpdated) {
       history.push(`/all`)
     }
   };
@@ -29,16 +34,16 @@ function ListForm() {
       <div className="List">
       <label>
         <input
-          placeholder="Write list here"
           type="text"
           required pattern="(?!\s+$)[a-zA-Z,'. ! ? -]+"
-          onChange={(e) => setName(e.target.value)}
+          onChange={(e) => setListName(e.target.value)}
+          value={name}
         />
       </label>
-      <button className="ListButton" type="submit">Create da list</button>
+      <button className="ListButton" type="submit">Edit the list</button>
       </div>
     </form>
   );
 }
 
-export default ListForm;
+export default EditList;

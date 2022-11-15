@@ -1,4 +1,4 @@
-from flask import Blueprint, jsonify, render_template,request
+from flask import Blueprint, jsonify, render_template,request, make_response
 from flask_login import login_required,current_user
 from app.models import List,db
 from app.forms.list_form import NewList
@@ -13,35 +13,41 @@ list_routes = Blueprint('lists', __name__)
 @list_routes.route('/',methods=["GET"])
 
 def get_all_lists():
-    lists = List.query.all()
-    tasks = Task.query.all()
-    list_of_lists = []
-    
-    for lis in lists:
-        task_of_tasks = []
-        one_list = lis.to_dict()
-        list_of_lists.append(one_list)
-        for task in tasks:
-            if task.list_id == lis.id:
-                task_of_tasks.append(task.to_dict())
-        one_list["Tasks"] = task_of_tasks
+    # if current_user.is_authenticated:
+        lists = List.query.all()
+        tasks = Task.query.all()
+        list_of_lists = []
+
+        for lis in lists:
+            task_of_tasks = []
+            one_list = lis.to_dict()
+            list_of_lists.append(one_list)
+            for task in tasks:
+                if task.list_id == lis.id:
+                    task_of_tasks.append(task.to_dict())
+            one_list["Tasks"] = task_of_tasks
+        return make_response(jsonify({"lists":list_of_lists}), 200)
     # return lists_of_lists.to_dict()
-    return jsonify({"lists":list_of_lists})
 
-# @list_routes.route('/<int:id>')
-# def get_one_(id):
-#     lis = List.query.get(id)
-#     new_lis = lis.to_dict()
+#         return make_response(jsonify({"lists":list_of_lists}), 200)
 
-#     list_task = Task.query.filter(task.list_id == id).all()
-#     new = [task.to_dict() for task in list_notes]
-#     new_list["tasks"] = new
 
-#     return new_lis
+@list_routes.route('/<int:id>')
+def get_one_List(id):
+    lis = List.query.get(id)
+    new_lis = lis.to_dict()
+    print("THIS IS THE PRINT NEW_LIST--", lis)
+    list_task = Task.query.filter(Task.list_id == id).all()
+    new = [task.to_dict() for task in list_task]
+    new_lis["tasks"] = new
 
-@list_routes.route("/new_list", methods=["GET","POST"])
+    return new_lis
+
+    # return "<h1>fugazi</h1>"
+
+@list_routes.route("/new_list", methods=["POST"])
 def new_list():
-    if current_user.is_authenticated:
+    # if current_user.is_authenticated:
         form = NewList()
         form['csrf_token'].data = request.cookies['csrf_token']
         if form.validate_on_submit():
@@ -51,12 +57,12 @@ def new_list():
                 user_id = current_user.id)
             db.session.add(lis)
             db.session.commit()
-        return render_template('list_form.html', form=form)
-    else: return '<h1>loser</h1>'
+        return make_response(lis.to_dict(), 201)
+    # else: return make_response("Unauthorized", 401)
 
-@list_routes.route("/<int:id>", methods=["GET","DELETE"])
+@list_routes.route("/<int:id>", methods=["DELETE"])
 def del_list(id):
-    if current_user.is_authenticated:
+    # if current_user.is_authenticated:
         lis = List.query.get(id)
         list_tasks = Task.query.filter(lis.id==Task.list_id).all()
         if(not lis):
@@ -67,14 +73,14 @@ def del_list(id):
                     db.session.delete(task)
             db.session.delete(lis)
             db.session.commit()
-            return "<h1>Deleted List<h1/>"
-        else: return "<h1>Not your List<h1/>"
-    else: return '<h1>LOSER</h1>'
+            return make_response("HELP", 200)
+        else: return make_response("Unauthorized", 401)
+    # return make_response("Unauthorized", 401)
 
 
 @list_routes.route("/<int:id>", methods=["PUT"])
 def edit_list(id):
-    if current_user.is_authenticated:
+    # if current_user.is_authenticated:
         form = NewList()
         one_list = List.query.get(id)
         if(not one_list):
@@ -85,7 +91,7 @@ def edit_list(id):
                 # data = form.data
                 one_list.name= form.data["name"]
                 db.session.commit()
-            return "<h1>List CHANGED</h1>"
-        else: return "<h1>Not your List<h1/>"
+            return make_response(one_list.to_dict(), 200)
+        else: return make_response("Unauthorized", 401)
         # return render_template('list_form.html',form=form)
-    else: return '<h1>loser</h1>'
+    # else: return make_response("Unauthorized", 401)
