@@ -19,7 +19,7 @@ const allNotes = payload => {
     }
 }
 
-const createNoteAction = payload => {
+const createNoteAction = (payload) => {
     return {
         type: CREATE_NOTE,
         payload
