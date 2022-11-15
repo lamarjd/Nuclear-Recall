@@ -99,15 +99,12 @@ export const createListThunk = (payload) => async dispatch => {
 export const deleteListThunk = (id) => async dispatch => { 
     const response = await fetch(`/api/all/lists/${id}`, {
         method: 'DELETE' 
-    }) 
+    }); 
     
-    const data = await response.json();
     if(response.ok){ 
-        dispatch(deleteListAction()); 
-        return data 
-    } else { 
-        return response; 
-    } 
+        const list = `${id}`
+        dispatch(deleteListAction(list)); 
+    }     
 } 
 
 
