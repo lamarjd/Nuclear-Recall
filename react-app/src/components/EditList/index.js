@@ -8,7 +8,7 @@ import { createListThunk, editListThunk } from "../../store/lists"
 function EditList({list}) {
     // const {id,name} = list
   const dispatch = useDispatch();
-  const [name, setListName] = useState()
+  const [name, setListName] = useState(list.name)
   const history = useHistory()
     // useEffect(()=>{
     // setListName(list.name)
