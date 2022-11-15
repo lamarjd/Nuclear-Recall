@@ -41,6 +41,12 @@ const removeNoteAction = (noteId) => {
 }
 export const getAllNotes = () => async dispatch =>{
     const response = await fetch(`/api/all/notes`)
+
+    if (response.ok){
+        const notes = await response.json()
+        dispatch(allNotes(notes))
+        return notes
+    }
 }
 // THUNKS
 export const getOneNote = (id) => async dispatch => {
@@ -86,8 +92,8 @@ export const editNoteThunk = (note, id) => async dispatch => {
     throw new Error ("Edit Note Thunk Bad")
 }
 
-export const deleteNoteThunk = (noteId) => async dispatch => {
-    const response = await fetch(`/api/notes/${noteId}`, {
+export const deleteNoteThunk = (id, noteId) => async dispatch => {
+    const response = await fetch(`/api/all/notes/${noteId}`, {
         method: "DELETE",
         headers: {"Content-Type": "application/json"}
     });
@@ -103,6 +109,15 @@ const initialState = {}
 const noteReducer = (state=initialState, action) => {
     let newState = {};
     switch (action.type) {
+        case ALL_NOTES:{
+            action.payload.notes.forEach(note => {
+                newState[note.id] = note
+            })
+            return newState
+        }
+
+
+
         case ONE_NOTE: {
             newState = {...state}
             newState[action.payload.id] = action.payload
@@ -113,6 +128,7 @@ const noteReducer = (state=initialState, action) => {
             console.log("ACTION------------",action)
             newState = { ...state }
             newState[action.payload.id] = action.payload
+            console.log("NEW STATE----",newState)
             return newState
         }
 

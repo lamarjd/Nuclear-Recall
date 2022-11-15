@@ -15,10 +15,10 @@ function NoteForm({ filtered }) {
     // const { taskId } = useParams();
     // console.log("task ID", taskId);
 
-    const [noteBody, setNoteBody] = useState('');
+    const [body, setBody] = useState('');
 
     useEffect(() => {
-    }, [dispatch, noteBody])
+    }, [dispatch, body])
 
     const handleSubmit = async (e) => {
         e.preventDefault();

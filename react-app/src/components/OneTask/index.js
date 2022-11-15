@@ -8,20 +8,26 @@ import { useHistory, useParams } from "react-router-dom";
 import { fetchOneTask } from "../../store/tasks";
 import EditForm from "../EditTask/index.js";
 import NoteForm from "../NoteForm/index.js";
+import { getAllNotes, deleteNoteThunk } from "../../store/notes.js";
 
 export default function OneTask() {
   const dispatch = useDispatch();
   const { id } = useParams();
   const reduxstate = useSelector((state) => state.tasks);
   const thisUser = useSelector((state) => state.session.user);
-  const notesObj = useSelector((state) => state.notes)
+  const notesState = useSelector((state) => state.notes)
+  const notesObj = Object.values(notesState)
 
-  console.log("NOTES OBJ", notesObj)
+  const filteredNotes = notesObj.filter(note => note.task_id == id)
+
+
+
 
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     dispatch(fetchOneTask(id)).then(() => setIsLoaded(true));
+    dispatch(getAllNotes())
   }, [dispatch]);
 
   const taskList = Object.values(reduxstate);
@@ -37,8 +43,11 @@ export default function OneTask() {
         <div> ---</div>
         <div>Notes:</div>
         <div>
-          {filtered?.notes?.map((note) => (
+          {filteredNotes.map((note) => (
+            <div>
             <p key={note.id}>{note.body}</p>
+            <button onClick={()=> dispatch(deleteNoteThunk(id, note.id))}>DELETE DAT SHIT</button>
+            </div>
           ))}
         </div>
       </div>
