@@ -119,6 +119,7 @@ export const editTaskThunk = (task,id) => async dispatch => {
     });
     if (response.ok) {
         const task = await response.json();
+        console.log("TASK--",task)
         dispatch(editTaskAction(task))
         return task
     }
@@ -146,7 +147,7 @@ const initialState = {}
 
 const taskReducer = (state = initialState, action) => {
     let newState = {};
-
+    console.log("STATE-",state)
     switch (action.type) {
 
         case ALL_TASKS: {
@@ -171,10 +172,26 @@ const taskReducer = (state = initialState, action) => {
         }
 
         case EDIT_TASK:
-            return {
-                ...state,
-                [action.task.id]: action.task
-            }
+            console.log("ACTION--",action)
+            // newState.task["notes"] = [...state.task.notes]
+            
+            newState= {...state}
+            
+            // console.log("state notes",newState.task.notes)
+            console.log("newState--",newState)
+            newState[action.task.id]= action.task
+            newState[action.task.id]["notes"]= state[action.task.id].notes
+            console.log("newState-- AFTER",newState)
+            
+            // newState[action.task.notes]= action.task.notes
+            // newState["notes"]={...state.notes}
+            // newState.task.notes={...state.notes}
+            return newState
+            // return {
+                // ...state,
+                // [action.task.id]: action.task,
+                // [action.task.notes]:{...state.notes}
+            // }
         
         case DELETE_TASK:
             newState = {...state}
