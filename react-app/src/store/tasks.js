@@ -173,11 +173,19 @@ const taskReducer = (state = initialState, action) => {
 
         case EDIT_TASK:
             console.log("ACTION--",action)
-            newState= {...state}
-            newState[action.task]["notes"]={...state.notes}
-            newState[action.task.id]= action.task
-            // newState["notes"]={...state.notes}
+            // newState.task["notes"] = [...state.task.notes]
             
+            newState= {...state}
+            
+            // console.log("state notes",newState.task.notes)
+            console.log("newState--",newState)
+            newState[action.task.id]= action.task
+            newState[action.task.id]["notes"]= state[action.task.id].notes
+            console.log("newState-- AFTER",newState)
+            
+            // newState[action.task.notes]= action.task.notes
+            // newState["notes"]={...state.notes}
+            // newState.task.notes={...state.notes}
             return newState
             // return {
                 // ...state,
