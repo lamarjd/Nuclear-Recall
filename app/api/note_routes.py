@@ -26,7 +26,7 @@ def post_note():
               )
           db.session.add(note)
           db.session.commit()
-      return make_response(note.to_dict(), 201)
+          return make_response(note.to_dict(), 201)
   else: return make_response("Unauthorized", 401)
 
 
