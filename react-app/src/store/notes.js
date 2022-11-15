@@ -44,7 +44,7 @@ export const getOneNote = (id) => async dispatch => {
 }
 
 export const createNoteThunk = (payload) => async dispatch => {
-    const response = await fetch('/api/notes/new_note',
+    const response = await fetch('/api/all/notes/new_note',
     {
         method: 'POST',
         headers: {
@@ -58,7 +58,7 @@ export const createNoteThunk = (payload) => async dispatch => {
         await dispatch(createNoteAction(data))
         return data
     } else { // any bad requests and errors
-        return data
+        throw new Error("Bad Note Thunk")
     }
 }
 

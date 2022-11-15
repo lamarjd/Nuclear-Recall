@@ -7,6 +7,8 @@ import { useState,useEffect } from 'react';
 import TaskForm from '../TaskForm';
 import AllTasks from '../TaskList';
 import AllLists from '../List';
+import NoteForm from '../NoteForm';
+
 function HomePage(){
 //   const sessionUser = useSelector(state => state.session.user);
 
@@ -24,6 +26,7 @@ let modalList = (
     <><AllTasks/>
 
        <AllLists/>
+      {/* <NoteForm/> */}
 
         <div>{modalList}</div>
     </>
