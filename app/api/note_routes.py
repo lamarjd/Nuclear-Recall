@@ -7,22 +7,23 @@ from datetime import datetime
 
 note_routes = Blueprint('notes', __name__)
 
-@note_routes.route('/')
+@note_routes.route('/notes')
 def get_all_notes():
   notes = Note.query.all()
   response = {"notes": [note.to_dict() for note in notes]}
   return make_response(response, 200)
 
 
-@note_routes.route("/new_note", methods=["GET","POST"])
-def post_note():
+@note_routes.route("/<int:id>/new_note", methods=["POST"])
+def post_note(id):
   if current_user.is_authenticated:
       form = NewNote()
       form['csrf_token'].data = request.cookies['csrf_token']
       if form.validate_on_submit():
           note = Note(
               body= form.data["body"],
-              task_id = form.data["task_id"]
+              task_id = id,
+              user_id = current_user.id
               )
           db.session.add(note)
           db.session.commit()
@@ -31,13 +32,13 @@ def post_note():
 
 
 
-@note_routes.route("/<int:id>")
+@note_routes.route("/notes/<int:id>")
 def single_note(id):
   note = Note.query.get(id)
   return make_response(note.to_dict(), 200)
 
 
-@note_routes.route("/<int:id>", methods=["DELETE"])
+@note_routes.route("/notes/<int:id>", methods=["DELETE"])
 def del_note(id):
   if current_user.is_authenticated:
     note = Note.query.get(id)

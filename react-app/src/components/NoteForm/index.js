@@ -9,30 +9,30 @@ function NoteForm({ filtered }) {
     const dispatch = useDispatch()
     const history = useHistory()
     console.log("Filtered task ID", filtered)
-    const { id } = filtered.id
+    const { id } = filtered
+    let task_id = id
     // const { taskId } = useParams();
     // console.log("task ID", taskId);
 
     const notes = useSelector((state) => Object.values(state.notes))
-    console.log("Note SELECTOR", notes)
+    const [body, setBody] = useState('');
 
-    const [noteBody, setNoteBody] = useState('');
-
-    useEffect(() => {
-        dispatch(getOneNote)
-    }, [dispatch, noteBody])
+    // useEffect(() => {
+    //     dispatch(getOneNote)
+    // }, [dispatch])
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         const payload = {
-            // taskId, // may want to remove
-            noteBody
+            body,
+            task_id
         }
-
-        let noteCreated = await dispatch(createNoteThunk(payload))
+        console.log("PAYLOAD------------------",payload)
+        let noteCreated = await dispatch(createNoteThunk(payload, id))
+        console.log(noteCreated)
         if (noteCreated) {
-            history.push(`/all`)
+            history.push(`/all/${id}`)
         }
     }
 
@@ -46,9 +46,9 @@ function NoteForm({ filtered }) {
           <input
             placeholder="Write Note here"
             type="text"
-            value={noteBody}
-            // required pattern="(?!\s+$)[a-zA-Z,'. ! ? -]+"
-            onChange={(e) => setNoteBody(e.target.value)}
+            value={body}
+
+            onChange={(e) => setBody(e.target.value)}
           />
         </label>
         <button className="NoteButton" type="submit">Create da Note</button>

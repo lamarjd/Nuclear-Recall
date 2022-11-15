@@ -14,6 +14,9 @@ export default function OneTask() {
   const { id } = useParams();
   const reduxstate = useSelector((state) => state.tasks);
   const thisUser = useSelector((state) => state.session.user);
+  const notesObj = useSelector((state) => state.notes)
+
+  console.log("NOTES OBJ", notesObj)
 
   const [isLoaded, setIsLoaded] = useState(false);
 

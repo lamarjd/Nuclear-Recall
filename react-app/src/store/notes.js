@@ -2,11 +2,19 @@ const ONE_NOTE = 'notes/one'
 const CREATE_NOTE = 'notes/new'
 const EDIT_NOTE = 'notes/edit'
 const DELETE_NOTE = 'notes/delete'
+const ALL_NOTES = 'notes/all'
 
 // ACTION CREATORS
 const oneNote = payload => {
     return {
         type: ONE_NOTE,
+        payload
+    }
+}
+
+const allNotes = payload => {
+    return {
+        type: ALL_NOTES,
         payload
     }
 }
@@ -31,7 +39,9 @@ const removeNoteAction = (noteId) => {
         noteId
     }
 }
-
+export const getAllNotes = () => async dispatch =>{
+    const response = await fetch(`/api/all/notes`)
+}
 // THUNKS
 export const getOneNote = (id) => async dispatch => {
     const response = await fetch(`/api/all/notes/${id}`)
@@ -43,8 +53,8 @@ export const getOneNote = (id) => async dispatch => {
     }
 }
 
-export const createNoteThunk = (payload) => async dispatch => {
-    const response = await fetch('/api/all/notes/new_note',
+export const createNoteThunk = (payload, id) => async dispatch => {
+    const response = await fetch(`/api/all/${id}/new_note`,
     {
         method: 'POST',
         headers: {
@@ -52,7 +62,7 @@ export const createNoteThunk = (payload) => async dispatch => {
         },
         body: JSON.stringify(payload)
     });
-    
+
     if (response.ok) {
         const data = await response.json()
         await dispatch(createNoteAction(data))
@@ -99,13 +109,14 @@ const noteReducer = (state=initialState, action) => {
             return newState
         }
 
-        case CREATE_NOTE: { 
+        case CREATE_NOTE: {
+            console.log("ACTION------------",action)
             newState = { ...state }
             newState[action.payload.id] = action.payload
             return newState
         }
 
-        case EDIT_NOTE: 
+        case EDIT_NOTE:
             return {
                 ...state,
                 [action.note.id]: action.note
