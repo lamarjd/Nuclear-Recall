@@ -5,10 +5,12 @@ import { createNoteThunk } from "../../store/notes";
 import { useHistory, useParams } from "react-router-dom";
 import { getOneNote } from "../../store/notes";
 
-function NoteForm() {
+function NoteForm({ filtered }) {
     const dispatch = useDispatch()
     const history = useHistory()
-    // const { taskId } = useParams()
+    console.log("Filtered task ID", filtered)
+    const { id } = filtered.id
+    // const { taskId } = useParams();
     // console.log("task ID", taskId);
 
     const notes = useSelector((state) => Object.values(state.notes))

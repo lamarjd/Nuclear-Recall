@@ -28,7 +28,7 @@ export default function OneTask() {
     isLoaded && (
       <div className="main">
         <h1>Tasks</h1>
-        <NoteForm/>
+        <NoteForm filtered={filtered}/>
         <EditForm filtered={filtered} />
         <div>{filtered.body}</div>
         <div> ---</div>
