@@ -5,6 +5,10 @@ import { Modal } from '../../context/Modal';
 import ListForm from '../ListModal/ListForm';
 import { useState,useEffect } from 'react';
 import TaskForm from '../TaskForm';
+import AllTasks from '../TaskList';
+import AllLists from '../List';
+import NoteForm from '../NoteForm';
+
 function HomePage(){
 //   const sessionUser = useSelector(state => state.session.user);
 
@@ -19,8 +23,11 @@ let modalList = (
 )}
 </div>)
   return (
-    <>
-        <div><TaskForm/></div>
+    <><AllTasks/>
+
+       <AllLists/>
+      {/* <NoteForm/> */}
+
         <div>{modalList}</div>
     </>
   );

@@ -351,7 +351,7 @@ Success
 URL: “/lists/:id
 
 
-### Update a list 
+### Create a list 
 
 
 Method: DELETE
