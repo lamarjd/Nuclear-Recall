@@ -13,6 +13,7 @@ class Note(db.Model):
     task_id = db.Column(db.Integer, db.ForeignKey('tasks.id'))
     created_at = db.Column(db.DateTime, default= datetime.utcnow)
     updated_at = db.Column(db.DateTime, default= datetime.utcnow)
+    # cohort = db.relationship("Cohort", back_populates="students")
 
 
     def to_dict(self):

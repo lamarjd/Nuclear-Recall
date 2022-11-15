@@ -51,12 +51,12 @@ function App() {
             CLICK HERE TO GOTO TASK HOME PAGE
           </NavLink>
         </Route>
-        <Route path='/all/:id'>
+        <ProtectedRoute path='/all/:id'>
           <OneTask/>
-        </Route>
-        <Route path='/all' exact={true} >
+        </ProtectedRoute>
+        <ProtectedRoute path='/all' exact={true} >
           <HomePage/>
-        </Route>
+        </ProtectedRoute>
        
       </Switch>
     </BrowserRouter>

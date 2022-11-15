@@ -16,7 +16,7 @@ class Task(db.Model):
     due_date = db.Column(db.Date)
     created_at = db.Column(db.DateTime, default= datetime.utcnow)
     updated_at = db.Column(db.DateTime, default= datetime.utcnow)
-
+    parent = db.relationship("Note",cascade="all,delete",backref="task")
     # May need model relationships here
     #   cohort = db.relationship("Cohort", back_populates="students")
 
