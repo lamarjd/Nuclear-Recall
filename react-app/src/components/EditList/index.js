@@ -6,9 +6,9 @@ import { createListThunk, editListThunk } from "../../store/lists"
 
 
 function EditList({list}) {
-    const {id,name} = list
+    // const {id,name} = list
   const dispatch = useDispatch();
-  const [listName, setListName] = useState(name)
+  const [name, setListName] = useState()
   const history = useHistory()
     // useEffect(()=>{
     // setListName(list.name)
@@ -37,7 +37,7 @@ function EditList({list}) {
           type="text"
           required pattern="(?!\s+$)[a-zA-Z,'. ! ? -]+"
           onChange={(e) => setListName(e.target.value)}
-          value={listName}
+          value={name}
         />
       </label>
       <button className="ListButton" type="submit">Edit the list</button>
