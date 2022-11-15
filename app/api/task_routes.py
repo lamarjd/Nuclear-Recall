@@ -75,11 +75,17 @@ def edit_task(id):
         form = NewTask()
         form['csrf_token'].data = request.cookies['csrf_token']
         one_task = Task.query.get(id)
+        task_notes = Note.query.filter(Note.task_id == id).all()
+        something = [note.to_dict() for note in task_notes]
+        print("one task before",one_task)
+        one_task.notes.append(something)
+        print("one task after",one_task)
         if(not one_task):
             return "<h1>No Task</h1>"
         if one_task.user_id == current_user.id:
             if form.validate_on_submit():
                 one_task.body = form.data["body"]
+               
                 db.session.commit()
             # return render_template('task_form.html', form=form)
             return make_response(one_task.to_dict(), 200)
