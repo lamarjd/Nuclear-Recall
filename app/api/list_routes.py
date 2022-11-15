@@ -26,8 +26,11 @@ def get_all_lists():
                 if task.list_id == lis.id:
                     task_of_tasks.append(task.to_dict())
             one_list["Tasks"] = task_of_tasks
-    # return lists_of_lists.to_dict()
         return make_response(jsonify({"lists":list_of_lists}), 200)
+    # return lists_of_lists.to_dict()
+
+#         return make_response(jsonify({"lists":list_of_lists}), 200)
+
 
 @list_routes.route('/<int:id>')
 def get_one_List(id):
@@ -40,7 +43,7 @@ def get_one_List(id):
 
     return new_lis
 
-@list_routes.route("/new_list", methods=["GET","POST"])
+@list_routes.route("/new_list", methods=["POST"])
 def new_list():
     # if current_user.is_authenticated:
         form = NewList()
@@ -55,7 +58,7 @@ def new_list():
         return make_response(lis.to_dict(), 201)
     # else: return make_response("Unauthorized", 401)
 
-@list_routes.route("/<int:id>", methods=["GET","DELETE"])
+@list_routes.route("/<int:id>", methods=["DELETE"])
 def del_list(id):
     # if current_user.is_authenticated:
         lis = List.query.get(id)
@@ -68,7 +71,7 @@ def del_list(id):
                     db.session.delete(task)
             db.session.delete(lis)
             db.session.commit()
-            return make_response("Successfully deleted", 200)
+            return make_response("HELP", 200)
         else: return make_response("Unauthorized", 401)
     # return make_response("Unauthorized", 401)
 

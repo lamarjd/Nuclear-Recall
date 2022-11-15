@@ -5,11 +5,6 @@ const CREATE_TASK = 'tasks/new'
 const EDIT_TASK = '/tasks/edit'
 const DELETE_TASK = 'tasks/delete'
 
-
-
-
-
-
 const getAllTasksAction = payload => {
 
     return {
