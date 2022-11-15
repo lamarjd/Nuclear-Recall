@@ -29,7 +29,7 @@ function TaskForm() {
           placeholder="Write Task here"
           type="text"
           value={body}
-          required pattern="(?!\s+$)[a-zA-Z,'. ! ? -]+"
+          // required pattern="(?!\s+$)[a-zA-Z,'. ! ? -]+"
           onChange={(e) => setBody(e.target.value)}
         />
       </label>
