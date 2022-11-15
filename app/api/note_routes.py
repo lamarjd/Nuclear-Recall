@@ -38,7 +38,7 @@ def single_note(id):
   return make_response(note.to_dict(), 200)
 
 
-@note_routes.route("/", methods=["DELETE"])
+@note_routes.route("/notes/<int:id>", methods=["DELETE"])
 def del_note(id):
   if current_user.is_authenticated:
     note = Note.query.get(id)

@@ -92,7 +92,7 @@ export const editNoteThunk = (note, id) => async dispatch => {
     throw new Error ("Edit Note Thunk Bad")
 }
 
-export const deleteNoteThunk = (id, noteId) => async dispatch => {
+export const deleteNoteThunk = (noteId) => async dispatch => {
     const response = await fetch(`/api/all/notes/${noteId}`, {
         method: "DELETE",
         headers: {"Content-Type": "application/json"}
@@ -140,7 +140,7 @@ const noteReducer = (state=initialState, action) => {
 
         case DELETE_NOTE:
             newState = {...state}
-            delete newState[action.note.id]
+            delete newState[action.noteId]
             return newState;
 
         default: {
