@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
 import { useHistory } from 'react-router-dom'
@@ -10,16 +10,19 @@ function EditList({list}) {
   const dispatch = useDispatch();
   const [listName, setListName] = useState(name)
   const history = useHistory()
-
+    // useEffect(()=>{
+    // setListName(list.name)
+    // },[list])
     console.log("list",list)
+    console.log("list:id",list.id)
   const handleSubmit = async (e) => {
     e.preventDefault();
     const payload = {
-      name,
-      id
+      name
+      
     }
     console.log("payload",payload)
-    let listUpdated = await dispatch(editListThunk(payload,id))
+    let listUpdated = await dispatch(editListThunk(payload,list.id))
     if (listUpdated) {
       history.push(`/all`)
     }

@@ -29,20 +29,20 @@ def get_all_lists():
     # return lists_of_lists.to_dict()
         return make_response(jsonify({"lists":list_of_lists}), 200)
 
-# @list_routes.route('/<int:id>')
-# def get_one_(id):
-#     lis = List.query.get(id)
-#     new_lis = lis.to_dict()
+@list_routes.route('/<int:id>')
+def get_one_List(id):
+    lis = List.query.get(id)
+    new_lis = lis.to_dict()
 
-#     list_task = Task.query.filter(task.list_id == id).all()
-#     new = [task.to_dict() for task in list_notes]
-#     new_list["tasks"] = new
+    # list_task = Task.query.filter(task.list_id == id).all()
+    # new = [task.to_dict() for task in list_task]
+    # new_lis["tasks"] = new
 
-#     return new_lis
+    return new_lis
 
 @list_routes.route("/new_list", methods=["GET","POST"])
 def new_list():
-    if current_user.is_authenticated:
+    # if current_user.is_authenticated:
         form = NewList()
         form['csrf_token'].data = request.cookies['csrf_token']
         if form.validate_on_submit():
@@ -53,11 +53,11 @@ def new_list():
             db.session.add(lis)
             db.session.commit()
         return make_response(lis.to_dict(), 201)
-    else: return make_response("Unauthorized", 401)
+    # else: return make_response("Unauthorized", 401)
 
 @list_routes.route("/<int:id>", methods=["GET","DELETE"])
 def del_list(id):
-    if current_user.is_authenticated:
+    # if current_user.is_authenticated:
         lis = List.query.get(id)
         list_tasks = Task.query.filter(lis.id==Task.list_id).all()
         if(not lis):
@@ -70,12 +70,12 @@ def del_list(id):
             db.session.commit()
             return make_response("Successfully deleted", 200)
         else: return make_response("Unauthorized", 401)
-    return make_response("Unauthorized", 401)
+    # return make_response("Unauthorized", 401)
 
 
 @list_routes.route("/<int:id>", methods=["PUT"])
 def edit_list(id):
-    if current_user.is_authenticated:
+    # if current_user.is_authenticated:
         form = NewList()
         one_list = List.query.get(id)
         if(not one_list):
@@ -89,4 +89,4 @@ def edit_list(id):
             return make_response(one_list.to_dict(), 200)
         else: return make_response("Unauthorized", 401)
         # return render_template('list_form.html',form=form)
-    else: return make_response("Unauthorized", 401)
+    # else: return make_response("Unauthorized", 401)

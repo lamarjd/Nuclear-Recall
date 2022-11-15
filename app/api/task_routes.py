@@ -71,7 +71,7 @@ def delete_task(id):
 
 @task_routes.route("/<int:id>", methods=["PUT"])
 def edit_task(id):
-    if current_user.is_authenticated:
+    # if current_user.is_authenticated:
         form = NewTask()
         form['csrf_token'].data = request.cookies['csrf_token']
         one_task = Task.query.get(id)
@@ -85,13 +85,13 @@ def edit_task(id):
             return make_response(one_task.to_dict(), 200)
         else:
             return make_response("Unauthorized", 401)
-    else:
-        return make_response("Unauthorized", 401)
+    # else:
+    #     return make_response("Unauthorized", 401)
             # return "<h1>Task Edited</h1>"
 
 @task_routes.route("/<int:id>/list", methods=["PUT"])
 def task_to_list(id):
-    if current_user.is_authenticated:
+    # if current_user.is_authenticated:
         form = NewTask()
         form['csrf_token'].data = request.cookies['csrf_token']
         one_task = Task.query.get(id)

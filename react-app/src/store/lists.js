@@ -118,9 +118,11 @@ export const editListThunk = (list,id) => async dispatch => {
         },
         body: JSON.stringify(list)
     });
+    console.log("response",response)
     if (response.ok) {
         const list = await response.json();
         dispatch(editListAction(list))
+        console.log("edit list ",list)
         return list
     }
     throw new Error("Error with list Thunk")
