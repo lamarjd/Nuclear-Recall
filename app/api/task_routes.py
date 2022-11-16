@@ -130,7 +130,7 @@ def edit_task_list(id):
         if one_task.user_id == current_user.id:
             # if form.validate_on_submit():
             one_task.body = one_task.body
-            one_task.list_id= 2
+            one_task.list_id= form.data["list_id"]
             db.session.commit()
             print("one_task AGAIN----------",one_task.to_dict())
             return make_response(one_task.to_dict(), 200)
