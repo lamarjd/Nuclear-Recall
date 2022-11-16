@@ -1,7 +1,7 @@
 import { Route } from "react-router-dom";
 import { useSelector } from "react-redux";
-// import Song from "../Songs/Song";
-// import LoginFormModal from "../LoginFormModal";
+
+import LoginFormModal from "../auth/LoginFormModal/index.js";
 // import SignupFormModal from "../SignupFormModal";
 import logo from "../../assets/mushroom2.png";
 // import splash2 from "../assets/images/splash2.jpg";
@@ -23,10 +23,7 @@ function SplashPage({ user }) {
               </div>
 
               <div className="top-right">
-                {/* <Route exact path="/">
-                  <LoginFormModal />
-                  <SignupFormModal />
-                </Route> */}
+                
               </div>
 
               <div className="center">
