@@ -108,6 +108,7 @@ def task_to_list(id):
         if form.validate_on_submit():
             pls = Task(
                     body = form.data["body"],
+                    user_id = current_user.id,
                     list_id = id)
             db.session.add(pls)
             db.session.commit()
