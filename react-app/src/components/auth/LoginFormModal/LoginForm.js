@@ -5,6 +5,7 @@ import { login } from '../../../store/session';
 import './loginForm.css'
 
 const LoginForm = () => {
+  
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -26,6 +27,12 @@ const LoginForm = () => {
   const updatePassword = (e) => {
     setPassword(e.target.value);
   };
+
+const demoUser = () => {
+  setEmail('demo@aa.io');
+  setPassword('password')
+}
+
 
   if (user) {
     return <Redirect to='/' />;
@@ -63,6 +70,8 @@ const LoginForm = () => {
         
       </div>
       <button id='loginButton' type='submit'>Login</button>
+      <button className="demo" onClick={demoUser}>Demo User</button>
+
     </form>
   );
 };

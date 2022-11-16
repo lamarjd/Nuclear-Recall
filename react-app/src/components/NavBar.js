@@ -18,9 +18,9 @@ const NavBar = ({ user }) => {
 
       <div className="nav-wrapper">
         <div className="nav-content">
-          <div className="bert">
+          {/* <div className="bert"> */}
             {/* <img id="bert" alt="bert" src={bert}/> */}
-          </div>
+          {/* </div> */}
         <div>
           <NavLink to="/" exact={true} activeClassName="active">
             <p>Home</p>
