@@ -16,6 +16,8 @@ const NavBar = ({ user }) => {
     <nav>
 
       <div className="nav-wrapper">
+        <div className="nav-content">
+
         
         <div>
           <NavLink to="/" exact={true} activeClassName="active">
@@ -32,12 +34,12 @@ const NavBar = ({ user }) => {
 
       {!user &&
       <>
-        <div>
+        {/* <div> */}
           
-          <NavLink to="/login" exact={true} activeClassName="active">        
+          {/* <NavLink to="/login" exact={true} activeClassName="active">        
               <p><LoginFormModal /></p>        
           </NavLink>
-        </div>
+        </div> */}
 
         <div>
           <NavLink to="/sign-up" exact={true} activeClassName="active">
@@ -45,11 +47,14 @@ const NavBar = ({ user }) => {
           </NavLink>
         </div>
       </>
-      
       }
+
+      {user &&
         <LogoutButton />      
+      }
       
       
+      </div>
       </div>
     </nav>
   );
