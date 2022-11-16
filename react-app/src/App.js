@@ -34,11 +34,13 @@ function App() {
     <BrowserRouter>
       <NavBar />
       <Switch>
-        <Route path='/'>
+        <Route path='/' exact={true}>
           <SplashPage/>
+          <LoginFormModal />
         </Route>
         <Route path='/login' exact={true}>
           <LoginFormModal />
+          <SplashPage/>
         </Route>
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
