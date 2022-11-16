@@ -17,7 +17,7 @@ export default function AllTasks(){
 
     const dispatch = useDispatch();
     const reduxstate = useSelector((state) => state.tasks);
-
+    const listsState = useSelector((state)=> state.lists)
 
     const thisUser = useSelector(state => state.session.user);
     console.log("user",thisUser)
@@ -26,7 +26,7 @@ export default function AllTasks(){
     useEffect(() => {
         dispatch(fetchTasks())
             .then(() => setIsLoaded(true))
-    }, [dispatch])
+    }, [dispatch,listsState])
 
 
     const taskList = Object.values(reduxstate)
@@ -35,7 +35,7 @@ export default function AllTasks(){
     return isLoaded && (
         <div className='main'>
 
-        <h1>Tasks</h1>
+        <h1>Tasksss</h1>
         <TaskForm/>
         {taskList.map(task => (
             <div>

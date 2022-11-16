@@ -142,7 +142,7 @@ const listReducer = (state = initialState, action) => {
 
     switch (action.type) {
         case ALL_LISTS: {
-            console.log("STATE", state)
+            // console.log("STATE", state)
             action.payload.lists.forEach(list => {
                 newState[list.id] = list
             })
@@ -150,8 +150,8 @@ const listReducer = (state = initialState, action) => {
         }
 
         case ONE_LIST: {
-            console.log("STATE",state)
-            console.log("ACTION-----------", action)
+            // console.log("STATE",state)
+            // console.log("ACTION-----------", action)
             newState = {...state}
             newState[action.payload.id] = action.payload
             return newState
@@ -170,8 +170,11 @@ const listReducer = (state = initialState, action) => {
             }
 
         case DELETE_LIST: {
-            newState = { ...state }
+            newState = { ...state}
+            console.log("newState",newState)
+            console.log("ACTION--",action)
             delete newState[action.listId]
+            console.log("newState AFTER----",newState)
             return newState
         }
 
