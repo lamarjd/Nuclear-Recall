@@ -1,9 +1,10 @@
 import React from 'react'
-import { useEffect, useState,dispatch } from 'react';
+import { useEffect, useState} from 'react';
 import * as sessionActions from '../../store/session.js';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useHistory, useParams } from 'react-router-dom';
 import {editTaskAddListThunk} from '../../store/tasks';
+import { fetchLists } from '../../store/lists.js';
 
 export default function EditTaskListForm({filtered}){
     // const {id} = useParams()
@@ -16,11 +17,12 @@ export default function EditTaskListForm({filtered}){
     const [name,setName]= useState(listObj[0]?.name)
     const [list_id,setList_id] = useState("")
     const dispatch = useDispatch()
-  
+
     useEffect(() => {
-      
-      }, [dispatch,reduxList,listObj,name]);
-    
+
+      }, [dispatch,reduxList,listObj]);
+
+
       const handleSubmit = async (e) => {
         e.preventDefault();
         console.log("list obj",listObj)
@@ -32,12 +34,11 @@ export default function EditTaskListForm({filtered}){
         console.log("THE LIST IDDD",id)
         console.log("NAME-----",name)
         const payload = {
-            list_id:id,
-            name
-         
+            list_id:id
+
         }
-        
-        
+        console.log("task ID----",task_id)
+
         let taskEdited = await dispatch(editTaskAddListThunk(payload,task_id))
         if (taskEdited) {
             // history.push(`/all`)
@@ -50,7 +51,7 @@ return (
         <select
         value={name}
         onChange={e => setName(e.target.value)}
-        
+
         >
         {listObj?.map(list => (
             <option key={list.id}>
@@ -61,7 +62,7 @@ return (
           <button type="submit"> click this</button>
           </form>
     </div>
-   
+
 )
- 
+
 }
