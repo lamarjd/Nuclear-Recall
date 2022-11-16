@@ -19,7 +19,7 @@ export default function EditTaskListForm({filtered}){
     const dispatch = useDispatch()
 
     useEffect(() => {
-
+       
       }, [dispatch,reduxList,listObj]);
 
 
@@ -42,6 +42,7 @@ export default function EditTaskListForm({filtered}){
         let taskEdited = await dispatch(editTaskAddListThunk(payload,task_id))
         if (taskEdited) {
             // history.push(`/all`)
+            console.log("TASK EDITED",taskEdited)
         }
     }
 
@@ -55,7 +56,7 @@ return (
         >
         {listObj?.map(list => (
             <option key={list.id}>
-              {list.name}{list.id}
+              {list.name}
             </option>
           ))}
           </select>
