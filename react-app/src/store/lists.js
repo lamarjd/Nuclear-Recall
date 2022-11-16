@@ -63,7 +63,7 @@ export const fetchLists = () => async dispatch => {
 
 export const fetchOneList = (id) => async dispatch => {
 
-    const res = await fetch(`/api/all/lists.${id}`)
+    const res = await fetch(`/api/all/lists/${id}`)
 
     if (res.ok) {
         const singleList = await res.json()
