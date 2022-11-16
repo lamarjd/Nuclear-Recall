@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Route } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import { useSelector } from 'react-redux';
 import LogoutButton from "./auth/LogoutButton";
@@ -7,9 +8,9 @@ import "./NavBar.css";
 
 import './navbar.css'
 
-const NavBar = () => {
-  const user = useSelector(state => state.session.user)
-  // console.log("current user" , user)
+const NavBar = ({ user }) => {
+  // const user = useSelector(state => state.session.user)
+  console.log("current user" , user)
 
   return ( 
     <nav>
@@ -29,9 +30,12 @@ const NavBar = () => {
           </NavLink>
         </div>
 
+      {!user &&
+      <>
         <div>
-          <NavLink to="/login" exact={true} activeClassName="active">
-                  <p><LoginFormModal /></p>
+          
+          <NavLink to="/login" exact={true} activeClassName="active">        
+              <p><LoginFormModal /></p>        
           </NavLink>
         </div>
 
@@ -40,7 +44,9 @@ const NavBar = () => {
             <p>Sign Up</p>
           </NavLink>
         </div>
+      </>
       
+      }
         <LogoutButton />      
       
       

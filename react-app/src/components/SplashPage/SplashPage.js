@@ -14,7 +14,6 @@ function SplashPage({ user }) {
 
   return (
     <>
-      {!user && (
         <div className="splash-container">
           {/* <div className="splash-content"> */}
             <div className="splash-picture-container">
@@ -22,21 +21,23 @@ function SplashPage({ user }) {
                 <img id="logo" alt="logo" src={logo} />
               </div>
 
+      {!user && (
               <div className="center">
                 <h1>Say no to the Nuclear Thought Fallout</h1>
                 {/* <h3>It's time to take charge of your day and start being productive, which means to</h3>  */}
                 
                 <h3 className="underline">Log in and STOP FORGETTING THINGS</h3>
 
-                {/* <h5>For Real Just Stop</h5> */}
-                <LoginFormModal/>
+                {/* <Route path="/login"> */}
+                  <LoginFormModal/>
+                {/* </Route> */}
                 
               </div>
+                )}
             </div>{" "}
             <br />
           {/* </div> */}
         </div>
-      )}
     </>
   );
 }

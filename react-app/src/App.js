@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch,NavLink } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import LoginFormModal from './components/auth/LoginFormModal/index';
 import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/NavBar';
@@ -19,6 +19,9 @@ function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
 
+  const user = useSelector((state) => state.session.user)
+
+
   useEffect(() => {
     (async() => {
       await dispatch(authenticate());
@@ -32,15 +35,15 @@ function App() {
 
   return (
     <BrowserRouter>
-      <NavBar />
+      <NavBar user={user}/>
       <Switch>
         <Route path='/' exact={true}>
-          <SplashPage/>
-          <LoginFormModal />
+          <SplashPage user={user}/>
+          {/* <LoginFormModal /> */}
         </Route>
         <Route path='/login' exact={true}>
-          {/* <LoginFormModal /> */}
-          <SplashPage/>
+          <LoginFormModal />
+          {/* <SplashPage/> */}
         </Route>
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
