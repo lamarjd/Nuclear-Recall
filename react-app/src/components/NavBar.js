@@ -1,38 +1,49 @@
-
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-import LogoutButton from './auth/LogoutButton';
+import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
+import { useSelector } from 'react-redux';
+import LogoutButton from "./auth/LogoutButton";
+import "./NavBar.css";
 
 const NavBar = () => {
-  return (
+  const user = useSelector(state => state.session.user)
+  // console.log("current user" , user)
+
+  return ( 
     <nav>
-      <ul>
-        <li>
-          <NavLink to='/' exact={true} activeClassName='active'>
-            Home
+
+      <div className="nav-wrapper">
+        
+        <div>
+          <NavLink to="/" exact={true} activeClassName="active">
+            <p>Home</p>
           </NavLink>
-        </li>
-        <li>
-          <NavLink to='/login' exact={true} activeClassName='active'>
-            Login
+        </div>
+
+
+        <div>
+          <NavLink to="/users" exact={true} activeClassName="active">
+            <p>Users</p>
           </NavLink>
-        </li>
-        <li>
-          <NavLink to='/sign-up' exact={true} activeClassName='active'>
-            Sign Up
+        </div>
+
+        <div>
+          <NavLink to="/login" exact={true} activeClassName="active">
+            <p>Login</p>
           </NavLink>
-        </li>
-        <li>
-          <NavLink to='/users' exact={true} activeClassName='active'>
-            Users
+        </div>
+
+        <div>
+          <NavLink to="/sign-up" exact={true} activeClassName="active">
+            <p>Sign Up</p>
           </NavLink>
-        </li>
-        <li>
-          <LogoutButton />
-        </li>
-      </ul>
+        </div>
+      
+        <LogoutButton />      
+      
+      
+      </div>
     </nav>
   );
-}
+};
 
 export default NavBar;

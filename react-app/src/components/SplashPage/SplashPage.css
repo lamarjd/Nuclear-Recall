@@ -1,0 +1,14 @@
+.splash-container {
+    border: 2px solid red;
+}
+
+.splash-content {
+    border: 2px solid black
+}
+
+.splash-picture-container {
+    border: 2px solid green;
+    /* display: flex; */
+    /* justify-content: center; */
+}
+
