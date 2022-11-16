@@ -124,16 +124,15 @@ def edit_task_list(id):
         form['csrf_token'].data = request.cookies['csrf_token']
         one_task = Task.query.get(id)
         task_notes = Note.query.filter(Note.task_id == id).all()
+        print("one_task BEFFOORE----------",one_task.to_dict())
         if(not one_task):
             return "<h1>No Task</h1>"
         if one_task.user_id == current_user.id:
-            print("SOMETHING----------------")
-            print("FORMM---------------------",form.data)
             # if form.validate_on_submit():
-                
-            print("oifjsdiofjso-----",form.data)
-            list_id= form.data["list_id"]
+            one_task.body = one_task.body
+            one_task.list_id= 2
             db.session.commit()
+            print("one_task AGAIN----------",one_task.to_dict())
             return make_response(one_task.to_dict(), 200)
         else:
             return make_response("Unauthorized", 401)

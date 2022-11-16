@@ -18,8 +18,8 @@ export default function EditTaskListForm({filtered}){
     const dispatch = useDispatch()
   
     useEffect(() => {
-        
-      }, [dispatch,reduxList]);
+      
+      }, [dispatch,reduxList,listObj]);
 
 
       const handleSubmit = async (e) => {
