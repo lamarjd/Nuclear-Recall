@@ -4,10 +4,10 @@ import * as sessionActions from '../../store/session.js';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useHistory, useParams } from 'react-router-dom';
 import {editTaskAddListThunk} from '../../store/tasks';
-import { fetchLists } from '../../store/lists.js';
+
 
 export default function EditTaskListForm({filtered}){
-    // const {id} = useParams()
+
     console.log("filtereed",filtered)
     let task_id = filtered?.id
     const reduxstate = useSelector((state) => state.tasks);
@@ -19,8 +19,8 @@ export default function EditTaskListForm({filtered}){
     const dispatch = useDispatch()
 
     useEffect(() => {
-       
-      }, [dispatch,reduxList,listObj]);
+
+      }, [dispatch]);
 
 
       const handleSubmit = async (e) => {
