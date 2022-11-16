@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
-import { signUp } from '../../store/session';
+import { signUp } from '../../../store/session';
+import "./signUpForm.css"
+import bert from './bertTheTurtle.png'
+
+
 
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
@@ -54,24 +58,30 @@ const SignUpForm = () => {
   }
 
   return (
-    <form onSubmit={onSignUp}>
+    <div className='outermostSignupDiv'>
+      <div className='imageSignupDiv'>
+      <img src={bert} alt="Girl in a jacket" id='signupImage'/> 
+      </div>
+    <form onSubmit={onSignUp} id='signupForm'>
       <div>
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>
         ))}
       </div>
-      <div>
-        <label>User Name</label>
+      <div className='outerSignupDiv'>
+        <label className='emailSignupLabel'>User Name</label>
         <input
+          className='signupemailbox'
           type='text'
           name='username'
           onChange={updateUsername}
           value={username}
         ></input>
       </div>
-      <div>
-        <label>Email</label>
+      <div className='outerSignupDiv'>
+        <label className='emailSignupLabel'>Email</label>
         <input
+          className='signupemailbox'
           type='text'
           name='email'
           onChange={updateEmail}
@@ -79,9 +89,10 @@ const SignUpForm = () => {
         ></input>
       </div>
     
-      <div>
-          <label>First Name</label>
+      <div className='outerSignupDiv'>
+          <label className='emailSignupLabel'>First Name</label>
           <input
+          className='signupemailbox'
           type='text'
           name='firstName'
           onChange={updateFirstName}
@@ -89,9 +100,10 @@ const SignUpForm = () => {
         ></input>
       </div>
 
-      <div>
-          <label>Last Name</label>
+      <div className='outerSignupDiv'>
+          <label className='emailSignupLabel'>Last Name</label>
           <input
+          className='signupemailbox'
           type='text'
           name='lastName'
           onChange={updateLastName}
@@ -99,9 +111,10 @@ const SignUpForm = () => {
         ></input>
       </div>
 
-      <div>
-        <label>Password</label>
+      <div className='outerSignupDiv'>
+        <label className='emailSignupLabel'>Password</label>
         <input
+          className='signupemailbox'
           type='password'
           name='password'
           onChange={updatePassword}
@@ -109,9 +122,10 @@ const SignUpForm = () => {
         ></input>
       </div>
 
-      <div>
-        <label>Repeat Password</label>
+      <div className='outerSignupDiv'>
+        <label className='emailSignupLabel'>Repeat Password</label>
         <input
+          className='signupemailbox'
           type='password'
           name='repeat_password'
           onChange={updateRepeatPassword}
@@ -119,8 +133,9 @@ const SignUpForm = () => {
           required={true}
         ></input>
       </div>
-      <button type='submit'>Sign Up</button>
+      <button id='signupButton' type='submit'>Sign Up</button>
     </form>
+    </div>
   );
 };
 
