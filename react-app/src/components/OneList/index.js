@@ -23,22 +23,21 @@ export default function OneList(){
 
   const list = Object.values(reduxstate)
   const filtered = list.filter(list => list.id === +id)[0]
-  console.log("FILTERED",filtered)
-  const tasks = filtered.Tasks
-  console.log("TASKS-----",tasks)
+  console.log("FILTERED---------", filtered)
+  const tasks = filtered.tasks
+
+  console.log("TASKS-----------", tasks)
+
 
   return isLoaded && (
-    <div>
 
+    <div>
         <h1>Tasks</h1>
         {tasks?.map(task => (
           <div>
             <p>{task?.body}</p>
           </div>
         ))}
-
-
-
     </div>
   )
 

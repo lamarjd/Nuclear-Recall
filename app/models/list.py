@@ -15,6 +15,7 @@ class List(db.Model):
     due_date = db.Column(db.Date)
     created_at = db.Column(db.DateTime, default= datetime.utcnow)
     updated_at = db.Column(db.DateTime, default= datetime.utcnow)
+    
 
     def to_dict(self):
         return {
