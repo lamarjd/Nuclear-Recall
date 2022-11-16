@@ -1,4 +1,5 @@
 import { Route } from "react-router-dom";
+import { useSelector } from "react-redux";
 // import Song from "../Songs/Song";
 // import LoginFormModal from "../LoginFormModal";
 // import SignupFormModal from "../SignupFormModal";
@@ -7,6 +8,10 @@ import logo from "../../assets/mushroom2.png";
 import "./SplashPage.css";
 
 function SplashPage({ user }) {
+    // const user = useSelector((state) => state.session.user)
+
+    // console.log("current user", currentUser)
+
   return (
     <>
       {!user && (
@@ -25,9 +30,14 @@ function SplashPage({ user }) {
               </div>
 
               <div className="center">
-                <h1>Welcome to Cloud 9</h1>
-                <h3>Join the community and start sharing your music today.</h3>
-                <h5>For Artists, by Artists</h5>
+                <h1>Say no to the Nuclear Fallout</h1>
+                <h3>It's time to take charge of your day and start being productive, which means to</h3> 
+                
+                <h3 className="underline">STOP FORGETTING THINGS</h3>
+
+                <h5>For Real Just Stop</h5>
+        
+                
               </div>
             </div>{" "}
             <br />

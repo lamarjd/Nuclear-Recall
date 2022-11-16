@@ -1,0 +1,8 @@
+.nav-wrapper {
+    border: 2px solid black;
+    display: grid;
+    grid-template-areas: 
+    'left center center right'; 
+    justify-items: center;
+
+}
