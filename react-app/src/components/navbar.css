@@ -1,0 +1,23 @@
+.navnavbar{
+    display: flex;
+    height: 50px;
+    width: 100vw;
+    justify-content: space-around;
+    align-items: center;
+    
+}
+
+
+.listnavbar{
+    flex-direction: row;
+    list-style-type: none;
+    color: yellow;
+}
+.listnavbar:active{
+    color: yellow;
+}
+
+#navidout{
+    background-color: #67cef1;
+    width: 100vw;
+}
