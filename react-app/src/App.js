@@ -52,13 +52,13 @@ function App() {
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
-        <Route path='/' exact={true} >
+        {/* <Route path='/' exact={true} >
           <h1>My Home Page</h1>
 
           <NavLink to='/all' >
             CLICK HERE TO GOTO TASK HOME PAGE
           </NavLink>
-        </Route>
+        </Route> */}
         <ProtectedRoute path="/all/lists/:id">
           <OneList/>
         </ProtectedRoute>

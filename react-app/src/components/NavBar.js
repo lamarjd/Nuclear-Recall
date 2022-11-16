@@ -21,9 +21,12 @@ const NavBar = ({ user }) => {
           {/* <div className="bert"> */}
             {/* <img id="bert" alt="bert" src={bert}/> */}
           {/* </div> */}
+
         <div>
-          <NavLink to="/" exact={true} activeClassName="active">
-            <p>Home</p>
+          <NavLink to="/all" exact={true} activeClassName="active">
+          {!user ? 
+          ( <p>Home</p> ) : ( <p>Tasks</p> )
+          }
           </NavLink>
         </div>
 
