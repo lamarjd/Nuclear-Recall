@@ -13,6 +13,7 @@ import TaskForm from './components/TaskForm';
 import AllTasks from './components/TaskList';
 import OneTask from './components/OneTask';
 import OneList from './components/OneList';
+import SplashPage from './components/SplashPage/SplashPage';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -33,6 +34,9 @@ function App() {
     <BrowserRouter>
       <NavBar />
       <Switch>
+        <Route path='/'>
+          <SplashPage/>
+        </Route>
         <Route path='/login' exact={true}>
           <LoginForm />
         </Route>
