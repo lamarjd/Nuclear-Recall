@@ -114,3 +114,26 @@ def task_to_list(id):
             db.session.commit()
             # print("one_task",one_task.to_dict())
         return make_response(pls.to_dict(), 200)
+
+
+
+@task_routes.route("/<int:id>/listEdit", methods=["PUT"])
+def edit_task_list(id):
+        print("SOMETHING")
+        form = NewTask()
+        form['csrf_token'].data = request.cookies['csrf_token']
+        one_task = Task.query.get(id)
+        task_notes = Note.query.filter(Note.task_id == id).all()
+        if(not one_task):
+            return "<h1>No Task</h1>"
+        if one_task.user_id == current_user.id:
+            print("SOMETHING----------------")
+            print("FORMM---------------------",form.data)
+            # if form.validate_on_submit():
+                
+            print("oifjsdiofjso-----",form.data)
+            list_id= form.data["list_id"]
+            db.session.commit()
+            return make_response(one_task.to_dict(), 200)
+        else:
+            return make_response("Unauthorized", 401)

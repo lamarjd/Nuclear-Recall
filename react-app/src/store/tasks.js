@@ -126,7 +126,24 @@ export const editTaskThunk = (task,id) => async dispatch => {
     // error handling
     throw new Error("Not this time")
 }
-
+export const editTaskAddListThunk = (task,id) => async dispatch => {
+    console.log("task---",task)
+    console.log("task id---",id)
+    const response = await fetch(`/api/all/${id}/listEdit`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(task)
+    });
+    if (response.ok) {
+        const task = await response.json();
+        dispatch(editTaskAction(task))
+        return task
+    }
+    // error handling
+    throw new Error("Not this time")
+}
 
 export const deleteTaskThunk = (taskId) => async dispatch => {
     const response = await fetch(`/api/all/${taskId}`, {
