@@ -3,6 +3,7 @@ import { Route } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import { useSelector } from 'react-redux';
 import LogoutButton from "./auth/LogoutButton";
+import bert from "../assets/bert.PNG"
 import LoginFormModal from './auth/LoginFormModal/index'
 import "./NavBar.css";
 
@@ -17,8 +18,9 @@ const NavBar = ({ user }) => {
 
       <div className="nav-wrapper">
         <div className="nav-content">
-
-        
+          <div className="bert">
+            {/* <img id="bert" alt="bert" src={bert}/> */}
+          </div>
         <div>
           <NavLink to="/" exact={true} activeClassName="active">
             <p>Home</p>

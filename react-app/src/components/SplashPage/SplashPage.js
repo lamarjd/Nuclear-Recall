@@ -26,6 +26,7 @@ function SplashPage({ user }) {
                 <h1>Say no to the Nuclear Thought Fallout</h1>
                 {/* <h3>It's time to take charge of your day and start being productive, which means to</h3>  */}
                 
+                
                 <h3 className="underline">Log in and STOP FORGETTING THINGS</h3>
 
                 {/* <Route path="/login"> */}
