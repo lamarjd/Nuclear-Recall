@@ -19,7 +19,11 @@ export default function EditTaskListForm({filtered}){
     const dispatch = useDispatch()
 
     useEffect(() => {
+<<<<<<< HEAD
 
+=======
+       dispatch(fetchLists())
+>>>>>>> d88f98aa38fe6f25729fafdef8130dbbcaf1870d
       }, [dispatch]);
 
 
