@@ -139,10 +139,10 @@ export const deleteTaskThunk = (taskId) => async dispatch => {
     }
 }
 
-export const createTaskListThunk = (payload,id) => async dispatch => {
-    const response = await fetch(`/api/all/${id}/list`,
+export const createTaskListThunk = (payload,list_id) => async dispatch => {
+    const response = await fetch(`/api/all/${list_id}/list`,
     {
-        method: 'PUT',
+        method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
