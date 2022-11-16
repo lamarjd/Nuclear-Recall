@@ -14,7 +14,7 @@ function SplashPage({ user }) {
 
   return (
     <>
-        <div className="splash-container">
+        {/* <div className="splash-container"> */}
           {/* <div className="splash-content"> */}
             <div className="splash-picture-container">
               <div className="top-left">
@@ -37,7 +37,7 @@ function SplashPage({ user }) {
             </div>{" "}
             <br />
           {/* </div> */}
-        </div>
+        {/* </div> */}
     </>
   );
 }
