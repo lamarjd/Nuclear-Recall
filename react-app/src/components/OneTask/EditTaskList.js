@@ -19,8 +19,8 @@ export default function EditTaskListForm({filtered}){
     const dispatch = useDispatch()
 
     useEffect(() => {
-       
-      }, [dispatch,reduxList,listObj]);
+       dispatch(fetchLists())
+      }, [dispatch]);
 
 
       const handleSubmit = async (e) => {
