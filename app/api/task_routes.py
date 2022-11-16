@@ -100,17 +100,17 @@ def edit_task(id):
     #     return make_response("Unauthorized", 401)
             # return "<h1>Task Edited</h1>"
 
-@task_routes.route("/<int:id>/list", methods=["PUT"])
+@task_routes.route("/<int:id>/list", methods=["POST"])
 def task_to_list(id):
     # if current_user.is_authenticated:
         form = NewTask()
         form['csrf_token'].data = request.cookies['csrf_token']
-        one_task = Task.query.get(id)
-        if(not one_task):
-            return "<h1>No Task</h1>"
-        if one_task.user_id == current_user.id:
-            if form.validate_on_submit():
-                one_task.body = form.data["body"]
-                one_task.list_id = form.data["list_id"]
-                db.session.commit()
-            return make_response(one_task.to_dict(), 200)
+        if form.validate_on_submit():
+            pls = Task(
+                    body = form.data["body"],
+                    user_id = current_user.id,
+                    list_id = id)
+            db.session.add(pls)
+            db.session.commit()
+            # print("one_task",one_task.to_dict())
+        return make_response(pls.to_dict(), 200)

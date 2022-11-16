@@ -87,7 +87,7 @@ export const fetchOneTask = id => async dispatch => {
 
 // create a task thunk
 
-export const createTaskThunk = (payload) => async dispatch => {
+export const createTaskThunk = (payload,id) => async dispatch => {
     const response = await fetch('/api/all/new_task',
     {
         method: 'POST',
@@ -136,6 +136,27 @@ export const deleteTaskThunk = (taskId) => async dispatch => {
     if (response.ok) {
         const task = `${taskId}`
         dispatch(removeTaskAction(task))
+    }
+}
+
+export const createTaskListThunk = (payload,list_id) => async dispatch => {
+    const response = await fetch(`/api/all/${list_id}/list`,
+    {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+    })
+
+    const data = await response.json()
+
+    
+    if (response.ok) {
+        await dispatch(createTaskAction(data))
+        return data
+    } else { // any bad requests and errors
+        return data
     }
 }
 
