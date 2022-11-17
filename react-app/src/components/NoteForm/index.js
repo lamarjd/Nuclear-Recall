@@ -39,18 +39,19 @@ function NoteForm({ filtered }) {
 
 
     return (
-        <form className="container" onSubmit={handleSubmit}>
+        <form className="containerNoteCreationTaskDetails" onSubmit={handleSubmit}>
         <div className="Note">
         <label>
           <input
             placeholder="Write Note here"
+            id="inputBoxnoteTaskDetails"
             type="text"
             value={body}
 
             onChange={(e) => setBody(e.target.value)}
           />
         </label>
-        <button className="NoteButton" type="submit">Create da Note</button>
+        <button className="NoteButtonTaskDetails" type="submit">Add a note to the task</button>
         </div>
       </form>
     )

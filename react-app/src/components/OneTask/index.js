@@ -42,19 +42,20 @@ export default function OneTask() {
       <div className="mainTaskDetailsOutDiv">
         <h1>Tasks</h1>
         <EditTaskListForm filtered={filtered} />
-        <NoteForm filtered={filtered} />
+        
         <EditForm filtered={filtered} />
         <div>{filtered.body}</div>
         <div> ---</div>
         <div className="noteOuterDivTaskDetails">
-          <div>Notes:</div>
+          <div id='labelDivTaskDetailsNotes'>Notes for {filtered.body}</div>
           <div>
             {filteredNotes.map((note) => (
               <div className="noteDivContainerTaskDetails">
                 <p key={note.id}>{note.body}</p>
-                <button onClick={() => dispatch(deleteNoteThunk(note.id))}>Destroy This Note</button>
+                <button className='noteDeleteButtonTaskDetails' onClick={() => dispatch(deleteNoteThunk(note.id))}>Destroy This Note</button>
               </div>
             ))}
+            <NoteForm id='noteFormTaskDetails' filtered={filtered} />
           </div>
         </div>
       </div>

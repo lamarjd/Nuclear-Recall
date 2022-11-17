@@ -1,7 +1,43 @@
 .mainTaskDetailsOutDiv{
-    margin-top: 200px;
+    margin-top: 150px;
 }
 
 .noteOuterDivTaskDetails{
-    margin-left: 700px;
+    margin-left: 600px;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+#labelDivTaskDetailsNotes{
+    
+    margin-bottom: 30px;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.containerNoteCreationTaskDetails{
+    margin-top: 40px;
+}
+
+.NoteButtonTaskDetails{
+    margin-left: 20px;
+}
+
+#inputBoxnoteTaskDetails{
+
+}
+
+.noteDivContainerTaskDetails{
+    display: flex;
+    flex-direction: row;
+}
+
+.noteDeleteButtonTaskDetails{
+    max-height: 24px;
+    max-width: 200px;
+    border-radius: 10px;
+    margin-left: 40px;
+    margin-top: 14px;
+
 }
