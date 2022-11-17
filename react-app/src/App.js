@@ -67,6 +67,7 @@ function App() {
 
         <ProtectedRoute path='/all/:id'>
           <OneTask/>
+          <NavBar user={user}/>
         </ProtectedRoute>
         <ProtectedRoute path='/all' exact={true} >
           <NavBar user={user}/>
