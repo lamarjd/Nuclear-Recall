@@ -51,11 +51,18 @@ const NavBar = ({ user }) => {
       } */}
 
       {user &&
-      <Route path ="/">
-        <p>Menu Icon</p>
-        <SearchBar/>
-      </Route>
+      // <Route path ="/">
+        // <p>Menu Icon</p>
+        // {/* </Route> */}
+        
+        <NavLink to="/" exact={true} activeClassName="active">
+        <p>Home</p> 
+      </NavLink>
+
       }
+      <div>
+        <SearchBar/>
+      </div>
       
       
       </div>
