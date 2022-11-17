@@ -65,11 +65,8 @@ const NavBar = ({ user }) => {
         <li>
           <SearchBar/>
         </li>
-        <li>
-          <LogoutButton />
-        </li>
       </ul>
-
+      </div>
     </nav>
   );
 };
