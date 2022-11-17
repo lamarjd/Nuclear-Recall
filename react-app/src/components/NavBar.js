@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import LogoutButton from "./auth/LogoutButton";
 import bert from "../assets/bert.PNG"
 import LoginFormModal from './auth/LoginFormModal/index'
-// import "./NavBar.css";
+import "./NavBar.css";
 // import './navbar.css'
 import SearchBar from './searchBar';
 
