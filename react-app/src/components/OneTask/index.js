@@ -9,6 +9,7 @@ import { fetchOneTask } from "../../store/tasks";
 import EditForm from "../EditTask/index.js";
 import NoteForm from "../NoteForm/index.js";
 import { getAllNotes, deleteNoteThunk } from "../../store/notes.js";
+import EditTaskListForm from "./EditTaskList.js";
 
 export default function OneTask() {
   const dispatch = useDispatch();
@@ -37,6 +38,7 @@ export default function OneTask() {
     isLoaded && (
       <div className="main">
         <h1>Tasks</h1>
+        <EditTaskListForm filtered = {filtered}/>
         <NoteForm filtered={filtered}/>
         <EditForm filtered={filtered} />
         <div>{filtered.body}</div>

@@ -1,21 +1,26 @@
 import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
-import { createTaskThunk } from "../../store/tasks";
+import { createTaskListThunk, createTaskThunk } from "../../store/tasks";
 import { useHistory } from "react-router-dom";
-function TaskForm() {
+import { useParams } from "react-router-dom";
+function TaskListForm() {
+  const {id} = useParams()
+  console.log("list id",id)
   const dispatch = useDispatch();
   const [body, setBody] = useState('')
   const [validationErrors, setValidationErrors] = useState([])
   const [hasSubmitted, setHasSubmitted] = useState(false)
   const history = useHistory()
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     const payload={
-      body
+      body,
+      id
     }
     
-    let taskCreated = await dispatch(createTaskThunk(payload))
+    let taskCreated = await dispatch(createTaskListThunk(payload,id))
     if(taskCreated){
       history.push(`/all/${taskCreated.id}`)
     }
@@ -26,7 +31,7 @@ function TaskForm() {
       <div className="Task">
       <label>
         <input
-          placeholder="Write Task here"
+          placeholder="Write TaskList here"
           type="text"
           value={body}
           // required pattern="(?!\s+$)[a-zA-Z,'. ! ? -]+"
@@ -39,4 +44,4 @@ function TaskForm() {
   );
 }
 
-export default TaskForm;
+export default TaskListForm;

@@ -87,7 +87,7 @@ export const fetchOneTask = id => async dispatch => {
 
 // create a task thunk
 
-export const createTaskThunk = (payload) => async dispatch => {
+export const createTaskThunk = (payload,id) => async dispatch => {
     const response = await fetch('/api/all/new_task',
     {
         method: 'POST',
@@ -126,7 +126,24 @@ export const editTaskThunk = (task,id) => async dispatch => {
     // error handling
     throw new Error("Not this time")
 }
-
+export const editTaskAddListThunk = (task,id) => async dispatch => {
+    console.log("task---",task)
+    console.log("task id---",id)
+    const response = await fetch(`/api/all/${id}/listEdit`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(task)
+    });
+    if (response.ok) {
+        const task = await response.json();
+        dispatch(editTaskAction(task))
+        return task
+    }
+    // error handling
+    throw new Error("Not this time")
+}
 
 export const deleteTaskThunk = (taskId) => async dispatch => {
     const response = await fetch(`/api/all/${taskId}`, {
@@ -139,6 +156,27 @@ export const deleteTaskThunk = (taskId) => async dispatch => {
     }
 }
 
+export const createTaskListThunk = (payload,list_id) => async dispatch => {
+    const response = await fetch(`/api/all/${list_id}/list`,
+    {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+    })
+
+    const data = await response.json()
+
+    
+    if (response.ok) {
+        await dispatch(createTaskAction(data))
+        return data
+    } else { // any bad requests and errors
+        return data
+    }
+}
+
 // wasted away in reducerville
 
 
@@ -147,7 +185,7 @@ const initialState = {}
 
 const taskReducer = (state = initialState, action) => {
     let newState = {};
-    console.log("STATE-",state)
+    // console.log("STATE-",state)
     switch (action.type) {
 
         case ALL_TASKS: {
@@ -172,16 +210,16 @@ const taskReducer = (state = initialState, action) => {
         }
 
         case EDIT_TASK:
-            console.log("ACTION--",action)
+            // console.log("ACTION--",action)
             // newState.task["notes"] = [...state.task.notes]
             
             newState= {...state}
             
             // console.log("state notes",newState.task.notes)
-            console.log("newState--",newState)
+            // console.log("newState--",newState)
             newState[action.task.id]= action.task
             newState[action.task.id]["notes"]= state[action.task.id].notes
-            console.log("newState-- AFTER",newState)
+            // console.log("newState-- AFTER",newState)
             
             // newState[action.task.notes]= action.task.notes
             // newState["notes"]={...state.notes}
@@ -195,7 +233,9 @@ const taskReducer = (state = initialState, action) => {
         
         case DELETE_TASK:
             newState = {...state}
+            console.log("del task state----",newState)
             delete newState[action.taskId]
+            console.log("del task state----",newState)
             return newState;
     
 

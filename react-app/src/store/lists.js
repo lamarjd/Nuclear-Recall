@@ -1,6 +1,6 @@
 const ALL_LISTS = 'lists/all'
 const ONE_LIST = 'lists/one'
-const CREATE_LIST = 'lists/new' 
+const CREATE_LIST = 'lists/new'
 const EDIT_LIST = 'list/edit'
 const DELETE_LIST = 'lists/delete'
 
@@ -27,20 +27,20 @@ const getOneList = payload => {
     }
 }
 
-const createListAction = (payload) => { 
-    return { 
-        type: CREATE_LIST, 
-        payload 
-    } 
-} 
+const createListAction = (payload) => {
+    return {
+        type: CREATE_LIST,
+        payload
+    }
+}
 
 
 const deleteListAction = (listId) => {
-     return { 
-        type: DELETE_LIST, 
+     return {
+        type: DELETE_LIST,
         listId
-    } 
-} 
+    }
+}
 
 
 // thunkville
@@ -63,7 +63,7 @@ export const fetchLists = () => async dispatch => {
 
 export const fetchOneList = (id) => async dispatch => {
 
-    const res = await fetch(`/api/all/lists.${id}`)
+    const res = await fetch(`/api/all/lists/${id}`)
 
     if (res.ok) {
         const singleList = await res.json()
@@ -86,7 +86,7 @@ export const createListThunk = (payload) => async dispatch => {
 
     const data = await response.json()
 
-    
+
     if (response.ok) {
         await dispatch(createListAction(data))
         return data
@@ -96,22 +96,22 @@ export const createListThunk = (payload) => async dispatch => {
 }
 
 
-export const deleteListThunk = (id) => async dispatch => { 
+export const deleteListThunk = (id) => async dispatch => {
     const response = await fetch(`/api/all/lists/${id}`, {
-        method: 'DELETE' 
-    }); 
-    
-    if(response.ok){ 
+        method: 'DELETE'
+    });
+
+    if(response.ok){
         const list = `${id}`
-        dispatch(deleteListAction(list)); 
-    }     
-} 
+        dispatch(deleteListAction(list));
+    }
+}
 
 
 export const editListThunk = (list,id) => async dispatch => {
     console.log("list",list)
     const response = await fetch(`/api/all/lists/${id}`, {
-        
+
 
         method: "PUT",
         headers: {
@@ -142,6 +142,7 @@ const listReducer = (state = initialState, action) => {
 
     switch (action.type) {
         case ALL_LISTS: {
+            // console.log("STATE", state)
             action.payload.lists.forEach(list => {
                 newState[list.id] = list
             })
@@ -149,28 +150,33 @@ const listReducer = (state = initialState, action) => {
         }
 
         case ONE_LIST: {
+            // console.log("STATE",state)
+            // console.log("ACTION-----------", action)
             newState = {...state}
             newState[action.payload.id] = action.payload
             return newState
         }
 
-        case CREATE_LIST: { 
-            newState = { ...state } 
-            newState[action.payload.id] = action.payload 
-            return newState 
-        } 
+        case CREATE_LIST: {
+            newState = { ...state }
+            newState[action.payload.id] = action.payload
+            return newState
+        }
 
-        case EDIT_LIST: 
+        case EDIT_LIST:
             return {
                 ...state,
                 [action.list.id]: action.list
             }
 
         case DELETE_LIST: {
-            newState = { ...state } 
-            delete newState[action.listId] 
+            newState = { ...state}
+            console.log("newState",newState)
+            console.log("ACTION--",action)
+            delete newState[action.listId]
+            console.log("newState AFTER----",newState)
             return newState
-        }         
+        }
 
         default: {
             return state;

@@ -18,6 +18,7 @@ class List(db.Model):
     due_date = db.Column(db.Date)
     created_at = db.Column(db.DateTime, default= datetime.utcnow)
     updated_at = db.Column(db.DateTime, default= datetime.utcnow)
+    task = db.relationship("Task",cascade="all,delete",backref="list")
 
     def to_dict(self):
         return {

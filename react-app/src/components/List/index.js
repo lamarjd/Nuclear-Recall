@@ -11,6 +11,7 @@ import { fetchLists } from "../../store/lists"
 import ListForm from '../ListModal/ListForm.js';
 
 import EditList from '../EditList/index.js';
+import { fetchTasks } from '../../store/tasks.js';
 
 
 
@@ -28,10 +29,11 @@ export default function AllLists(){
     useEffect(() => {
         dispatch(fetchLists())
             .then(() => setIsLoaded(true))
+            dispatch(fetchTasks())
     }, [dispatch])
 
 
-    console.log("lists", lists)
+    // console.log("lists", lists)
 
 
 
