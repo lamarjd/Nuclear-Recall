@@ -1,14 +1,13 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
+import "./searchBar.css";
 
- const SearchBar = () => {
-  const [searchInput, setSearchInput] = useState("")
-  const taskState = useSelector(state => state.tasks)
+const SearchBar = () => {
+  const [searchInput, setSearchInput] = useState("");
+  const taskState = useSelector((state) => state.tasks);
 
-  const tasks = Object.values(taskState)
-  console.log(tasks)
-
-
+  const tasks = Object.values(taskState);
+  console.log(tasks);
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -16,20 +15,21 @@ import { useSelector } from "react-redux";
   };
 
   if (searchInput.length > 0) {
-      tasks.filter((task) => {
+    tasks.filter((task) => {
       return task.body.match(searchInput);
-  });
+    });
   }
 
   return (
-    <div>
+    <div className="search-div">
       <input
-   type="text"
-   placeholder="Search here"
-   onChange={handleChange}
-   value={searchInput} />
+        id="search"
+        type="text"
+        placeholder="Search here"
+        onChange={handleChange}
+        value={searchInput}
+      />
     </div>
-  )
-
-}
-export default SearchBar
+  );
+};
+export default SearchBar;
