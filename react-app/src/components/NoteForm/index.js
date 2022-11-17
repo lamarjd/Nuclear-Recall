@@ -43,7 +43,7 @@ function NoteForm({ filtered }) {
         <div className="Note">
         <label>
           <input
-            placeholder="Write Note here"
+            placeholder="Add a Note here . . . "
             id="inputBoxnoteTaskDetails"
             type="text"
             value={body}

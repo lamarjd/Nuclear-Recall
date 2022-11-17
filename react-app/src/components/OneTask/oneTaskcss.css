@@ -22,10 +22,29 @@
 
 .NoteButtonTaskDetails{
     margin-left: 20px;
+    min-height: 40px;
+    min-width: 210px;
+    border-radius: 12px;
+    border-width: 1px;
+    margin-left: 40px;
+    margin-top: 14px;
+    background-color: #a0b3ee;
+    color: #0c0c0b;
+    font-weight: bold;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
 }
 
 #inputBoxnoteTaskDetails{
-
+    width: 400px;
+    border-color: rgba(0, 0, 0, 0.836);
+    border-radius: 10px;
+    height: 22px;
+    padding: 10px;
+    font-size: 12px;
+    border-width: 1px;
 }
 
 .noteDivContainerTaskDetails{
@@ -34,10 +53,17 @@
 }
 
 .noteDeleteButtonTaskDetails{
-    max-height: 24px;
+    max-height: 20px;
     max-width: 200px;
-    border-radius: 10px;
-    margin-left: 40px;
+    border-radius: 12px;
+    border-width: 1px;
+    margin-left: 20px;
     margin-top: 14px;
+    background-color: #EDB714;
+    color: #161614;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
 
 }
