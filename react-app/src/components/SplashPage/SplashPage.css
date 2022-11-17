@@ -42,10 +42,10 @@
     width: 100%;
     height: 600px;
     background-color: rgba(69, 153, 209, 0.436);
-
+    
 }
 
-.main > #logo {
+.main-splash > #logo {
     object-fit: none;
     width: 1000px;
 }

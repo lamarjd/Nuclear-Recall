@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch,NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import LoginFormModal from './components/auth/LoginFormModal/index';
+import wqsa from './components/auth/LoginFormModal/index';
 import SignUpForm from './components/auth/SignUp/SignUpForm';
 import NavBar from './components/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
@@ -36,14 +36,12 @@ function App() {
 
   return (
     <BrowserRouter>
-      {/* <NavBar user={user}/> */}
       <Switch>
         <Route path='/' exact={true}>
           <SplashPage user={user}/>
         </Route>
         <Route path='/login' exact={true}>
           <SplashPage user={user}/>
-          {/* <LoginFormModal /> */}
         </Route>
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
@@ -54,20 +52,13 @@ function App() {
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
-        {/* <Route path='/' exact={true} >
-          <h1>My Home Page</h1>
-
-          <NavLink to='/all' >
-            CLICK HERE TO GOTO TASK HOME PAGE
-          </NavLink>
-        </Route> */}
         <ProtectedRoute path="/all/lists/:id">
           <OneList/>
         </ProtectedRoute>
 
         <ProtectedRoute path='/all/:id'>
-          <OneTask/>
           <NavBar user={user}/>
+          <OneTask/>
         </ProtectedRoute>
         <ProtectedRoute path='/all' exact={true} >
           <NavBar user={user}/>

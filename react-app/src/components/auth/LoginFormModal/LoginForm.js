@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Redirect, useHistory } from 'react-router-dom';
 import { login } from '../../../store/session';
 import './loginForm.css'
 
@@ -11,6 +11,7 @@ const LoginForm = () => {
   const [password, setPassword] = useState('');
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
+  const history = useHistory()
 
   const onLogin = async (e) => {
     e.preventDefault();
@@ -30,12 +31,13 @@ const LoginForm = () => {
 
 const demoUser = () => {
   setEmail('demo@aa.io');
-  setPassword('password')
+  setPassword('password');
+  // history.push('/all')
 }
 
 
   if (user) {
-    return <Redirect to='/' />;
+    return <Redirect to='/all' />;
   }
 
   return (

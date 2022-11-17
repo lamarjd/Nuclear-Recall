@@ -67,7 +67,7 @@ function SplashPage({ user }) {
 
             <h3 className="underline">Log in and STOP FORGETTING THINGS</h3>
 
-            <LoginFormModal />
+            <LoginFormModal user={user}/>
           </div>
         )}
       </div>{" "}

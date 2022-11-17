@@ -3,6 +3,8 @@ import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
 import { createTaskThunk } from "../../store/tasks";
 import { useHistory } from "react-router-dom";
+import "./TaskForm.css"
+
 function TaskForm() {
   const dispatch = useDispatch();
   const [body, setBody] = useState('')
