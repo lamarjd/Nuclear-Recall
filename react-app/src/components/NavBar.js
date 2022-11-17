@@ -60,16 +60,13 @@ const NavBar = ({ user }) => {
       </NavLink>
 
       }
-      <div>
+      <div className="search">
         <SearchBar/>
       </div>
       
       
       </div>
-
-          <LogoutButton />      
-          {/* <SearchBar/> */}
-        
+          <LogoutButton />         
       </div>
     </nav>
   );
