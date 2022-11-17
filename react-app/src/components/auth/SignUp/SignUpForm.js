@@ -71,6 +71,7 @@ const SignUpForm = () => {
       <div className='outerSignupDiv'>
         <label className='emailSignupLabel'>User Name</label>
         <input
+          id='userNameSignUpBox'
           className='signupemailbox'
           type='text'
           name='username'
@@ -81,6 +82,7 @@ const SignUpForm = () => {
       <div className='outerSignupDiv'>
         <label className='emailSignupLabel'>Email</label>
         <input
+          id='signInEmailBox'
           className='signupemailbox'
           type='text'
           name='email'
@@ -92,6 +94,7 @@ const SignUpForm = () => {
       <div className='outerSignupDiv'>
           <label className='emailSignupLabel'>First Name</label>
           <input
+          id='firstnamesignupbox'
           className='signupemailbox'
           type='text'
           name='firstName'
@@ -103,6 +106,7 @@ const SignUpForm = () => {
       <div className='outerSignupDiv'>
           <label className='emailSignupLabel'>Last Name</label>
           <input
+          id='signUpLastNameBox'
           className='signupemailbox'
           type='text'
           name='lastName'
@@ -114,6 +118,7 @@ const SignUpForm = () => {
       <div className='outerSignupDiv'>
         <label className='emailSignupLabel'>Password</label>
         <input
+          id='passwordSignUpIdBox'
           className='signupemailbox'
           type='password'
           name='password'
@@ -122,9 +127,10 @@ const SignUpForm = () => {
         ></input>
       </div>
 
-      <div className='outerSignupDiv'>
-        <label className='emailSignupLabel'>Repeat Password</label>
+      <div className='outerSignupDiv' id='outerRepeatPasswordDiv'>
+        <label className='emailSignupLabel' >Repeat Password</label>
         <input
+          id='labelRepeatPassword'
           className='signupemailbox'
           type='password'
           name='repeat_password'
