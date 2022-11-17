@@ -19,6 +19,11 @@ export default function EditTaskListForm({filtered}){
     const listObj = Object.values(reduxList)
     const history = useHistory()
     const [name,setName]= useState(listObj[0]?.name)
+ 
+    
+    //   const [name,setName]= useState(placeholder.name)
+    //    setName(placeholder.name)
+    
     const [list_id,setList_id] = useState("")
     const dispatch = useDispatch()
 
@@ -29,23 +34,17 @@ export default function EditTaskListForm({filtered}){
 
       const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("list obj",listObj)
         let theList = listObj.filter(list =>{
             return list.name == name
         })[0]
         let id = theList?.id
-        console.log("THE LIST ",theList)
-        console.log("THE LIST IDDD",id)
-        console.log("NAME-----",name)
         const payload = {
             list_id:id
         }
-        console.log("task ID----",task_id)
 
         let taskEdited = await dispatch(editTaskAddListThunk(payload,task_id))
         if (taskEdited) {
-            // history.push(`/all`)
-            console.log("TASK EDITED",taskEdited)
+            history.push(`/all/lists/${payload.list_id}`)
         }
     }
 
