@@ -30,9 +30,8 @@ function TaskForm() {
           type="text"
           maxLength={200}
           value={body}
-          // required pattern="(?!\s+$)[a-zA-Z,'. ! ? -]+"
+          required pattern="[a-zA-Z, 0-9,'. ! ? + -]+" title="Please use valid chars,invalid chars: @#$%^&*()"
           onChange={(e) => setBody(e.target.value)}
-          required
         />
       </label>
       <button className="ListButton" type="submit">Create da Task</button>

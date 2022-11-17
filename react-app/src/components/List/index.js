@@ -49,10 +49,6 @@ export default function AllLists(){
 
                 <NavLink className="detail-navlink" key={list.id} to={`/all/lists/${list.id}`}> <h3>{list.name}</h3></NavLink>
                 <button onClick={(e)=> {dispatch(deleteListThunk(list.id), history.push('/all'))}}> DELETE</button>
-
-
-                <button onClick={()=>dispatch(editListThunk(list.id))}>Edit</button>
-
                 <EditList list={list}/>
 
                 </div>
