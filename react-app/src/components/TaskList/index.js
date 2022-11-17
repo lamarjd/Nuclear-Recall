@@ -39,8 +39,10 @@ export default function AllTasks(){
         <TaskForm/>
         {taskList.map(task => (
             <div>
-            <NavLink className="detail-navlink" key={task.id} to={`/all/${task.id}`}> <h3>{task.body}</h3></NavLink>
-            <button onClick={()=>dispatch(deleteTaskThunk(task.id))}> DELETE</button>
+            {thisUser.id == task.user_id &&
+            <NavLink className="detail-navlink" key={task.id} to={`/all/${task.id}`}> <h3>{task.body}</h3></NavLink>}
+            {thisUser.id == task.user_id &&
+            <button onClick={()=>dispatch(deleteTaskThunk(task.id))}> DELETE</button>}
             </div>
         ))}
     </div>

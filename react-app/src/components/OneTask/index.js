@@ -54,7 +54,8 @@ export default function OneTask() {
             {filteredNotes.map((note) => (
               <div className="noteDivContainerTaskDetails">
                 <p key={note.id}>{note.body}</p>
-                <button className='noteDeleteButtonTaskDetails' onClick={() => dispatch(deleteNoteThunk(note.id))}>Destroy This Note</button>
+                {thisUser.id == note.user_id &&
+                <button className='noteDeleteButtonTaskDetails' onClick={() => dispatch(deleteNoteThunk(note.id))}>Destroy This Note</button>}
               </div>
             ))}
             <NoteForm id='noteFormTaskDetails' filtered={filtered} />
