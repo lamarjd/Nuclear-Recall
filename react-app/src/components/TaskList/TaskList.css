@@ -1,15 +1,22 @@
-.all-tasks-container {
+.task-list-body {
+    height: 100vh;
+    width: 100%;
+    border: 2px solid yellow;
+}
+
+/* .all-tasks-container {
     border: 2px dotted red;
     width: 591px;
-    /* height: 100vh; */
+    height: 100vh;
     margin-left: 210px;
     margin-top: 9px;
-    /* z-index:1; */
-    /* display: flex; */
     flex-direction: column;
     justify-content: start;
     align-items: start; 
-}
+    background-color: white;
+    position: relative;
+    top: 0;
+} */
 
 .detail-navlink {
     text-decoration: none;
@@ -17,3 +24,5 @@
     width: 100%;
     /* border: 2px solid black; */
 }
+
+
