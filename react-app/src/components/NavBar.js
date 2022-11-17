@@ -8,7 +8,9 @@ import LoginFormModal from './auth/LoginFormModal/index'
 import "./NavBar.css";
 // import './navbar.css'
 import SearchBar from './searchBar';
-
+import bullet from './angryBullet.png'
+import two from './two.png'
+import clip from './clip.png'
 
 const NavBar = ({ user }) => {
 
@@ -56,8 +58,9 @@ const NavBar = ({ user }) => {
         // {/* </Route> */}
         
         <NavLink to="/all" exact={true} activeClassName="active">
-        <p>Home</p> 
+          <img className='cliphomepagething' src={clip}/>
       </NavLink>
+      
 
       }
       <div>
