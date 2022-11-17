@@ -1,8 +1,10 @@
 
 .outermostSignupDiv{
-    margin-top: 250px;
+    padding-top: 180px;
     display: flex;
     flex-direction: row;
+    background-image: linear-gradient(#d6d6d6, #faf2dc);
+
 }
 
 #signInEmailBox{
@@ -29,11 +31,10 @@
 }
 
 #signupForm{
-    margin-bottom: 400px;
+    margin-bottom: 300px;
     margin-left: 260px;
     display: flex;
     min-width: 250px;
-    min-height: 200px;
     align-items: left;
     flex-direction: column;
 }
