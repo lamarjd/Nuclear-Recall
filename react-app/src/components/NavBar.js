@@ -55,7 +55,7 @@ const NavBar = ({ user }) => {
         // <p>Menu Icon</p>
         // {/* </Route> */}
         
-        <NavLink to="/" exact={true} activeClassName="active">
+        <NavLink to="/all" exact={true} activeClassName="active">
         <p>Home</p> 
       </NavLink>
 
