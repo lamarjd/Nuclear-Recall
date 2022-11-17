@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch,NavLink } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import LoginForm from './components/auth/LoginForm';
-import SignUpForm from './components/auth/SignUpForm';
+import { useDispatch, useSelector } from 'react-redux';
+import LoginFormModal from './components/auth/LoginFormModal/index';
+import SignUpForm from './components/auth/SignUp/SignUpForm';
 import NavBar from './components/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
@@ -13,10 +13,15 @@ import TaskForm from './components/TaskForm';
 import AllTasks from './components/TaskList';
 import OneTask from './components/OneTask';
 import OneList from './components/OneList';
+import SplashPage from './components/SplashPage/SplashPage';
+
 
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
+
+  const user = useSelector((state) => state.session.user)
+
 
   useEffect(() => {
     (async() => {
@@ -31,10 +36,15 @@ function App() {
 
   return (
     <BrowserRouter>
-      <NavBar />
+      <NavBar user={user}/>
       <Switch>
+        <Route path='/' exact={true}>
+          <SplashPage user={user}/>
+          {/* <LoginFormModal /> */}
+        </Route>
         <Route path='/login' exact={true}>
-          <LoginForm />
+          <LoginFormModal />
+          {/* <SplashPage/> */}
         </Route>
         <Route path='/sign-up' exact={true}>
           <SignUpForm />

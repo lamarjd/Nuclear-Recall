@@ -26,7 +26,6 @@ let modalList = (
     <><AllTasks/>
 
        <AllLists/>
-      {/* <NoteForm/> */}
 
         <div>{modalList}</div>
     </>
