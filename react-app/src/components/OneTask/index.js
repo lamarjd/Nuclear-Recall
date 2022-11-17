@@ -41,7 +41,7 @@ export default function OneTask() {
         <EditTaskListForm filtered = {filtered}/>
         <NoteForm filtered={filtered}/>
         <EditForm filtered={filtered} />
-        <div>{filtered.body}</div>
+        <div>{filtered?.body}</div>
         <div> ---</div>
         <div>Notes:</div>
         <div>
