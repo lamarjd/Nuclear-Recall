@@ -97,11 +97,12 @@
 }
 
 #h1taskdetails{
+    padding-top: 70px;
     padding-left: 50px;
 }
 
 .outerTaskDetailsLeftDiv{
- 
+    
     background-color: #E1C16E;
     min-height: 100vh;
     min-width: 340px;
