@@ -24,3 +24,14 @@
     /* border: 2px solid yellow; */
 }
 
+.logOutButtonNavBar{
+    margin-right: 20px;
+    border-radius: 12px;
+    min-height: 30px;
+    min-width: 60px;
+    border-width: 1px;
+    border-color: #4599d1;
+    background-color: #4599d1;
+    color: beige;
+}
+
