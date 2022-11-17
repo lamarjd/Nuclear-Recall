@@ -26,14 +26,14 @@ function EditForm({filtered}) {
       <div className="Task">
       <label>
         <input
-          
+          id='InputBoxEditTaskName'
           type="text"
           value={body}
           required pattern="(?!\s+$)[a-zA-Z,'. ! ? -]+"
           onChange={(e) => setBody(e.target.value)}
         />
       </label>
-      <button className="ListButton" type="submit">Edit this Task</button>
+      <button className="EditTaskButtonTaskDetails" type="submit">Edit Task Name</button>
       </div>
     </form>
   );
