@@ -76,9 +76,9 @@
 
 #buttonForAddToList{
     min-height: 24px;
-    min-width: 100px;
+    min-width: 120px;
     background-color: #EDB714;
-    margin-left: 30px;
+    margin-left: 68px;
     border-width: 1px;
     border-radius: 12px;
     color: black;
@@ -105,4 +105,25 @@
     min-width: 140px;
     min-height: 30px;
     border-radius: 2px;
+}
+
+#InputBoxEditTaskName{
+    min-height: 24px;
+    border-radius: 4px;
+    min-width: 100px;
+}
+
+.EditTaskButtonTaskDetails{
+    min-height: 24px;
+    min-width: 120px;
+    background-color: #EDB714;
+    margin-left: 30px;
+    border-width: 1px;
+    border-radius: 12px;
+    color: black;
+    font-weight: 600;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
 }
