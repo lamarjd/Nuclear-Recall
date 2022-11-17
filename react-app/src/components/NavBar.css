@@ -13,6 +13,20 @@
 
 }
 
+#gohomenavbaractive{
+    margin-left: 6px;
+}
+
+
+#navbarlinkhome{
+    display: flex;
+    flex-direction: row ;
+    align-items: center;
+    justify-items: center;
+    min-width: 200px;
+}
+
+
 .nav-content {
     width: 26%;
     height: 100%;

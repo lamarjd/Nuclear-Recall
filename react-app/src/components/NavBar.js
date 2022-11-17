@@ -56,11 +56,14 @@ const NavBar = ({ user }) => {
       // <Route path ="/">
         // <p>Menu Icon</p>
         // {/* </Route> */}
-        
-        <NavLink to="/all" exact={true} activeClassName="active">
+        <div id='navbarlinkhome' >
+        <NavLink  to="/all" exact={true} activeClassName="active">
           <img className='cliphomepagething' src={clip}/>
-      </NavLink>
-      
+          
+     </NavLink>
+      <NavLink  to="/all" exact={true} activeClassName="active" id="gohomenavbaractive">HOME</NavLink>
+       
+      </div>
 
       }
       <div>
