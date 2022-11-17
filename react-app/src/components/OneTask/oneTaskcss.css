@@ -5,11 +5,12 @@
 }
 
 .noteOuterDivTaskDetails{
-    margin-left: 300px;
-    margin-top: 100px;
+    padding-left: 308px;
+    padding-top: 20px;
     display: flex;
     flex-direction: column;
-    max-width: 700px;
+    min-width: 942px;
+    background-image: linear-gradient(#FAF3EA , #FDFAF6);
     
 }
 
@@ -92,12 +93,18 @@
 #addToListForm{
     margin-bottom: 100px;
     margin-top: 100px;
+    margin-left: 10px;
 
 }
 
+#h1taskdetails{
+    padding-left: 50px;
+}
+
 .outerTaskDetailsLeftDiv{
-    background-color: aquamarine;
+    background-image: linear-gradient(#D39645, #D8A15A);
     min-height: 100vh;
+    min-width: 340px;
 }
 
 
@@ -111,6 +118,7 @@
     min-height: 24px;
     border-radius: 4px;
     min-width: 100px;
+    margin-left: 10px;
 }
 
 .EditTaskButtonTaskDetails{
