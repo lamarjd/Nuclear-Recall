@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Modal } from '../../../context/Modal';
+import bert from "../../../assets/bert.PNG"
 import LoginForm from './LoginForm';
 import "./loginForm.css"
 

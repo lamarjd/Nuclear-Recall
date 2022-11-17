@@ -1,8 +1,24 @@
 .nav-wrapper {
-    border: 2px solid black;
-    display: grid;
-    grid-template-areas: 
-    'left center center right'; 
-    justify-items: center;
+    border-bottom: 1px solid black;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100px;
+    background-color: rgba(69, 153, 209, 0.436);
+    /* top: 0; */
+    /* margin-top: 200px; */
+    margin-bottom: -114px;
+    position: sticky;
 
 }
+
+.nav-content {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-left: 20%;
+    margin-right: 20%;
+    border: 2px solid yellow;
+}
+
