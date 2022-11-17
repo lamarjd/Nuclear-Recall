@@ -7,13 +7,20 @@ import { useParams } from "react-router-dom";
 function EditForm({filtered}) {
   const {id} = useParams()
   const dispatch = useDispatch();
-  const [body, setBody] = useState(filtered.body)
+  const [body, setBody] = useState("")
   const [validationErrors, setValidationErrors] = useState([])
   const [hasSubmitted, setHasSubmitted] = useState(false)
   const history = useHistory()
+
   // useEffect(()=>{
   //   dispatch(fetchOneTask(filtered.id))
   // },[dispatch,filtered.id])
+
+
+  useEffect(() => {
+    setBody(filtered && filtered.body);
+  }, [filtered]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const payload={
