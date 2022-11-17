@@ -1,34 +1,44 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import "./searchBar.css";
+
+import { NavLink } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { fetchOneTask } from "../store/tasks";
+ 
+  
 
 const SearchBar = () => {
-  const [searchInput, setSearchInput] = useState("");
-  const taskState = useSelector((state) => state.tasks);
+  const matchingTask = (searchInput,tasks) =>{
+    if(!searchInput) return null
+    return tasks.filter(task => task.body.toLowerCase().includes(searchInput.toLowerCase()))
 
-  const tasks = Object.values(taskState);
-  console.log(tasks);
-
-  const handleChange = (e) => {
-    e.preventDefault();
-    setSearchInput(e.target.value);
-  };
-
-  if (searchInput.length > 0) {
-    tasks.filter((task) => {
-      return task.body.match(searchInput);
-    });
   }
+  
+    const [searchInput, setSearchInput] = useState("")
+    const taskState = useSelector(state => state.tasks)
+    const dispatch= useDispatch()
+    const tasks = Object.values(taskState)
+    console.log(tasks)
+
+    const tasksFound = matchingTask(searchInput,tasks)
 
   return (
-    <div className="search-div">
+
+    <div SEARCH BAR>
       <input
-        id="search"
-        type="text"
-        placeholder="Search here"
-        onChange={handleChange}
-        value={searchInput}
-      />
+   type="text"
+   placeholder="Search here"
+   onChange={e => setSearchInput(e.target.value)}
+  //  value={searchInput} 
+   />
+   <div>
+    {tasksFound?.map((oneTask) =>(
+      <NavLink onClick={()=> (setSearchInput(""))} to={`/all/${oneTask.id}`}> 
+      <div key={oneTask.id}>{oneTask.body}</div>
+      </NavLink>
+    ))}
+   </div>
+
     </div>
   );
 };

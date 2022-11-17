@@ -1,14 +1,26 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
-import { createTaskThunk, editTaskThunk } from "../../store/tasks";
+import { createTaskThunk, editTaskThunk, fetchOneTask } from "../../store/tasks";
 import { useHistory } from "react-router-dom";
+import { useParams } from "react-router-dom";
 function EditForm({filtered}) {
+  const {id} = useParams()
   const dispatch = useDispatch();
-  const [body, setBody] = useState(filtered.body)
+  const [body, setBody] = useState("")
   const [validationErrors, setValidationErrors] = useState([])
   const [hasSubmitted, setHasSubmitted] = useState(false)
   const history = useHistory()
+
+  // useEffect(()=>{
+  //   dispatch(fetchOneTask(filtered.id))
+  // },[dispatch,filtered.id])
+
+
+  useEffect(() => {
+    setBody(filtered && filtered.body);
+  }, [filtered]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const payload={
