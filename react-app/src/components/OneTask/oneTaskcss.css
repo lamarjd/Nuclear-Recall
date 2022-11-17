@@ -1,12 +1,12 @@
 .mainTaskDetailsOutDiv{
-    margin-top: 150px;
+    margin-top: 114px;
     display: flex;
     flex-direction: row;
 }
 
 .noteOuterDivTaskDetails{
     margin-left: 300px;
-    margin-top: 50px;
+    margin-top: 100px;
     display: flex;
     flex-direction: column;
     max-width: 700px;
@@ -93,4 +93,16 @@
     margin-bottom: 100px;
     margin-top: 100px;
 
+}
+
+.outerTaskDetailsLeftDiv{
+    background-color: aquamarine;
+    min-height: 100vh;
+}
+
+
+#dropDownForAddToList{
+    min-width: 140px;
+    min-height: 30px;
+    border-radius: 2px;
 }
