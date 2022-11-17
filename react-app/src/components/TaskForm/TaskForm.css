@@ -1,0 +1,10 @@
+.Task {
+    /* border: 2px solid red; */
+    width: 97%;
+    margin-left: 5px;
+}
+
+.Task input {
+    width: 80%;
+    height: 30px;
+}

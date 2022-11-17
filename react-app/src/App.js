@@ -36,14 +36,12 @@ function App() {
 
   return (
     <BrowserRouter>
-      {/* <NavBar user={user}/> */}
       <Switch>
         <Route path='/' exact={true}>
           <SplashPage user={user}/>
         </Route>
         <Route path='/login' exact={true}>
           <SplashPage user={user}/>
-          {/* <LoginFormModal /> */}
         </Route>
         <Route path='/sign-up' exact={true}>
           <SignUpForm />

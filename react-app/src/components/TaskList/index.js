@@ -11,6 +11,7 @@ import { NavLink, useHistory, useParams } from 'react-router-dom';
 import { deleteTaskThunk, fetchTasks } from '../../store/tasks';
 
 import TaskForm from '../TaskForm/index.js';
+import "./TaskList.css"
 
 
 export default function AllTasks(){
@@ -33,14 +34,17 @@ export default function AllTasks(){
     console.log(taskList)
 
     return isLoaded && (
-        <div className='main'>
-
+        
+        
+        <div className='all-tasks-container'>
         <h1>Tasksss</h1>
         <TaskForm/>
         {taskList.map(task => (
             <div>
+                <hr />
             <NavLink className="detail-navlink" key={task.id} to={`/all/${task.id}`}> <h3>{task.body}</h3></NavLink>
             <button onClick={()=>dispatch(deleteTaskThunk(task.id))}> DELETE</button>
+                <hr />
             </div>
         ))}
     </div>

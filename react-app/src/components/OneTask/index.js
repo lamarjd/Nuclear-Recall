@@ -24,9 +24,6 @@ export default function OneTask() {
 
   const filteredNotes = notesObj.filter(note => note.task_id == id)
 
-
-
-
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
