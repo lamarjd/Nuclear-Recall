@@ -28,9 +28,11 @@ function TaskForm() {
         <input
           placeholder="Write Task here"
           type="text"
+          maxLength={200}
           value={body}
           // required pattern="(?!\s+$)[a-zA-Z,'. ! ? -]+"
           onChange={(e) => setBody(e.target.value)}
+          required
         />
       </label>
       <button className="ListButton" type="submit">Create da Task</button>

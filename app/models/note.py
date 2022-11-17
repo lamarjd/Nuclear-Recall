@@ -11,7 +11,7 @@ class Note(db.Model):
         __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key = True)
-    body = db.Column(db.String(2000), nullable = False)
+    body = db.Column(db.String(200), nullable = False)
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')))
     task_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('tasks.id')))
     created_at = db.Column(db.DateTime, default= datetime.utcnow)
