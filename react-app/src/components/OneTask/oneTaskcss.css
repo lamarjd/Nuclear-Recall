@@ -1,5 +1,5 @@
 .mainTaskDetailsOutDiv{
-    margin-top: 114px;
+    
     display: flex;
     flex-direction: row;
 }
@@ -10,7 +10,7 @@
     display: flex;
     flex-direction: column;
     min-width: 942px;
-    background-image: linear-gradient(#FAF3EA , #FDFAF6);
+    background-image: linear-gradient(rgb(240,230,140, 0.7), rgb(240,230,140, 0.9));
     
 }
 
@@ -31,7 +31,6 @@
     min-width: 210px;
     border-radius: 12px;
     border-width: 1px;
-    margin-left: 40px;
     margin-top: 14px;
     background-color: #c4d0f5;
     color: black;
@@ -102,7 +101,7 @@
 }
 
 .outerTaskDetailsLeftDiv{
-    background-image: linear-gradient(#D39645, #D8A15A);
+    background-color: #E1C16E;
     min-height: 100vh;
     min-width: 340px;
 }
