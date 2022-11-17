@@ -1,0 +1,137 @@
+.mainTaskDetailsOutDiv{
+    margin-top: 114px;
+    display: flex;
+    flex-direction: row;
+}
+
+.noteOuterDivTaskDetails{
+    padding-left: 308px;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    min-width: 942px;
+    background-image: linear-gradient(#FAF3EA , #FDFAF6);
+    
+}
+
+#labelDivTaskDetailsNotes{
+    
+    margin-bottom: 80px;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.containerNoteCreationTaskDetails{
+    margin-top: 40px;
+}
+
+.NoteButtonTaskDetails{
+    margin-left: 20px;
+    min-height: 40px;
+    min-width: 210px;
+    border-radius: 12px;
+    border-width: 1px;
+    margin-left: 40px;
+    margin-top: 14px;
+    background-color: #c4d0f5;
+    color: black;
+    size: 20px;
+    font-weight: bold;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+#inputBoxnoteTaskDetails{
+    width: 400px;
+    border-color: rgba(0, 0, 0, 0.836);
+    border-radius: 10px;
+    height: 22px;
+    padding: 10px;
+    font-size: 12px;
+    border-width: 1px;
+}
+
+.noteDivContainerTaskDetails{
+    display: flex;
+    flex-direction: row;
+}
+
+.noteDeleteButtonTaskDetails{
+    max-height: 24px;
+    max-width: 210px;
+    border-radius: 12px;
+    border-width: 1px;
+    margin-left: 20px;
+    margin-top: 14px;
+    background-color: #EDB714;
+    color: black;
+    font-weight: 600;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+}
+
+#buttonForAddToList{
+    min-height: 24px;
+    min-width: 120px;
+    background-color: #EDB714;
+    margin-left: 68px;
+    border-width: 1px;
+    border-radius: 12px;
+    color: black;
+    font-weight: 600;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+#addToListForm{
+    margin-bottom: 100px;
+    margin-top: 100px;
+    margin-left: 10px;
+
+}
+
+#h1taskdetails{
+    padding-left: 50px;
+}
+
+.outerTaskDetailsLeftDiv{
+    background-image: linear-gradient(#D39645, #D8A15A);
+    min-height: 100vh;
+    min-width: 340px;
+}
+
+
+#dropDownForAddToList{
+    min-width: 140px;
+    min-height: 30px;
+    border-radius: 2px;
+}
+
+#InputBoxEditTaskName{
+    min-height: 24px;
+    border-radius: 4px;
+    min-width: 100px;
+    margin-left: 10px;
+}
+
+.EditTaskButtonTaskDetails{
+    min-height: 24px;
+    min-width: 120px;
+    background-color: #EDB714;
+    margin-left: 30px;
+    border-width: 1px;
+    border-radius: 12px;
+    color: black;
+    font-weight: 600;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}

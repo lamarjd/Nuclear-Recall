@@ -23,9 +23,11 @@ let modalList = (
 )}
 </div>)
   return (
-    <><AllTasks/>
+    <>
+    
+      <AllTasks/>
 
-       <AllLists/>
+      <AllLists/>
 
         <div>{modalList}</div>
     </>

@@ -11,6 +11,9 @@ import NoteForm from "../NoteForm/index.js";
 import { getAllNotes, deleteNoteThunk } from "../../store/notes.js";
 import EditTaskListForm from "./EditTaskList.js";
 
+// css
+import './oneTaskcss.css'
+
 export default function OneTask() {
   const dispatch = useDispatch();
   const { id } = useParams();
@@ -36,21 +39,27 @@ export default function OneTask() {
   console.log("FILTERED_--",filtered)
   return (
     isLoaded && (
-      <div className="main">
-        <h1>Tasks</h1>
-        <EditTaskListForm filtered = {filtered}/>
-        <NoteForm filtered={filtered}/>
+      <div className="mainTaskDetailsOutDiv">
+        <div className="outerTaskDetailsLeftDiv">
+        <h1 id='h1taskdetails'>Task Options</h1>
+        <EditTaskListForm filtered={filtered} />
+        
         <EditForm filtered={filtered} />
-        <div>{filtered?.body}</div>
-        <div> ---</div>
-        <div>Notes:</div>
-        <div>
-          {filteredNotes.map((note) => (
-            <div>
-            <p key={note.id}>{note.body}</p>
-            <button onClick={()=> dispatch(deleteNoteThunk(note.id))}>DELETE DAT SHIT</button>
-            </div>
-          ))}
+
+        
+        </div>
+        <div className="noteOuterDivTaskDetails">
+          <div id='labelDivTaskDetailsNotes'>Notes for {filtered.body}</div>
+          <div>
+            {filteredNotes.map((note) => (
+              <div className="noteDivContainerTaskDetails">
+                <p key={note.id}>{note.body}</p>
+                <button className='noteDeleteButtonTaskDetails' onClick={() => dispatch(deleteNoteThunk(note.id))}>Destroy This Note</button>
+              </div>
+            ))}
+            <NoteForm id='noteFormTaskDetails' filtered={filtered} />
+          </div>
+
         </div>
       </div>
     )

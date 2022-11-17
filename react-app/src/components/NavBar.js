@@ -19,53 +19,50 @@ const NavBar = ({ user }) => {
 
       <div className="nav-wrapper">
         <div className="nav-content">
-          {/* <div className="bert"> */}
-            {/* <img id="bert" alt="bert" src={bert}/> */}
-          {/* </div> */}
 
-        <div>
-          <NavLink to="/all" exact={true} activeClassName="active">
-          {!user ? 
-          ( <p>Home</p> ) : ( <p>Tasks</p> )
-          }
+        {/* <div>
+          {!user ? (
+          <NavLink to="/" exact={true} activeClassName="active">
+           <p>Home</p> 
           </NavLink>
-        </div>
+          ) : (
+          <NavLink to="/all" exact={true} activeClassName="active">
+           <p>Tasks</p> 
+          </NavLink>
+          )
+          }
+        </div> */}
 
 
-        <div>
+        {/* <div>
           <NavLink to="/users" exact={true} activeClassName="active">
             <p>Users</p>
           </NavLink>
-        </div>
-
-      {!user &&
-      <>
-        {/* <div> */}
-          
-          {/* <NavLink to="/login" exact={true} activeClassName="active">        
-              <p><LoginFormModal /></p>        
-          </NavLink>
         </div> */}
 
+      {/* {!user &&
+      <>
         <div>
           <NavLink to="/sign-up" exact={true} activeClassName="active">
             <p>Sign Up</p>
           </NavLink>
         </div>
       </>
-      }
+      } */}
 
       {user &&
-        <LogoutButton />      
+      <Route path ="/">
+        <p>Menu Icon</p>
+        <SearchBar/>
+      </Route>
       }
       
       
       </div>
-        <ul>
-        <li>
-          <SearchBar/>
-        </li>
-      </ul>
+
+          <LogoutButton />      
+          {/* <SearchBar/> */}
+        
       </div>
     </nav>
   );

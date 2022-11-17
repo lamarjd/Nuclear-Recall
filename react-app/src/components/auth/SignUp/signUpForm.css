@@ -1,18 +1,44 @@
 
+.outermostSignupDiv{
+    padding-top: 180px;
+    display: flex;
+    flex-direction: row;
+    background-image: linear-gradient(#d6d6d6, #faf2dc);
+
+}
+
+#signInEmailBox{
+    margin-left: 132px;
+
+}
+
+#userNameSignUpBox{
+   margin-left: 80px;
+}
+
+
+#signUpLastNameBox{
+    margin-left: 80px;
+}
+
+#firstnamesignupbox{
+    margin-left: 66px;
+}
+
+
+#passwordSignUpIdBox{
+    margin-left: 92px;
+}
+
 #signupForm{
-    margin-bottom: 400px;
+    margin-bottom: 300px;
     margin-left: 260px;
     display: flex;
     min-width: 250px;
-    min-height: 200px;
-    align-items: center;
+    align-items: left;
     flex-direction: column;
 }
-.outermostSignupDiv{
-    margin-top: 50px;
-    display: flex;
-    flex-direction: row;
-}
+
 
 .imageSignupDiv{
     flex-direction: row;
@@ -83,6 +109,6 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    margin-left: 130px;
+    margin-left: 230px;
     margin-top: 50px;
 }
