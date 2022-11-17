@@ -4,6 +4,7 @@ import * as sessionActions from '../../store/session.js';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useHistory, useParams } from 'react-router-dom';
 import {editTaskAddListThunk} from '../../store/tasks';
+import { fetchLists } from '../../store/lists.js';
 
 
 export default function EditTaskListForm({filtered}){
@@ -19,11 +20,7 @@ export default function EditTaskListForm({filtered}){
     const dispatch = useDispatch()
 
     useEffect(() => {
-<<<<<<< HEAD
-
-=======
        dispatch(fetchLists())
->>>>>>> d88f98aa38fe6f25729fafdef8130dbbcaf1870d
       }, [dispatch]);
 
 
