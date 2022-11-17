@@ -47,7 +47,8 @@ function NoteForm({ filtered }) {
             id="inputBoxnoteTaskDetails"
             type="text"
             value={body}
-
+            maxLength={200}
+            required pattern="[a-zA-Z, 0-9,'. ! ? + -]+" title="Please use valid chars,invalid chars: @#$%^&*()"
             onChange={(e) => setBody(e.target.value)}
           />
         </label>

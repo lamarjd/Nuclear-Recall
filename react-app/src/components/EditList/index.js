@@ -35,8 +35,9 @@ function EditList({list}) {
       <label>
         <input
           type="text"
-          required pattern="(?!\s+$)[a-zA-Z,'. ! ? -]+"
+          required pattern="[a-zA-Z, 0-9,'. ! ? + -]+" title="Please use valid chars,invalid chars: @#$%^&*()"
           onChange={(e) => setListName(e.target.value)}
+          maxLength={30}
           value={name}
         />
       </label>

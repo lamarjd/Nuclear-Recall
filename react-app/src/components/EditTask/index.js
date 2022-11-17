@@ -41,7 +41,8 @@ function EditForm({filtered}) {
           id='InputBoxEditTaskName'
           type="text"
           value={body}
-          required pattern="(?!\s+$)[a-zA-Z,'. ! ? -]+"
+          maxLength={200}
+          required pattern="[a-zA-Z, 0-9,'. ! ? + -]+" title="Please use valid chars,invalid chars: @#$%^&*()"
           onChange={(e) => setBody(e.target.value)}
         />
       </label>
