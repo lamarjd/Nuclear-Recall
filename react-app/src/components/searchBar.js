@@ -1,19 +1,20 @@
 import React, {useState} from "react";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-
+import { useDispatch } from "react-redux";
+import { fetchOneTask } from "../store/tasks";
  
   
 
-
+const SearchBar = () => {
   const matchingTask = (searchInput,tasks) =>{
     if(!searchInput) return null
     return tasks.filter(task => task.body.toLowerCase().includes(searchInput.toLowerCase()))
   }
-  const SearchBar = () => {
+  
     const [searchInput, setSearchInput] = useState("")
     const taskState = useSelector(state => state.tasks)
-  
+    const dispatch= useDispatch()
     const tasks = Object.values(taskState)
     console.log(tasks)
 
@@ -29,7 +30,7 @@ import { NavLink } from "react-router-dom";
    />
    <div>
     {tasksFound?.map((oneTask) =>(
-      <NavLink onClick={()=> setSearchInput("")} to={`/all/${oneTask.id}`}> 
+      <NavLink onClick={()=> (setSearchInput(""))} to={`/all/${oneTask.id}`}> 
       <div key={oneTask.id}>{oneTask.body}</div>
       </NavLink>
     ))}

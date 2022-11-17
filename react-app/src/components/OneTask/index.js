@@ -33,7 +33,7 @@ export default function OneTask() {
 
   const taskList = Object.values(reduxstate);
   const filtered = taskList.filter((task) => task.id === +id)[0];
-
+  console.log("FILTERED_--",filtered)
   return (
     isLoaded && (
       <div className="main">

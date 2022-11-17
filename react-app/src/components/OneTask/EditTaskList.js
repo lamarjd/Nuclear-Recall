@@ -36,7 +36,6 @@ export default function EditTaskListForm({filtered}){
         console.log("NAME-----",name)
         const payload = {
             list_id:id
-
         }
         console.log("task ID----",task_id)
 
