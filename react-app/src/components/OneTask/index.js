@@ -40,12 +40,13 @@ export default function OneTask() {
   return (
     isLoaded && (
       <div className="mainTaskDetailsOutDiv">
-        <h1>Tasks</h1>
+        <div className="outerTaskDetailsLeftDiv">
+        <h1>Options</h1>
         <EditTaskListForm filtered={filtered} />
         
         <EditForm filtered={filtered} />
-        <div>{filtered.body}</div>
-        <div> ---</div>
+        
+        </div>
         <div className="noteOuterDivTaskDetails">
           <div id='labelDivTaskDetailsNotes'>Notes for {filtered.body}</div>
           <div>

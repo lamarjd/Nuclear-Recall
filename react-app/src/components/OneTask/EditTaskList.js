@@ -6,6 +6,9 @@ import { NavLink, useHistory, useParams } from 'react-router-dom';
 import {editTaskAddListThunk} from '../../store/tasks';
 import { fetchLists } from '../../store/lists.js';
 
+// css import
+import './oneTaskcss.css'
+
 
 export default function EditTaskListForm({filtered}){
 
@@ -49,8 +52,9 @@ export default function EditTaskListForm({filtered}){
 
 return (
     <div>
-        <form onSubmit={handleSubmit}>
+        <form id='addToListForm' onSubmit={handleSubmit}>
         <select
+        id='dropDownForAddToList'
         value={name}
         onChange={e => setName(e.target.value)}
 
@@ -61,7 +65,7 @@ return (
             </option>
           ))}
           </select>
-          <button type="submit"> click this</button>
+          <button id='buttonForAddToList' type="submit"> Add to a list</button>
           </form>
     </div>
 

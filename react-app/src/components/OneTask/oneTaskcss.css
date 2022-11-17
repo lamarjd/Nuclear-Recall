@@ -1,17 +1,21 @@
 .mainTaskDetailsOutDiv{
     margin-top: 150px;
+    display: flex;
+    flex-direction: row;
 }
 
 .noteOuterDivTaskDetails{
-    margin-left: 600px;
+    margin-left: 300px;
+    margin-top: 50px;
     display: flex;
     flex-direction: column;
+    max-width: 700px;
     
 }
 
 #labelDivTaskDetailsNotes{
     
-    margin-bottom: 30px;
+    margin-bottom: 80px;
     font-size: 40px;
     font-weight: bold;
 }
@@ -28,8 +32,9 @@
     border-width: 1px;
     margin-left: 40px;
     margin-top: 14px;
-    background-color: #a0b3ee;
-    color: #0c0c0b;
+    background-color: #c4d0f5;
+    color: black;
+    size: 20px;
     font-weight: bold;
     align-content: center;
     justify-content: center;
@@ -53,17 +58,39 @@
 }
 
 .noteDeleteButtonTaskDetails{
-    max-height: 20px;
-    max-width: 200px;
+    max-height: 24px;
+    max-width: 210px;
     border-radius: 12px;
     border-width: 1px;
     margin-left: 20px;
     margin-top: 14px;
     background-color: #EDB714;
-    color: #161614;
+    color: black;
+    font-weight: 600;
     align-content: center;
     justify-content: center;
     align-items: center;
     cursor: pointer;
+
+}
+
+#buttonForAddToList{
+    min-height: 24px;
+    min-width: 100px;
+    background-color: #EDB714;
+    margin-left: 30px;
+    border-width: 1px;
+    border-radius: 12px;
+    color: black;
+    font-weight: 600;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+#addToListForm{
+    margin-bottom: 100px;
+    margin-top: 100px;
 
 }
