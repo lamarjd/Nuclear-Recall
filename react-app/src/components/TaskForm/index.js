@@ -20,7 +20,7 @@ function TaskForm() {
 
     let taskCreated = await dispatch(createTaskThunk(payload))
     if(taskCreated){
-      
+      setBody("")
     }
   };
 
@@ -34,7 +34,8 @@ function TaskForm() {
           type="text"
           maxLength={200}
           value={body}
-          required pattern="[a-zA-Z, 0-9,'. ! ? + -]+" title="Please use valid chars,invalid chars: @#$%^&*()"
+          required 
+          // required pattern="[a-zA-Z, 0-9,'. ! ? + -]+" title="Please use valid chars,invalid chars: @#$%^&*()"
           onChange={(e) => setBody(e.target.value)}
         />
       </label>

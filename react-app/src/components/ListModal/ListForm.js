@@ -35,7 +35,7 @@ function ListForm({setList}) {
           placeholder="Write list here"
           type="text"
           maxLength={30}
-          required pattern="[a-zA-Z, 0-9,'. ! ? + -]+" title="Please use valid chars,invalid chars: @#$%^&*()"
+          required
           onChange={(e) => setName(e.target.value)}
         />
       </label>
