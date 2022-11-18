@@ -30,7 +30,8 @@ function EditForm({filtered}) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const payload={
-      body
+      body,
+      due_date: dueDate
     }
     
     let taskEdit = await dispatch(editTaskThunk(payload,filtered.id))

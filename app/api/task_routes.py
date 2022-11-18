@@ -91,6 +91,7 @@ def edit_task(id):
             if form.validate_on_submit():
                 one_task.body = form.data["body"]
                 one_task.notes = one_task.notes
+                one_task.due_date = one_task.due_date
                 db.session.commit()
             # return render_template('task_form.html', form=form)
             return make_response(one_task.to_dict(), 200)
