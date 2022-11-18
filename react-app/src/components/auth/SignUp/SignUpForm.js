@@ -83,9 +83,9 @@ const SignUpForm = () => {
       
       const data = dispatch(signUp(username, email, first_name, last_name, password));
 
-      if (data) {
-        setErrors(data)
-      }
+      // if (data) {
+      //   setErrors(data)
+      // }
     }
   };
 
@@ -113,7 +113,7 @@ const SignUpForm = () => {
       <div>
       <ul>
 
-        { errors &&
+        { errors.length > 0 &&
         errors.map((error, ind) => (
           <li key={ind}>
             {error} 
