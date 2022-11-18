@@ -27,8 +27,8 @@ function EditForm({filtered}) {
 
   useEffect(() => {
     setBody(filtered && filtered.body);
-    setDueDate(filtered && filtered.dueDate)
-  }, [filtered]);
+    setDueDate(dueDate)
+  }, [filtered, dueDate]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -43,23 +43,23 @@ function EditForm({filtered}) {
     }
   };
 
-  const changeDate = async (e) => {
-    // e.preventDefault();
+  // const changeDate = async (e) => {
+  //   e.preventDefault();
 
-    const payload = {
-      due_date: dueDate
-    }
-    console.log("PAYLOAD", payload)
+  //   const payload = {
+  //     due_date: dueDate
+  //   }
+  //   console.log("PAYLOAD", payload)
 
-    setDueDate(dueDate)
+  //   setDueDate(dueDate)
 
-    let date = await dispatch(editTaskThunk(payload, filtered.id))
+  //   let date = await dispatch(editTaskThunk(payload, filtered.id))
 
 
-    if (date){
-      history.push(`/all/${filtered.id}`)
-    }
-  }
+  //   if (date){
+  //     history.push(`/all/${filtered.id}`)
+  //   }
+  // }
 
   return (
     <form className="container" onSubmit={handleSubmit}>
@@ -82,7 +82,7 @@ function EditForm({filtered}) {
     {showCalendar &&
 
       <div>
-        <Calendar onChange={changeDate} value={dueDate} />
+        <Calendar onChange={setDueDate} value={dueDate} />
         <span>Due Date</span>
       </div>
       }
