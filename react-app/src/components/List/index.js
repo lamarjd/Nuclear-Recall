@@ -12,6 +12,7 @@ import ListForm from '../ListModal/ListForm.js';
 
 import EditList from '../EditList/index.js';
 import { fetchTasks } from '../../store/tasks.js';
+import "./List.css"
 
 
 
@@ -19,39 +20,67 @@ import { fetchTasks } from '../../store/tasks.js';
 export default function AllLists(){
 
     const dispatch = useDispatch()
+    const history = useHistory()
     const listState = useSelector((state) => state.lists);
 
     const thisUser = useSelector((state) => state.session.user);
 
-    const [isLoaded, setIsLoaded] = useState(false)
-    const history = useHistory()
+    const [isLoaded, setIsLoaded] = useState(false);
+    const [showEditForm, setShowEditForm] = useState(false);
+    // const [style, setStyle] = useState(false)
+
     const lists = Object.values(listState)
     useEffect(() => {
         dispatch(fetchLists())
             .then(() => setIsLoaded(true))
             dispatch(fetchTasks())
-    }, [dispatch])
+    }, [dispatch])  
 
+    // let style={transform: 'rotate(180deg)'}
 
-    
-
-
-
+    let styler =() => {
+        setShowEditForm(!showEditForm)
+    }
 
     return isLoaded && (
         <div className='lists'>
 
-
-            <h1>Lists</h1>
+            <div className="list-name">
+                <h1>Lists</h1> {"  "}
+            
+                <i id="arrow-rotate"class="fa-solid fa-arrow-up"></i>
+            </div>
+        
             {/* <ListForm/> */}
             {lists?.map(list => (
                 <div key={list.id}>
+
                  {thisUser.id == list.user_id &&
-                <NavLink className="detail-navlink" key={list.id} to={`/all/lists/${list.id}`}> <h3>{list.name}</h3></NavLink>}
-                 {thisUser.id == list.user_id &&
-                <button onClick={(e)=> {dispatch(deleteListThunk(list.id), history.push('/all'))}}> DELETE</button>}
-                 {thisUser.id == list.user_id &&
-                <EditList list={list}/>}
+                 <>
+                <div className="list-name-div">
+                <NavLink className="detail-navlink" key={list.id} to={`/all/lists/${list.id}`}> 
+                {/* List Name */}
+                <h3>{list.name}</h3>
+                </NavLink>
+                
+                    <i onClick={() => styler()}id="arrow-rotate"class="fa-solid fa-arrow-up"></i>
+                
+                </div>
+                {showEditForm && 
+
+                <>
+                    <EditList                  
+                    style={{visibility: showEditForm ? "visible" : "hidden"}}
+                    list={list}/>
+            
+                
+                
+                    <button onClick={(e)=> {dispatch(deleteListThunk(list.id), history.push('/all'))}} > DELETE</button>      
+                </>
+                }               
+                    
+                </>
+                }
 
                 </div>
             ))}

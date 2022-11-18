@@ -1,0 +1,25 @@
+.list-name {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 70%;
+}
+
+.list-name i:hover{
+    transform: rotate(180deg); 
+    transition: transform 300ms ease; 
+}
+
+.list-name-div {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 50%;
+    font-weight: 100;
+    font-size: small;
+}
+
+.list-name-div i:hover{
+    /* transform: rotate(180deg);  */
+    /* transition: transform 300ms ease;  */
+}
