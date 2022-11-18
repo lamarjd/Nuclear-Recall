@@ -2,13 +2,15 @@ import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
 import { useHistory } from 'react-router-dom'
-import { createListThunk } from "../../store/lists"
+import { createListThunk, fetchLists } from "../../store/lists"
 import './List.css';
+import { Modal } from "../../context/Modal";
 
-function ListForm() {
+function ListForm({setList}) {
   const dispatch = useDispatch();
   const [name, setName] = useState('')
   const history = useHistory()
+  
 
 
   const handleSubmit = async (e) => {
@@ -20,6 +22,7 @@ function ListForm() {
     let listCreated = await dispatch(createListThunk(payload))
     if (listCreated) {
       history.push(`/all`)
+      setList(false)
     }
   };
 

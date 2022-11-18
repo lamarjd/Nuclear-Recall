@@ -19,7 +19,7 @@ let modalList = (
   <button onClick={() => (setList(true))}>Add a List</button>  
 {lis && (
    <Modal onClose={() => setList(false)}>
-   <ListForm />
+   <ListForm setList={setList}/>
  </Modal>
 )}
 </div>)
