@@ -53,11 +53,11 @@ function App() {
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
-        <ProtectedRoute path="/all/lists/:id">
-          <OneList/>
-        </ProtectedRoute>
         <ProtectedRoute  exact path="/all/completed/">
           <CompletedAllTasks/>
+        </ProtectedRoute>
+        <ProtectedRoute path="/all/lists/:id">
+          <OneList/>
         </ProtectedRoute>
         <ProtectedRoute path='/all/:id' exact={true}>
           <NavBar user={user}/>

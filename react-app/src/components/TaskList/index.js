@@ -11,6 +11,7 @@ import TaskForm from "../TaskForm/index.js";
 import "./TaskList.css";
 
 export default function AllTasks() {
+  const arr = []
   const dispatch = useDispatch();
   const reduxstate = useSelector((state) => state.tasks);
   const listsState = useSelector((state) => state.lists);
@@ -24,7 +25,24 @@ export default function AllTasks() {
   }, [dispatch, listsState]);
 
   const taskList = Object.values(reduxstate);
-  console.log(taskList);
+
+  const cb = (checkList, num) => {
+
+
+    if(!checkList.length) {
+      checkList.push(num)
+      return checkList
+    }
+    for(let i = 0; i < checkList.length; i++){
+      if(num == checkList[i]){
+        checkList.splice(i, 1)
+      } else{
+        checkList.push(num)
+      }
+      return checkList
+    }
+  }
+
 
   return (
     isLoaded && (
@@ -39,7 +57,8 @@ export default function AllTasks() {
             <div>
               {thisUser.id == task.user_id &&
             <div className="one-task">
-              <input type="checkbox" />
+              <input type="checkbox" onChange={() => cb(arr, task.id)}/>
+
               <NavLink
                 className="detail-navlink"
                 key={task.id}
