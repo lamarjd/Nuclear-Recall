@@ -5,7 +5,7 @@ import * as sessionActions from "../../store/session.js";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, Link, useHistory, useParams } from "react-router-dom";
 
-import { deleteTaskThunk, fetchTasks } from "../../store/tasks";
+import { deleteTaskThunk, editTaskThunk, fetchTasks } from "../../store/tasks";
 
 import TaskForm from "../TaskForm/index.js";
 import "./TaskList.css";
@@ -14,11 +14,9 @@ export default function CompletedAllTasks() {
   const dispatch = useDispatch();
   const reduxstate = useSelector((state) => state.tasks);
   const listsState = useSelector((state) => state.lists);
-
-    const thisUser = useSelector(state => state.session.user);
-
-    const [isLoaded, setIsLoaded] = useState(false)
-
+  const thisUser = useSelector(state => state.session.user);
+  const [isLoaded, setIsLoaded] = useState(false)
+  
   useEffect(() => {
     dispatch(fetchTasks()).then(() => setIsLoaded(true));
   }, [dispatch, listsState]);
@@ -35,10 +33,10 @@ export default function CompletedAllTasks() {
      
           <TaskForm />
           <hr />
-          {taskList.map((task) => (
+          {completedList.map((task) => (
             <div>
               {thisUser.id == task.user_id &&
-            <div className="one-task">
+            <div className="one-task" >
               <input type="checkbox" />
               <NavLink
                 className="detail-navlink"

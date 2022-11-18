@@ -31,18 +31,22 @@ export default function AllTasks() {
 
     if(!checkList.length) {
       checkList.push(num)
+      console.log(checkList)
       return checkList
     }
     for(let i = 0; i < checkList.length; i++){
       if(num == checkList[i]){
         checkList.splice(i, 1)
-      } else{
-        checkList.push(num)
+        return console.log(checkList)
       }
-      return checkList
-    }
+      
   }
-
+ 
+    checkList.push(num)
+    return console.log(checkList)
+    
+  
+  }
 
   return (
     isLoaded && (
