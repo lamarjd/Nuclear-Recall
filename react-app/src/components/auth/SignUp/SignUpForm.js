@@ -83,9 +83,10 @@ const SignUpForm = () => {
       
       const data = dispatch(signUp(username, email, first_name, last_name, password));
 
-      if (data) {
-        setErrors(data)
-      }
+      // if (data) {
+      //   setErrors(data)
+      // }
+
     }
   };
 
@@ -113,8 +114,8 @@ const SignUpForm = () => {
       <div>
       <ul>
 
-        { errors &&
-        errors.map((error, ind) => (
+        { errors.length > 0 &&
+        errors?.map((error, ind) => (
           <li key={ind}>
             {error} 
           </li>
@@ -197,7 +198,7 @@ const SignUpForm = () => {
           value={repeatPassword}
         ></input>
       </div>
-      <button id='signupButton' type='submit' disabled={errors.length > 0} >Sign Up</button>
+      <button id='signupButton' type='submit' disabled={errors.length} >Sign Up</button>
     </form>
     </div>
     </>
