@@ -29,7 +29,7 @@ function EditList({list}) {
 
   return (
     <form className="container" onSubmit={handleSubmit}>
-      <div className="welcome">( ͡° ͜ʖ ͡°) ( ͡° ͜ʖ ͡°) ( ͡° ͜ʖ ͡°) ( ͡° ͜ʖ ͡°) ( ͡° ͜ʖ ͡°)</div>
+      <div className="welcome"></div>
       <div className="List">
       <label>
         <input
