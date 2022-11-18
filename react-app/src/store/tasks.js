@@ -109,7 +109,7 @@ export const createTaskThunk = (payload,id) => async dispatch => {
 }
 
 export const editTaskThunk = (task,id) => async dispatch => {
-
+    console.log("TASK FROM THUNK", task)
     const response = await fetch(`/api/all/${id}`, {
         method: "PUT",
         headers: {

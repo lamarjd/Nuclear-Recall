@@ -15,6 +15,7 @@ function EditForm({filtered}) {
   const [validationErrors, setValidationErrors] = useState([])
   const [hasSubmitted, setHasSubmitted] = useState(false)
   const [dueDate, setDueDate] = useState(new Date())
+  console.log("DUE DATE useState", dueDate)
   const [showCalendar, setShowCalendar] = useState(false)
   const history = useHistory()
 
@@ -22,16 +23,18 @@ function EditForm({filtered}) {
   //   dispatch(fetchOneTask(filtered.id))
   // },[dispatch,filtered.id])
 
+  console.log("FILTERED", filtered)
 
   useEffect(() => {
     setBody(filtered && filtered.body);
+    setDueDate(filtered && filtered.dueDate)
   }, [filtered]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const payload={
       body,
-      due_date: dueDate
+      // due_date: dueDate
     }
     
     let taskEdit = await dispatch(editTaskThunk(payload,filtered.id))
@@ -39,6 +42,24 @@ function EditForm({filtered}) {
       history.push(`/all/${filtered.id}`)
     }
   };
+
+  const changeDate = async (e) => {
+    // e.preventDefault();
+
+    const payload = {
+      due_date: dueDate
+    }
+    console.log("PAYLOAD", payload)
+
+    setDueDate(dueDate)
+
+    let date = await dispatch(editTaskThunk(payload, filtered.id))
+
+
+    if (date){
+      history.push(`/all/${filtered.id}`)
+    }
+  }
 
   return (
     <form className="container" onSubmit={handleSubmit}>
@@ -56,14 +77,16 @@ function EditForm({filtered}) {
       <button className="EditTaskButtonTaskDetails" type="submit">Edit Task Name</button>
       </div>
 
-    <button onClick={() => setShowCalendar(!showCalendar)}>Select Due Date</button>
+    <button type="submit" onClick={() => setShowCalendar(!showCalendar)}>Select Due Date</button>
+
     {showCalendar &&
 
       <div>
-        <Calendar onChange={setDueDate} value={dueDate} />
+        <Calendar onChange={changeDate} value={dueDate} />
         <span>Due Date</span>
       </div>
       }
+
       {dueDate.toDateString()}
 
     </form>

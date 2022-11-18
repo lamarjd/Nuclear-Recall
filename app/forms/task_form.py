@@ -4,6 +4,7 @@ from wtforms.validators import DataRequired
 
 
 class NewTask(FlaskForm):
-  body = StringField('Body', validators=[DataRequired()])
+  body = StringField('Body')
+  due_date = DateField("Due Date")
   list_id = IntegerField("List ID")
   submit = SubmitField("DEEEEZ")
