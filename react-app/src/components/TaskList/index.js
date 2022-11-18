@@ -15,9 +15,9 @@ export default function AllTasks() {
   const dispatch = useDispatch();
   const reduxstate = useSelector((state) => state.tasks);
   const listsState = useSelector((state) => state.lists);
-
-    const thisUser = useSelector(state => state.session.user);
-
+  const [checked, setChecked] = useState(false)
+  const thisUser = useSelector(state => state.session.user);
+  const history = useHistory()
     const [isLoaded, setIsLoaded] = useState(false)
 
   useEffect(() => {
@@ -57,7 +57,7 @@ export default function AllTasks() {
     }
   }
 
-  
+
 
   return (
     isLoaded && (
@@ -66,7 +66,7 @@ export default function AllTasks() {
           <h1>Tasksss</h1>
           <NavLink to={`/all`}>Incomplete</NavLink>
           <NavLink to={`/all/completed`}>Completed</NavLink>
-          <button onClick={() => executor(arr)}> ✔️ </button>
+          <button onClick={() => {executor(arr), history.push('/all/completed')}}> ✔️ </button>
           <TaskForm />
           <hr />
           {filteredTaskList.map((task) => (
