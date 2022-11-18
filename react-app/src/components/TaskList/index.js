@@ -33,7 +33,10 @@ export default function AllTasks() {
           <h1>Tasksss</h1>
           <TaskForm />
           <hr />
+          
           {taskList.map((task) => (
+            <div>
+              {thisUser.id == task.user_id &&
             <div className="one-task">
               <input type="checkbox" />
               <NavLink
@@ -50,6 +53,7 @@ export default function AllTasks() {
                 DELETE
               </button>
               {/* <hr /> */}
+            </div>}
             </div>
           ))}
         </div>
