@@ -16,10 +16,10 @@ function TaskForm() {
     const payload={
       body
     }
-    
+
     let taskCreated = await dispatch(createTaskThunk(payload))
     if(taskCreated){
-      history.push(`/all/${taskCreated.id}`)
+      
     }
   };
 
@@ -30,8 +30,9 @@ function TaskForm() {
         <input
           placeholder="Write Task here"
           type="text"
+          maxLength={200}
           value={body}
-          // required pattern="(?!\s+$)[a-zA-Z,'. ! ? -]+"
+          required pattern="[a-zA-Z, 0-9,'. ! ? + -]+" title="Please use valid chars,invalid chars: @#$%^&*()"
           onChange={(e) => setBody(e.target.value)}
         />
       </label>

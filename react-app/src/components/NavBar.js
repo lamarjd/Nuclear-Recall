@@ -12,9 +12,9 @@ import SearchBar from './searchBar';
 
 const NavBar = ({ user }) => {
 
-  console.log("current user" , user)
+  
 
-  return ( 
+  return (
     <nav>
 
       <div className="nav-wrapper">
@@ -23,11 +23,11 @@ const NavBar = ({ user }) => {
         {/* <div>
           {!user ? (
           <NavLink to="/" exact={true} activeClassName="active">
-           <p>Home</p> 
+           <p>Home</p>
           </NavLink>
           ) : (
           <NavLink to="/all" exact={true} activeClassName="active">
-           <p>Tasks</p> 
+           <p>Tasks</p>
           </NavLink>
           )
           }
@@ -67,9 +67,9 @@ const NavBar = ({ user }) => {
       
       </div>
 
-          <LogoutButton />      
+          <LogoutButton />
           {/* <SearchBar/> */}
-        
+
       </div>
     </nav>
   );

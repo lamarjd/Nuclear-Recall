@@ -6,20 +6,19 @@ import { useHistory } from "react-router-dom";
 import { useParams } from "react-router-dom";
 function TaskListForm() {
   const {id} = useParams()
-  console.log("list id",id)
   const dispatch = useDispatch();
   const [body, setBody] = useState('')
   const [validationErrors, setValidationErrors] = useState([])
   const [hasSubmitted, setHasSubmitted] = useState(false)
   const history = useHistory()
-  
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const payload={
       body,
       id
     }
-    
+
     let taskCreated = await dispatch(createTaskListThunk(payload,id))
     if(taskCreated){
       history.push(`/all/${taskCreated.id}`)
@@ -34,7 +33,8 @@ function TaskListForm() {
           placeholder="Write TaskList here"
           type="text"
           value={body}
-          // required pattern="(?!\s+$)[a-zA-Z,'. ! ? -]+"
+          maxLength={200}
+          required pattern="[a-zA-Z, 0-9,'. ! ? + -]+" title="Please use valid chars,invalid chars: @#$%^&*()"
           onChange={(e) => setBody(e.target.value)}
         />
       </label>

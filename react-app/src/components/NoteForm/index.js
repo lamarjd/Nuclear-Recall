@@ -10,10 +10,6 @@ function NoteForm({ filtered }) {
 
     const { id } = filtered
     let task_id = id
-    console.log("ID", id)
-    console.log("filtered", filtered)
-    // const { taskId } = useParams();
-    // console.log("task ID", taskId);
 
     const [body, setBody] = useState('');
 
@@ -27,9 +23,9 @@ function NoteForm({ filtered }) {
             body,
             task_id
         }
-        console.log("PAYLOAD------------------",payload)
+        setBody("")
         let noteCreated = await dispatch(createNoteThunk(payload, id))
-        console.log(noteCreated)
+
         if (noteCreated) {
             history.push(`/all/${task_id}`)
         }
@@ -47,7 +43,8 @@ function NoteForm({ filtered }) {
             id="inputBoxnoteTaskDetails"
             type="text"
             value={body}
-
+            maxLength={200}
+            required pattern="[a-zA-Z, 0-9,'. ! ? + -]+" title="Please use valid chars,invalid chars: @#$%^&*()"
             onChange={(e) => setBody(e.target.value)}
           />
         </label>

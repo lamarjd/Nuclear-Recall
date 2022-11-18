@@ -10,7 +10,7 @@ import "./SplashPage.css";
 function SplashPage({ user }) {
   // const user = useSelector((state) => state.session.user)
 
-  // console.log("current user", currentUser)
+  
 
   return (
     <>

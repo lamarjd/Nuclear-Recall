@@ -33,17 +33,17 @@ export default function OneTask() {
 
   const taskList = Object.values(reduxstate);
   const filtered = taskList.filter((task) => task.id === +id)[0];
-  console.log("FILTERED_--",filtered)
+  
   return (
     isLoaded && (
       <div className="mainTaskDetailsOutDiv">
         <div className="outerTaskDetailsLeftDiv">
         <h1 id='h1taskdetails'>Task Options</h1>
         <EditTaskListForm filtered={filtered} />
-        
+
         <EditForm filtered={filtered} />
 
-        
+
         </div>
         <div className="noteOuterDivTaskDetails">
           <div id='labelDivTaskDetailsNotes'>Notes for {filtered.body}</div>
@@ -51,7 +51,8 @@ export default function OneTask() {
             {filteredNotes.map((note) => (
               <div className="noteDivContainerTaskDetails">
                 <p key={note.id}>{note.body}</p>
-                <button className='noteDeleteButtonTaskDetails' onClick={() => dispatch(deleteNoteThunk(note.id))}>Destroy This Note</button>
+                {thisUser.id == note.user_id &&
+                <button className='noteDeleteButtonTaskDetails' onClick={() => dispatch(deleteNoteThunk(note.id))}>Destroy This Note</button>}
               </div>
             ))}
             <NoteForm id='noteFormTaskDetails' filtered={filtered} />

@@ -13,15 +13,14 @@ function EditList({list}) {
     // useEffect(()=>{
     // setListName(list.name)
     // },[list])
-    console.log("list",list)
-    console.log("list:id",list.id)
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const payload = {
       name
-      
+
     }
-    console.log("payload",payload)
+    
     let listUpdated = await dispatch(editListThunk(payload,list.id))
     if (listUpdated) {
       history.push(`/all`)
@@ -35,8 +34,9 @@ function EditList({list}) {
       <label>
         <input
           type="text"
-          required pattern="(?!\s+$)[a-zA-Z,'. ! ? -]+"
+          required pattern="[a-zA-Z, 0-9,'. ! ? + -]+" title="Please use valid chars,invalid chars: @#$%^&*()"
           onChange={(e) => setListName(e.target.value)}
+          maxLength={30}
           value={name}
         />
       </label>

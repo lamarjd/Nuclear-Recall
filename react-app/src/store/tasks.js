@@ -50,7 +50,7 @@ const removeTaskAction = (taskId) => {
 
 
 
-// read / get tasks 
+// read / get tasks
 
 
 // pebbles Thunk
@@ -58,7 +58,7 @@ const removeTaskAction = (taskId) => {
 
 export const fetchTasks = () => async dispatch => {
     const res = await fetch('/api/all');
-    
+
     if (res.ok) {
 
         const tasks = await res.json();
@@ -73,7 +73,7 @@ export const fetchTasks = () => async dispatch => {
 // notes / task details thunk
 
 export const fetchOneTask = id => async dispatch => {
-        
+
     const res = await fetch(`/api/all/${id}`)
     if (res.ok) {
 
@@ -99,7 +99,7 @@ export const createTaskThunk = (payload,id) => async dispatch => {
 
     const data = await response.json()
 
-    
+
     if (response.ok) {
         await dispatch(createTaskAction(data))
         return data
@@ -109,7 +109,7 @@ export const createTaskThunk = (payload,id) => async dispatch => {
 }
 
 export const editTaskThunk = (task,id) => async dispatch => {
-    console.log("THIS IS THE THUNK")
+
     const response = await fetch(`/api/all/${id}`, {
         method: "PUT",
         headers: {
@@ -119,7 +119,7 @@ export const editTaskThunk = (task,id) => async dispatch => {
     });
     if (response.ok) {
         const task = await response.json();
-        console.log("TASK--",task)
+
         dispatch(editTaskAction(task))
         return task
     }
@@ -127,8 +127,7 @@ export const editTaskThunk = (task,id) => async dispatch => {
     throw new Error("Not this time")
 }
 export const editTaskAddListThunk = (task,id) => async dispatch => {
-    console.log("task---",task)
-    console.log("task id---",id)
+
     const response = await fetch(`/api/all/${id}/listEdit`, {
         method: "PUT",
         headers: {
@@ -168,7 +167,7 @@ export const createTaskListThunk = (payload,list_id) => async dispatch => {
 
     const data = await response.json()
 
-    
+
     if (response.ok) {
         await dispatch(createTaskAction(data))
         return data
@@ -185,7 +184,7 @@ const initialState = {}
 
 const taskReducer = (state = initialState, action) => {
     let newState = {};
-    // console.log("STATE-",state)
+
     switch (action.type) {
 
         case ALL_TASKS: {
@@ -203,41 +202,36 @@ const taskReducer = (state = initialState, action) => {
             return newState
         }
 
-        case CREATE_TASK: { 
+        case CREATE_TASK: {
             newState = { ...state }
             newState[action.payload.id] = action.payload
             return newState
         }
 
         case EDIT_TASK:
-            // console.log("ACTION--",action)
-            // newState.task["notes"] = [...state.task.notes]
-            
+
             newState= {...state}
-            
-            // console.log("state notes",newState.task.notes)
-            // console.log("newState--",newState)
             newState[action.task.id]= action.task
             newState[action.task.id]["notes"]= state[action.task.id].notes
-            // console.log("newState-- AFTER",newState)
-            
-            // newState[action.task.notes]= action.task.notes
-            // newState["notes"]={...state.notes}
-            // newState.task.notes={...state.notes}
+
+
+
+
+
             return newState
             // return {
                 // ...state,
                 // [action.task.id]: action.task,
                 // [action.task.notes]:{...state.notes}
             // }
-        
+
         case DELETE_TASK:
             newState = {...state}
-            console.log("del task state----",newState)
+
             delete newState[action.taskId]
-            console.log("del task state----",newState)
+
             return newState;
-    
+
 
 
         default: {

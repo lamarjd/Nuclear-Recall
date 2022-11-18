@@ -125,10 +125,10 @@ const noteReducer = (state=initialState, action) => {
         }
 
         case CREATE_NOTE: {
-            console.log("ACTION------------",action)
+            
             newState = { ...state }
             newState[action.payload.id] = action.payload
-            console.log("NEW STATE----",newState)
+            
             return newState
         }
 

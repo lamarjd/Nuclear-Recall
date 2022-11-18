@@ -33,7 +33,7 @@ export default function AllLists(){
     }, [dispatch])
 
 
-    // console.log("lists", lists)
+    
 
 
 
@@ -46,14 +46,12 @@ export default function AllLists(){
             {/* <ListForm/> */}
             {lists?.map(list => (
                 <div key={list.id}>
-
-                <NavLink className="detail-navlink" key={list.id} to={`/all/lists/${list.id}`}> <h3>{list.name}</h3></NavLink>
-                <button onClick={(e)=> {dispatch(deleteListThunk(list.id), history.push('/all'))}}> DELETE</button>
-
-
-                <button onClick={()=>dispatch(editListThunk(list.id))}>Edit</button>
-
-                <EditList list={list}/>
+                 {thisUser.id == list.user_id &&
+                <NavLink className="detail-navlink" key={list.id} to={`/all/lists/${list.id}`}> <h3>{list.name}</h3></NavLink>}
+                 {thisUser.id == list.user_id &&
+                <button onClick={(e)=> {dispatch(deleteListThunk(list.id), history.push('/all'))}}> DELETE</button>}
+                 {thisUser.id == list.user_id &&
+                <EditList list={list}/>}
 
                 </div>
             ))}
