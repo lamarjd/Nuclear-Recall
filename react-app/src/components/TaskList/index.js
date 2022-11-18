@@ -32,9 +32,10 @@ export default function AllTasks() {
         <div className="all-tasks-container">
           <h1>Tasksss</h1>
           <TaskForm />
+          <hr />
           {taskList.map((task) => (
-            <div>
-              <hr />
+            <div className="one-task">
+              <input type="checkbox" />
               <NavLink
                 className="detail-navlink"
                 key={task.id}
@@ -42,12 +43,13 @@ export default function AllTasks() {
               >
                 {" "}
                 <h3>{task.body}</h3>
+              <hr />
               </NavLink>
               <button onClick={() => dispatch(deleteTaskThunk(task.id))}>
                 {" "}
                 DELETE
               </button>
-              <hr />
+              {/* <hr /> */}
             </div>
           ))}
         </div>
