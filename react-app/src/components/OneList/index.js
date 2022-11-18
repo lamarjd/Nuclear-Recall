@@ -17,6 +17,7 @@ export default function OneList(){
   const dispatch = useDispatch();
   const {id} = useParams()
   const reduxstate = useSelector((state) => state.lists);
+  const taskState = useSelector((state) => state.tasks)
   const thisUser = useSelector(state => state.session.user);
   const [isLoaded, setIsLoaded] = useState(false)
 
@@ -24,7 +25,7 @@ export default function OneList(){
   useEffect(() => {
     dispatch(fetchOneList(id))
         .then(() => setIsLoaded(true))
-}, [dispatch])
+}, [dispatch,taskState])
 
   const list = Object.values(reduxstate)
   const filtered = list.filter(list => list.id === +id)[0]
