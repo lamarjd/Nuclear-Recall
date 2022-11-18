@@ -1,5 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
+
 import * as sessionActions from "../../store/session.js";
 
 import { useDispatch, useSelector } from "react-redux";
@@ -15,9 +16,11 @@ export default function AllTasks() {
   const reduxstate = useSelector((state) => state.tasks);
   const listsState = useSelector((state) => state.lists);
 
-    const thisUser = useSelector(state => state.session.user);
 
-    const [isLoaded, setIsLoaded] = useState(false)
+
+  const thisUser = useSelector(state => state.session.user);
+
+  const [isLoaded, setIsLoaded] = useState(false)
 
   useEffect(() => {
     dispatch(fetchTasks()).then(() => setIsLoaded(true));
@@ -45,7 +48,10 @@ export default function AllTasks() {
                 to={`/all/${task.id}`}
               >
                 {" "}
+                
                 <h3>{task.body}</h3>
+
+
               <hr />
               </NavLink>
               <button onClick={() => dispatch(deleteTaskThunk(task.id))}>

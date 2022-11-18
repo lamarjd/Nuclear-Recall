@@ -4,12 +4,18 @@ import { useDispatch } from "react-redux";
 import { createTaskThunk, editTaskThunk, fetchOneTask } from "../../store/tasks";
 import { useHistory } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
+
+
 function EditForm({filtered}) {
   const {id} = useParams()
   const dispatch = useDispatch();
   const [body, setBody] = useState("")
   const [validationErrors, setValidationErrors] = useState([])
   const [hasSubmitted, setHasSubmitted] = useState(false)
+  const [dueDate, setDueDate] = useState(new Date())
+  const [showCalendar, setShowCalendar] = useState(false)
   const history = useHistory()
 
   // useEffect(()=>{
@@ -48,6 +54,17 @@ function EditForm({filtered}) {
       </label>
       <button className="EditTaskButtonTaskDetails" type="submit">Edit Task Name</button>
       </div>
+
+    <button onClick={() => setShowCalendar(!showCalendar)}>Select Due Date</button>
+    {showCalendar &&
+
+      <div>
+        <Calendar onChange={setDueDate} value={dueDate} />
+        <span>Due Date</span>
+      </div>
+      }
+      {dueDate.toDateString()}
+
     </form>
   );
 }

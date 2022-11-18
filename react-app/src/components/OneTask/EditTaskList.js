@@ -1,6 +1,7 @@
 import React from 'react'
 import { useEffect, useState} from 'react';
 import * as sessionActions from '../../store/session.js';
+
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useHistory, useParams } from 'react-router-dom';
 import {editTaskAddListThunk} from '../../store/tasks';
@@ -23,7 +24,8 @@ export default function EditTaskListForm({filtered}){
 
     const history = useHistory()
     const [name,setName]= useState(filteredListObj[0]?.name)
-
+    
+    
 
 
     const [list_id,setList_id] = useState("")
@@ -44,7 +46,8 @@ export default function EditTaskListForm({filtered}){
         console.log("THE LIST=--------------------------",theList)
         let id = theList?.id
         const payload = {
-            list_id:id
+            list_id:id,
+            // due_date
         }
 
         let taskEdited = await dispatch(editTaskAddListThunk(payload,task_id))
