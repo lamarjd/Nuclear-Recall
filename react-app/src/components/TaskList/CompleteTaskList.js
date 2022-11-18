@@ -16,7 +16,7 @@ export default function CompletedAllTasks() {
   const listsState = useSelector((state) => state.lists);
   const thisUser = useSelector(state => state.session.user);
   const [isLoaded, setIsLoaded] = useState(false)
-  
+
   useEffect(() => {
     dispatch(fetchTasks()).then(() => setIsLoaded(true));
   }, [dispatch, listsState]);
@@ -29,8 +29,10 @@ export default function CompletedAllTasks() {
     isLoaded && (
 
         <div className="all-tasks-container">
-          <h1>Tasksss</h1>
-     
+          <h1>Tasks</h1>
+          <p>These tasks have been completed</p>
+
+          <NavLink to="/all">Incomplete</NavLink>
           <TaskForm />
           <hr />
           {completedList.map((task) => (

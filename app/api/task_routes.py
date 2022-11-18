@@ -75,24 +75,24 @@ def edit_task(id):
         form = NewTask()
         form['csrf_token'].data = request.cookies['csrf_token']
         one_task = Task.query.get(id)
-        print("one task before--------",one_task.notes)
+
         task_notes = Note.query.filter(Note.task_id == id).all()
-        print("task_notes-----",task_notes)
-        # something = [note for note in task_notes]
-        # for thing in task_notes:
-        #     print("thing",thing)
-        #     one_task.notes.append(thing)
-        # print("one task AFTER--------",one_task.notes)
-        # one_task.notes.appends(something)
-        # print("one task after",one_task)
         if(not one_task):
             return "<h1>No Task</h1>"
         if one_task.user_id == current_user.id:
-            if form.validate_on_submit():
-                one_task.body = form.data["body"]
-                one_task.notes = one_task.notes
-                one_task.complete = form.data["complete"]
+            print("THIS IS THE FORM DATA_-----------------",form.data)
+            if not form.data['body'] and form.data['complete']:
+                one_task.complete = form.data['complete']
+                print("THIS IS THE PRINT INSIDE IF STATEMENT", one_task.to_dict())
                 db.session.commit()
+
+            if form.validate_on_submit():
+                    one_task.body = form.data["body"]
+                    one_task.notes = one_task.notes
+                    one_task.submit = form.data["submit"]
+                    db.session.commit()
+
+
             # return render_template('task_form.html', form=form)
             return make_response(one_task.to_dict(), 200)
         else:

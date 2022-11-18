@@ -56,15 +56,15 @@ const SignUpForm = () => {
     if (!first_name) {
       validationErrors.push("Please provide a first name")
     }
-    
+
     if (!last_name) {
       validationErrors.push("Please provide a last name")
     }
-    
+
     if (!password) {
       validationErrors.push("Please provide a password")
     }
-    
+
     if (password != repeatPassword) {
       validationErrors.push("Passwords must match")
     }
@@ -80,7 +80,7 @@ const SignUpForm = () => {
 
     if (password === repeatPassword) {
       setErrors([])
-      
+
       const data = dispatch(signUp(username, email, first_name, last_name, password));
 
       // if (data) {
@@ -107,16 +107,16 @@ const SignUpForm = () => {
     </nav>
     <div className='outermostSignupDiv'>
       <div className='imageSignupDiv'>
-      <img src={bert} alt="Girl in a jacket" id='signupImage'/> 
+      <img src={bert} alt="Girl in a jacket" id='signupImage'/>
       </div>
     <form onSubmit={onSignUp} id='signupForm'>
       <div>
       <ul>
 
         { errors.length > 0 &&
-        errors.map((error, ind) => (
+        errors?.map((error, ind) => (
           <li key={ind}>
-            {error} 
+            {error}
           </li>
           ))}
       </ul>
@@ -145,7 +145,7 @@ const SignUpForm = () => {
           value={email}
         ></input>
       </div>
-    
+
       <div className='outerSignupDiv'>
           <label className='emailSignupLabel'>First Name</label>
           <input
@@ -197,7 +197,7 @@ const SignUpForm = () => {
           value={repeatPassword}
         ></input>
       </div>
-      <button id='signupButton' type='submit' disabled={errors.length > 0} >Sign Up</button>
+      <button id='signupButton' type='submit' disabled={errors.length} >Sign Up</button>
     </form>
     </div>
     </>
