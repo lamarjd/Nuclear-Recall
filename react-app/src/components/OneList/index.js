@@ -32,13 +32,15 @@ export default function OneList(){
 
 
   const tasks = filtered?.tasks
- 
+
 
 
   return isLoaded && (
 
     <div>
         <h1>Tasks</h1>
+
+        
 
         <TaskListForm list={id}/>
         {tasks?.map(task => (
