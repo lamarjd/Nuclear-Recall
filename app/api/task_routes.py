@@ -89,10 +89,17 @@ def edit_task(id):
             return "<h1>No Task</h1>"
         if one_task.user_id == current_user.id:
             print("FORM DATA------------>", form.data)
-            if form.validate_on_submit():
+
+            if not form.data["body"] and form.data["due_date"]:
+                one_task.due_date = form.data["due_date"]
+                print("ONE TASK DICT", one_task.to_dict())
+                db.session.commit()
+
+
+            if form.validate_on_submit() and form.data["body"]:
                 one_task.body = form.data["body"]
                 one_task.notes = one_task.notes
-                one_task.due_date = form.data["due_date"]
+                # one_task.due_date = form.data["due_date"]
                 db.session.commit()
             # return render_template('task_form.html', form=form)
             return make_response(one_task.to_dict(), 200)

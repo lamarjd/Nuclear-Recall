@@ -16,7 +16,7 @@ class Task(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')))
     list_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('lists.id')))
     complete = db.Column(db.Boolean)
-    due_date = db.Column(db.Date)
+    due_date = db.Column(db.String)
     created_at = db.Column(db.DateTime, default= datetime.utcnow)
     updated_at = db.Column(db.DateTime, default= datetime.utcnow)
     notes = db.relationship("Note",cascade="all,delete",backref="task")

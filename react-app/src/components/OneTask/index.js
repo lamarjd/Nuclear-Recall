@@ -10,6 +10,7 @@ import EditForm from "../EditTask/index.js";
 import NoteForm from "../NoteForm/index.js";
 import { getAllNotes, deleteNoteThunk } from "../../store/notes.js";
 import EditTaskListForm from "./EditTaskList.js";
+import TaskCalendar  from "../EditTask/Calendar";
 
 // css
 import './oneTaskcss.css'
@@ -57,6 +58,8 @@ export default function OneTask() {
             ))}
             <NoteForm id='noteFormTaskDetails' filtered={filtered} />
           </div>
+
+             <TaskCalendar filtered={filtered}/>
 
         </div>
       </div>
