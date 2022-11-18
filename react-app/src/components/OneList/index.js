@@ -7,6 +7,8 @@ import { fetchOneList } from '../../store/lists.js';
 import TaskForm from '../TaskForm/index.js';
 import TaskListForm from '../TaskListForm/index.js';
 
+import { NavLink } from 'react-router-dom';
+
 
 
 
@@ -26,9 +28,9 @@ export default function OneList(){
   const list = Object.values(reduxstate)
   const filtered = list.filter(list => list.id === +id)[0]
 
-  // console.log("FILTERED",filtered)
+
   const tasks = filtered?.tasks
-  // console.log("TASKS-----",tasks)
+
 
 
   return isLoaded && (
@@ -40,7 +42,7 @@ export default function OneList(){
         {tasks?.map(task => (
 
           <div>
-            <p>{task?.body}</p>
+           <NavLink to={`/all/${task.id}`}> {task?.body} </NavLink>
           </div>
         ))}
     </div>

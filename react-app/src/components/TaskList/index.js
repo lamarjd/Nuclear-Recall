@@ -20,7 +20,7 @@ export default function AllTasks(){
     const listsState = useSelector((state)=> state.lists)
 
     const thisUser = useSelector(state => state.session.user);
-    console.log("user",thisUser)
+
     const [isLoaded, setIsLoaded] = useState(false)
 
     useEffect(() => {
@@ -30,7 +30,7 @@ export default function AllTasks(){
 
 
     const taskList = Object.values(reduxstate)
-    console.log(taskList)
+
 
     return isLoaded && (
         <div className='main'>

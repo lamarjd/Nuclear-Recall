@@ -13,15 +13,14 @@ function EditList({list}) {
     // useEffect(()=>{
     // setListName(list.name)
     // },[list])
-    console.log("list",list)
-    console.log("list:id",list.id)
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const payload = {
       name
-      
+
     }
-    console.log("payload",payload)
+    
     let listUpdated = await dispatch(editListThunk(payload,list.id))
     if (listUpdated) {
       history.push(`/all`)

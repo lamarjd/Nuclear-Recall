@@ -6,20 +6,19 @@ import { useHistory } from "react-router-dom";
 import { useParams } from "react-router-dom";
 function TaskListForm() {
   const {id} = useParams()
-  console.log("list id",id)
   const dispatch = useDispatch();
   const [body, setBody] = useState('')
   const [validationErrors, setValidationErrors] = useState([])
   const [hasSubmitted, setHasSubmitted] = useState(false)
   const history = useHistory()
-  
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const payload={
       body,
       id
     }
-    
+
     let taskCreated = await dispatch(createTaskListThunk(payload,id))
     if(taskCreated){
       history.push(`/all/${taskCreated.id}`)

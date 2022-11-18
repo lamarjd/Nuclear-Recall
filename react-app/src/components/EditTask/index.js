@@ -26,7 +26,7 @@ function EditForm({filtered}) {
     const payload={
       body
     }
-    console.log("payload",payload)
+    
     let taskEdit = await dispatch(editTaskThunk(payload,filtered.id))
     if(taskEdit){
       history.push(`/all/${filtered.id}`)

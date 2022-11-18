@@ -14,10 +14,10 @@ function TaskForm() {
     const payload={
       body
     }
-    
+
     let taskCreated = await dispatch(createTaskThunk(payload))
     if(taskCreated){
-      history.push(`/all/${taskCreated.id}`)
+      
     }
   };
 

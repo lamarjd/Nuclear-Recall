@@ -36,17 +36,17 @@ export default function OneTask() {
 
   const taskList = Object.values(reduxstate);
   const filtered = taskList.filter((task) => task.id === +id)[0];
-  console.log("FILTERED_--",filtered)
+  
   return (
     isLoaded && (
       <div className="mainTaskDetailsOutDiv">
         <div className="outerTaskDetailsLeftDiv">
         <h1 id='h1taskdetails'>Task Options</h1>
         <EditTaskListForm filtered={filtered} />
-        
+
         <EditForm filtered={filtered} />
 
-        
+
         </div>
         <div className="noteOuterDivTaskDetails">
           <div id='labelDivTaskDetailsNotes'>Notes for {filtered.body}</div>

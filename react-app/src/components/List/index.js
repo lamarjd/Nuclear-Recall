@@ -33,7 +33,7 @@ export default function AllLists(){
     }, [dispatch])
 
 
-    // console.log("lists", lists)
+    
 
 
 
