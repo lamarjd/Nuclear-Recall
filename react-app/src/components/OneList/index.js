@@ -8,6 +8,7 @@ import TaskForm from '../TaskForm/index.js';
 import TaskListForm from '../TaskListForm/index.js';
 
 import { NavLink } from 'react-router-dom';
+import { deleteTaskThunk } from '../../store/tasks.js';
 
 
 
@@ -30,7 +31,7 @@ export default function OneList(){
 
 
   const tasks = filtered?.tasks
-
+ 
 
 
   return isLoaded && (
@@ -41,8 +42,12 @@ export default function OneList(){
         <TaskListForm list={id}/>
         {tasks?.map(task => (
 
-          <div>
+          <div key={task.id}>
            <NavLink to={`/all/${task.id}`}> {task?.body} </NavLink>
+           <button onClick={() => (dispatch(deleteTaskThunk(task.id)),dispatch(fetchOneList(filtered.id)))}>
+                {" "}
+                DELETE
+              </button>
           </div>
         ))}
     </div>

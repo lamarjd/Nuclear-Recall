@@ -150,8 +150,10 @@ const listReducer = (state = initialState, action) => {
         }
 
         case ONE_LIST: {
+            console.log("new statt",newState)
             newState = {...state}
             newState[action.payload.id] = action.payload
+            console.log("new statt",newState)
             return newState
         }
 

@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { createTaskListThunk, createTaskThunk } from "../../store/tasks";
 import { useHistory } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import { fetchOneList } from "../../store/lists";
 function TaskListForm() {
   const {id} = useParams()
   const dispatch = useDispatch();
@@ -23,7 +24,9 @@ function TaskListForm() {
 
     let taskCreated = await dispatch(createTaskListThunk(payload,id))
     if(taskCreated){
-      history.push(`/all/${taskCreated.id}`)
+      // history.push(`/all/${taskCreated.id}`)
+      dispatch(fetchOneList(payload.id))
+      history.push(`/all/lists/${payload.id}`)
     }    
   };
   
