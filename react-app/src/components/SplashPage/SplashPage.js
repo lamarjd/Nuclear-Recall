@@ -35,12 +35,6 @@ function SplashPage({ user }) {
               )}
             </div>
 
-            <div>
-              <NavLink to="/users" exact={true} activeClassName="active">
-                <p>Users</p>
-              </NavLink>
-            </div>
-
             {!user && (
               <>
                 <div>
