@@ -3,14 +3,14 @@ import { useEffect, useState } from "react";
 import * as sessionActions from "../../store/session.js";
 
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink, useHistory, useParams } from "react-router-dom";
+import { NavLink, Link, useHistory, useParams } from "react-router-dom";
 
 import { deleteTaskThunk, fetchTasks } from "../../store/tasks";
 
 import TaskForm from "../TaskForm/index.js";
 import "./TaskList.css";
 
-export default function AllTasks() {
+export default function CompletedAllTasks() {
   const dispatch = useDispatch();
   const reduxstate = useSelector((state) => state.tasks);
   const listsState = useSelector((state) => state.lists);
@@ -24,15 +24,15 @@ export default function AllTasks() {
   }, [dispatch, listsState]);
 
   const taskList = Object.values(reduxstate);
-  console.log(taskList);
+  const completedList = taskList.filter(task => task.complete == true)
+  console.log(completedList)
 
   return (
     isLoaded && (
 
         <div className="all-tasks-container">
           <h1>Tasksss</h1>
-          <NavLink to={`/all`}>Incomplete</NavLink>
-          <NavLink to={`/all/completed`}>Completed</NavLink>
+     
           <TaskForm />
           <hr />
           {taskList.map((task) => (

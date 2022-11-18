@@ -33,7 +33,7 @@ export default function OneTask() {
 
   const taskList = Object.values(reduxstate);
   const filtered = taskList.filter((task) => task.id === +id)[0];
-  
+
   return (
     isLoaded && (
       <div className="mainTaskDetailsOutDiv">
@@ -46,7 +46,7 @@ export default function OneTask() {
 
         </div>
         <div className="noteOuterDivTaskDetails">
-          <div id='labelDivTaskDetailsNotes'>Notes for {filtered.body}</div>
+          <div id='labelDivTaskDetailsNotes'>Notes for {filtered?.body}</div>
           <div>
             {filteredNotes.map((note) => (
               <div className="noteDivContainerTaskDetails">

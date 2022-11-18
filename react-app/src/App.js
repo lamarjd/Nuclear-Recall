@@ -14,6 +14,7 @@ import AllTasks from './components/TaskList';
 import OneTask from './components/OneTask';
 import OneList from './components/OneList';
 import SplashPage from './components/SplashPage/SplashPage';
+import CompletedAllTasks from './components/TaskList/CompleteTaskList';
 
 
 function App() {
@@ -55,8 +56,10 @@ function App() {
         <ProtectedRoute path="/all/lists/:id">
           <OneList/>
         </ProtectedRoute>
-
-        <ProtectedRoute path='/all/:id'>
+        <ProtectedRoute  exact path="/all/completed/">
+          <CompletedAllTasks/>
+        </ProtectedRoute>
+        <ProtectedRoute path='/all/:id' exact={true}>
           <NavBar user={user}/>
           <OneTask/>
         </ProtectedRoute>
