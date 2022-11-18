@@ -1,14 +1,13 @@
-.all-tasks-container {
-    border: 2px dotted red;
-    width: 591px;
-    /* height: 100vh; */
-    margin-left: 210px;
-    margin-top: 9px;
-    /* z-index:1; */
-    /* display: flex; */
-    flex-direction: column;
-    justify-content: start;
-    align-items: start; 
+.task-list-body {
+    height: 100vh;
+    width: 100%;
+    border: 2px solid yellow;
+}
+
+.one-task {
+    display: flex;
+    align-items: center;
+    height: 40px;
 }
 
 .detail-navlink {
@@ -17,3 +16,12 @@
     width: 100%;
     /* border: 2px solid black; */
 }
+
+hr {
+    color: grey;
+    width: 100%;
+    height: .005px;
+
+}
+
+

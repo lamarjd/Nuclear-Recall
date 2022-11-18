@@ -9,6 +9,7 @@ function TaskForm() {
   const dispatch = useDispatch();
   const [body, setBody] = useState('')
   const [validationErrors, setValidationErrors] = useState([])
+  const [showButton, setShowButton] = useState(false)
   const [hasSubmitted, setHasSubmitted] = useState(false)
   const history = useHistory()
   const handleSubmit = async (e) => {
@@ -24,7 +25,8 @@ function TaskForm() {
   };
 
   return (
-    <form className="container" onSubmit={handleSubmit}>
+    <form className="container" onSubmit={handleSubmit}
+    onClick={() => setShowButton(true)}>
       <div className="Task">
       <label>
         <input
@@ -36,7 +38,9 @@ function TaskForm() {
           onChange={(e) => setBody(e.target.value)}
         />
       </label>
-      <button className="ListButton" type="submit">Create da Task</button>
+      <button className="ListButton" type="submit"
+        style={{visibility: showButton ? "visible" : "hidden"}}
+      >Create da Task</button>
       </div>
     </form>
   );

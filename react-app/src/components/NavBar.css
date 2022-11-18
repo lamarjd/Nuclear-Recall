@@ -13,6 +13,20 @@
 
 }
 
+#gohomenavbaractive{
+    margin-left: 6px;
+}
+
+
+#navbarlinkhome{
+    display: flex;
+    flex-direction: row ;
+    align-items: center;
+    justify-items: center;
+    min-width: 200px;
+}
+
+
 .nav-content {
     width: 26%;
     height: 100%;
@@ -24,3 +38,19 @@
     /* border: 2px solid yellow; */
 }
 
+.logOutButtonNavBar{
+    margin-right: 20px;
+    border-radius: 12px;
+    min-height: 30px;
+    min-width: 62px;
+    border-width: 1px;
+    border-color: #4599d1;
+    background-color: #4599d1;
+    color: beige;
+    cursor: pointer;
+}
+
+.cliphomepagething{
+    max-height: 28px;
+    min-width: 34px;
+}

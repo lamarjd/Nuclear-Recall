@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { fetchOneTask } from "../store/tasks";
+import "./searchBar.css"
  
   
 
@@ -26,8 +27,9 @@ const SearchBar = () => {
 
     <div SEARCH BAR>
       <input
+    id="search"
    type="text"
-   placeholder="Search here"
+   placeholder="Search Tasks Here"
    onChange={e => setSearchInput(e.target.value)}
   //  value={searchInput} 
    />

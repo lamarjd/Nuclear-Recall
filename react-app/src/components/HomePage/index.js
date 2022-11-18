@@ -8,6 +8,7 @@ import TaskForm from '../TaskForm';
 import AllTasks from '../TaskList';
 import AllLists from '../List';
 import NoteForm from '../NoteForm';
+import "./HomePage.css"
 
 function HomePage(){
 //   const sessionUser = useSelector(state => state.session.user);
@@ -24,12 +25,20 @@ let modalList = (
 </div>)
   return (
     <>
+    <div className="home-body">
+
+    <div className="home-page-left">
+      Logo and options Div
+    </div>
     
+    <div className="all-tasks">
       <AllTasks/>
+    </div>
 
       <AllLists/>
 
         <div>{modalList}</div>
+    </div>
     </>
   );
 }
