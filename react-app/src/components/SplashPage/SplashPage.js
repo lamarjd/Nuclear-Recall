@@ -21,32 +21,32 @@ function SplashPage({ user }) {
       <nav>
         <div className="splash-nav-container">
           <div className="splash-nav-content">
-            <div>
-              {!user ? (
+            
+              {/* {!user &&
                 <NavLink to="/" exact={true} activeClassName="active">
                   <p>Home</p>
                 </NavLink>
-              ) : (
-                
-                <NavLink to="/all" exact={true} activeClassName="active">
-                  <p></p>
-                </NavLink>
-                
-              )}
-            </div>
+        
+              } */}
+           
 
-            <div>
+            {/* <div>
               <NavLink to="/users" exact={true} activeClassName="active">
                 <p>Users</p>
               </NavLink>
-            </div>
+            </div> */}
 
             {!user && (
               <>
-                <div>
-                  <NavLink to="/sign-up" exact={true} activeClassName="active">
-                    <p>Sign Up</p>
+                <div className="splash-nav"> 
+                
+                <h2>Not a member yet?</h2>
+                <br/>
+                
+                  <NavLink id="sign-in" to="/sign-up" exact={true} activeClassName="active">
+                    <h1>Sign Up</h1>
                   </NavLink>
+
                 </div>
               </>
             )}
