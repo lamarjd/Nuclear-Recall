@@ -1,4 +1,4 @@
-import { Route, NavLink } from "react-router-dom";
+import { Route, NavLink, Redirect } from "react-router-dom";
 import { useSelector } from "react-redux";
 import LogoutButton from "../auth/LogoutButton";
 import LoginFormModal from "../auth/LoginFormModal/index.js";
@@ -8,8 +8,11 @@ import logo from "../../assets/mushroom2.png";
 import "./SplashPage.css";
 
 function SplashPage({ user }) {
-  // const user = useSelector((state) => state.session.user)
+  const sessionUser = useSelector((state) => state.session.user)
 
+  if (user) {
+    return <Redirect to='/all' />;
+  }
   
 
   return (
@@ -24,9 +27,11 @@ function SplashPage({ user }) {
                   <p>Home</p>
                 </NavLink>
               ) : (
+                
                 <NavLink to="/all" exact={true} activeClassName="active">
-                  <p>Tasks</p>
+                  <p></p>
                 </NavLink>
+                
               )}
             </div>
 
@@ -61,6 +66,7 @@ function SplashPage({ user }) {
           <img id="logo" alt="logo" src={logo} />
         </div>
 
+
         {!user && (
           <div className="center">
             <h1>Say no to the Nuclear Thought Fallout</h1>
@@ -72,6 +78,9 @@ function SplashPage({ user }) {
         )}
       </div>{" "}
       <br />
+
+    
+
     </>
   );
 }
