@@ -25,6 +25,7 @@ function TaskListForm() {
     let taskCreated = await dispatch(createTaskListThunk(payload,id))
     if(taskCreated){
       // history.push(`/all/${taskCreated.id}`)
+      setBody("")
       dispatch(fetchOneList(payload.id))
       history.push(`/all/lists/${payload.id}`)
     }    
@@ -40,7 +41,7 @@ function TaskListForm() {
           type="text"
           value={body}
           maxLength={200}
-          required pattern="[a-zA-Z, 0-9,'. ! ? + -]+" title="Please use valid chars,invalid chars: @#$%^&*()"
+          required
           onChange={(e) => setBody(e.target.value)}
         />
       </label>

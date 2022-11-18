@@ -16,11 +16,23 @@
     width: 25%;
     height: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    margin-left: 1%;
+    /* margin-left: 1%; */
     /* margin-right: 20%;  */
     /* border: 2px solid yellow; */
+}
+
+.splash-nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.splash-nav > #sign-in {
+    text-decoration: none;
+    color: #0A214C ;
 }
 
 .splash-picture-container {
@@ -75,7 +87,7 @@
     font-size: 16px;
     font-weight: 560;
     border-radius: 12px;
-    
-    
+    cursor: pointer;    
 
 }
+

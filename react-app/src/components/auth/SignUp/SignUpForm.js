@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect, NavLink } from 'react-router-dom';
 import { signUp } from '../../../store/session';
@@ -17,17 +17,6 @@ const SignUpForm = () => {
   const [repeatPassword, setRepeatPassword] = useState('');
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
-
-  const onSignUp = async (e) => {
-    e.preventDefault();
-    if (password === repeatPassword) {
-      
-      const data = await dispatch(signUp(username, email, first_name, last_name, password));
-      if (data) {
-        setErrors(data)
-      }
-    }
-  };
 
   const updateUsername = (e) => {
     setUsername(e.target.value);
@@ -53,6 +42,55 @@ const SignUpForm = () => {
     setLastName(e.target.value)
   }
 
+  useEffect(() => {
+    let validationErrors = []
+
+    if (!username || username.length < 3) {
+      validationErrors.push("Please provide a valid username. Username must be longer than 3 characters")
+    }
+
+    if (!email) {
+      validationErrors.push("Please provide a valid email")
+    }
+
+    if (!first_name) {
+      validationErrors.push("Please provide a first name")
+    }
+    
+    if (!last_name) {
+      validationErrors.push("Please provide a last name")
+    }
+    
+    if (!password) {
+      validationErrors.push("Please provide a password")
+    }
+    
+    if (password != repeatPassword) {
+      validationErrors.push("Passwords must match")
+    }
+
+    setErrors(validationErrors)
+    console.log("ERRORS", errors)
+
+  }, [first_name, last_name, username, email, password, repeatPassword])
+
+  const onSignUp = async (e) => {
+    e.preventDefault();
+
+
+    if (password === repeatPassword) {
+      setErrors([])
+      
+      const data = dispatch(signUp(username, email, first_name, last_name, password));
+
+      if (data) {
+        setErrors(data)
+      }
+    }
+  };
+
+
+
   if (user) {
     return <Redirect to='/' />;
   }
@@ -73,13 +111,20 @@ const SignUpForm = () => {
       </div>
     <form onSubmit={onSignUp} id='signupForm'>
       <div>
-        {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
-        ))}
+      <ul>
+
+        { errors &&
+        errors.map((error, ind) => (
+          <li key={ind}>
+            {error} 
+          </li>
+          ))}
+      </ul>
       </div>
       <div className='outerSignupDiv'>
         <label className='emailSignupLabel'>User Name</label>
         <input
+          required
           id='userNameSignUpBox'
           className='signupemailbox'
           type='text'
@@ -91,6 +136,7 @@ const SignUpForm = () => {
       <div className='outerSignupDiv'>
         <label className='emailSignupLabel'>Email</label>
         <input
+          required
           id='signInEmailBox'
           className='signupemailbox'
           type='text'
@@ -103,6 +149,7 @@ const SignUpForm = () => {
       <div className='outerSignupDiv'>
           <label className='emailSignupLabel'>First Name</label>
           <input
+            required
           id='firstnamesignupbox'
           className='signupemailbox'
           type='text'
@@ -115,6 +162,7 @@ const SignUpForm = () => {
       <div className='outerSignupDiv'>
           <label className='emailSignupLabel'>Last Name</label>
           <input
+            required
           id='signUpLastNameBox'
           className='signupemailbox'
           type='text'
@@ -127,6 +175,7 @@ const SignUpForm = () => {
       <div className='outerSignupDiv'>
         <label className='emailSignupLabel'>Password</label>
         <input
+          required
           id='passwordSignUpIdBox'
           className='signupemailbox'
           type='password'
@@ -139,16 +188,16 @@ const SignUpForm = () => {
       <div className='outerSignupDiv' id='outerRepeatPasswordDiv'>
         <label className='emailSignupLabel' >Repeat Password</label>
         <input
+          required
           id='labelRepeatPassword'
           className='signupemailbox'
           type='password'
           name='repeat_password'
           onChange={updateRepeatPassword}
           value={repeatPassword}
-          required={true}
         ></input>
       </div>
-      <button id='signupButton' type='submit'>Sign Up</button>
+      <button id='signupButton' type='submit' disabled={errors.length > 0} >Sign Up</button>
     </form>
     </div>
     </>
