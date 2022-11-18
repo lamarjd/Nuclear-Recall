@@ -44,7 +44,7 @@ export default function EditTaskListForm({filtered}){
 
         let taskEdited = await dispatch(editTaskAddListThunk(payload,task_id))
         if (taskEdited) {
-            // history.push(`/all`)
+            history.push(`/all`)
             console.log("TASK EDITED",taskEdited)
         }
     }

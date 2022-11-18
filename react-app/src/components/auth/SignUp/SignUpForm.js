@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { Redirect } from 'react-router-dom';
+import { Redirect, NavLink } from 'react-router-dom';
 import { signUp } from '../../../store/session';
 import "./signUpForm.css"
 import bert from './bertTheTurtle.png'
@@ -58,6 +58,15 @@ const SignUpForm = () => {
   }
 
   return (
+    <>
+    <nav className='signupNavBar'>
+    <NavLink to="/" exact={true} activeClassName="active">
+      <h1>Go Back</h1>
+    </NavLink>
+
+
+
+    </nav>
     <div className='outermostSignupDiv'>
       <div className='imageSignupDiv'>
       <img src={bert} alt="Girl in a jacket" id='signupImage'/> 
@@ -142,6 +151,7 @@ const SignUpForm = () => {
       <button id='signupButton' type='submit'>Sign Up</button>
     </form>
     </div>
+    </>
   );
 };
 

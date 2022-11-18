@@ -8,7 +8,9 @@ import LoginFormModal from './auth/LoginFormModal/index'
 import "./NavBar.css";
 // import './navbar.css'
 import SearchBar from './searchBar';
-
+import bullet from './angryBullet.png'
+import two from './two.png'
+import clip from './clip.png'
 
 const NavBar = ({ user }) => {
 
@@ -54,10 +56,14 @@ const NavBar = ({ user }) => {
       // <Route path ="/">
         // <p>Menu Icon</p>
         // {/* </Route> */}
-        
-        <NavLink to="/" exact={true} activeClassName="active">
-        <p>Home</p> 
-      </NavLink>
+        <div id='navbarlinkhome' >
+        <NavLink  to="/all" exact={true} activeClassName="active">
+          <img className='cliphomepagething' src={clip}/>
+          
+     </NavLink>
+      <NavLink  to="/all" exact={true} activeClassName="active" id="gohomenavbaractive">HOME</NavLink>
+       
+      </div>
 
       }
       <div className="search">
