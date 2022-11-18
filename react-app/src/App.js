@@ -56,7 +56,7 @@ function App() {
         <ProtectedRoute path="/all/lists/:id">
           <OneList/>
         </ProtectedRoute>
-        <ProtectedRoute  exact path="/all/completed/">
+        <ProtectedRoute  exact path="/all/completed">
           <CompletedAllTasks/>
         </ProtectedRoute>
         <ProtectedRoute path='/all/:id' exact={true}>

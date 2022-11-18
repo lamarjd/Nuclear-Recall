@@ -91,6 +91,7 @@ def edit_task(id):
             if form.validate_on_submit():
                 one_task.body = form.data["body"]
                 one_task.notes = one_task.notes
+                one_task.complete = form.data["complete"]
                 db.session.commit()
             # return render_template('task_form.html', form=form)
             return make_response(one_task.to_dict(), 200)
@@ -131,6 +132,7 @@ def edit_task_list(id):
             # if form.validate_on_submit():
             one_task.body = one_task.body
             one_task.list_id= form.data["list_id"]
+            one_task.complete = form.data["complete"]
             db.session.commit()
             print("one_task AGAIN----------",one_task.to_dict())
             return make_response(one_task.to_dict(), 200)
