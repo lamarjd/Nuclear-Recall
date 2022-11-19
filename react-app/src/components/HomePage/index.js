@@ -26,18 +26,14 @@ let modalList = (
   return (
     <>
     <div className="home-body">
-
     <div className="home-page-left">
-      Logo and options Div
     <div className="all-lists">
       <AllLists/>
         <div>{modalList}</div>
     </div>
     </div>
     
-    <div className="all-tasks">
-      <AllTasks/>
-    </div>
+    
 
 
     </div>
