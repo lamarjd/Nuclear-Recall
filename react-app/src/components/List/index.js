@@ -48,7 +48,7 @@ export default function AllLists(){
             <div className="list-name">
                 <h1>Lists</h1> {"  "}
             
-                <i id="arrow-rotate"class="fa-solid fa-arrow-up"></i>
+                {/* <i id="arrow-rotate"class="fa-solid fa-arrow-up"></i> */}
             </div>
         
             {/* <ListForm/> */}
