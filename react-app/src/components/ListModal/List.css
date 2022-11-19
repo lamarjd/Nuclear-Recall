@@ -18,10 +18,10 @@
 
 .ListButton{
     background-color: #EDB714;
-    width: 200px;
+    width: 90px;
     border-radius: 6px;
     border-color:burlywood ;
-    margin-left: 15px;
+    margin-left: 4px;
 }
 
 .Task{
@@ -36,6 +36,3 @@
 
 }
 
-#stupidDetailStyling{
-
-}
