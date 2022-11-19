@@ -19,3 +19,12 @@ body {
     height: 100vh;
     margin: 0;
 }
+
+a {
+    text-decoration: none;
+    color: black
+}
+
+a:hover {
+    box-shadow: 1px 1px grey;
+}
