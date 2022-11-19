@@ -9,7 +9,7 @@
     width: 10%;
     position: relative;
     overflow: hidden;
-    top: 0; 
+    top: 0;
 }
 
 .all-tasks {
@@ -20,9 +20,9 @@
     margin-left: 210px;
     /* margin-top: 50px; */
     justify-content: start;
-    align-items: start; 
+    align-items: start;
     background-color: white;
     position: relative;
-    top: -900px;
+    top: -100vh;
     border-radius: 10px;
 }
