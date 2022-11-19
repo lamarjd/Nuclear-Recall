@@ -5,8 +5,8 @@ import { NavLink } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { fetchOneTask } from "../store/tasks";
 import "./searchBar.css"
- 
-  
+
+
 
 const SearchBar = () => {
   const matchingTask = (searchInput,tasks) =>{
@@ -14,7 +14,7 @@ const SearchBar = () => {
     return tasks.filter(task => task.body.toLowerCase().includes(searchInput.toLowerCase()))
 
   }
-  
+
     const [searchInput, setSearchInput] = useState("")
     const taskState = useSelector(state => state.tasks)
     const dispatch= useDispatch()
@@ -26,21 +26,24 @@ const SearchBar = () => {
   return (
 
     <div SEARCH BAR>
-      <input
+      <input className="searchField"
     id="search"
-   type="text"
-   placeholder="Search Tasks Here"
-   onChange={e => setSearchInput(e.target.value)}
-  //  value={searchInput} 
+    type="text"
+    placeholder="Search Tasks Here"
+    onChange={e => setSearchInput(e.target.value)}
+  //  value={searchInput}
    />
-   <div>
-    {tasksFound?.map((oneTask) =>(
-      <NavLink onClick={()=> (setSearchInput(""))} to={`/all/${oneTask.id}`}> 
-      <div key={oneTask.id}>{oneTask.body}</div>
-      </NavLink>
-    ))}
-   </div>
-
+    <div>
+      {tasksFound &&
+        <div className="searchResults">
+          {tasksFound?.map((oneTask) =>(
+            <NavLink onClick={()=> (setSearchInput(""))} to={`/all/${oneTask.id}`}>
+            <div key={oneTask.id}>{oneTask.body}</div>
+            </NavLink>
+          ))}
+        </div>
+        }
+      </div>
     </div>
   );
 };

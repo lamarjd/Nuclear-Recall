@@ -10,15 +10,20 @@
     width: 100%;
     position: relative;
     overflow: hidden;
-    top: 0; 
+    top: 0;
 }
 
-
-
-#evilUnstyledButtonOne{
-background-color: #EDB714;
-width: 90px;
-height: 40px;
-border-radius: 12px;
-margin-left: 6px;
+.all-tasks {
+    /* border: 2px dotted red; */
+    padding: 12px;
+    width: 591px;
+    height: 100vh;
+    margin-left: 210px;
+    /* margin-top: 50px; */
+    justify-content: start;
+    align-items: start;
+    background-color: white;
+    position: relative;
+    top: -100vh;
+    border-radius: 10px;
 }
