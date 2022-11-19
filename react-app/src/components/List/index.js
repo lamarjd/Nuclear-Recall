@@ -62,8 +62,8 @@ export default function AllLists(){
                 {/* List Name */}
                 <h3>{list.name}</h3>
                 </NavLink>
-                
-                    <i onClick={() => styler()}id="arrow-rotate"class="fa-solid fa-arrow-up"></i>
+
+                    <i onClick={() => styler()}class="fa-solid fa-plus"></i>
                 
                 </div>
                 {showEditForm && 

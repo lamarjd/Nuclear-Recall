@@ -5,10 +5,6 @@
     width: 70%;
 }
 
-.list-name i:hover{
-    transform: rotate(180deg); 
-    transition: transform 300ms ease; 
-}
 
 .list-name-div {
     display: inline-flex;
@@ -19,7 +15,11 @@
     font-size: small;
 }
 
-.list-name-div i:hover{
-    /* transform: rotate(180deg);  */
-    /* transition: transform 300ms ease;  */
+.list-name-div i {
+    cursor: pointer;
+}
+
+.list-name-div i:hover {
+    border-radius: 50px;
+    box-shadow: 2px 2px 12px black;
 }
