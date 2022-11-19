@@ -111,7 +111,7 @@ const SignUpForm = () => {
     </nav>
     <div className='outermostSignupDiv'>
       <div className='imageSignupDiv'>
-      <img src={bert} alt="Girl in a jacket" id='signupImage'/> 
+      
       </div>
     <form onSubmit={onSignUp} id='signupForm'>
       <div>
