@@ -10,7 +10,8 @@ import "./NavBar.css";
 import SearchBar from './searchBar';
 import bullet from './angryBullet.png'
 import two from './two.png'
-import clip from './clip.png'
+// import clip from './clip.png'
+import bullets from "../assets/bullets.jpg"
 
 const NavBar = ({ user }) => {
 
@@ -58,7 +59,7 @@ const NavBar = ({ user }) => {
         // {/* </Route> */}
         <div id='navbarlinkhome' >
         <NavLink  to="/all" exact={true} activeClassName="active">
-          <img className='cliphomepagething' src={clip}/>
+          <img className='cliphomepagething' src={bullets}/>
           
      </NavLink>
       <NavLink  to="/all" exact={true} activeClassName="active" id="gohomenavbaractive">HOME</NavLink>
