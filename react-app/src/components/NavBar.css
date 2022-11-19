@@ -1,4 +1,4 @@
-.nav-wrapper {
+ .nav-wrapper {
     border-bottom: 1px solid black;
     display: flex;
     justify-content: space-between;
@@ -7,12 +7,7 @@
     height: 40px;
     background-color: rgba(69, 153, 209, 0.436);
     margin-top: 0;
-    /* margin-top: 200px; */
-    /* margin-bottom: -114px; */
-    position: sticky;
-
-}
-
+ }
 #gohomenavbaractive{
     margin-left: 6px;
 }
