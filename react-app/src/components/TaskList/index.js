@@ -65,33 +65,32 @@ export default function AllTasks() {
     isLoaded && (
 
         <div className="all-tasks-container">
-          <h1>Tasksss</h1>
+          <h1 className="task-header">Tasksss</h1>
             <div className="task-button-container">
-              <div>
-                <NavLink to={`/all/completed`}>Completed</NavLink>
-                <button onClick={() => executor(arr)}> ✔️ </button>
+              <div className="add-task-buttons">
+                <NavLink className="completed-button" to={`/all/completed`}>Completed</NavLink>
+                <button className="checkButton"onClick={() => executor(arr)}> ✔️ </button>
               </div>
             <TaskForm />
-          </div>
+            </div>
           <hr />
           {filteredTaskList.map((task) => (
             <div className="one-task-container">
-              {thisUser.id == task.user_id &&
+            {thisUser.id == task.user_id &&
             <div className="one-task">
               <input type="checkbox" onChange={() => cb(arr, task.id)}/>
-
               <NavLink
                 className="detail-navlink"
                 key={task.id}
                 to={`/all/${task.id}`}
               >
                 {" "}
-                <h3>{task.body}</h3>
+                <h3 className="task-text">{task.body}</h3>
               <hr />
               </NavLink>
               <button id='uglyDeleteButtonZwei' onClick={() => dispatch(deleteTaskThunk(task.id))}>
                 {" "}
-                DELETE
+                Delete
               </button>
               {/* <hr /> */}
             </div>}

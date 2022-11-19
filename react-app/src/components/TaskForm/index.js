@@ -34,7 +34,7 @@ function TaskForm() {
             className="task-form-input-field"
             placeholder="Write Task here"
             type="text"
-            maxLength={200}
+            maxLength={60}
             value={body}
             required
             // required pattern="[a-zA-Z, 0-9,'. ! ? + -]+" title="Please use valid chars,invalid chars: @#$%^&*()"
