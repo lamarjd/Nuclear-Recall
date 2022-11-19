@@ -12,17 +12,15 @@
     top: 0; 
 }
 
-.all-tasks {
-    /* border: 2px dotted red; */
+/* .all-tasks {
     padding: 12px;
     width: 591px;
     height: 100vh;
     margin-left: 210px;
-    /* margin-top: 50px; */
     justify-content: start;
     align-items: start; 
     background-color: white;
     position: relative;
     top: -900px;
     border-radius: 10px;
-}
+} */

@@ -15,7 +15,8 @@ import OneTask from './components/OneTask';
 import OneList from './components/OneList';
 import SplashPage from './components/SplashPage/SplashPage';
 import CompletedAllTasks from './components/TaskList/CompleteTaskList';
-
+import AllLists from './components/List';
+import "./index.css";
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -57,15 +58,23 @@ function App() {
           <CompletedAllTasks/>
         </ProtectedRoute>
         <ProtectedRoute path="/all/lists/:id">
+        <NavBar user={user}/>
+      
           <OneList/>
+          <HomePage/>
         </ProtectedRoute>
         <ProtectedRoute path='/all/:id' exact={true}>
           <NavBar user={user}/>
           <OneTask/>
+          <AllTasks/>
+          <HomePage/>
         </ProtectedRoute>
         <ProtectedRoute path='/all' exact={true} >
           <NavBar user={user}/>
-          <HomePage/>
+          
+           <AllTasks/>
+           <HomePage/>
+          
         </ProtectedRoute>
 
       </Switch>
