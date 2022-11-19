@@ -38,6 +38,7 @@
 .splash-picture-container {
     /* border: 2px solid green; */
     width: 100%;
+    
     margin-top: -140px;
     /* height: 1000px; */
     /* height: 50%; */
@@ -52,7 +53,7 @@
     justify-content: center;
     /* border: 2px dotted red; */
     width: 100%;
-    height: 600px;
+    height: 800px;
     background-color: rgba(69, 153, 209, 0.436);
     
 }

@@ -27,11 +27,12 @@ function ListForm({setList}) {
   };
 
   return (
-    <form className="container" onSubmit={handleSubmit}>
-      <div className="welcome">( ͡° ͜ʖ ͡°) ( ͡° ͜ʖ ͡°) ( ͡° ͜ʖ ͡°) ( ͡° ͜ʖ ͡°) ( ͡° ͜ʖ ͡°)</div>
-      <div className="List">
+    <form className="blahListModal" onSubmit={handleSubmit}>
+      <div className="containerListModalOuter">( ͡° ͜ʖ ͡°) ( ͡° ͜ʖ ͡°) ( ͡° ͜ʖ ͡°) ( ͡° ͜ʖ ͡°) ( ͡° ͜ʖ ͡°)</div>
+      <div className="ListflexdivOne">
       <label>
         <input
+          id="styledListModalInputBox"
           placeholder="Write list here"
           type="text"
           maxLength={30}
@@ -39,7 +40,7 @@ function ListForm({setList}) {
           onChange={(e) => setName(e.target.value)}
         />
       </label>
-      <button className="ListButton" type="submit">Create da list</button>
+      <button className="ListButtonModalGood" type="submit">Create da list</button>
       </div>
     </form>
   );

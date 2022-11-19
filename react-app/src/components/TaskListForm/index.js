@@ -37,6 +37,7 @@ function TaskListForm() {
       <div className="Task">
       <label>
         <input
+          id='stupidDetailStyling'
           placeholder="Write TaskList here"
           type="text"
           value={body}
@@ -46,7 +47,7 @@ function TaskListForm() {
         />
       </label>
  
-      <button className="ListButton" type="submit"  >Create da Task</button>
+      <button className="ListButton" type="submit"  >Add a task to the list</button>
     
       
       </div>
