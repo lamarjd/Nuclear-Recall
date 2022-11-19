@@ -1,0 +1,24 @@
+.ListButton {
+    margin-right: 20px;
+    border-radius: 12px;
+    min-height: 10px;
+    min-width: 22px;
+    border-width: 1px;
+    border-color: #4599d1;
+    background-color: #4599d1;
+    color: beige;
+    cursor: pointer;
+    font-family: 'Syne Mono', monospace;
+    margin-top: 15px;
+    margin-bottom: 15px;   
+}
+
+.placeholder {
+    background-color: rgba(245, 245, 220, 0.72);
+    width: 80%;
+    font-family: 'Syne Mono', monospace;    
+}
+
+.welcome {
+    margin-top: 15px;
+}
