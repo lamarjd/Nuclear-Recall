@@ -5,7 +5,7 @@ import * as sessionActions from "../../store/session.js";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useHistory, useParams } from "react-router-dom";
 
-import { deleteTaskThunk, fetchTasks } from "../../store/tasks";
+import { deleteTaskThunk, editTaskThunk, fetchTasks } from "../../store/tasks";
 
 import TaskForm from "../TaskForm/index.js";
 import "./TaskList.css";
@@ -25,9 +25,11 @@ export default function AllTasks() {
   }, [dispatch, listsState]);
 
   const taskList = Object.values(reduxstate);
+  const filteredTaskList = taskList.filter(task => task.complete == false)
+
+
 
   const cb = (checkList, num) => {
-
 
     if(!checkList.length) {
       checkList.push(num)
@@ -39,14 +41,23 @@ export default function AllTasks() {
         checkList.splice(i, 1)
         return console.log(checkList)
       }
-      
   }
- 
     checkList.push(num)
     return console.log(checkList)
-    
-  
   }
+
+  const executor = (arr) => {
+    console.log("print")
+    let payload = {
+      complete: true
+    }
+    for(let i = 0; i < arr.length; i++){
+      console.log("flugazi")
+      dispatch(editTaskThunk(payload, arr[i]))
+    }
+  }
+
+  
 
   return (
     isLoaded && (
@@ -55,9 +66,10 @@ export default function AllTasks() {
           <h1>Tasksss</h1>
           <NavLink to={`/all`}>Incomplete</NavLink>
           <NavLink to={`/all/completed`}>Completed</NavLink>
+          <button onClick={() => executor(arr)}> ✔️ </button>
           <TaskForm />
           <hr />
-          {taskList.map((task) => (
+          {filteredTaskList.map((task) => (
             <div>
               {thisUser.id == task.user_id &&
             <div className="one-task">
