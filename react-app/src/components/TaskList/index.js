@@ -13,6 +13,7 @@ import "./TaskList.css";
 export default function AllTasks() {
   const arr = []
   const dispatch = useDispatch();
+  const history = useHistory();
   const reduxstate = useSelector((state) => state.tasks);
   const listsState = useSelector((state) => state.lists);
 
@@ -55,6 +56,7 @@ export default function AllTasks() {
       console.log("flugazi")
       dispatch(editTaskThunk(payload, arr[i]))
     }
+    history.push(`/all/completed`)
   }
 
   
@@ -64,7 +66,6 @@ export default function AllTasks() {
 
         <div className="all-tasks-container">
           <h1>Tasksss</h1>
-          <NavLink to={`/all`}>Incomplete</NavLink>
           <NavLink to={`/all/completed`}>Completed</NavLink>
           <button onClick={() => executor(arr)}> ✔️ </button>
           <TaskForm />

@@ -10,12 +10,22 @@
     height: 40px;
 }
 
+.one-task-complete {
+    text-decoration: line-through;
+
+}
+
 .detail-navlink {
     text-decoration: none;
     font-size: small;
     width: 100%;
     color: black;
     /* border: 2px solid black; */
+}
+
+.detail-navlink-complete {
+    color: grey;
+    text-decoration: none;
 }
 
 hr {
