@@ -71,9 +71,10 @@ const demoUser = () => {
         />
         
       </div>
+      <div id='loginFormModalButtonDiv'>
       <button id='loginButton' type='submit'>Login</button>
       <button className="demo" onClick={demoUser}>Demo User</button>
-
+      </div>
     </form>
   );
 };

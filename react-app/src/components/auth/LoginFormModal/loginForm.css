@@ -11,8 +11,8 @@
 
 #loginForm{
     display: flex;
-    min-width: 600px;
-    min-height: 300px;
+    min-width: 640px;
+    min-height: 320px;
     align-items: center;
     justify-items: center;
     flex-direction: column;
@@ -42,7 +42,8 @@
     align-items: center;
     cursor: pointer;
     margin-left: 130px;
-    margin-top: 50px;
+    margin-top: 10px;
+    margin-bottom: 24px;
 }
 
 .demo {
@@ -59,7 +60,8 @@
     align-items: center;
     cursor: pointer;
     margin-left: 130px;
-    margin-top: 50px;
+    margin-bottom: 22px;
+    
 }
 
 .emailLoginLabel{
@@ -83,4 +85,10 @@
 #loginemailboxid{
     margin-left: 36px;
     margin-top: 30px;
+}
+
+#loginFormModalButtonDiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
