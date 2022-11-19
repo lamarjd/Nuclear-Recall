@@ -26,3 +26,11 @@
     top: -900px;
     border-radius: 10px;
 }
+
+#evilUnstyledButtonOne{
+background-color: #EDB714;
+width: 90px;
+height: 40px;
+border-radius: 12px;
+margin-left: 6px;
+}
