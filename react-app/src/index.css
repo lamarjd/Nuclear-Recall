@@ -14,9 +14,8 @@
 
 }
 
-body {
-
-    height: 100vh;
+body { 
+    /* border: 2px solid red; */
     margin: 0;
 }
 
@@ -25,6 +24,6 @@ a {
     color: black
 }
 
-a:hover {
+/* a:hover {
     box-shadow: 1px 1px grey;
-}
+} */
