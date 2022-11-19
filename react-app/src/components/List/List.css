@@ -17,6 +17,11 @@
     padding-left: 1vw;
 }
 
+.list-name-div {
+    text-align: none;
+    color: black;
+}
+
 .list-name i {
     cursor: pointer;
 }

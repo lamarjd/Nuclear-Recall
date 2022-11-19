@@ -28,7 +28,6 @@ let modalList = (
     <div className="home-body">
 
     <div className="home-page-left">
-      Logo and options Div
     <div className="all-lists">
       <AllLists/>
         <div>{modalList}</div>
