@@ -40,7 +40,7 @@ function ListForm({setList}) {
           onChange={(e) => setName(e.target.value)}
         />
       </label>
-      <button className="ListButtonModalGood" type="submit">Create da list</button>
+      <button className="ListButtonModalGood" type="submit">Create a list</button>
       </div>
     </form>
   );
