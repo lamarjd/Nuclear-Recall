@@ -27,7 +27,7 @@ export default function AllTasks() {
 
   const taskList = Object.values(reduxstate);
   const filteredTaskList = taskList.filter(task => task.complete == false)
-
+console.log("filtereedd",filteredTaskList)
 
 
   const cb = (checkList, num) => {

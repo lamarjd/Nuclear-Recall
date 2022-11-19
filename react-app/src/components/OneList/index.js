@@ -16,7 +16,9 @@ import "./OneList.css"
 export default function OneList(){
   const arr = []
   const dispatch = useDispatch();
+  
   const {id} = useParams()
+  console.log("id",id)
   const reduxstate = useSelector((state) => state.lists);
   const taskState = useSelector((state) => state.tasks)
   const thisUser = useSelector(state => state.session.user);
@@ -30,10 +32,10 @@ export default function OneList(){
 
   const list = Object.values(reduxstate)
   const filtered = list.filter(list => list.id === +id)[0]
-
+console.log("filtered",filtered)
 
   const tasks = filtered?.tasks
-
+ let falseTasks = tasks?.filter(task =>task.complete == false)
 
   const cb = (checkList, num) => {
 
@@ -79,7 +81,7 @@ export default function OneList(){
           <hr />
 
         
-        {tasks?.map(task => (
+        {falseTasks?.map(task => (
   <div className="one-task-container">
   {thisUser.id == task.user_id &&
   <div className="one-task">
@@ -87,7 +89,7 @@ export default function OneList(){
     <NavLink
       className="detail-navlink"
       key={task.id}
-      to={`/all/${task.id}`}
+      to={`/all/lists/${filtered.id}/${task.id}`}
     >
       {" "}
       <h3 className="task-text">{task.body}</h3>

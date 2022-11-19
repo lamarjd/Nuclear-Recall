@@ -55,7 +55,12 @@ function App() {
           <User />
         </ProtectedRoute>
         <ProtectedRoute  exact path="/all/completed/">
+        <NavBar user={user}/>
+        <div className='all-page'>
+          <HomePage/>
           <CompletedAllTasks/>
+          <Blank/>
+          </div>
         </ProtectedRoute>
         <ProtectedRoute path="/all/lists/:id">
         <NavBar user={user}/>
@@ -82,6 +87,14 @@ function App() {
           </div>
         </ProtectedRoute>
 
+        <ProtectedRoute path='/all/lists/:id/:id' exact={true} >
+          <NavBar user={user}/>
+          <div className='all-page'>
+          <HomePage/>
+          <OneList/>
+          <OneTask/>
+          </div>
+        </ProtectedRoute>
       </Switch>
     </BrowserRouter>
   );
