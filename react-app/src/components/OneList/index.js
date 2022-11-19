@@ -9,7 +9,7 @@ import TaskListForm from '../TaskListForm/index.js';
 
 import { NavLink } from 'react-router-dom';
 import { deleteTaskThunk } from '../../store/tasks.js';
-
+import "./OneList.css"
 
 
 

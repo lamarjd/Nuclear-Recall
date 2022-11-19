@@ -34,10 +34,7 @@ let modalList = (
     </div>
     </div>
     
-    <div className="all-tasks">
-      <AllTasks/>
-    </div>
-
+  
 
     </div>
     </>

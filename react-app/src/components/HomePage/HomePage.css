@@ -4,28 +4,15 @@
 }
 
 .home-page-left {
-    /* border: 2px solid blue; */
-    height: 100vh;
-    width: 10%;
-    position: relative;
+    border: 2px solid blue;
+    height: 100%;
+    /* width: 10%; */
+    /* position: relative; */
     overflow: hidden;
     top: 0;
 }
 
-.all-tasks {
-    /* border: 2px dotted red; */
-    padding: 12px;
-    width: 591px;
-    height: 100vh;
-    margin-left: 210px;
-    /* margin-top: 50px; */
-    justify-content: start;
-    align-items: start;
-    background-color: white;
-    position: relative;
-    top: -100vh;
-    border-radius: 10px;
-}
+
 
 #evilUnstyledButtonOne{
 background-color: #EDB714;

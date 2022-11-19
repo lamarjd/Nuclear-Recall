@@ -6,17 +6,18 @@
 
     font-family: 'Syne Mono', monospace;
 
-    
+    /* border: 10px solid green; */
     /* font-family: 'Special Elite', cursive; */
     
-    
+    /* height: 100vh; */
     /* font-family: 'Play', sans-serif; */
 
 }
 
 body {
 
-    height: 100vh;
+    height: 100%;
+    /* border: 10px solid green; */
     margin: 0;
 }
 
