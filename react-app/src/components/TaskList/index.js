@@ -85,7 +85,7 @@ export default function AllTasks() {
                 <h3>{task.body}</h3>
               <hr />
               </NavLink>
-              <button onClick={() => dispatch(deleteTaskThunk(task.id))}>
+              <button id='uglyDeleteButtonZwei' onClick={() => dispatch(deleteTaskThunk(task.id))}>
                 {" "}
                 DELETE
               </button>

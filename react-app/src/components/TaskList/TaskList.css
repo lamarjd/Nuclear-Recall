@@ -4,6 +4,15 @@
     border: 2px solid yellow;
 }
 
+#uglyDeleteButtonZwei{
+    background-color: #EDB714;
+    height: 26px;
+    width: 74px;
+    border-radius: 12px;
+    align-content: center;
+    border-color: bisque;
+}
+
 .one-task {
     display: flex;
     align-items: center;
