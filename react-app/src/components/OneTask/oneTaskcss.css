@@ -9,7 +9,7 @@
     padding-top: 90px;
     display: flex;
     flex-direction: column;
-    min-width: 942px;
+    /* min-width: 942px; */
     background-image: linear-gradient(rgb(240,230,140, 0.7), rgb(240,230,140, 0.9));
     
 }
@@ -28,7 +28,7 @@
 .NoteButtonTaskDetails{
     margin-left: 20px;
     min-height: 40px;
-    min-width: 210px;
+    /* min-width: 210px; */
     border-radius: 12px;
     border-width: 1px;
     margin-top: 14px;
@@ -43,7 +43,7 @@
 }
 
 #inputBoxnoteTaskDetails{
-    width: 400px;
+    /* width: 400px; */
     border-color: rgba(0, 0, 0, 0.836);
     border-radius: 10px;
     height: 22px;
@@ -76,7 +76,7 @@
 
 #buttonForAddToList{
     min-height: 24px;
-    min-width: 120px;
+    /* min-width: 120px; */
     background-color: #c4d0f5;
     margin-left: 38px;
     border-width: 1px;
@@ -105,12 +105,12 @@
     
     background-color: #E1C16E;
     min-height: 100vh;
-    min-width: 340px;
+    /* min-width: 340px; */
 }
 
 
 #dropDownForAddToList{
-    min-width: 140px;
+    /* min-width: 140px; */
     min-height: 30px;
     border-radius: 2px;
 }
@@ -118,13 +118,13 @@
 #InputBoxEditTaskName{
     min-height: 24px;
     border-radius: 4px;
-    min-width: 120px;
+    /* min-width: 120px; */
     margin-left: 10px;
 }
 
 .EditTaskButtonTaskDetails{
     min-height: 30px;
-    min-width: 100px;
+    /* min-width: 100px; */
     background-color: #c4d0f5;
     margin-top: 40px;
     margin-left: 70px;
