@@ -25,25 +25,28 @@ function TaskForm() {
   };
 
   return (
-    <form className="container" onSubmit={handleSubmit}
-    onClick={() => setShowButton(true)}>
-      <div className="Task">
-      <label>
-        <input
-          placeholder="Write Task here"
-          type="text"
-          maxLength={200}
-          value={body}
-          required 
-          // required pattern="[a-zA-Z, 0-9,'. ! ? + -]+" title="Please use valid chars,invalid chars: @#$%^&*()"
-          onChange={(e) => setBody(e.target.value)}
-        />
-      </label>
-      <button className="ListButton" type="submit"
-        style={{visibility: showButton ? "visible" : "hidden"}}
-      >Add a task to the list</button>
-      </div>
-    </form>
+    <div className="task-form-container">
+      <form className="add-task-form" onSubmit={handleSubmit}
+      onClick={() => setShowButton(true)}>
+
+        <label>
+          <input
+            className="task-form-input-field"
+            placeholder="Write Task here"
+            type="text"
+            maxLength={200}
+            value={body}
+            required
+            // required pattern="[a-zA-Z, 0-9,'. ! ? + -]+" title="Please use valid chars,invalid chars: @#$%^&*()"
+            onChange={(e) => setBody(e.target.value)}
+          />
+        </label>
+        {/* <button className="ListButton" type="submit"
+          style={{visibility: showButton ? "visible" : "hidden"}}
+        >Add task</button> */}
+
+      </form>
+    </div>
   );
 }
 

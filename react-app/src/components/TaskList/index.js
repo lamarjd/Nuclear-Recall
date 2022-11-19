@@ -59,19 +59,23 @@ export default function AllTasks() {
     history.push(`/all/completed`)
   }
 
-  
+
 
   return (
     isLoaded && (
 
         <div className="all-tasks-container">
           <h1>Tasksss</h1>
-          <NavLink to={`/all/completed`}>Completed</NavLink>
-          <button onClick={() => executor(arr)}> ✔️ </button>
-          <TaskForm />
+            <div className="task-button-container">
+              <div>
+                <NavLink to={`/all/completed`}>Completed</NavLink>
+                <button onClick={() => executor(arr)}> ✔️ </button>
+              </div>
+            <TaskForm />
+          </div>
           <hr />
           {filteredTaskList.map((task) => (
-            <div>
+            <div className="one-task-container">
               {thisUser.id == task.user_id &&
             <div className="one-task">
               <input type="checkbox" onChange={() => cb(arr, task.id)}/>
