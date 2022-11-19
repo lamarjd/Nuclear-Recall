@@ -36,7 +36,6 @@ export default function AllLists(){
             dispatch(fetchTasks())
     }, [dispatch])  
 
-    // let style={transform: 'rotate(180deg)'}
 
     let styler =() => {
         setShowEditForm(!showEditForm)
@@ -47,8 +46,9 @@ export default function AllLists(){
 
             <div className="list-name">
                 <h1>Lists</h1> {"  "}
+                
+                <i onClick={() => styler()}class="fa-solid fa-plus"></i>
             
-                {/* <i id="arrow-rotate"class="fa-solid fa-arrow-up"></i> */}
             </div>
         
             {/* <ListForm/> */}
@@ -62,20 +62,23 @@ export default function AllLists(){
                 {/* List Name */}
                 <h3>{list.name}</h3>
                 </NavLink>
-                
-                    <i onClick={() => styler()}id="arrow-rotate"class="fa-solid fa-arrow-up"></i>
+
+ 
                 
                 </div>
                 {showEditForm && 
 
                 <>
+                <div className="edit-options" >
+
                     <EditList                  
                     style={{visibility: showEditForm ? "visible" : "hidden"}}
                     list={list}/>
             
                 
                 
-                    <button onClick={(e)=> {dispatch(deleteListThunk(list.id), history.push('/all'))}} > DELETE</button>      
+                    <button id="delete-button" onClick={(e)=> {dispatch(deleteListThunk(list.id), history.push('/all'))}} > Delete</button>      
+                </div>
                 </>
                 }               
                     
