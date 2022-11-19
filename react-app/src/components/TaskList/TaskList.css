@@ -24,4 +24,13 @@ hr {
 
 }
 
+#completeTaskButtonDelete{
+    background-color: #EDB714;
+    height: 26px;
+    width: 74px;
+    margin-right: 30px;
+    border-radius: 12px;
+    align-content: center;
+    border-color: bisque;
+}
 

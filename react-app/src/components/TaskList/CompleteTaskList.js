@@ -49,7 +49,7 @@ export default function CompletedAllTasks() {
                 <h3>{task.body}</h3>
               <hr />
               </NavLink>
-              <button onClick={() => dispatch(deleteTaskThunk(task.id))}>
+              <button id='completeTaskButtonDelete' onClick={() => dispatch(deleteTaskThunk(task.id))}>
                 {" "}
                 DELETE
               </button>
