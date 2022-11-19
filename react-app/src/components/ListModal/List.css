@@ -15,3 +15,27 @@
     border-radius: 4px;
     width: 220px;
 }
+
+.ListButton{
+    background-color: #EDB714;
+    width: 200px;
+    border-radius: 6px;
+    border-color:burlywood ;
+    margin-left: 15px;
+}
+
+.Task{
+    display: flex;
+    flex-direction: row;
+
+}
+
+#stupidDetailStyling{
+    min-width: 350px;
+    background-color: whitesmoke;
+
+}
+
+#stupidDetailStyling{
+
+}
