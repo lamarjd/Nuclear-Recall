@@ -3,6 +3,7 @@ import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
 import { useHistory } from 'react-router-dom'
 import { createListThunk, editListThunk } from "../../store/lists"
+import "./EditList.css"
 
 
 function EditList({list}) {
@@ -33,6 +34,7 @@ function EditList({list}) {
       <div className="List">
       <label>
         <input
+          className="placeholder"
           type="text"
           required
           onChange={(e) => setListName(e.target.value)}
@@ -40,7 +42,8 @@ function EditList({list}) {
           value={name}
         />
       </label>
-      <button className="ListButton" type="submit">Edit the list</button>
+      
+      <button className="ListButton" type="submit">Edit List Name</button>
       </div>
     </form>
   );
