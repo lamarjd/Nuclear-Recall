@@ -40,19 +40,23 @@
 }
 
 #signupForm{
-    margin-bottom: 360px;
-    margin-left: 260px;
+    margin-bottom: 320px;
+    padding-bottom: 40px;
+    margin-left: 220px;
+    padding-left: 40px;
     display: flex;
     min-width: 250px;
     align-items: left;
     flex-direction: column;
+    background-image: linear-gradient(#d6d6d6, #f7eac6);
+    
 }
 
 
 .imageSignupDiv{
     flex-direction: row;
-    margin-top: 98px;
-    margin-left: 20px;
+    margin-top: 182px;
+    margin-left: 60px;
     width: 300px;
     height: 300px;
 }
