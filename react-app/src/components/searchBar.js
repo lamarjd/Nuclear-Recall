@@ -28,19 +28,22 @@ const SearchBar = () => {
     <div SEARCH BAR>
       <input className="searchField"
     id="search"
-   type="text"
-   placeholder="Search Tasks Here"
-   onChange={e => setSearchInput(e.target.value)}
+    type="text"
+    placeholder="Search Tasks Here"
+    onChange={e => setSearchInput(e.target.value)}
   //  value={searchInput}
    />
-   <div className="searchResults">
-    {tasksFound?.map((oneTask) =>(
-      <NavLink onClick={()=> (setSearchInput(""))} to={`/all/${oneTask.id}`}>
-      <div key={oneTask.id}>{oneTask.body}</div>
-      </NavLink>
-    ))}
-   </div>
-
+    <div>
+      {tasksFound &&
+        <div className="searchResults">
+          {tasksFound?.map((oneTask) =>(
+            <NavLink onClick={()=> (setSearchInput(""))} to={`/all/${oneTask.id}`}>
+            <div key={oneTask.id}>{oneTask.body}</div>
+            </NavLink>
+          ))}
+        </div>
+        }
+      </div>
     </div>
   );
 };

@@ -7,6 +7,9 @@
 
 .searchResults{
     background: white;
-    position: relative;
-    z-index: 1;
+    position: fixed;
+    z-index: 3;
+    width: 16vw;
+    border: 1px black solid
+
 }
