@@ -16,8 +16,10 @@
 
 body {
 
+
     height: 100%;
     /* border: 10px solid green; */
+
     margin: 0;
 }
 
@@ -26,6 +28,6 @@ a {
     color: black
 }
 
-a:hover {
+/* a:hover {
     box-shadow: 1px 1px grey;
-}
+} */

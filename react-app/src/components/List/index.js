@@ -47,7 +47,16 @@ export default function AllLists(){
             <div className="list-name">
                 <h1>Lists</h1> {"  "}
                 
-                <i onClick={() => styler()}class="fa-solid fa-plus"></i>
+                { showEditForm ? (
+
+                    <i onClick={() => styler()}class="fa-regular fa-square-minus"></i>
+                    
+                    ) : (
+                        
+                        <i onClick={() => styler()}class="fa-regular fa-square-plus"></i>
+                    )
+
+                }
             
             </div>
         
