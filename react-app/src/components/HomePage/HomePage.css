@@ -4,7 +4,7 @@
 }
 
 .home-page-left {
-    border: 2px solid blue;
+    /* border: 2px solid blue; */
     height: 100vh;
     width: 10%;
     position: relative;
@@ -33,4 +33,5 @@ width: 90px;
 height: 40px;
 border-radius: 12px;
 margin-left: 6px;
+cursor: pointer;
 }
