@@ -62,7 +62,13 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/all/:id' exact={true}>
           <NavBar user={user}/>
+          <div className="clowns">
+          
+         
+          <HomePage/>
+          <AllTasks/>
           <OneTask/>
+          </div>
         </ProtectedRoute>
         <ProtectedRoute path='/all' exact={true} >
           <NavBar user={user}/>

@@ -5,7 +5,7 @@
 }
 
 .home-page-left {
-    border: 2px solid blue;
+    /* border: 2px solid blue; */
     height: 100vh;
     width: 100%;
     position: relative;
@@ -13,20 +13,7 @@
     top: 0; 
 }
 
-.all-tasks {
-    /* border: 2px dotted red; */
-    padding: 12px;
-    width: 591px;
-    height: 100vh;
-    margin-left: 210px;
-    /* margin-top: 50px; */
-    justify-content: start;
-    align-items: start; 
-    background-color: white;
-    position: relative;
-    top: -900px;
-    border-radius: 10px;
-}
+
 
 #evilUnstyledButtonOne{
 background-color: #EDB714;

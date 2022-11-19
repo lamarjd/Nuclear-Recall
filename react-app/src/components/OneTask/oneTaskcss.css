@@ -9,7 +9,7 @@
     padding-top: 90px;
     display: flex;
     flex-direction: column;
-    min-width: 942px;
+    /* min-width: 942px; */
     background-image: linear-gradient(rgb(240,230,140, 0.7), rgb(240,230,140, 0.9));
     
 }

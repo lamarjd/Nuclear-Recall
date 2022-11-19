@@ -15,7 +15,7 @@ export default function AllTasks() {
   const dispatch = useDispatch();
   const reduxstate = useSelector((state) => state.tasks);
   const listsState = useSelector((state) => state.lists);
-
+  const history = useHistory()
     const thisUser = useSelector(state => state.session.user);
 
     const [isLoaded, setIsLoaded] = useState(false)
@@ -55,6 +55,7 @@ export default function AllTasks() {
       console.log("flugazi")
       dispatch(editTaskThunk(payload, arr[i]))
     }
+    history.push('/all/complete')
   }
 
   
@@ -64,7 +65,6 @@ export default function AllTasks() {
 
         <div className="all-tasks-container">
           <h1>Tasksss</h1>
-          <NavLink to={`/all`}>Incomplete</NavLink>
           <NavLink to={`/all/completed`}>Completed</NavLink>
           <button onClick={() => executor(arr)}> ✔️ </button>
           <TaskForm />
