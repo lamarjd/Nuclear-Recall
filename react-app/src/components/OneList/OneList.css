@@ -86,7 +86,7 @@ hr {
 }
 
 .all-tasks-container {
-    border: 2px dotted red;
+    /* border: 2px dotted red; */
     padding: 12px;
     min-width: 591px;
     height: 100vh;

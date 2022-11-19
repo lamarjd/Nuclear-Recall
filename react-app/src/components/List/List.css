@@ -1,3 +1,8 @@
+.lists {
+    /* overflow-y: scroll; */
+    /* border: 2px solid blue; */
+}
+
 .list-name {
     display: inline-flex;
     align-items: center;

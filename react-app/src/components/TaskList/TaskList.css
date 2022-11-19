@@ -86,10 +86,10 @@ hr {
 }
 
 .all-tasks-container {
-    border: 2px dotted red;
+    /* border: 2px dotted red; */
     padding: 12px;
     min-width: 591px;
-    height: 100vh;
+    max-height: 100vh;
     /* margin-left: 210px; */
     /* margin-top: 50px; */
     justify-content: start;
@@ -101,3 +101,36 @@ hr {
     overflow-y: scroll;
     overflow-x: hidden;
 }
+
+.all-tasks-container::-webkit-scrollbar {
+    width: 0.5em;
+    /* visibility: hidden; */
+}
+
+.all-tasks-container::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    /* visibility: hidden; */
+}
+
+.all-tasks-container::-webkit-scrollbar-thumb {
+    background-color: rgba(169, 169, 169, 0.343);
+    outline: 1px solid rgba(112, 128, 144, 0.662);
+    /* visibility: hidden; */
+}
+
+/* .all-tasks-container::-webkit-scrollbar:hover {
+    width: 0.5em;
+    visibility: visible;
+}
+
+.all-tasks-container::-webkit-scrollbar-track:hover {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    visibility: visible;
+}
+
+.all-tasks-container::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(169, 169, 169, 0.343);
+    outline: 1px solid rgba(112, 128, 144, 0.662);
+ 
+    visibility: visible;
+} */
