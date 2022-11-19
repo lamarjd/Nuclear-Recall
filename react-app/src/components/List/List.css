@@ -15,11 +15,11 @@
     font-size: small;
 }
 
-.list-name-div i {
+.list-name i {
     cursor: pointer;
 }
 
-.list-name-div i:hover {
+.list-name i:hover {
     border-radius: 50px;
     box-shadow: 2px 2px 12px black;
 }

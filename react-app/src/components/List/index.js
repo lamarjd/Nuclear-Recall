@@ -46,6 +46,8 @@ export default function AllLists(){
 
             <div className="list-name">
                 <h1>Lists</h1> {"  "}
+                
+                <i onClick={() => styler()}class="fa-solid fa-plus"></i>
             
             </div>
         
@@ -61,7 +63,7 @@ export default function AllLists(){
                 <h3>{list.name}</h3>
                 </NavLink>
 
-                    <i onClick={() => styler()}class="fa-solid fa-plus"></i>
+ 
                 
                 </div>
                 {showEditForm && 
