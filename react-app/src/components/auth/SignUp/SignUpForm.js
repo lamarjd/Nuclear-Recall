@@ -68,6 +68,9 @@ const SignUpForm = () => {
     if (password != repeatPassword) {
       validationErrors.push("Passwords must match")
     }
+    if (email.search('@') === -1 ){
+      validationErrors.push("Please enter a REAL email address")
+    }  
 
     setErrors(validationErrors)
     console.log("ERRORS", errors)
