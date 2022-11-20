@@ -25,7 +25,7 @@ def get_all_lists():
             for task in tasks:
                 if task.list_id == lis.id:
                     task_of_tasks.append(task.to_dict())
-            one_list["Tasks"] = task_of_tasks
+            one_list["tasks"] = task_of_tasks
         return make_response(jsonify({"lists":list_of_lists}), 200)
     # return lists_of_lists.to_dict()
 
