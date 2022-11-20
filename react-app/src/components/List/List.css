@@ -1,16 +1,14 @@
-.lists {
-    /* overflow-y: scroll; */
-    /* border: 2px solid blue; */
-}
+
 
 .list-options {
     border-bottom: 1px solid grey;
     padding-bottom: 10%;
 }
 
-.modal {
-    /* border: 2px solid blue; */
-}
+/* .modal:hover {
+    box-shadow: 2px 2px 2px black;
+    transition: margin-right 2s;
+} */
 
 
 
