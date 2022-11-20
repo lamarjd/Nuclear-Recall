@@ -40,8 +40,8 @@ function TaskListForm() {
       <div className="someTask">
       <label>
         <input
-          className="someInputField"
-          placeholder="Write TaskList here"
+          className="someInputFieldAetius"
+          placeholder="Write a task for the list here"
           type="text"
           value={body}
           maxLength={200}
