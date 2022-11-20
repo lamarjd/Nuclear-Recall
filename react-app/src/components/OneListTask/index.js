@@ -43,7 +43,7 @@ export default function OneListTask() {
     isLoaded && (
       <div className="mainTaskDetailsOutDiv">
          <div className="someDiv">
-        <h2 id='h1taskdetails'>Task OptionsSS</h2>
+        <h2 id='h1taskdetails'>Task Options</h2>
         <EditTaskListFormList filtered={filtered} />
         <EditFormList filtered={filtered} />
         </div>

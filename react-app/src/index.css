@@ -15,17 +15,20 @@
 }
 
 body {
-
-
     height: 100vh;
     /* border: 10px solid green; */
-
     margin: 0;
 }
 
 a {
     text-decoration: none;
-    color: black
+    color: black;
+    cursor: pointer;
+}
+
+button {
+    cursor: pointer;
+    font-family: 'Syne Mono', monospace;
 }
 
 /* a:hover {

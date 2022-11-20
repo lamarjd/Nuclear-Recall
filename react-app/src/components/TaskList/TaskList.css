@@ -75,6 +75,9 @@ hr {
 .checkButton{
     position: relative;
     bottom: 5px;
+    font-size: large;
+    color: green;
+    background-color: rgba(179, 177, 177, 0.325);
 }
 
 .task-header{
