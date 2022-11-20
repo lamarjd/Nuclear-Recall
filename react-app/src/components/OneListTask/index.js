@@ -21,10 +21,11 @@ export default function OneListTask() {
   const dispatch = useDispatch();
   const { aiya } = useParams();
   const reduxstate = useSelector((state) => state.tasks);
+  const listState = useSelector((state) => state.lists)
   const thisUser = useSelector((state) => state.session.user);
   const notesState = useSelector((state) => state.notes)
   const notesObj = Object.values(notesState)
-
+  console.log("THIS IS THE LIST STATE",listState)
   const filteredNotes = notesObj.filter(note => note.task_id == aiya)
 
   const [isLoaded, setIsLoaded] = useState(false);
@@ -63,8 +64,8 @@ export default function OneListTask() {
           </div>
         </div>
         </div>
-        
-      
+
+
     )
   );
 }

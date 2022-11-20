@@ -18,7 +18,7 @@ export default function AllLists({ modalList }) {
   const dispatch = useDispatch();
   const history = useHistory();
   const listState = useSelector((state) => state.lists);
-
+  const taskState = useSelector((state) => state.tasks)
   const thisUser = useSelector((state) => state.session.user);
 
   const [isLoaded, setIsLoaded] = useState(false);

@@ -64,9 +64,9 @@ export const fetchLists = () => async dispatch => {
 export const fetchOneList = (id) => async dispatch => {
 
     const res = await fetch(`/api/all/lists/${id}`)
-    console.log("HERE")
+
     if (res.ok) {
-        console.log("HEHERRRRRRRRRE")
+
         const singleList = await res.json()
 
         dispatch(getOneList(singleList))
@@ -151,9 +151,14 @@ const listReducer = (state = initialState, action) => {
         }
 
         case ONE_LIST: {
-            console.log("new statt",newState)
+            console.log("old state", state)
             newState = {...state}
+            console.log('this is the action', action)
             newState[action.payload.id] = action.payload
+            console.log("this is a test log", state[action.payload.id])
+
+
+
             console.log("new statt",newState)
             return newState
         }

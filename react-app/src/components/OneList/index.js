@@ -25,17 +25,16 @@ export default function OneList(){
   const [isLoaded, setIsLoaded] = useState(false)
   const history = useHistory();
   const listsState = useSelector((state) => state.lists);
-
+  
   useEffect(() => {
+    console.log("banana")
     dispatch(fetchOneList(id))
     .then(() => setIsLoaded(true))
 }, [dispatch,taskState])
- 
+
 
   const list = Object.values(reduxstate)
   const filtered = list.filter(list => list.id === +id)[0]
-  console.log("FILTEREEEEED", filtered)
-  console.log("FILTEREEEEEEEEEED")
 
   const tasks = filtered?.tasks
  let falseTasks = tasks?.filter(task =>task.complete == false)
@@ -93,7 +92,7 @@ export default function OneList(){
       className="detail-navlink"
       key={task.id}
       to={`/all/lists/${filtered.id}/${task.id}`}
-      
+
     >
       {" "}
       <h3 className="task-text">{task.body}</h3>
