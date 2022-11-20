@@ -31,6 +31,7 @@
     justify-content: center;
 
     overflow-y: scroll;
+    height: 50vh;
 }
 
 #labelDivTaskDetailsNotes{
@@ -119,6 +120,7 @@
 #InputBoxEditTaskName{
     min-height: 24px;
     width:15.5vw;
+    margin-bottom: 5%;
 }
 
 .EditTaskButtonTaskDetails{
@@ -142,7 +144,7 @@
 }
 
 .noteOuterDivTaskDetails::-webkit-scrollbar-thumb {
-    background-color: rgba(169, 169, 169, 0.343);
+    background-color: rgba(69, 153, 209, 0.436);
     outline: 1px solid rgba(112, 128, 144, 0.662);
     /* visibility: hidden; */
 }
