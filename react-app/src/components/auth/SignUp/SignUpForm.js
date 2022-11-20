@@ -24,7 +24,7 @@ const SignUpForm = () => {
       const response = await fetch('/api/users/');
       const responseData = await response.json();
       setUsers(responseData.users);
-      console.log("response data", responseData.users);
+      // console.log("response data", responseData.users);
     }
     fetchData();
   }, []);
@@ -38,7 +38,7 @@ const SignUpForm = () => {
 
   // console.log("user COMPONENT", users)
 
-  console.log("USER COMPONENT", userComponents);
+  // console.log("USER COMPONENT", userComponents);
 
   const updateUsername = (e) => {
     setUsername(e.target.value);
