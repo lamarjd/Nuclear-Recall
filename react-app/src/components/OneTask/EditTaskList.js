@@ -19,7 +19,7 @@ export default function EditTaskListForm({filtered}){
     const listObj = Object.values(reduxList)
     const filteredListObj = listObj.filter(list => list.user_id == thisUser.id)
 
-    console.log("FILTERED LIST OBJ", filteredListObj)
+
 
     const history = useHistory()
     const [name,setName]= useState(filteredListObj[0]?.name)
@@ -37,7 +37,7 @@ export default function EditTaskListForm({filtered}){
       const handleSubmit = async (e) => {
         e.preventDefault();
 
-        console.log("NAME",name)
+
         let theList = filteredListObj?.filter(list =>{
             return list.name == name
         })[0]
@@ -49,22 +49,21 @@ export default function EditTaskListForm({filtered}){
 
         let taskEdited = await dispatch(editTaskAddListThunk(payload,task_id))
         if (taskEdited) {
-            console.log(payload)
+
             history.push(`/all/lists/${payload.list_id}`)
         }
     }
 
 return (
-    <div>
+    <div className="edit-task-form-container">
         {filteredListObj.length > 0 &&
         <form id='addToListForm' onSubmit={handleSubmit}>
         <select
+        className=""
         id='dropDownForAddToList'
         value={name}
         onChange={e => setName(e.target.value)}
-
         >
-
         {filteredListObj?.map(list => (
             <option key={list.id}>
               {list.name}

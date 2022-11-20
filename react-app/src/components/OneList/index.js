@@ -16,7 +16,7 @@ import "./OneList.css"
 export default function OneList(){
   const arr = []
   const dispatch = useDispatch();
-  
+
   const {id} = useParams()
   console.log("id",id)
   const reduxstate = useSelector((state) => state.lists);
@@ -82,7 +82,7 @@ console.log("filtered",filtered)
             </div>
           <hr />
 
-        
+
         {falseTasks?.map(task => (
   <div className="one-task-container">
   {thisUser.id == task.user_id &&

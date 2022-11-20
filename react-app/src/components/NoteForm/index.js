@@ -3,6 +3,7 @@ import * as sessionActions from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
 import { createNoteThunk } from "../../store/notes";
 import { useHistory, useParams } from "react-router-dom";
+import './note.css'
 
 function NoteForm({ filtered }) {
     const dispatch = useDispatch()
@@ -25,13 +26,10 @@ function NoteForm({ filtered }) {
         }
         setBody("")
         let noteCreated = await dispatch(createNoteThunk(payload, id))
-
         if (noteCreated) {
             history.push(`/all/${task_id}`)
         }
     }
-
-
 
 
     return (
@@ -48,7 +46,7 @@ function NoteForm({ filtered }) {
             onChange={(e) => setBody(e.target.value)}
           />
         </label>
-        <button className="NoteButtonTaskDetails" type="submit">Add a note to the task</button>
+        <button className="NoteButtonTaskDetails" type="submit">Add a note</button>
         </div>
       </form>
     )

@@ -37,25 +37,26 @@ export default function OneTask() {
   return (
     isLoaded && (
       <div className="mainTaskDetailsOutDiv">
-        <div className="outerTaskDetailsLeftDiv">
-        <h1 id='h1taskdetails'>Task Options</h1>
-        <EditTaskListForm filtered={filtered} />
+          <div className="someDiv">
+            <h2 id='h1taskdetails'>Task Options</h2>
+              <EditTaskListForm filtered={filtered} />
+              <EditForm filtered={filtered} />
+          </div>
 
-        <EditForm filtered={filtered} />
 
-
-        </div>
         <div className="noteOuterDivTaskDetails">
-          <div id='labelDivTaskDetailsNotes'>Notes for {filtered?.body}</div>
-          <div>
-            {filteredNotes.map((note) => (
-              <div className="noteDivContainerTaskDetails">
-                <p key={note.id}>{note.body}</p>
-                {thisUser.id == note.user_id &&
-                <button className='noteDeleteButtonTaskDetails' onClick={() => dispatch(deleteNoteThunk(note.id))}>Destroy This Note</button>}
-              </div>
-            ))}
-            <NoteForm id='noteFormTaskDetails' filtered={filtered} />
+        <div className>
+         <h2>Notes for</h2> {filtered?.body}
+            <div className="someOtherDiv">
+              {filteredNotes.map((note) => (
+                <div className="noteDivContainerTaskDetails">
+                  <p className="note-contenet" key={note.id}>{note.body}</p>
+                  {thisUser.id == note.user_id &&
+                  <button className='noteDeleteButtonTaskDetails' onClick={() => dispatch(deleteNoteThunk(note.id))}>Destroy This Note</button>}
+                </div>
+              ))}
+              <NoteForm id='noteFormTaskDetails' filtered={filtered} />
+            </div>
           </div>
 
         </div>

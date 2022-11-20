@@ -1,0 +1,17 @@
+.Note{
+  display:flex;
+  flex-direction: column;
+
+}
+
+.NoteButtonTaskDetails{
+  background-color: #EDB714;
+  min-width: 15vw;
+  max-width:15vw;
+}
+
+#inputBoxnoteTaskDetails{
+  width: 97%;
+  min-width: 14vw;
+  max-width: 15vw;
+}
