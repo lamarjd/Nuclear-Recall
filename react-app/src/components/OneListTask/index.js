@@ -10,7 +10,10 @@ import EditForm from "../EditTask/index.js";
 import NoteForm from "../NoteForm/index.js";
 import { getAllNotes, deleteNoteThunk } from "../../store/notes.js";
 import EditTaskListForm from "../OneTask/EditTaskList.js";
-
+import EditTaskListFormList from "../NoteListStuff/EditTaskListFormList.js";
+import EditFormList from "../EditTask/EditTaskList.js";
+import NoteFormList from "../NoteForm/NoteListform.js";
+import './One.css'
 // css
 
 
@@ -37,29 +40,31 @@ export default function OneListTask() {
   return (
     isLoaded && (
       <div className="mainTaskDetailsOutDiv">
-        <div className="outerTaskDetailsLeftDiv">
-        <h1 id='h1taskdetails'>Task Options</h1>
-        <EditTaskListForm filtered={filtered} />
-
-        <EditForm filtered={filtered} />
-
-
+         <div className="someDiv">
+        <h2 id='h1taskdetails'>Task OptionsSS</h2>
+        <EditTaskListFormList filtered={filtered} />
+        <EditFormList filtered={filtered} />
         </div>
+
         <div className="noteOuterDivTaskDetails">
-          <div id='labelDivTaskDetailsNotes'>Notes for {filtered?.body}</div>
-          <div>
-            {filteredNotes.map((note) => (
-              <div className="noteDivContainerTaskDetails">
-                <p key={note.id}>{note.body}</p>
-                {thisUser.id == note.user_id &&
-                <button className='noteDeleteButtonTaskDetails' onClick={() => dispatch(deleteNoteThunk(note.id))}>Destroy This Note</button>}
-              </div>
-            ))}
-            <NoteForm id='noteFormTaskDetails' filtered={filtered} />
+        <div className>
+         <h2 className="task-detail-title">{filtered?.body}</h2>
+            <div className="someOtherDiv">
+            <NoteFormList id='noteFormTaskDetails' filtered={filtered} />
+              <p>Notes:</p>
+              {filteredNotes.map((note) => (
+                <div className="noteDivContainerTaskDetails">
+                  <p className="note-contenet" key={note.id}>{note.body}</p>
+                  {thisUser.id == note.user_id &&
+                  <button className='noteDeleteButtonTaskDetails' onClick={() => dispatch(deleteNoteThunk(note.id))}>Destroy This Note</button>}
+                </div>
+              ))}
+</div>
           </div>
-
         </div>
-      </div>
+        </div>
+        
+      
     )
   );
 }
