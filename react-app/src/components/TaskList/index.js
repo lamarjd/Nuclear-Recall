@@ -26,7 +26,7 @@ export default function AllTasks() {
   }, [dispatch, listsState]);
 
   const taskList = Object.values(reduxstate);
-  const filteredTaskList = taskList.filter(task => task.complete == false)
+  const filteredTaskList = taskList.filter(task => task.complete == false && task.user_id == thisUser.id)
 console.log("filtereedd",filteredTaskList)
 
 
@@ -65,7 +65,7 @@ console.log("filtereedd",filteredTaskList)
     isLoaded && (
 
         <div className="all-tasks-container">
-          <h1 className="task-header">Tasksss</h1>
+          <h1 className="task-header">Tasks</h1>
             <div className="task-button-container">
               <div className="add-task-buttons">
                 <NavLink className="completed-button" to={`/all/completed`}>Completed</NavLink>
@@ -74,6 +74,8 @@ console.log("filtereedd",filteredTaskList)
             <TaskForm />
             </div>
           <hr />
+          {!filteredTaskList.length &&
+            <h3>No tasks yet, write some stuff down why don't ya!</h3>}
           {filteredTaskList.map((task) => (
             <div className="one-task-container">
             {thisUser.id == task.user_id &&

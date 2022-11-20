@@ -29,6 +29,7 @@ function EditFormList({filtered}) {
     }
 
     let taskEdit = await dispatch(editTaskThunk(payload,filtered.id))
+    
     if(taskEdit){
       history.push(`/all/lists/${filtered.list_id}/${filtered.id}`)
     }

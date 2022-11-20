@@ -19,7 +19,7 @@ const SearchBar = () => {
     const taskState = useSelector(state => state.tasks)
     const dispatch= useDispatch()
     const tasks = Object.values(taskState)
-    console.log(tasks)
+    
 
     const tasksFound = matchingTask(searchInput,tasks)
 

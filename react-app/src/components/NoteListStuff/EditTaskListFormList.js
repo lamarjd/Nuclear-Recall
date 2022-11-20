@@ -4,7 +4,7 @@ import * as sessionActions from '../../store/session.js';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useHistory, useParams } from 'react-router-dom';
 import {editTaskAddListThunk} from '../../store/tasks';
-import { fetchLists } from '../../store/lists.js';
+import { fetchLists, fetchOneList } from '../../store/lists.js';
 
 // css import
 import '../OneTask/oneTaskcss.css'
@@ -31,6 +31,7 @@ export default function EditTaskListFormList({filtered}){
 
     useEffect(() => {
        dispatch(fetchLists())
+
       }, [dispatch]);
 
 
@@ -41,7 +42,7 @@ export default function EditTaskListFormList({filtered}){
         let theList = filteredListObj?.filter(list =>{
             return list.name == name
         })[0]
-        console.log("THE LIST=--------------------------",theList)
+
         let id = theList?.id
         const payload = {
             list_id:id
@@ -49,10 +50,12 @@ export default function EditTaskListFormList({filtered}){
 
         let taskEdited = await dispatch(editTaskAddListThunk(payload,task_id))
         if (taskEdited) {
-
+            await dispatch(fetchOneList(payload.list_id))
             history.push(`/all/lists/${payload.list_id}`)
         }
     }
+
+
 
 return (
     <div className="edit-task-form-container">

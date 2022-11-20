@@ -27,18 +27,17 @@ export default function OneList(){
   const listsState = useSelector((state) => state.lists);
 
   useEffect(() => {
+    console.log("banana")
     dispatch(fetchOneList(id))
     .then(() => setIsLoaded(true))
 }, [dispatch,taskState])
- 
+
 
   const list = Object.values(reduxstate)
   const filtered = list.filter(list => list.id === +id)[0]
-  console.log("FILTEREEEEED", filtered)
-  console.log("FILTEREEEEEEEEEED")
 
   const tasks = filtered?.tasks
- let falseTasks = tasks?.filter(task =>task.complete == false)
+ let falseTasks = tasks?.filter(task =>task.complete == false && task.user_id == thisUser.id)
 
   const cb = (checkList, num) => {
 
@@ -82,7 +81,8 @@ export default function OneList(){
               <TaskListForm list={id}/>
             </div>
           <hr />
-
+        {!falseTasks.length &&
+        <h2>Add a task to this list, stop forgetting stuff</h2>}
 
         {falseTasks?.map(task => (
   <div className="one-task-container">
@@ -93,13 +93,13 @@ export default function OneList(){
       className="detail-navlink"
       key={task.id}
       to={`/all/lists/${filtered.id}/${task.id}`}
-      
+
     >
       {" "}
       <h3 className="task-text">{task.body}</h3>
     <hr />
     </NavLink>
-    <button id='uglyDeleteButtonZwei' onClick={() => dispatch(deleteTaskThunk(task.id))}>
+    <button id='uglyDeleteButtonZwei' onClick={() => [dispatch(deleteTaskThunk(task.id)), history.push(`/all/lists/${filtered.id}`)]}>
       {" "}
       Delete
     </button>
