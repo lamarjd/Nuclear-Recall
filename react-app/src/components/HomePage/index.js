@@ -16,21 +16,29 @@ function HomePage(){
 const [lis, setList] = useState(false);
 let modalList = (
 <div>
-  <button id='evilUnstyledButtonOne' onClick={() => (setList(true))}>Add a List</button>  
+
+  <button id='evilUnstyledButtonOne' onClick={() => (setList
+    (true))}>Add a List</button>
+
 {lis && (
    <Modal onClose={() => setList(false)}>
    <ListForm setList={setList}/>
  </Modal>
 )}
+
 </div>)
+
+
   return (
     <>
     <div className="home-body">
 
     <div className="home-page-left">
     <div className="all-lists">
-      <AllLists/>
-        <div>{modalList}</div>
+      {/* <div>{modalList}</div> */}
+      <AllLists modalList={modalList}/>
+
+
     </div>
     </div>
     
