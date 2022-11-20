@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-
+import { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { fetchOneTask } from "../store/tasks";
@@ -9,18 +9,21 @@ import "./searchBar.css"
 
 
 const SearchBar = () => {
+  const thisUser = useSelector((state) => state.session.user);
   const matchingTask = (searchInput,tasks) =>{
-    if(!searchInput) return null
 
-   return tasks.filter(task => task.body.toLowerCase().includes(searchInput.toLowerCase()) && task.complete ==false)
+    if(!searchInput) return null
+   return tasks.filter(task => task.body.toLowerCase().includes(searchInput.toLowerCase()) && task.complete ==false && task.user_id == thisUser.id)
 
   }
 
-    const [searchInput, setSearchInput] = useState("")
-    const taskState = useSelector(state => state.tasks)
-    const dispatch= useDispatch()
-    const tasks = Object.values(taskState)
+  const [searchInput, setSearchInput] = useState("")
+  const taskState = useSelector(state => state.tasks)
+  const dispatch= useDispatch()
+  const tasks = Object.values(taskState)
 
+  useEffect(()=>{
+  }, [])
 
     const tasksFound = matchingTask(searchInput,tasks)
 
