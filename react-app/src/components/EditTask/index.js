@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { createTaskThunk, editTaskThunk, fetchOneTask } from "../../store/tasks";
 import { useHistory } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import "../OneTask/oneTaskcss.css"
 function EditForm({filtered}) {
   const {id} = useParams()
   const dispatch = useDispatch();
@@ -26,7 +27,7 @@ function EditForm({filtered}) {
     const payload={
       body
     }
-    
+
     let taskEdit = await dispatch(editTaskThunk(payload,filtered.id))
     if(taskEdit){
       history.push(`/all/${filtered.id}`)
@@ -36,17 +37,17 @@ function EditForm({filtered}) {
   return (
     <form className="container" onSubmit={handleSubmit}>
       <div className="Task">
-      <label>
-        <input
-          id='InputBoxEditTaskName'
-          type="text"
-          value={body}
-          maxLength={200}
-          required
-          onChange={(e) => setBody(e.target.value)}
-        />
-      </label>
-      <button className="EditTaskButtonTaskDetails" type="submit">Edit Task Name</button>
+        <label>
+          <input
+            id='InputBoxEditTaskName'
+            type="text"
+            value={body}
+            maxLength={200}
+            required
+            onChange={(e) => setBody(e.target.value)}
+          />
+        </label>
+        <button className="EditTaskButtonTaskDetails" type="submit">Edit Task Name</button>
       </div>
     </form>
   );

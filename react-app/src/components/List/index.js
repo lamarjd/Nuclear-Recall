@@ -34,7 +34,7 @@ export default function AllLists(){
         dispatch(fetchLists())
             .then(() => setIsLoaded(true))
             dispatch(fetchTasks())
-    }, [dispatch])  
+    }, [dispatch])
 
 
     let styler =() => {
@@ -46,20 +46,20 @@ export default function AllLists(){
 
             <div className="list-name">
                 <h1>Lists</h1> {"  "}
-                
+
                 { showEditForm ? (
 
                     <i onClick={() => styler()}class="fa-regular fa-square-minus"></i>
-                    
+
                     ) : (
-                        
+
                         <i onClick={() => styler()}class="fa-regular fa-square-plus"></i>
                     )
 
                 }
-            
+
             </div>
-        
+
             {/* <ListForm/> */}
             {lists?.map(list => (
                 <div key={list.id}>
@@ -67,30 +67,28 @@ export default function AllLists(){
                  {thisUser.id == list.user_id &&
                  <>
                 <div className="list-name-div">
-                <NavLink className="detail-navlink" key={list.id} to={`/all/lists/${list.id}`}> 
+                <NavLink className="detail-navlink" key={list.id} to={`/all/lists/${list.id}`}>
                 {/* List Name */}
                 <h3>{list.name}</h3>
                 </NavLink>
 
- 
-                
                 </div>
-                {showEditForm && 
+                {showEditForm &&
 
                 <>
                 <div className="edit-options" >
 
-                    <EditList                  
+                    <EditList
                     style={{visibility: showEditForm ? "visible" : "hidden"}}
                     list={list}/>
-            
-                
-                
-                    <button id="delete-button" onClick={(e)=> {dispatch(deleteListThunk(list.id), history.push('/all'))}} > Delete</button>      
+
+
+
+                    <button id="delete-button" onClick={(e)=> {dispatch(deleteListThunk(list.id), history.push('/all'))}} > Delete</button>
                 </div>
                 </>
-                }               
-                    
+                }
+
                 </>
                 }
 

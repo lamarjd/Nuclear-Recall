@@ -68,7 +68,6 @@ export default function OneList(){
 
     <div className="all-tasks-container">
         <h1 className="task-header">Tasks</h1>
-
         <div className="task-button-container">
               <div className="add-task-buttons">
                 <NavLink className="completed-button" to={`/all/completed`}>Completed</NavLink>
@@ -78,7 +77,7 @@ export default function OneList(){
             </div>
           <hr />
 
-        
+
         {tasks?.map(task => (
   <div className="one-task-container">
   {thisUser.id == task.user_id &&

@@ -10,7 +10,7 @@ function TaskListForm() {
   const dispatch = useDispatch();
   const [body, setBody] = useState('')
   const [validationErrors, setValidationErrors] = useState([])
-  
+
   const [hasSubmitted, setHasSubmitted] = useState(false)
   const history = useHistory()
 
@@ -28,9 +28,9 @@ function TaskListForm() {
       setBody("")
       dispatch(fetchOneList(payload.id))
       history.push(`/all/lists/${payload.id}`)
-    }    
+    }
   };
-  
+
 
   return (
     <form className="container" onSubmit={handleSubmit} >
@@ -46,10 +46,10 @@ function TaskListForm() {
           onChange={(e) => setBody(e.target.value)}
         />
       </label>
- 
-      <button className="ListButton" type="submit"  >Add a task to the list</button>
-    
-      
+
+      <button className="ListButton" type="submit"  >Add task to the list</button>
+
+
       </div>
     </form>
   );
