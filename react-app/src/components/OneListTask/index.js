@@ -38,6 +38,7 @@ export default function OneListTask() {
   const taskList = Object.values(reduxstate);
   const filtered = taskList.filter((task) => task.id === +aiya)[0];
 
+
   return (
     isLoaded && (
       <div className="mainTaskDetailsOutDiv">

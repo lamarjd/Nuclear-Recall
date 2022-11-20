@@ -25,7 +25,7 @@ export default function OneList(){
   const [isLoaded, setIsLoaded] = useState(false)
   const history = useHistory();
   const listsState = useSelector((state) => state.lists);
-  
+
   useEffect(() => {
     console.log("banana")
     dispatch(fetchOneList(id))
@@ -37,7 +37,7 @@ export default function OneList(){
   const filtered = list.filter(list => list.id === +id)[0]
 
   const tasks = filtered?.tasks
- let falseTasks = tasks?.filter(task =>task.complete == false)
+ let falseTasks = tasks?.filter(task =>task.complete == false && task.user_id == thisUser.id)
 
   const cb = (checkList, num) => {
 
@@ -81,7 +81,8 @@ export default function OneList(){
               <TaskListForm list={id}/>
             </div>
           <hr />
-
+        {!falseTasks.length &&
+        <h2>Add a task to this list, stop forgetting stuff</h2>}
 
         {falseTasks?.map(task => (
   <div className="one-task-container">

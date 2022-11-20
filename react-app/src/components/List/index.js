@@ -28,6 +28,8 @@ export default function AllLists({ modalList }) {
   // const [style, setStyle] = useState(false)
 
   const lists = Object.values(listState);
+  const filteredList = lists.filter(list => list.user_id == thisUser.id)
+  console.log("THESE ARE THE LISTS", filteredList)
   useEffect(() => {
     dispatch(fetchLists()).then(() => setIsLoaded(true))
     dispatch(fetchTasks());
@@ -45,6 +47,8 @@ export default function AllLists({ modalList }) {
         <div className="list-options">
           <div className="list-name">
             <h1>Lists</h1> {"  "}
+
+
             {showEditForm ? (
                 <i
                 onClick={() => styler()}
@@ -63,6 +67,9 @@ export default function AllLists({ modalList }) {
 
 
         {/* <ListForm/> */}
+        {!filteredList.length &&
+         <h2>No lists yet</h2>
+        }
         {lists?.map((list) => (
           <div key={list.id}>
             {thisUser.id == list.user_id && (

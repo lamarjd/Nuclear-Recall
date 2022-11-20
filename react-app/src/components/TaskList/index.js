@@ -26,7 +26,7 @@ export default function AllTasks() {
   }, [dispatch, listsState]);
 
   const taskList = Object.values(reduxstate);
-  const filteredTaskList = taskList.filter(task => task.complete == false)
+  const filteredTaskList = taskList.filter(task => task.complete == false && task.user_id == thisUser.id)
 console.log("filtereedd",filteredTaskList)
 
 
@@ -74,6 +74,8 @@ console.log("filtereedd",filteredTaskList)
             <TaskForm />
             </div>
           <hr />
+          {!filteredTaskList.length &&
+            <h3>No tasks yet, write some stuff down why don't ya!</h3>}
           {filteredTaskList.map((task) => (
             <div className="one-task-container">
             {thisUser.id == task.user_id &&

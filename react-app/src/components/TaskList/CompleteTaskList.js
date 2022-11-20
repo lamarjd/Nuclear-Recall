@@ -22,7 +22,7 @@ export default function CompletedAllTasks() {
   }, [dispatch, listsState]);
 
   const taskList = Object.values(reduxstate);
-  const completedList = taskList.filter(task => task.complete == true)
+  const completedList = taskList.filter(task => task.complete == true && task.user_id == thisUser.id)
   console.log(completedList)
 
   return (
@@ -35,6 +35,9 @@ export default function CompletedAllTasks() {
           <NavLink to="/all">Incomplete</NavLink>
           <TaskForm />
           <hr />
+          {!completedList.length &&
+          <h1>You haven't completed anything yet,
+            GET TO WORK</h1>}
           {completedList.map((task) => (
             <div>
               {thisUser.id == task.user_id &&
