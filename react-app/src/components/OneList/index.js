@@ -87,7 +87,9 @@ export default function OneList(){
         {falseTasks?.map(task => (
   <div className="one-task-container">
   {thisUser.id == task.user_id &&
+
   <div className="one-task">
+
     <input type="checkbox" onChange={() => cb(arr, task.id)}/>
     <NavLink
       className="detail-navlink"

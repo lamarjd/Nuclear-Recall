@@ -70,7 +70,15 @@ hr {
     padding-right: 10px;
     position: relative;
     bottom: 2px;
+
 }
+
+/* .completed-button:hover{
+box-shadow: 0px 0px 5px 0px gold;
+border-left: 2px solid black;
+border-top: 2px solid black;
+    
+} */
 
 .checkButton{
     position: relative;

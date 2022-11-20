@@ -26,8 +26,12 @@ export default function AllTasks() {
   }, [dispatch, listsState]);
 
   const taskList = Object.values(reduxstate);
+  console.log("TASSKKLIIIISTT", taskList)
   const filteredTaskList = taskList.filter(task => task.complete == false)
 console.log("filtereedd",filteredTaskList)
+
+// const tasks = useSelector(state => state.tasks)
+// console.log("all the tasks", tasks)
 
 
   const cb = (checkList, num) => {
@@ -52,12 +56,36 @@ console.log("filtereedd",filteredTaskList)
     let payload = {
       complete: true
     }
+
     for(let i = 0; i < arr.length; i++){
       console.log("flugazi")
       dispatch(editTaskThunk(payload, arr[i]))
     }
     history.push(`/all/completed`)
   }
+
+  // const completeStyle = (arr) => {
+  //   let style;
+
+  //   if (!arr.length) {
+  //     style = {
+  //       hover: { 
+  //         boxShadow: '0px 0px 5px 0px gold',
+  //         borderLeft: '2px solid black',
+  //         borderTop: '2px solid black'
+  //       }
+  //     }
+  //   }
+  //   return style
+  // }
+
+  // const styles = {
+  //   hover: { 
+  //     boxShadow: '0px 0px 5px 0px gold',
+  //     borderLeft: '2px solid black',
+  //     borderTop: '2px solid black'
+  //   }
+  // };
 
 
 
@@ -68,7 +96,10 @@ console.log("filtereedd",filteredTaskList)
           <h1 className="task-header">Tasksss</h1>
             <div className="task-button-container">
               <div className="add-task-buttons">
-                <NavLink className="completed-button" to={`/all/completed`}>Completed</NavLink>
+             
+                <NavLink className="completed-button" 
+                // style={{completeStyle}}
+                to={`/all/completed`}>Completed</NavLink>
                 <button className="checkButton"onClick={() => executor(arr)}> ✔️ </button>
               </div>
             <TaskForm />
@@ -77,8 +108,13 @@ console.log("filtereedd",filteredTaskList)
           {filteredTaskList.map((task) => (
             <div className="one-task-container">
             {thisUser.id == task.user_id &&
+
             <div className="one-task">
-              <input type="checkbox" onChange={() => cb(arr, task.id)}/>
+
+
+                <input type="checkbox"
+                onChange={() => cb(arr, task.id)}/>                            
+
               <NavLink
                 className="detail-navlink"
                 key={task.id}

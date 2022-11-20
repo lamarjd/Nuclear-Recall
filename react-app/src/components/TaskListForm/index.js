@@ -14,6 +14,8 @@ function TaskListForm() {
   const [body, setBody] = useState('')
   const [validationErrors, setValidationErrors] = useState([])
 
+  const [showButton, setShowButton] = useState(false)
+
   const [hasSubmitted, setHasSubmitted] = useState(false)
   const history = useHistory()
 
@@ -34,12 +36,20 @@ function TaskListForm() {
     }
   };
 
+  const click = (e) => {
+    e.preventDefault();
+    
+    setBody(e.target.value)
+    setShowButton(!showButton)
+  }
+
 
   return (
     <form className="container" onSubmit={handleSubmit} >
       <div className="someTask">
       <label>
         <input
+          onClick={click}
           className="someInputFieldAetius"
           placeholder="Write a task for the list here"
           type="text"
@@ -50,7 +60,10 @@ function TaskListForm() {
         />
       </label>
 
+      {showButton &&
+
       <button className="ListButton" type="submit"  >Add task to the list</button>
+      }
 
 
       </div>

@@ -2,5 +2,14 @@
   width: 330px;
   height: 24px;
   border-radius: 12px;
-  
+}
+
+.someInputFieldAetius:active {
+  width: 330px;
+  height: 24px;
+  border-radius: 12px;
+}
+
+.ListButton {
+  border: 2px solid red;
 }
