@@ -46,16 +46,12 @@
 }
 
 #delete-button {
-    margin-left: 2%;
+    background-color: #EDB714;
+    height: 26px;
+    width: 60%;
     border-radius: 12px;
-    height: 5%;
-    width: 40%;
-    border-width: 1px;
-    border-color: #4599d1;
-    background-color: #4599d1;
-    color: beige;
-    cursor: pointer;
-    font-family: 'Syne Mono', monospace;   
+    align-content: center;
+    border-color: bisque;  
 }
 
 .edit-options {

@@ -73,7 +73,7 @@ return (
             </option>
           ))}
           </select>
-          <button className='buttonForAddToList' type="submit"> Add to a list</button>
+          <button className='buttonForAddToList' type="submit"> Add to list</button>
           </form>
           }
     </div>

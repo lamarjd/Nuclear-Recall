@@ -3,13 +3,18 @@
     top: 5vh
 }
 
+#addToListForm {
+    display: inline-flex;
+}
+
 .someDiv{
-    border: 1px solid black;
+    /* border: 1px solid black; */
     width: 50vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    /* margin-bottom: 5%; */
 
 }
 
@@ -49,9 +54,11 @@
 
 .noteDeleteButtonTaskDetails{
     background-color: #EDB714;
-    color: black;
-    font-weight: 600;
-    cursor: pointer;
+    height: 26px;
+    width: 100%;
+    border-radius: 12px;
+    align-content: center;
+    border-color: bisque;
 }
 
 
@@ -76,9 +83,9 @@
 }
 
 
-#dropDownForAddToList{
-
-}
+/* #dropDownForAddToList{
+    width: 100%;
+} */
 
 
 
@@ -103,6 +110,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 5%;
+    justify-content: space-between;
+    height: 6vh;
 }
 
 #InputBoxEditTaskName{
@@ -111,9 +121,12 @@
 }
 
 .EditTaskButtonTaskDetails{
-    width:16vw;
-    max-width: 16vw;
     background-color: #EDB714;
+    height: 26px;
+    width: 50%;
+    border-radius: 12px;
+    align-content: center;
+    border-color: bisque;
 }
 
 
