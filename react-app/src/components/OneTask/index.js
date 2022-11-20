@@ -22,7 +22,7 @@ export default function OneTask() {
   const notesState = useSelector((state) => state.notes)
   const notesObj = Object.values(notesState)
 
-  const filteredNotes = notesObj.filter(note => note.task_id == id)
+  const filteredNotes = notesObj.filter(note => note.task_id == id && note.user_id == thisUser.id)
 
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -38,7 +38,7 @@ export default function OneTask() {
     isLoaded && (
       <div className="mainTaskDetailsOutDiv">
           <div className="someDiv">
-            <h2 id='h1taskdetails'>Options</h2>
+            <h2 id='h1taskdetails'>Task Options</h2>
               <EditTaskListForm filtered={filtered} />
               <EditForm filtered={filtered} />
           </div>
@@ -49,7 +49,10 @@ export default function OneTask() {
          <h2 className="task-detail-title">{filtered?.body}</h2>
             <div className="someOtherDiv">
             <NoteForm id='noteFormTaskDetails' filtered={filtered} />
-              <p>Notes:</p>
+            {filteredNotes.length ==0 && 
+              <h3>No Notes Yet</h3>}
+              {filteredNotes.length >0 && 
+               <h3>Notes:</h3>}
               {filteredNotes.map((note) => (
                 <div className="noteDivContainerTaskDetails">
                   <p className="note-contenet" key={note.id}>{note.body}</p>

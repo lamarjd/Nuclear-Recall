@@ -43,7 +43,7 @@ function EditFormList({filtered}) {
             id='InputBoxEditTaskName'
             type="text"
             value={body}
-            maxLength={200}
+            maxLength={60}
             required
             onChange={(e) => setBody(e.target.value)}
           />

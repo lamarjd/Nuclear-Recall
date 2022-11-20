@@ -29,11 +29,11 @@ export default function CompletedAllTasks() {
     isLoaded && (
 
         <div className="all-tasks-container">
-          <h1>Tasks</h1>
-          <p>These tasks have been completed</p>
-
-          <NavLink to="/all">Incomplete</NavLink>
-          <TaskForm />
+          <h1>Completed Tasks</h1>
+          <p>Congrats you actually did something </p>
+          <div className="BackToTasks">
+          <NavLink to="/all">Back to All Tasks</NavLink>
+          </div>
           <hr />
           {!completedList.length &&
           <h1>You haven't completed anything yet,
@@ -42,15 +42,9 @@ export default function CompletedAllTasks() {
             <div>
               {thisUser.id == task.user_id &&
             <div className="one-task-complete" >
-              <NavLink
-                className="detail-navlink-complete"
-                key={task.id}
-                to={`/all/${task.id}`}
-              >
                 {" "}
                 <h3>{task.body}</h3>
               <hr />
-              </NavLink>
               <button id='completeTaskButtonDelete' onClick={() => dispatch(deleteTaskThunk(task.id))}>
                 {" "}
                 DELETE

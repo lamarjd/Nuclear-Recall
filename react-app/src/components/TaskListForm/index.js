@@ -44,7 +44,7 @@ function TaskListForm() {
           placeholder="Write a task for the list here"
           type="text"
           value={body}
-          maxLength={200}
+          maxLength={60}
           required
           onChange={(e) => setBody(e.target.value)}
         />

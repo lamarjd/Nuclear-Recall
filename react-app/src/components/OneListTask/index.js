@@ -26,7 +26,7 @@ export default function OneListTask() {
   const notesState = useSelector((state) => state.notes)
   const notesObj = Object.values(notesState)
   console.log("THIS IS THE LIST STATE",listState)
-  const filteredNotes = notesObj.filter(note => note.task_id == aiya)
+  const filteredNotes = notesObj.filter(note => note.task_id == aiya && note.user_id == thisUser.id)
 
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -53,7 +53,10 @@ export default function OneListTask() {
          <h2 className="task-detail-title">{filtered?.body}</h2>
             <div className="someOtherDiv">
             <NoteFormList id='noteFormTaskDetails' filtered={filtered} />
-              <p>Notes:</p>
+              {filteredNotes.length ==0 && 
+              <h3>No Notes Yet</h3>}
+              {filteredNotes.length >0 && 
+               <h3>Notes:</h3>}
               {filteredNotes.map((note) => (
                 <div className="noteDivContainerTaskDetails">
                   <p className="note-contenet" key={note.id}>{note.body}</p>

@@ -67,7 +67,8 @@ hr {
 }
 
 .completed-button{
-    padding-right: 10px;
+    /* padding-right: 10px; */
+    right: 25px;
     position: relative;
     bottom: 2px;
 }
@@ -121,7 +122,10 @@ hr {
     outline: 1px solid rgba(112, 128, 144, 0.662);
     /* visibility: hidden; */
 }
-
+.BackToTasks{
+    display: flex;
+    justify-content: flex-end;
+}
 /* .all-tasks-container::-webkit-scrollbar:hover {
     width: 0.5em;
     visibility: visible;
@@ -138,3 +142,4 @@ hr {
  
     visibility: visible;
 } */
+
