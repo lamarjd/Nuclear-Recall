@@ -55,14 +55,20 @@
 
 
 .ListButtoneditListOptionsCarthage{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 60px;
-    height: 30px;
-    background-color: #EDB714;
+    /* display: flex; */
+    /* align-items: center; */
+    /* justify-content: center; */
+    /* width: 60px; */
+    /* height: 30px; */
+    /* background-color: #EDB714; */
     margin-top: 20px;
+    /* border-radius: 12px; */
+    /* border-color: black; */
+    /* border-width: 2px; */
+    background-color: #EDB714;
+    height: 26px;
+    width: 100%;
     border-radius: 12px;
-    border-color: black;
-    border-width: 2px;
+    align-content: center;
+    border-color: bisque;
 }

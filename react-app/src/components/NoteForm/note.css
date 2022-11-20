@@ -6,8 +6,11 @@
 
 .NoteButtonTaskDetails{
   background-color: #EDB714;
-  min-width: 15vw;
-  max-width:15vw;
+  height: 26px;
+  width: 100%;
+  border-radius: 12px;
+  align-content: center;
+  border-color: bisque;
 }
 
 #inputBoxnoteTaskDetails{
@@ -17,11 +20,14 @@
 }
 
 .dropDownForAddToList{
-  width:8vw;
+  width:9vw;
 }
 
 .buttonForAddToList{
-  width: 8vw;
-  background-color: #EDB714;
-  height:2.25vh;
+    background-color: #EDB714;
+    height: 26px;
+    width: 50%;
+    border-radius: 12px;
+    align-content: center;
+    border-color: bisque;
 }
