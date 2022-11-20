@@ -69,23 +69,6 @@ function SplashPage({ user }) {
           <img id="logo" alt="logo" src={logo} />
         </div>
 
-        <div className="aboutLinks">
-                  <div className="author">
-                      <a onClick={(e) => (window.location = 'https://github.com/cpannella')}>Christopher Pannella</a>
-                  </div>
-                  <div className="author">
-
-                      <a onClick={(e) => (window.location = 'https://github.com/lamarjd')}>Jake Lamar</a>
-                  </div>
-                  <div className="author">
-                      <a onClick={(e) => (window.location = 'https://github.com/Tan0699')}>Tan Nguyen</a>
-                  </div>
-                  <div className="author">
-                    <a onClick={(e) => (window.location = 'https://github.com/Richard-M-Baine')}>Richard Baine</a>
-                  </div>
-                </div>
-
-
         {!user && (
           <div className="center">
             <h1>Say no to the Nuclear Thought Fallout</h1>
