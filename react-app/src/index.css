@@ -33,10 +33,12 @@ button {
 
 input {
     font-family: 'Syne Mono', monospace;
+    border-radius: 5px;
 }
 
 select {
     font-family: 'Syne Mono', monospace;
+    border-radius: 5px;
 }
 
 /* a:hover {
