@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
 import { useHistory } from 'react-router-dom'
-import { createListThunk, editListThunk } from "../../store/lists"
+import { createListThunk, editListThunk, fetchOneList } from "../../store/lists"
 import "./EditList.css"
 
 
@@ -25,7 +25,8 @@ function EditList({list}) {
 
     let listUpdated = await dispatch(editListThunk(payload,list.id))
     if (listUpdated) {
-      history.push(`/all`)
+      await dispatch(fetchOneList(list.id))
+      history.push(`/all/lists/${list.id}`)
     }
   };
 
@@ -53,7 +54,7 @@ function EditList({list}) {
       <button className="ListButtoneditListOptionsCarthage" onClick={() => setShowOptions(false)}>Cancel</button>
       </span>
     }
-  
+
       </div>
     </form>
   );

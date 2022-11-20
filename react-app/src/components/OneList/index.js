@@ -81,7 +81,7 @@ export default function OneList(){
               <TaskListForm list={id}/>
             </div>
           <hr />
-        {!falseTasks.length &&
+        {!falseTasks?.length &&
         <h2>Add a task to this list, stop forgetting stuff</h2>}
 
         {falseTasks?.map(task => (
