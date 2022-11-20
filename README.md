@@ -1,78 +1,72 @@
-# Don't-Forget-The-Milk #
+# Getting Started with Flask React Project - NUCLEAR RECALL
 
-# CRUD Operations
-1. Tasks
-2. Lists
-3. List summary (time, num tasks, num completed)
-4. Search
-5. Notes
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Bonus: Autocomplete SmartAdd of task properties
-Bonus: Subtasks
+This is the starter for the Flask React Project. 
 
+1. Clone the repository
 
-# User Stories
-## Users
+### `git clone https://github.com/lamarjd/Dont-Forget-The-Milk` 
 
-### Sign Up
+## Available Scripts
 
-* As an unregistered and unauthorized user, I want to be able to sign up for the website via a sign-up form.
-  * When I'm on the `/signup` page:
-    * I would like to be able to enter my email, username, and preferred password on a clearly laid out form.
-    * I would like the website to log me in upon successful completion of the sign-up form.
-      * So that I can seamlessly access the site's functionality
-  * When I enter invalid data on the sign-up form:
-    * I would like the website to inform me of the validations I failed to pass, and repopulate the form with my valid entries (except my password).
-    * So that I can try again without needing to refill forms I entered valid data into.
+Before starting with the next steps, ensure you cd in to the frontend directory to make sure you have base dependencies for running this app.
 
-### Log in
+=================================================
 
-* As a registered and unauthorized user, I want to be able to log in to the website via a log-in form.
-  * When I'm on the `/login` page:
-    * I would like to be able to enter my email and password on a clearly laid out form.
-    * I would like the website to log me in upon successful completion of the lob-up form.
-      * So that I can seamlessly access the site's functionality
-  * When I enter invalid data on the log-up form:
-    * I would like the website to inform me of the validations I failed to pass, and repopulate the form with my valid entries (except my password).
-      * So that I can try again without needing to refill forms I entered valid data into.
+2. Install dependencies
 
-### Demo User
+###  `pipenv install -r requirements.txt`
 
-* As an unregistered and unauthorized user, I would like an easy to find and clear button on both the `/signup` and `/login` pages to allow me to visit the site as a guest without signing up or logging in.
-  * When I'm on either the `/signup` or `/login` pages:
-    * I can click on a Demo User button to log me in and allow me access as a normal user.
-      * So that I can test the site's features and functionality without needing to stop and enter credentials.
+To generate a new requirements.txt run this command
 
-### Log Out
+### `pipenv requirements > requirements.txt`
 
-* As a logged in user, I want to log out via an easy to find log out button on the navigation bar.
-  * While on any page of the site:
-    * I can log out of my account and be redirected to a page displaying recent FauxTweets.
-      * So that I can easily log out to keep my information secure.
+3. Create a **.env** file based on the example with proper settings for your
+   development environment
 
+4. Setup your PostgreSQL user, password and database and make sure it matches your **.env** file
 
-## Tasks
-### Add Task
+5. Get into your pipenv, migrate your database, seed your database, and run your flask app
 
-* Authorized users can create a task and the task will be loaded onto the screen.
-* After creation, the user can set a due date for the task (Due Date is not required, but optional).
-* User can update the task details, and delete the task at will.
+   
+### `pipenv shell`
+   
 
-## Lists
+   
+### `flask db upgrade`
+   
 
-* Authorized users can create groups of tasks (called lists) at will (lists are optional for each task).
-* User can add an already created task to a list.
-* User can update the name of list and delete a list at will (the tasks in the list, and notes, will also be deleted).
+   
+### `flask seed all`
+   
 
-## Search
+   
+### `flask run`
+   
+=================================================
 
-* Authorized user can search all tasks and lists using certain letters, words, or combination of words, letters, or any characters. (Create)
-* Updating a search - The search parameters will persist after search is made, and the user can update the character input as needed to modify the search.
-* Delete - user can clear the search bar and reset any results
+6. To run the React App in development, checkout the [README](./react-app/README.md) inside the `react-app` directory.
 
-## Notes
+Before starting with the next steps, ensure you cd in to the frontend directory to make sure you have base dependencies for running this app.
 
-* Authorized user can add a note to any task they have created.
-* User is able to edit (update) any notes on any task.
-* All notes will be visible to the user upon accessing task details (clicking on the task).
-* User is able to delete notes at will.
+In the project directory, you can run:
+
+### `npm install`
+
+To start the application, run the following command:
+
+### `npm start`
+
+Runs the app in the development mode.
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
