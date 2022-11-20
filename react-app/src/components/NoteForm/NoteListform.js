@@ -10,6 +10,7 @@ function NoteFormList({ filtered }) {
     const history = useHistory()
     
     const { id,list_id } = filtered
+    
     let task_id = id
 
     const [body, setBody] = useState('');

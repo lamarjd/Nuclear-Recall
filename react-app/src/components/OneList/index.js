@@ -100,7 +100,7 @@ export default function OneList(){
       <h3 className="task-text">{task.body}</h3>
     <hr />
     </NavLink>
-    <button id='uglyDeleteButtonZwei' onClick={() => dispatch(deleteTaskThunk(task.id))}>
+    <button id='uglyDeleteButtonZwei' onClick={() => (dispatch(deleteTaskThunk(task.id),history.push(`/all/lists/${task.list_id}`)))}>
       {" "}
       Delete
     </button>
