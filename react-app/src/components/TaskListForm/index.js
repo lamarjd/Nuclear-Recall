@@ -13,6 +13,7 @@ function TaskListForm() {
   const dispatch = useDispatch();
   const [body, setBody] = useState('')
   const [validationErrors, setValidationErrors] = useState([])
+  const [showButton, setShowButton] = useState(false)
 
   const [hasSubmitted, setHasSubmitted] = useState(false)
   const history = useHistory()
@@ -36,7 +37,7 @@ function TaskListForm() {
 
 
   return (
-    <form className="container" onSubmit={handleSubmit} >
+    <form className="container" onClick={() => setShowButton(true)} onSubmit={handleSubmit} >
       <div className="someTask">
       <label>
         <input
@@ -50,7 +51,11 @@ function TaskListForm() {
         />
       </label>
 
-      {/* <button className="ListButton" type="submit"  >Add task to the list</button> */}
+    {showButton &&
+      <button className="ListButton" type="submit"  
+      style={{visibility: showButton ? "visible" : "hidden"}}
+      >Add task to the list</button>
+    }
 
 
       </div>

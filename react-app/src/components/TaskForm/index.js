@@ -41,9 +41,12 @@ function TaskForm() {
             onChange={(e) => setBody(e.target.value)}
           />
         </label>
-        {/* <button className="ListButton" type="submit"
-          style={{visibility: showButton ? "visible" : "hidden"}}
-        >Add task</button> */}
+
+      {showButton &&
+        <button className="ListButton" type="submit"
+        style={{visibility: showButton ? "visible" : "hidden"}}
+        >Add task to the list</button>
+      }
 
       </form>
     </div>
