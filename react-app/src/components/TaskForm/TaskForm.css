@@ -20,9 +20,18 @@
 
 .add-task-form{
     width: 100%;
-    border-radius: 25px;
+    /* border-radius: 25px; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* border: 2px solid blue; */
 
 }
+
+.add-task-form input {
+    width: 25vw;
+}
+
 .task-form-input-field{
     width: 99%;
     border-radius: 5px;

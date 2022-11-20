@@ -2,3 +2,18 @@
     width: 99%;
     border-radius: 5px;  
 }
+
+.someTask {
+    /* border: 2px solid blue; */
+    width: 100%;
+    /* border-radius: 25px; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    /* border: 2px solid blue; */
+}
+
+.someTask input {
+    width: 25vw;
+}
