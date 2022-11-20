@@ -1,6 +1,6 @@
 .home-body {
     /* border: 2px solid yellow; */
-    background-color: rgba(69, 153, 209, 0.436);
+    /* background-color: rgba(161, 198, 223, 0.436); */
     height: 99%;
 }
 
@@ -9,6 +9,7 @@
     height: 99%;
     /* width: 10%; */
     /* position: relative; */
+   
     overflow-y:scroll ;
     top: 0;
 }
