@@ -3,12 +3,14 @@ import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
 import { useHistory } from 'react-router-dom'
 import { createListThunk, editListThunk } from "../../store/lists"
+import "./EditList.css"
 
 
 function EditList({list}) {
     // const {id,name} = list
   const dispatch = useDispatch();
   const [name, setListName] = useState(list.name)
+  const [showOptions, setShowOptions] = useState(false)
   const history = useHistory()
     // useEffect(()=>{
     // setListName(list.name)
@@ -20,7 +22,7 @@ function EditList({list}) {
       name
 
     }
-    
+
     let listUpdated = await dispatch(editListThunk(payload,list.id))
     if (listUpdated) {
       history.push(`/all`)
@@ -33,6 +35,8 @@ function EditList({list}) {
       <div className="List">
       <label>
         <input
+          className="placeholder"
+          onClick={() => setShowOptions(true)}
           type="text"
           required
           onChange={(e) => setListName(e.target.value)}
@@ -40,7 +44,16 @@ function EditList({list}) {
           value={name}
         />
       </label>
-      <button className="ListButton" type="submit">Edit the list</button>
+
+    {showOptions &&
+      <span className="button-options">
+
+      <button className="ListButtoneditListOptionsCarthage" type="submit">Edit</button>
+
+      <button className="ListButtoneditListOptionsCarthage" onClick={() => setShowOptions(false)}>Cancel</button>
+      </span>
+    }
+  
       </div>
     </form>
   );

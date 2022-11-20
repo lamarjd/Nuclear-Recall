@@ -68,6 +68,9 @@ const SignUpForm = () => {
     if (password != repeatPassword) {
       validationErrors.push("Passwords must match")
     }
+    if (email.search('@') === -1 ){
+      validationErrors.push("Please enter a REAL email address")
+    }  
 
     setErrors(validationErrors)
     console.log("ERRORS", errors)
@@ -86,6 +89,7 @@ const SignUpForm = () => {
       // if (data) {
       //   setErrors(data)
       // }
+
     }
   };
 
@@ -107,7 +111,7 @@ const SignUpForm = () => {
     </nav>
     <div className='outermostSignupDiv'>
       <div className='imageSignupDiv'>
-      <img src={bert} alt="Girl in a jacket" id='signupImage'/>
+      
       </div>
     <form onSubmit={onSignUp} id='signupForm'>
       <div>

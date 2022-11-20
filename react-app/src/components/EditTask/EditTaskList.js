@@ -5,7 +5,7 @@ import { createTaskThunk, editTaskThunk, fetchOneTask } from "../../store/tasks"
 import { useHistory } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import "../OneTask/oneTaskcss.css"
-function EditForm({filtered}) {
+function EditFormList({filtered}) {
   const {id} = useParams()
   const dispatch = useDispatch();
   const [body, setBody] = useState("")
@@ -30,7 +30,7 @@ function EditForm({filtered}) {
 
     let taskEdit = await dispatch(editTaskThunk(payload,filtered.id))
     if(taskEdit){
-      history.push(`/all/${filtered.id}`)
+      history.push(`/all/lists/${filtered.list_id}/${filtered.id}`)
     }
   };
 // fff
@@ -53,4 +53,4 @@ function EditForm({filtered}) {
   );
 }
 
-export default EditForm;
+export default EditFormList;

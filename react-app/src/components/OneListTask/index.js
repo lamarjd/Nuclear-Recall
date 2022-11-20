@@ -9,46 +9,48 @@ import { fetchOneTask } from "../../store/tasks";
 import EditForm from "../EditTask/index.js";
 import NoteForm from "../NoteForm/index.js";
 import { getAllNotes, deleteNoteThunk } from "../../store/notes.js";
-import EditTaskListForm from "./EditTaskList.js";
-
+import EditTaskListForm from "../OneTask/EditTaskList.js";
+import EditTaskListFormList from "../NoteListStuff/EditTaskListFormList.js";
+import EditFormList from "../EditTask/EditTaskList.js";
+import NoteFormList from "../NoteForm/NoteListform.js";
+import './One.css'
 // css
-import './oneTaskcss.css'
 
-export default function OneTask() {
+
+export default function OneListTask() {
   const dispatch = useDispatch();
-  const { id } = useParams();
+  const { aiya } = useParams();
   const reduxstate = useSelector((state) => state.tasks);
   const thisUser = useSelector((state) => state.session.user);
   const notesState = useSelector((state) => state.notes)
   const notesObj = Object.values(notesState)
 
-  const filteredNotes = notesObj.filter(note => note.task_id == id)
+  const filteredNotes = notesObj.filter(note => note.task_id == aiya)
 
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    dispatch(fetchOneTask(id)).then(() => setIsLoaded(true));
+    dispatch(fetchOneTask(aiya)).then(() => setIsLoaded(true));
     dispatch(getAllNotes())
   }, [dispatch]);
 
   const taskList = Object.values(reduxstate);
-  const filtered = taskList.filter((task) => task.id === +id)[0];
+  const filtered = taskList.filter((task) => task.id === +aiya)[0];
 
   return (
     isLoaded && (
       <div className="mainTaskDetailsOutDiv">
-          <div className="someDiv">
-            <h2 id='h1taskdetails'>Options</h2>
-              <EditTaskListForm filtered={filtered} />
-              <EditForm filtered={filtered} />
-          </div>
-
+         <div className="someDiv">
+        <h2 id='h1taskdetails'>Task OptionsSS</h2>
+        <EditTaskListFormList filtered={filtered} />
+        <EditFormList filtered={filtered} />
+        </div>
 
         <div className="noteOuterDivTaskDetails">
         <div className>
          <h2 className="task-detail-title">{filtered?.body}</h2>
             <div className="someOtherDiv">
-            <NoteForm id='noteFormTaskDetails' filtered={filtered} />
+            <NoteFormList id='noteFormTaskDetails' filtered={filtered} />
               <p>Notes:</p>
               {filteredNotes.map((note) => (
                 <div className="noteDivContainerTaskDetails">
@@ -57,12 +59,12 @@ export default function OneTask() {
                   <button className='noteDeleteButtonTaskDetails' onClick={() => dispatch(deleteNoteThunk(note.id))}>Destroy This Note</button>}
                 </div>
               ))}
-              
-            </div>
+</div>
           </div>
-
         </div>
-      </div>
+        </div>
+        
+      
     )
   );
 }

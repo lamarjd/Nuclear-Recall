@@ -6,11 +6,11 @@ import { createListThunk, fetchLists } from "../../store/lists"
 import './List.css';
 import { Modal } from "../../context/Modal";
 
-function ListForm({setList}) {
+function ListForm({ setList }) {
   const dispatch = useDispatch();
   const [name, setName] = useState('')
   const history = useHistory()
-  
+
 
 
   const handleSubmit = async (e) => {
@@ -27,19 +27,20 @@ function ListForm({setList}) {
   };
 
   return (
-    <form className="container" onSubmit={handleSubmit}>
-      <div className="welcome">( ͡° ͜ʖ ͡°) ( ͡° ͜ʖ ͡°) ( ͡° ͜ʖ ͡°) ( ͡° ͜ʖ ͡°) ( ͡° ͜ʖ ͡°)</div>
-      <div className="List">
-      <label>
-        <input
-          placeholder="Write list here"
-          type="text"
-          maxLength={30}
-          required
-          onChange={(e) => setName(e.target.value)}
-        />
-      </label>
-      <button className="ListButton" type="submit">Create da list</button>
+    <form className="blahListModal" onSubmit={handleSubmit}>
+      <h3 className="containerListModalOuter">Enter A list here</h3>
+      <div className="ListflexdivOne">
+        <label>
+          <input
+            id="styledListModalInputBox"
+            placeholder="Write list here"
+            type="text"
+            maxLength={30}
+            required
+            onChange={(e) => setName(e.target.value)}
+          />
+        </label>
+        <button className="ListButtonModalGood" type="submit">Create list</button>
       </div>
     </form>
   );

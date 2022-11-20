@@ -5,12 +5,15 @@ import { createTaskListThunk, createTaskThunk } from "../../store/tasks";
 import { useHistory } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { fetchOneList } from "../../store/lists";
+import './taskListform.css'
+
+
 function TaskListForm() {
   const {id} = useParams()
   const dispatch = useDispatch();
   const [body, setBody] = useState('')
   const [validationErrors, setValidationErrors] = useState([])
-  
+
   const [hasSubmitted, setHasSubmitted] = useState(false)
   const history = useHistory()
 
@@ -28,16 +31,17 @@ function TaskListForm() {
       setBody("")
       dispatch(fetchOneList(payload.id))
       history.push(`/all/lists/${payload.id}`)
-    }    
+    }
   };
-  
+
 
   return (
     <form className="container" onSubmit={handleSubmit} >
-      <div className="Task">
+      <div className="someTask">
       <label>
         <input
-          placeholder="Write TaskList here"
+          className="someInputFieldAetius"
+          placeholder="Write a task for the list here"
           type="text"
           value={body}
           maxLength={200}
@@ -45,10 +49,10 @@ function TaskListForm() {
           onChange={(e) => setBody(e.target.value)}
         />
       </label>
- 
-      <button className="ListButton" type="submit"  >Create da Task</button>
-    
-      
+
+      <button className="ListButton" type="submit"  >Add task to the list</button>
+
+
       </div>
     </form>
   );

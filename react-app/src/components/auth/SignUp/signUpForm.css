@@ -1,6 +1,6 @@
 
 .outermostSignupDiv{
-    padding-top: 70px;
+    
     display: flex;
     flex-direction: row;
     background-image: linear-gradient(#d6d6d6, #faf2dc);
@@ -16,7 +16,7 @@
     display: flex;
     flex-direction: row;
     align-content: center;
-    min-height: 50px;
+    min-height: 20px;
     background-color: #d6d6d6;
     justify-content: space-around;
 }
@@ -40,19 +40,23 @@
 }
 
 #signupForm{
-    margin-bottom: 300px;
-    margin-left: 260px;
+    margin-bottom: 320px;
+    padding-bottom: 40px;
+    margin-left: 60px;
+    padding-left: 40px;
     display: flex;
     min-width: 250px;
     align-items: left;
     flex-direction: column;
+    background-image: linear-gradient(#d6d6d6, #f7eac6);
+    
 }
 
 
 .imageSignupDiv{
     flex-direction: row;
-    margin-top: 98px;
-    margin-left: 20px;
+    margin-top: 182px;
+    margin-left: 60px;
     width: 300px;
     height: 300px;
 }
@@ -66,8 +70,8 @@
 .outerSignupDiv{
     
     font-size: 20px;
-    padding-bottom: 15px;
-    padding-top: 15px;
+    padding-bottom: 10px;
+    padding-top: 10px;
 }
 
 #loginButton{
@@ -119,5 +123,5 @@
     align-items: center;
     cursor: pointer;
     margin-left: 230px;
-    margin-top: 50px;
+    margin-top: 40px;
 }

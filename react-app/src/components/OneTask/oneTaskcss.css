@@ -1,139 +1,134 @@
 .mainTaskDetailsOutDiv{
-    
+
+    top: 5vh
+}
+
+.someDiv{
+    border: 1px solid black;
+    width: 50vh;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.someOtherDiv{
+
+    position: relative;
+
 }
 
 .noteOuterDivTaskDetails{
-    padding-left: 308px;
-    padding-top: 90px;
+
+    width: 50vh;
     display: flex;
-    flex-direction: column;
-    min-width: 942px;
-    background-image: linear-gradient(rgb(240,230,140, 0.7), rgb(240,230,140, 0.9));
-    
+    justify-content: center;
+
+    overflow-y: scroll;
 }
 
 #labelDivTaskDetailsNotes{
-    
-    margin-bottom: 80px;
-    font-size: 40px;
-    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .containerNoteCreationTaskDetails{
     margin-top: 40px;
 }
 
-.NoteButtonTaskDetails{
-    margin-left: 20px;
-    min-height: 40px;
-    min-width: 210px;
-    border-radius: 12px;
-    border-width: 1px;
-    margin-top: 14px;
-    background-color: #EDB714;
-    color: black;
-    size: 20px;
-    font-weight: bold;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-}
-
-#inputBoxnoteTaskDetails{
-    width: 400px;
-    border-color: rgba(0, 0, 0, 0.836);
-    border-radius: 10px;
-    height: 22px;
-    padding: 10px;
-    font-size: 12px;
-    border-width: 1px;
-}
 
 .noteDivContainerTaskDetails{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    flex-wrap: wrap;
+    overflow: hidden;
+    max-width: 16vw;
 }
 
 .noteDeleteButtonTaskDetails{
-    max-height: 24px;
-    max-width: 210px;
-    border-radius: 12px;
-    border-width: 1px;
-    margin-left: 20px;
-    margin-top: 14px;
     background-color: #EDB714;
     color: black;
     font-weight: 600;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-
-}
-
-#buttonForAddToList{
-    min-height: 24px;
-    min-width: 120px;
-    background-color: #c4d0f5;
-    margin-left: 38px;
-    border-width: 1px;
-    border-radius: 12px;
-    color: black;
-    font-weight: 600;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
     cursor: pointer;
 }
 
-#addToListForm{
-    margin-bottom: 100px;
-    margin-top: 100px;
-    margin-left: 10px;
 
+
+
+.form-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 10vh;
 }
 
 #h1taskdetails{
-    padding-top: 70px;
-    padding-left: 50px;
+
 }
 
 .outerTaskDetailsLeftDiv{
+    display: flex;
+    flex-direction: column;
     
-    background-color: #E1C16E;
     min-height: 100vh;
-    min-width: 340px;
 }
 
 
 #dropDownForAddToList{
-    min-width: 140px;
-    min-height: 30px;
-    border-radius: 2px;
+
+}
+
+
+
+.note-title{
+    display: flex;
+    font-size: 14px;
+    justify-content: center;
+}
+
+
+.task-detail-title{
+    max-width: 15vw;
+    overflow: hidden;
+}
+
+.edit-task-form-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.someTaskdiv{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #InputBoxEditTaskName{
     min-height: 24px;
-    border-radius: 4px;
-    min-width: 120px;
-    margin-left: 10px;
+    width:15.5vw;
 }
 
 .EditTaskButtonTaskDetails{
-    min-height: 30px;
-    min-width: 100px;
-    background-color: #c4d0f5;
-    margin-top: 40px;
-    margin-left: 70px;
-    border-width: 1px;
-    border-radius: 12px;
-    color: black;
-    font-weight: 600;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
+    width:16vw;
+    max-width: 16vw;
+    background-color: #EDB714;
+}
+
+
+.noteOuterDivTaskDetails::-webkit-scrollbar {
+    width: 0.5em;
+    /* visibility: hidden; */
+}
+
+.noteOuterDivTaskDetails::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    /* visibility: hidden; */
+}
+
+.noteOuterDivTaskDetails::-webkit-scrollbar-thumb {
+    background-color: rgba(169, 169, 169, 0.343);
+    outline: 1px solid rgba(112, 128, 144, 0.662);
+    /* visibility: hidden; */
 }

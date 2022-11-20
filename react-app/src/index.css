@@ -3,19 +3,31 @@
 :root {
     /* font-family: 'Indie Flower', cursive; */
 
-
+    background-color: rgba(69, 153, 209, 0.436);
     font-family: 'Syne Mono', monospace;
 
-    
+    /* border: 10px solid green; */
     /* font-family: 'Special Elite', cursive; */
-    
-    
+
+    /* height: 100vh; */
     /* font-family: 'Play', sans-serif; */
 
 }
 
 body {
 
+
     height: 100vh;
+    /* border: 10px solid green; */
+
     margin: 0;
 }
+
+a {
+    text-decoration: none;
+    color: black
+}
+
+/* a:hover {
+    box-shadow: 1px 1px grey;
+} */

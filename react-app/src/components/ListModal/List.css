@@ -1,0 +1,68 @@
+.ListButtonModalGood{
+    background-color: #EDB714;
+    width: 100px;
+    height: 30px;
+    border-radius: 12px;
+    border-color:burlywood ;
+    padding-left: 14px;
+    padding-right: 14px;
+}
+
+.blahListModal{
+    display: flex;
+    flex-direction: column;
+    max-height: 200px;
+    min-width: 380px;
+    background-color: #edeefa;
+    border-radius: 12px;
+}
+
+.ListflexdivOne{
+    display: flex;
+    flex-direction: row;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#styledListModalInputBox{
+    border-radius: 12px;
+    height: 26px;
+    width: 220px;
+    background-color: whitesmoke;
+}
+
+.ListButton{
+    background-color: #EDB714;
+    width: 90px;
+    border-radius: 6px;
+    border-color:burlywood ;
+    margin-left: 4px;
+}
+
+
+
+#stupidDetailStyling{
+    min-width: 350px;
+    background-color: whitesmoke;
+
+}
+
+.containerListModalOuter{
+    padding-left: 100px;
+}
+
+
+.ListButtoneditListOptionsCarthage{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 30px;
+    background-color: #EDB714;
+    margin-top: 20px;
+    border-radius: 12px;
+    border-color: black;
+    border-width: 2px;
+}

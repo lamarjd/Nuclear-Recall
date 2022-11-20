@@ -7,10 +7,10 @@ import {editTaskAddListThunk} from '../../store/tasks';
 import { fetchLists } from '../../store/lists.js';
 
 // css import
-import './oneTaskcss.css'
+import '../OneTask/oneTaskcss.css'
 
 
-export default function EditTaskListForm({filtered}){
+export default function EditTaskListFormList({filtered}){
     const thisUser = useSelector((state) => state.session.user);
 
     let task_id = filtered?.id

@@ -13,6 +13,7 @@ import "./TaskList.css";
 export default function AllTasks() {
   const arr = []
   const dispatch = useDispatch();
+  const history = useHistory();
   const reduxstate = useSelector((state) => state.tasks);
   const listsState = useSelector((state) => state.lists);
 
@@ -26,7 +27,7 @@ export default function AllTasks() {
 
   const taskList = Object.values(reduxstate);
   const filteredTaskList = taskList.filter(task => task.complete == false)
-
+console.log("filtereedd",filteredTaskList)
 
 
   const cb = (checkList, num) => {
@@ -55,38 +56,41 @@ export default function AllTasks() {
       console.log("flugazi")
       dispatch(editTaskThunk(payload, arr[i]))
     }
+    history.push(`/all/completed`)
   }
 
-  
+
 
   return (
     isLoaded && (
 
         <div className="all-tasks-container">
-          <h1>Tasksss</h1>
-          <NavLink to={`/all`}>Incomplete</NavLink>
-          <NavLink to={`/all/completed`}>Completed</NavLink>
-          <button onClick={() => executor(arr)}> ✔️ </button>
-          <TaskForm />
+          <h1 className="task-header">Tasksss</h1>
+            <div className="task-button-container">
+              <div className="add-task-buttons">
+                <NavLink className="completed-button" to={`/all/completed`}>Completed</NavLink>
+                <button className="checkButton"onClick={() => executor(arr)}> ✔️ </button>
+              </div>
+            <TaskForm />
+            </div>
           <hr />
           {filteredTaskList.map((task) => (
-            <div>
-              {thisUser.id == task.user_id &&
+            <div className="one-task-container">
+            {thisUser.id == task.user_id &&
             <div className="one-task">
               <input type="checkbox" onChange={() => cb(arr, task.id)}/>
-
               <NavLink
                 className="detail-navlink"
                 key={task.id}
                 to={`/all/${task.id}`}
               >
                 {" "}
-                <h3>{task.body}</h3>
+                <h3 className="task-text">{task.body}</h3>
               <hr />
               </NavLink>
-              <button onClick={() => dispatch(deleteTaskThunk(task.id))}>
+              <button id='uglyDeleteButtonZwei' onClick={() => (dispatch(deleteTaskThunk(task.id)),history.push('/all'))}>
                 {" "}
-                DELETE
+                Delete
               </button>
               {/* <hr /> */}
             </div>}

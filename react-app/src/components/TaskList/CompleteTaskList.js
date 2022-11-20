@@ -38,10 +38,9 @@ export default function CompletedAllTasks() {
           {completedList.map((task) => (
             <div>
               {thisUser.id == task.user_id &&
-            <div className="one-task" >
-              <input type="checkbox" />
+            <div className="one-task-complete" >
               <NavLink
-                className="detail-navlink"
+                className="detail-navlink-complete"
                 key={task.id}
                 to={`/all/${task.id}`}
               >
@@ -49,7 +48,7 @@ export default function CompletedAllTasks() {
                 <h3>{task.body}</h3>
               <hr />
               </NavLink>
-              <button onClick={() => dispatch(deleteTaskThunk(task.id))}>
+              <button id='completeTaskButtonDelete' onClick={() => dispatch(deleteTaskThunk(task.id))}>
                 {" "}
                 DELETE
               </button>

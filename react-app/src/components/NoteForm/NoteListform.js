@@ -4,19 +4,17 @@ import { useDispatch, useSelector } from "react-redux";
 import { createNoteThunk } from "../../store/notes";
 import { useHistory, useParams } from "react-router-dom";
 import './note.css'
-import { fetchTasks } from "../../store/tasks";
 
-function NoteForm({ filtered }) {
+function NoteFormList({ filtered }) {
     const dispatch = useDispatch()
     const history = useHistory()
-
-    const { id } = filtered
+    
+    const { id,list_id } = filtered
     let task_id = id
 
     const [body, setBody] = useState('');
 
     useEffect(() => {
-      dispatch(fetchTasks())
     }, [dispatch, body])
 
     const handleSubmit = async (e) => {
@@ -29,7 +27,7 @@ function NoteForm({ filtered }) {
         setBody("")
         let noteCreated = await dispatch(createNoteThunk(payload, id))
         if (noteCreated) {
-            history.push(`/all/${task_id}`)
+            history.push(`/all/lists/${list_id}/${task_id}`)
         }
     }
 
@@ -54,4 +52,4 @@ function NoteForm({ filtered }) {
     )
 }
 
-export default NoteForm;
+export default NoteFormList;

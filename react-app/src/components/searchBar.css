@@ -4,3 +4,12 @@
     /* border: 2px solid red; */
     border-radius: 5%;
 }
+
+.searchResults{
+    background: white;
+    position: fixed;
+    z-index: 3;
+    width: 16vw;
+    border: 1px black solid
+
+}

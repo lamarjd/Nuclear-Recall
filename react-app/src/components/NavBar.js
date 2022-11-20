@@ -10,7 +10,8 @@ import "./NavBar.css";
 import SearchBar from './searchBar';
 import bullet from './angryBullet.png'
 import two from './two.png'
-import clip from './clip.png'
+// import clip from './clip.png'
+import bullets from "../assets/bullets.jpg"
 
 const NavBar = ({ user }) => {
 
@@ -22,43 +23,11 @@ const NavBar = ({ user }) => {
       <div className="nav-wrapper">
         <div className="nav-content">
 
-        {/* <div>
-          {!user ? (
-          <NavLink to="/" exact={true} activeClassName="active">
-           <p>Home</p>
-          </NavLink>
-          ) : (
-          <NavLink to="/all" exact={true} activeClassName="active">
-           <p>Tasks</p>
-          </NavLink>
-          )
-          }
-        </div> */}
-
-
-        {/* <div>
-          <NavLink to="/users" exact={true} activeClassName="active">
-            <p>Users</p>
-          </NavLink>
-        </div> */}
-
-      {/* {!user &&
-      <>
-        <div>
-          <NavLink to="/sign-up" exact={true} activeClassName="active">
-            <p>Sign Up</p>
-          </NavLink>
-        </div>
-      </>
-      } */}
-
       {user &&
-      // <Route path ="/">
-        // <p>Menu Icon</p>
-        // {/* </Route> */}
+
         <div id='navbarlinkhome' >
         <NavLink  to="/all" exact={true} activeClassName="active">
-          <img className='cliphomepagething' src={clip}/>
+          <img className='cliphomepagething' src={bullets}/>
           
      </NavLink>
       <NavLink  to="/all" exact={true} activeClassName="active" id="gohomenavbaractive">HOME</NavLink>

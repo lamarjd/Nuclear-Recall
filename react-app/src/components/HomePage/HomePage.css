@@ -1,28 +1,38 @@
 .home-body {
     /* border: 2px solid yellow; */
-    background-color: rgba(88, 102, 161, 0.677);
+    background-color: rgba(69, 153, 209, 0.436);
+    height: 100%;
 }
 
 .home-page-left {
-    border: 2px solid blue;
-    height: 100vh;
-    width: 10%;
-    position: relative;
-    overflow: hidden;
-    top: 0; 
+    /* border: 2px solid blue; */
+    height: 100%;
+    /* width: 10%; */
+    /* position: relative; */
+    overflow-y:scroll ;
+    top: 0;
 }
 
-.all-tasks {
-    /* border: 2px dotted red; */
-    padding: 12px;
-    width: 591px;
-    height: 100vh;
-    margin-left: 210px;
-    /* margin-top: 50px; */
-    justify-content: start;
-    align-items: start; 
-    background-color: white;
-    position: relative;
-    top: -900px;
-    border-radius: 10px;
+.home-page-left::-webkit-scrollbar {
+ width: 0.5em;
+}
+
+.home-page-left::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.home-page-left::-webkit-scrollbar-thumb {
+    background-color: rgba(69, 153, 209, 0.436);
+    outline: 1px solid rgba(112, 128, 144, 0.662);
+  }
+
+
+
+#evilUnstyledButtonOne{
+background-color: #EDB714;
+width: 40%;
+height: 10%;
+border-radius: 12px;
+margin-left: 6px;
+cursor: pointer;
 }
