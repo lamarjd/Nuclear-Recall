@@ -48,9 +48,9 @@ function EditList({list}) {
     {showOptions &&
       <span className="button-options">
 
-      <button className="ListButton" type="submit">Edit</button>
+      <button className="ListButtoneditListOptionsCarthage" type="submit">Edit</button>
 
-      <button className="ListButton" onClick={() => setShowOptions(false)}>Cancel</button>
+      <button className="ListButtoneditListOptionsCarthage" onClick={() => setShowOptions(false)}>Cancel</button>
       </span>
     }
   

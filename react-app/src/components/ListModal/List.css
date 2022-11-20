@@ -52,3 +52,17 @@
 .containerListModalOuter{
     padding-left: 100px;
 }
+
+
+.ListButtoneditListOptionsCarthage{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 30px;
+    background-color: #EDB714;
+    margin-top: 20px;
+    border-radius: 12px;
+    border-color: black;
+    border-width: 2px;
+}
