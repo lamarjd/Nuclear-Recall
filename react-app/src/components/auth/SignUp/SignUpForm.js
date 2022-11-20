@@ -30,8 +30,8 @@ const SignUpForm = () => {
   }, []);
 
   const userComponents = users?.map((user) => {
-    return (    
-        user.email      
+    return (
+        user.email
     );
   });
 
@@ -99,7 +99,7 @@ const SignUpForm = () => {
     }
     if (email.search('@') === -1 ){
       validationErrors.push("Please enter a REAL email address")
-    }  
+    }
 
     setErrors(validationErrors)
     console.log("ERRORS", errors)
@@ -140,7 +140,7 @@ const SignUpForm = () => {
     </nav>
     <div className='outermostSignupDiv'>
       <div className='imageSignupDiv'>
-      
+
       </div>
     <form onSubmit={onSignUp} id='signupForm'>
       <div>
