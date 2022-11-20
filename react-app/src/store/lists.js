@@ -154,6 +154,7 @@ const listReducer = (state = initialState, action) => {
             console.log("new statt",newState)
             newState = {...state}
             newState[action.payload.id] = action.payload
+            console.log("action.pay",action.payload.id)
             console.log("new statt",newState)
             return newState
         }

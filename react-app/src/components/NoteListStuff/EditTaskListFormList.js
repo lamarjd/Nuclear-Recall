@@ -4,7 +4,7 @@ import * as sessionActions from '../../store/session.js';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useHistory, useParams } from 'react-router-dom';
 import {editTaskAddListThunk} from '../../store/tasks';
-import { fetchLists } from '../../store/lists.js';
+import { fetchLists, fetchOneList } from '../../store/lists.js';
 
 // css import
 import '../OneTask/oneTaskcss.css'
@@ -12,7 +12,7 @@ import '../OneTask/oneTaskcss.css'
 
 export default function EditTaskListFormList({filtered}){
     const thisUser = useSelector((state) => state.session.user);
-
+    console.log("the filter",filtered)
     let task_id = filtered?.id
     const reduxstate = useSelector((state) => state.tasks);
     const reduxList = useSelector((state)=> state.lists)
@@ -49,7 +49,7 @@ export default function EditTaskListFormList({filtered}){
 
         let taskEdited = await dispatch(editTaskAddListThunk(payload,task_id))
         if (taskEdited) {
-
+            dispatch(fetchOneList(payload.list_id))
             history.push(`/all/lists/${payload.list_id}`)
         }
     }

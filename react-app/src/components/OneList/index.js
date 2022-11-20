@@ -18,16 +18,17 @@ export default function OneList(){
   const dispatch = useDispatch();
 
   const {id} = useParams()
-
+  console.log("pls",id)
   const reduxstate = useSelector((state) => state.lists);
   const taskState = useSelector((state) => state.tasks)
   const thisUser = useSelector(state => state.session.user);
   const [isLoaded, setIsLoaded] = useState(false)
   const history = useHistory();
   const listsState = useSelector((state) => state.lists);
-
+  
   useEffect(() => {
     dispatch(fetchOneList(id))
+    .then(() => console.log("me fetchin"))
     .then(() => setIsLoaded(true))
 }, [dispatch,taskState])
  
