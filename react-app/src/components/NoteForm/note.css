@@ -15,3 +15,13 @@
   min-width: 14vw;
   max-width: 15vw;
 }
+
+.dropDownForAddToList{
+  width:8vw;
+}
+
+.buttonForAddToList{
+  width: 8vw;
+  background-color: #EDB714;
+  height:2.25vh;
+}

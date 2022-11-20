@@ -24,6 +24,8 @@
     width: 50vh;
     display: flex;
     justify-content: center;
+
+    overflow-y: scroll;
 }
 
 #labelDivTaskDetailsNotes{
@@ -40,20 +42,19 @@
 .noteDivContainerTaskDetails{
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
+    overflow: hidden;
+    max-width: 16vw;
 }
 
 .noteDeleteButtonTaskDetails{
-
-
     background-color: #EDB714;
     color: black;
     font-weight: 600;
     cursor: pointer;
 }
 
-#buttonForAddToList{
 
-}
 
 
 .form-container{
@@ -76,23 +77,58 @@
 
 
 #dropDownForAddToList{
-    min-height: 30px;
-    border-radius: 2px;
-}
-
-#InputBoxEditTaskName{
-    min-height: 24px;
-    border-radius: 4px;
 
 }
 
-.EditTaskButtonTaskDetails{
-
-}
 
 
 .note-title{
     display: flex;
     font-size: 14px;
     justify-content: center;
+}
+
+
+.task-detail-title{
+    max-width: 15vw;
+    overflow: hidden;
+}
+
+.edit-task-form-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.someTaskdiv{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#InputBoxEditTaskName{
+    min-height: 24px;
+    width:15.5vw;
+}
+
+.EditTaskButtonTaskDetails{
+    width:16vw;
+    max-width: 16vw;
+    background-color: #EDB714;
+}
+
+
+.noteOuterDivTaskDetails::-webkit-scrollbar {
+    width: 0.5em;
+    /* visibility: hidden; */
+}
+
+.noteOuterDivTaskDetails::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    /* visibility: hidden; */
+}
+
+.noteOuterDivTaskDetails::-webkit-scrollbar-thumb {
+    background-color: rgba(169, 169, 169, 0.343);
+    outline: 1px solid rgba(112, 128, 144, 0.662);
+    /* visibility: hidden; */
 }

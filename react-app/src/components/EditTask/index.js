@@ -36,7 +36,7 @@ function EditForm({filtered}) {
 // fff
   return (
     <form className="container" onSubmit={handleSubmit}>
-      <div className="Task">
+      <div className="someTaskdiv">
         <label>
           <input
             id='InputBoxEditTaskName'

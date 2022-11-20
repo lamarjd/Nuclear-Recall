@@ -71,7 +71,7 @@ console.log("filtered",filtered)
   return isLoaded && (
 
     <div className="all-tasks-container">
-        <h1 className="task-header">Taskssss</h1>
+        <h1 className="task-header">{filtered.name}</h1>
 
         <div className="task-button-container">
               <div className="add-task-buttons">

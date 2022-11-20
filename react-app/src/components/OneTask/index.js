@@ -38,7 +38,7 @@ export default function OneTask() {
     isLoaded && (
       <div className="mainTaskDetailsOutDiv">
           <div className="someDiv">
-            <h2 id='h1taskdetails'>Task Options</h2>
+            <h2 id='h1taskdetails'>Options</h2>
               <EditTaskListForm filtered={filtered} />
               <EditForm filtered={filtered} />
           </div>
@@ -46,8 +46,10 @@ export default function OneTask() {
 
         <div className="noteOuterDivTaskDetails">
         <div className>
-         <h2>Notes for</h2> {filtered?.body}
+         <h2 className="task-detail-title">{filtered?.body}</h2>
             <div className="someOtherDiv">
+            <NoteForm id='noteFormTaskDetails' filtered={filtered} />
+              <p>Notes:</p>
               {filteredNotes.map((note) => (
                 <div className="noteDivContainerTaskDetails">
                   <p className="note-contenet" key={note.id}>{note.body}</p>
@@ -55,7 +57,7 @@ export default function OneTask() {
                   <button className='noteDeleteButtonTaskDetails' onClick={() => dispatch(deleteNoteThunk(note.id))}>Destroy This Note</button>}
                 </div>
               ))}
-              <NoteForm id='noteFormTaskDetails' filtered={filtered} />
+              
             </div>
           </div>
 

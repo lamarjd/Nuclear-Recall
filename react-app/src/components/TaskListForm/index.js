@@ -5,6 +5,9 @@ import { createTaskListThunk, createTaskThunk } from "../../store/tasks";
 import { useHistory } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { fetchOneList } from "../../store/lists";
+import './taskListform.css'
+
+
 function TaskListForm() {
   const {id} = useParams()
   const dispatch = useDispatch();
@@ -34,10 +37,10 @@ function TaskListForm() {
 
   return (
     <form className="container" onSubmit={handleSubmit} >
-      <div className="Task">
+      <div className="someTask">
       <label>
         <input
-          id='stupidDetailStyling'
+          className="someInputField"
           placeholder="Write TaskList here"
           type="text"
           value={body}

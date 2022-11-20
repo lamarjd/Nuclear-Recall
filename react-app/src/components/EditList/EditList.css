@@ -1,15 +1,15 @@
 .ListButton {
     /* margin-right: 20px; */
     border-radius: 12px;
-    height: 5%;
-    width: 40%;
+    width: 170px;
+    height: 34px;
     border-width: 1px;
     border-color: #4599d1;
     background-color: #4599d1;
     color: beige;
     cursor: pointer;
     font-family: 'Syne Mono', monospace;
-    margin-top: 15px;
+    margin-left: 20px;
     /* margin-bottom: 15px;    */
 }
 
