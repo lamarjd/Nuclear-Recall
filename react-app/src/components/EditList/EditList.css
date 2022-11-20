@@ -1,8 +1,8 @@
 .ListButton {
-    margin-right: 20px;
+    /* margin-right: 20px; */
     border-radius: 12px;
-    min-height: 10px;
-    min-width: 22px;
+    height: 5%;
+    width: 30%;
     border-width: 1px;
     border-color: #4599d1;
     background-color: #4599d1;
@@ -10,7 +10,7 @@
     cursor: pointer;
     font-family: 'Syne Mono', monospace;
     margin-top: 15px;
-    margin-bottom: 15px;   
+    /* margin-bottom: 15px;    */
 }
 
 .placeholder {

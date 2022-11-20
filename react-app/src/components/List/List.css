@@ -3,12 +3,23 @@
     /* border: 2px solid blue; */
 }
 
+.list-options {
+    border-bottom: 1px solid grey;
+    padding-bottom: 10%;
+}
+
+.modal {
+    /* border: 2px solid blue; */
+}
+
+
+
 .list-name {
     display: inline-flex;
     align-items: center;
     justify-content: space-between;
     width: 70%;
-    padding: 1vw;
+    padding-left: 1vw;
 }
 
 
@@ -37,10 +48,10 @@
 }
 
 #delete-button {
-    margin-right: 20px;
+    margin-left: 2%;
     border-radius: 12px;
-    min-height: 10px;
-    min-width: 22px;
+    height: 5%;
+    width: 30%;
     border-width: 1px;
     border-color: #4599d1;
     background-color: #4599d1;
@@ -51,4 +62,5 @@
 
 .edit-options {
     margin-top: 15px;
+    padding-left: 1vw;
 }

@@ -10,6 +10,7 @@ function EditList({list}) {
     // const {id,name} = list
   const dispatch = useDispatch();
   const [name, setListName] = useState(list.name)
+  const [showOptions, setShowOptions] = useState(false)
   const history = useHistory()
     // useEffect(()=>{
     // setListName(list.name)
@@ -35,6 +36,7 @@ function EditList({list}) {
       <label>
         <input
           className="placeholder"
+          onClick={() => setShowOptions(!showOptions)}
           type="text"
           required
           onChange={(e) => setListName(e.target.value)}
@@ -42,8 +44,11 @@ function EditList({list}) {
           value={name}
         />
       </label>
-      
-      <button className="ListButton" type="submit">Edit List Name</button>
+
+    {showOptions &&
+      <button className="ListButton" type="submit">Edit</button>
+    }
+  
       </div>
     </form>
   );
