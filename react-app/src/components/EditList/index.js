@@ -21,7 +21,7 @@ function EditList({list}) {
       name
 
     }
-    
+
     let listUpdated = await dispatch(editListThunk(payload,list.id))
     if (listUpdated) {
       history.push(`/all`)
@@ -42,8 +42,8 @@ function EditList({list}) {
           value={name}
         />
       </label>
-      
-      <button className="ListButton" type="submit">Edit List Name</button>
+
+      <button className="ListButton" type="submit">Edit</button>
       </div>
     </form>
   );

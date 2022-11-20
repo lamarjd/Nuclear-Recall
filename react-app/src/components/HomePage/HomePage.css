@@ -1,14 +1,15 @@
 .home-body {
     /* border: 2px solid yellow; */
     background-color: rgba(88, 102, 161, 0.677);
+    height: 100%;
 }
 
 .home-page-left {
     /* border: 2px solid blue; */
-    max-height: 100vh;
+    height: 100%;
     /* width: 10%; */
     /* position: relative; */
-    overflow-y: scroll;
+    overflow-y:scroll ;
     top: 0;
 }
 

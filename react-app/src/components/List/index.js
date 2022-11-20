@@ -13,7 +13,7 @@ import ListForm from '../ListModal/ListForm.js';
 import EditList from '../EditList/index.js';
 import { fetchTasks } from '../../store/tasks.js';
 import "./List.css"
-
+import { fetchOneList } from '../../store/lists.js';
 
 
 
@@ -67,7 +67,7 @@ export default function AllLists(){
                  {thisUser.id == list.user_id &&
                  <>
                 <div className="list-name-div">
-                <NavLink className="detail-navlink" key={list.id} to={`/all/lists/${list.id}`}> 
+                <NavLink className="detail-navlink" onClick={()=> dispatch(fetchOneList(list.id))} key={list.id} to={`/all/lists/${list.id}`}> 
                 {/* List Name */}
                 <h3>{list.name}</h3>
                 </NavLink>

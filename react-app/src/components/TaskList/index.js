@@ -27,7 +27,7 @@ export default function AllTasks() {
 
   const taskList = Object.values(reduxstate);
   const filteredTaskList = taskList.filter(task => task.complete == false)
-
+console.log("filtereedd",filteredTaskList)
 
 
   const cb = (checkList, num) => {
@@ -88,7 +88,7 @@ export default function AllTasks() {
                 <h3 className="task-text">{task.body}</h3>
               <hr />
               </NavLink>
-              <button id='uglyDeleteButtonZwei' onClick={() => dispatch(deleteTaskThunk(task.id))}>
+              <button id='uglyDeleteButtonZwei' onClick={() => (dispatch(deleteTaskThunk(task.id)),history.push('/all'))}>
                 {" "}
                 Delete
               </button>
