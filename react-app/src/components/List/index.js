@@ -29,7 +29,7 @@ export default function AllLists({ modalList }) {
 
   const lists = Object.values(listState);
   useEffect(() => {
-    dispatch(fetchLists()).then(() => setIsLoaded(true));
+    
     dispatch(fetchTasks());
   }, [dispatch]);
 

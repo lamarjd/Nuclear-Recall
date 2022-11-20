@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { createNoteThunk } from "../../store/notes";
 import { useHistory, useParams } from "react-router-dom";
 import './note.css'
+import { fetchTasks } from "../../store/tasks";
 
 function NoteForm({ filtered }) {
     const dispatch = useDispatch()
@@ -15,6 +16,7 @@ function NoteForm({ filtered }) {
     const [body, setBody] = useState('');
 
     useEffect(() => {
+      dispatch(fetchTasks())
     }, [dispatch, body])
 
     const handleSubmit = async (e) => {

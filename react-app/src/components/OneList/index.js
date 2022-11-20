@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import * as sessionActions from '../../store/session.js';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
-import { fetchOneList } from '../../store/lists.js';
+import { fetchOneList, fetchLists } from '../../store/lists.js';
 import TaskForm from '../TaskForm/index.js';
 import TaskListForm from '../TaskListForm/index.js';
 
@@ -18,23 +18,21 @@ export default function OneList(){
   const dispatch = useDispatch();
 
   const {id} = useParams()
-  console.log("id",id)
+
   const reduxstate = useSelector((state) => state.lists);
   const taskState = useSelector((state) => state.tasks)
   const thisUser = useSelector(state => state.session.user);
   const [isLoaded, setIsLoaded] = useState(false)
   const history = useHistory();
-  useEffect(()=>{
-    dispatch(fetchOneList(id))
-  })
+
   useEffect(() => {
     dispatch(fetchOneList(id))
-        .then(() => setIsLoaded(true))
-}, [dispatch,taskState])
+    dispatch(fetchLists())
+}, [taskState])
 
   const list = Object.values(reduxstate)
   const filtered = list.filter(list => list.id === +id)[0]
-console.log("filtered",filtered)
+  console.log("FILTERED", filtered)
 
   const tasks = filtered?.tasks
  let falseTasks = tasks?.filter(task =>task.complete == false)
@@ -68,7 +66,7 @@ console.log("filtered",filtered)
     history.push(`/all/completed`)
   }
 
-  return isLoaded && (
+  return (
 
     <div className="all-tasks-container">
         <h1 className="task-header">{filtered.name}</h1>
