@@ -69,8 +69,8 @@ console.log("filtereedd",filteredTaskList)
             <div className="task-button-container">
               <div className="add-task-buttons">
                 <NavLink className="completed-button" to={`/all/completed`}>Completed</NavLink>
-                
-                <button className="checkButton"onClick={() => executor(arr)}> ✔️ </button>
+
+                <button className="checkButton"onClick={() => executor(arr)}>Mark as Complete</button>
               </div>
             <TaskForm />
             </div>

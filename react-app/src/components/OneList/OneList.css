@@ -102,3 +102,7 @@ hr {
     overflow-y: scroll;
     overflow-x: hidden;
 }
+
+.checkButton{
+    border-radius: 10px;
+}
