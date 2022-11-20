@@ -113,6 +113,7 @@
     margin-top: 5%;
     justify-content: space-between;
     height: 6vh;
+    /* border: 2px solid red; */
 }
 
 #InputBoxEditTaskName{
@@ -123,7 +124,7 @@
 .EditTaskButtonTaskDetails{
     background-color: #EDB714;
     height: 26px;
-    width: 50%;
+    width:15.5vw;
     border-radius: 12px;
     align-content: center;
     border-color: bisque;
