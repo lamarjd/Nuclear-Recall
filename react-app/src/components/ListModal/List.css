@@ -41,11 +41,7 @@
     margin-left: 4px;
 }
 
-.Task{
-    display: flex;
-    flex-direction: row;
 
-}
 
 #stupidDetailStyling{
     min-width: 350px;

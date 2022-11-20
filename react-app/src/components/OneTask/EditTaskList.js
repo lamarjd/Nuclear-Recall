@@ -58,9 +58,9 @@ return (
     <div className="edit-task-form-container">
         {filteredListObj.length > 0 &&
         <form id='addToListForm' onSubmit={handleSubmit}>
+
         <select
-        className=""
-        id='dropDownForAddToList'
+        className='dropDownForAddToList'
         value={name}
         onChange={e => setName(e.target.value)}
         >
@@ -70,7 +70,7 @@ return (
             </option>
           ))}
           </select>
-          <button id='buttonForAddToList' type="submit"> Add to a list</button>
+          <button className='buttonForAddToList' type="submit"> Add to a list</button>
           </form>
           }
     </div>
