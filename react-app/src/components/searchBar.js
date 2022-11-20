@@ -11,8 +11,9 @@ import "./searchBar.css"
 const SearchBar = () => {
   const matchingTask = (searchInput,tasks) =>{
     if(!searchInput) return null
-    return tasks.filter(task => task.body.toLowerCase().includes(searchInput.toLowerCase()))
 
+   return tasks.filter(task => task.body.toLowerCase().includes(searchInput.toLowerCase()) && task.complete ==false)
+  
   }
 
     const [searchInput, setSearchInput] = useState("")
