@@ -24,7 +24,9 @@ export default function OneList(){
   const thisUser = useSelector(state => state.session.user);
   const [isLoaded, setIsLoaded] = useState(false)
   const history = useHistory();
-
+  useEffect(()=>{
+    dispatch(fetchOneList(id))
+  })
   useEffect(() => {
     dispatch(fetchOneList(id))
         .then(() => setIsLoaded(true))
@@ -69,7 +71,7 @@ console.log("filtered",filtered)
   return isLoaded && (
 
     <div className="all-tasks-container">
-        <h1 className="task-header">Tasks</h1>
+        <h1 className="task-header">Taskssss</h1>
 
         <div className="task-button-container">
               <div className="add-task-buttons">
