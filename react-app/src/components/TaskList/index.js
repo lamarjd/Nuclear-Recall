@@ -65,7 +65,7 @@ console.log("filtereedd",filteredTaskList)
     isLoaded && (
 
         <div className="all-tasks-container">
-          <h1 className="task-header">Tasksss</h1>
+          <h1 className="task-header">Tasks</h1>
             <div className="task-button-container">
               <div className="add-task-buttons">
                 <NavLink className="completed-button" to={`/all/completed`}>Completed</NavLink>
