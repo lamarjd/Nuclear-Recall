@@ -17,6 +17,28 @@ const SignUpForm = () => {
   const [repeatPassword, setRepeatPassword] = useState('');
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      const response = await fetch('/api/users/');
+      const responseData = await response.json();
+      setUsers(responseData.users);
+      // console.log("response data", responseData.users);
+    }
+    fetchData();
+  }, []);
+
+  const userComponents = users?.map((user) => {
+    return (    
+        user.email      
+    );
+  });
+
+
+  // console.log("user COMPONENT", users)
+
+  // console.log("USER COMPONENT", userComponents);
 
   const updateUsername = (e) => {
     setUsername(e.target.value);
@@ -45,6 +67,13 @@ const SignUpForm = () => {
   useEffect(() => {
     let validationErrors = []
 
+    for (let i = 0; i < userComponents.length - 1; i++) {
+      if (userComponents[i] === email){
+        validationErrors.push("Email already in use")
+      }
+
+    }
+
     if (!username || username.length < 3) {
       validationErrors.push("Please provide a valid username. Username must be longer than 3 characters")
     }
@@ -56,15 +85,15 @@ const SignUpForm = () => {
     if (!first_name) {
       validationErrors.push("Please provide a first name")
     }
-    
+
     if (!last_name) {
       validationErrors.push("Please provide a last name")
     }
-    
+
     if (!password) {
       validationErrors.push("Please provide a password")
     }
-    
+
     if (password != repeatPassword) {
       validationErrors.push("Passwords must match")
     }
@@ -83,7 +112,7 @@ const SignUpForm = () => {
 
     if (password === repeatPassword) {
       setErrors([])
-      
+
       const data = dispatch(signUp(username, email, first_name, last_name, password));
 
       // if (data) {
@@ -120,7 +149,7 @@ const SignUpForm = () => {
         { errors.length > 0 &&
         errors?.map((error, ind) => (
           <li key={ind}>
-            {error} 
+            {error}
           </li>
           ))}
       </ul>
@@ -149,7 +178,7 @@ const SignUpForm = () => {
           value={email}
         ></input>
       </div>
-    
+
       <div className='outerSignupDiv'>
           <label className='emailSignupLabel'>First Name</label>
           <input
