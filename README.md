@@ -108,6 +108,8 @@ Email: Taan3311@gmail.com
 
 Github:https://github.com/Tan0699
 
+LinkedIn: https://www.linkedin.com/in/tan-nguyen-8b0a8a257/ 
+
 ## Christopher Pannella
 Email: cpannella3@gmail.com
 
