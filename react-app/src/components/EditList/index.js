@@ -36,7 +36,7 @@ function EditList({list}) {
       <label>
         <input
           className="placeholder"
-          onClick={() => setShowOptions(!showOptions)}
+          onClick={() => setShowOptions(true)}
           type="text"
           required
           onChange={(e) => setListName(e.target.value)}
@@ -46,7 +46,12 @@ function EditList({list}) {
       </label>
 
     {showOptions &&
+      <span className="button-options">
+
       <button className="ListButton" type="submit">Edit</button>
+
+      <button className="ListButton" onClick={() => setShowOptions(false)}>Cancel</button>
+      </span>
     }
   
       </div>

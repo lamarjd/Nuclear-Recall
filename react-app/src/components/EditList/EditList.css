@@ -2,7 +2,7 @@
     /* margin-right: 20px; */
     border-radius: 12px;
     height: 5%;
-    width: 30%;
+    width: 40%;
     border-width: 1px;
     border-color: #4599d1;
     background-color: #4599d1;
@@ -11,6 +11,13 @@
     font-family: 'Syne Mono', monospace;
     margin-top: 15px;
     /* margin-bottom: 15px;    */
+}
+
+.button-options {
+    /* border: 2px solid red; */
+    display: inline-flex;
+    width: 60%;
+    justify-content: space-between;
 }
 
 .placeholder {

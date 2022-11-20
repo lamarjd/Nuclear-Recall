@@ -98,7 +98,7 @@ export default function AllLists({ modalList }) {
                         }}
                       >
                         {" "}
-                        Delete
+                        Delete List
                       </button>
                     </div>
                   </>
