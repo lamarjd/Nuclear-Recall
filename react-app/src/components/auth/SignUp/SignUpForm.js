@@ -17,6 +17,28 @@ const SignUpForm = () => {
   const [repeatPassword, setRepeatPassword] = useState('');
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      const response = await fetch('/api/users/');
+      const responseData = await response.json();
+      setUsers(responseData.users);
+      console.log("response data", responseData.users);
+    }
+    fetchData();
+  }, []);
+
+  const userComponents = users?.map((user) => {
+    return (    
+        user.email      
+    );
+  });
+
+
+  // console.log("user COMPONENT", users)
+
+  console.log("USER COMPONENT", userComponents);
 
   const updateUsername = (e) => {
     setUsername(e.target.value);
@@ -44,6 +66,13 @@ const SignUpForm = () => {
 
   useEffect(() => {
     let validationErrors = []
+
+    for (let i = 0; i < userComponents.length - 1; i++) {
+      if (userComponents[i] === email){
+        validationErrors.push("Email already in use")
+      }
+
+    }
 
     if (!username || username.length < 3) {
       validationErrors.push("Please provide a valid username. Username must be longer than 3 characters")
