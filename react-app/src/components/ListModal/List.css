@@ -1,19 +1,36 @@
 .ListButtonModalGood{
     background-color: #EDB714;
     width: 100px;
-    border-radius: 4px;
+    height: 30px;
+    border-radius: 12px;
     border-color:burlywood ;
+    padding-left: 14px;
+    padding-right: 14px;
+}
+
+.blahListModal{
+    display: flex;
+    flex-direction: column;
+    max-height: 200px;
+    min-width: 380px;
+    background-color: #edeefa;
+    border-radius: 12px;
 }
 
 .ListflexdivOne{
     display: flex;
     flex-direction: row;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    align-items: center;
     justify-content: space-around;
 }
 
 #styledListModalInputBox{
-    border-radius: 4px;
+    border-radius: 12px;
+    height: 26px;
     width: 220px;
+    background-color: whitesmoke;
 }
 
 .ListButton{
@@ -36,3 +53,6 @@
 
 }
 
+.containerListModalOuter{
+    padding-left: 100px;
+}
