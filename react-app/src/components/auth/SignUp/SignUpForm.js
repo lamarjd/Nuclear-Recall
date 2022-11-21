@@ -28,6 +28,7 @@ const SignUpForm = () => {
         console.log("data",data)
       }
     }
+    else{setErrors(["Passwords must match"])}
   };
 
   const updateUsername = (e) => {
