@@ -77,6 +77,7 @@ console.log("filtereedd",filteredTaskList)
           <hr />
           {!filteredTaskList.length &&
             <h3>No tasks yet, write some stuff down why don't ya!</h3>}
+            
           {filteredTaskList.map((task) => (
             <div className="one-task-container">
             {thisUser.id == task.user_id &&
