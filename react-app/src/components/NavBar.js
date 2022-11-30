@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { Route } from "react-router-dom";
-import { NavLink } from "react-router-dom";
+import { Route, useHistory } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import { useSelector } from 'react-redux';
 import LogoutButton from "./auth/LogoutButton";
 import bert from "../assets/bert.PNG"
@@ -14,8 +15,8 @@ import two from './two.png'
 import bullets from "../assets/bullets.jpg"
 
 const NavBar = ({ user }) => {
+const history = useHistory
 
-  
 
   return (
     <nav>
@@ -28,20 +29,22 @@ const NavBar = ({ user }) => {
         <div id='navbarlinkhome' >
         <NavLink  to="/all" exact={true} activeClassName="active">
           <img className='cliphomepagething' src={bullets}/>
-          
+
      </NavLink>
       <NavLink  to="/all" exact={true} activeClassName="active" id="gohomenavbaractive">HOME</NavLink>
-       
+
       </div>
 
       }
       <div className="search">
         <SearchBar/>
       </div>
-      
-      
+
+
       </div>
-          <LogoutButton />         
+
+
+          <LogoutButton />
       </div>
     </nav>
   );
