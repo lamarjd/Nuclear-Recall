@@ -4,7 +4,6 @@ const CREATE_LIST = 'lists/new'
 const EDIT_LIST = 'list/edit'
 const DELETE_LIST = 'lists/delete'
 
-
 const editListAction = (list) => {
     return {
         type: EDIT_LIST,

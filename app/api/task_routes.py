@@ -108,7 +108,7 @@ def task_to_list(id):
         form['csrf_token'].data = request.cookies['csrf_token']
         if form.validate_on_submit():
             pls = Task(
-                    body = form.data["body"],
+                    body = form.data['body'],
                     user_id = current_user.id,
                     list_id = id)
             db.session.add(pls)

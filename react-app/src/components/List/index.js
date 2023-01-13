@@ -2,12 +2,9 @@ import React from "react";
 import { useEffect, useState } from "react";
 import * as sessionActions from "../../store/session.js";
 import { deleteListThunk, editListThunk } from "../../store/lists.js";
-
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useHistory, useParams } from "react-router-dom";
-
 import { fetchLists } from "../../store/lists";
-
 import ListForm from "../ListModal/ListForm.js";
 
 import EditList from "../EditList/index.js";
