@@ -1,4 +1,55 @@
-# Getting Started with Flask React Project - NUCLEAR RECALL
+<!-- PROJECT LOGO -->
+<br />
+<p align="center">
+  <a href="https://github.com/lamarjd/Dont-Forget-The-Milk">
+    <img src="https://res.cloudinary.com/dncypdqkb/image/upload/v1679463918/mushroom-zoom_ktfzrn.png" alt="Logo" width="800" height="500" style="background-color:black">
+  </a>
+
+  <h3 align="center">Nuclear Fallout</h3>
+
+  <p align="center">
+     Nuclear Recall, a Remember the Milk clone, is a productivity / To-Do list platform designed for people who need help remembering things. Create a To-Do list, add a task, and make notes so you can keep your head on straight. Once complete with the task, mark it as complete and move on!     
+    <br />
+    <a href="https://github.com/lamarjd/Dont-Forget-The-Milk"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+    <a href="https://nuclear-recall.onrender.com">View Live Site</a>
+  </p>
+</p>
+
+<!-- ABOUT THE PROJECT -->
+
+## About The Project
+
+[Click here to view Nuclear Recall live on the web!](https://nuclear-recall.onrender.com/)
+<br>
+</br>
+<!-- <img src="https://drive.google.com/file/d/1_ZGAlDCtXWaXdN268qPp0EjHJmh5AKDn/view?usp=share_link" alt="homepage" /> -->
+
+## Overall Structure
+
+### Back End
+
+The app was built using Flask and Sequelize on the back end with a PostgreSQL database. 
+
+### Front End
+
+The front end is built with React and Javascript while utilizing Redux architecture, producing a lightning-fast user interface and calling upon dynamically rendered components.
+
+### Built With
+
+- [JavaScript](https://www.javascript.com/)
+- [React](https://reactjs.org/)
+- [Redux](https://redux.js.org/)
+- [Python](https://www.python.org/)
+- [Flask](https://flask.palletsprojects.com/en/2.2.x/)
+- [Node.js](https://nodejs.org/en/)
+- [HTML](https://html.com/)
+- [CSS](http://www.css3.info/)
+
+<!-- GETTING STARTED -->
+
+# Getting Started
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
