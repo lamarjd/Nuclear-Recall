@@ -29,16 +29,20 @@ export default function AllLists({ modalList }) {
 
   const lists = Object.values(listState);
   const filteredList = lists.filter(list => list.user_id == thisUser.id)
-  console.log("THESE ARE THE LISTS", filteredList)
+  // console.log("THESE ARE THE LISTS", filteredList)
   useEffect(() => {
     dispatch(fetchLists()).then(() => setIsLoaded(true))
     dispatch(fetchTasks());
   }, [dispatch]);
 
   let styler = () => {
-    setShowEditForm(!showEditForm);
-    setShowModal(!showModal)
+    setShowModal(!showModal) // edit list name
   };
+  
+  let showListOptions = () => {
+    setShowEditForm(!showEditForm);
+    // setShowModal(!showModal)
+  }
 
 
   return (
@@ -53,9 +57,9 @@ export default function AllLists({ modalList }) {
                 <i
                 onClick={() => styler()}
                 class="fa-regular fa-square-minus"
-                ></i>
+                ></i> // Minus sign to hide list actions
                 ) : (
-                    <i onClick={() => styler()} class="fa-regular fa-square-plus"></i>
+                    <i onClick={() => styler()} class="fa-regular fa-square-plus"></i> // Plus sign to show list actions
                     )}
           </div>
           {showModal &&
@@ -77,7 +81,10 @@ export default function AllLists({ modalList }) {
                 <div className="list-name-div">
                 <NavLink className="detail-navlink" onClick={()=> dispatch(fetchOneList(list.id))} key={list.id} to={`/all/lists/${list.id}`}>
                 {/* List Name */}
-                <h3>{list.name}</h3>
+                <h3 
+                onClick={() => showListOptions()}
+                >
+                {list.name}</h3>
                 </NavLink>
 
                 </div>

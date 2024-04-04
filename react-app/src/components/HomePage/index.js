@@ -18,7 +18,7 @@ let modalList = (
 <div>
 
   <button id='evilUnstyledButtonOne' onClick={() => (setList
-    (true))}>Add a List</button>
+    (true))}>Make a new List</button>
 
 {lis && (
    <Modal onClose={() => setList(false)}>

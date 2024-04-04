@@ -28,7 +28,7 @@ function ListForm({ setList }) {
 
   return (
     <form className="blahListModal" onSubmit={handleSubmit}>
-      <h3 className="containerListModalOuter">Enter A list here</h3>
+      <h3 className="containerListModalOuter">Enter list name here</h3>
       <div className="ListflexdivOne">
         <label>
           <input

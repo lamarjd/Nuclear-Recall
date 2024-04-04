@@ -54,7 +54,7 @@ function TaskListForm() {
     {showButton &&
       <button className="ListButton" type="submit"  
       style={{visibility: showButton ? "visible" : "hidden"}}
-      >Add task to the list</button>
+      >Add task</button>
     }
 
 
