@@ -44,6 +44,7 @@ Migrate(app, db)
 # Application Security
 CORS(app)
 
+# print("Database URL:", os.environ.get('DATABASE_URL'))
 
 # Since we are deploying with Docker and Flask,
 # we won't be using a buildpack when we deploy to Heroku.
