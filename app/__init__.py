@@ -1,3 +1,6 @@
+from dotenv import load_dotenv
+load_dotenv()  # This will load environment variables from a .env file
+
 import os
 from flask import Flask, render_template, request, session, redirect
 from flask_cors import CORS
