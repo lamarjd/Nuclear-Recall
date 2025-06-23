@@ -5,7 +5,7 @@
     <img src="https://res.cloudinary.com/dncypdqkb/image/upload/v1679463918/mushroom-zoom_ktfzrn.png" alt="Logo" width="800" height="500" style="background-color:black">
   </a>
 
-  <h3 align="center">Nuclear Fallout</h3>
+  <h3 align="center">Nuclear Recall</h3>
 
   <p align="center">
      Nuclear Recall, a Remember the Milk clone, is a productivity / To-Do list platform designed for people who need help remembering things. Create a To-Do list, add a task, and make notes so you can keep your head on straight. Once complete with the task, mark it as complete and move on!     
