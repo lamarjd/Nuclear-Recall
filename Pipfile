@@ -26,8 +26,9 @@ six = "==1.15.0"
 sqlalchemy = "==1.4.19"
 werkzeug = "==2.0.1"
 wtforms = "==2.3.3"
+dotenv = "*"
 
 [dev-packages]
 
 [requires]
-python_version = "3.9.20"
+python_version = "3.10"

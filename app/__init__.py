@@ -42,7 +42,8 @@ app.register_blueprint(list_routes,url_prefix='/api/all/lists')
 app.register_blueprint(note_routes, url_prefix='/api/all')
 
 db.init_app(app)
-Migrate(app, db)
+migrate = Migrate(app, db)
+
 
 # Application Security
 CORS(app)
