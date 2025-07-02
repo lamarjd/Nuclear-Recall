@@ -1,4 +1,5 @@
 from __future__ import with_statement
+import os
 
 import logging
 from logging.config import fileConfig
@@ -25,6 +26,9 @@ config.set_main_option(
     str(current_app.extensions['migrate'].db.get_engine().url).replace(
         '%', '%%'))
 target_metadata = current_app.extensions['migrate'].db.metadata
+
+schema = os.getenv("SCHEMA")
+target_metadata.schema = schema
 
 # other values from the config, defined by the needs of env.py,
 # can be acquired:
